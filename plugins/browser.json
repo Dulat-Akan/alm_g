@@ -1,0 +1,24 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "kz.kazpoisk.www"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "kz.kazpoisk.www"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "kz.kazpoisk.www"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "kz.kazpoisk.www"
+    }
+  },
+  "dependent_plugins": {}
+}
