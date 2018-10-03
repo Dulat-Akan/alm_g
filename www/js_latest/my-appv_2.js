@@ -27,7 +27,7 @@ var myApp = new Framework7();
 
 var globaltime = 0;
 
-var appversion = 3;
+var appversion = 4;
 
 var migrateitem = new Array();
 

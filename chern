@@ -1,0 +1,533 @@
+userbalans
+useremail
+popolnenie
+searchusers
+
+
+aux_kol_uch       kol_uchastn777
+data_nachala_auxion   date_start_aux777
+vremya_nachala_auxion   vremya_nachala_auxion
+srok_auxion             date_finish_aux777
+vremya_okonch_auxion      vremya_okonch_auxion
+selev_auditor777  inject7
+<li><a>для всех участников</a></li>
+<li><a>несколько участников</a></li>
+
+Obr_ob/prin_fail
+
+
+$add['vremya_nachala_auxion'] = $this->input->post('vremya_nachala_auxion');     26/09/2018    14:50
+$add['vremya_okonch_auxion'] = $this->input->post('vremya_okonch_auxion');
+$add['date_start_aux777'] = $this->input->post('date_start_aux777');
+$add['date_finish_aux777'] = $this->input->post('date_finish_aux777');
+$add['selev_auditor777'] = $this->input->post('selev_auditor777');
+$add['kol_uchastn777'] = $this->input->post('kol_uchastn777');
+
+
+
+
+'vremya_nachala_auxion' =>  $add['vremya_nachala_auxion'],
+  'vremya_okonch_auxion' =>  $add['vremya_okonch_auxion'],
+  'date_start_aux777' =>  $add['date_start_aux777'],
+'date_finish_aux777' =>  $add['date_finish_aux777'],
+				'selev_auditor777' =>  $add['selev_auditor777'],
+        				'kol_uchastn777' =>  $add['kol_uchastn777'],
+
+
+
+
+
+
+
+                if($date_start_aux != null){
+
+	$aemail = $this->session->userdata('email');
+
+if(isset($aemail)){
+
+ ?>
+
+<div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px;">
+
+
+		<div class="col-md-4 col-sm-4 col-xs-4" style="padding: 0px;">
+
+			<div  class="col-md-12 col-sm-12 col-xs-12" style="padding: 0px;">
+				<h4 >начальная ставка:</h4>
+			</div>
+
+
+
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-4">
+
+
+
+		<div class="col-md-12 col-xs-12 col-sm-12">
+
+			<h4><?php echo $array2[0]; ?></h4>
+
+		</div>
+
+
+
+
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-4">
+
+		<div class="col-md-12 col-xs-12 col-sm-12" style="padding: 0px;">
+			<div class='input-group'>
+			<input type="number" id="summ_stav" required class="form-control" placeholder="ставка в тг.">
+			<span class='form-control-feedback'></span>
+			</div>
+
+		</div>
+
+		<div class="col-md-12 col-xs-12 col-sm-12" style="padding: 0px;margin-top: 5px;">
+
+			<button id="r_s" ids="<?php echo $ids; ?>" class="btn btn-primary"  itemprop="name">разместить ставку</button>
+
+		</div>
+
+
+
+		</div>
+
+
+
+
+
+</div>
+
+
+
+<div class="col-md-12 col-xs-12 col-sm-12 nopadding">
+
+
+	<div class="alert alert-info" style="display: none;">ставка поставлена!</div>
+	<div class="alert alert-info" id="podnyata" style="display: none;">ставка поднята!</div>
+
+	<div class="alert alert-danger" id="lost_sum" style="display: none;">сумма должна быть больше лидирующей суммы!</div>
+
+	<div class="alert alert-danger" id="nedost_sr" style="display: none;">у вас недостаточно средств пожалуйста пополните счет в размере 500тг. для участия в личном кабинете!</div>
+
+	<div class="alert alert-danger" id="replay_st" style="display: none;">ставка на эту сумму уже делалась!</div>
+
+	<div class="alert alert-info" id="spisano" style="display: none;">ставка поставлена первоначальный взнос 500 тг за аукцион списан!</div>
+
+
+
+</div>
+<div class="col-md-12 col-xs-12 col-sm-12 nopadding">
+
+	<div class="col-md-6 col-sm-6 col-xs-6 nopadding">
+
+		<div class="col-md-12 col-xs-12 col-sm-12 nopadding">
+
+			<div class="col-md-12 col-xs-12 col-sm-12 nopadding">
+
+				<h4 id="won_user">лидирует пользователь: </h4>
+
+			</div>
+
+			<div class="col-md-12 col-xs-12 col-sm-12 nopadding">
+
+				<h4>поставленная сумма: </h4>
+
+			</div>
+
+			<div class="col-md-12 col-xs-12 col-sm-12 nopadding">
+
+				<h4 id="won_user2">до кончания: </h4>
+
+			</div>
+		</div>
+
+
+	</div>
+	<div class="col-md-6 col-sm-6 col-xs-6 nopadding">
+
+		<div class="col-md-12 col-xs-12 col-sm-12 nopadding">
+			<div class="col-md-12 col-xs-12 col-sm-12 nopadding">
+
+				<h4 style="color:red;" id="em_lider">----</h4>
+
+			</div>
+
+			<div class="col-md-12 col-xs-12 col-sm-12 nopadding">
+
+				<h4 style="color:red;" id="sum_st">----</h4>
+
+			</div>
+
+			<div class="col-md-12 col-xs-12 col-sm-12 nopadding">
+
+				<h4 style="color:red;" id="date"></h4>
+
+			</div>
+
+			<div class="col-md-12 col-xs-12 col-sm-12 nopadding">
+
+				<h4 style="color:red;" id="test"></h4>
+
+			</div>
+		</div>
+
+	</div>
+
+
+
+</div>
+
+<input type="hidden" id="finish_date" value="<?php echo $date_finish_aux777; ?>">
+
+<input type="hidden" id="finish_time" value="<?php echo $vremya_okonch_auxion; ?>">
+
+<script>
+
+		function formatDateToString(date){
+		   // 01, 02, 03, ... 29, 30, 31
+		   var dd = (date.getDate() < 10 ? '0' : '') + date.getDate();
+		   // 01, 02, 03, ... 10, 11, 12
+		   var MM = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1);
+		   // 1970, 1971, ... 2015, 2016, ...
+		   var yyyy = date.getFullYear();
+
+		   // create the format you want
+		   return (dd + "/" + MM + "/" + yyyy);
+		}
+
+		setInterval(function(){
+
+			var d = new Date();
+
+			var newdate = formatDateToString(d);
+
+			var hours = d.getHours();
+			var minutes = d.getMinutes();
+
+
+			var finish_date = $("#finish_date").val();
+
+			var arrfinishdate = finish_date.split('/');
+
+			var tekdate = newdate.split('/');
+
+			var countday = 0;
+
+			for(var ii = 0;ii < arrfinishdate.length;ii++){
+
+				countday += arrfinishdate[ii] - tekdate[ii];
+
+			}
+
+
+			//console.log(tekdate);
+
+			var counthours = 0;
+			var countminutes = 0;
+
+			var finish_time = $("#finish_time").val();
+
+			var arrfinish_time = finish_time.split(":");
+
+			var arrtek_time = [hours,minutes];
+
+
+			for(var iii = 0;iii < arrfinish_time.length;iii++){
+				if(iii == 0){
+					counthours = arrfinish_time[iii] - arrtek_time[iii];
+					//console.log(arrfinish_time[iii]);
+				}else if(iii == 1){
+					countminutes = arrfinish_time[iii] - arrtek_time[iii];
+
+				}
+			}
+
+			var fdays = countday + " д. ";
+
+			if(countday <= 0){
+				fdays = "";
+			}
+
+			if(countday < 0){
+				counthours = -1;
+				countminutes = -1;
+			}
+
+			var fhours = counthours + " ч. ";
+
+			if(counthours <= 0){
+
+				fhours = "";
+			}
+			var fminutes = countminutes + " м. ";
+
+			if(countminutes <= 0){
+				fminutes = "";
+			}
+
+			$("#date").text(fdays + fhours + fminutes);
+
+			if((countday <= 0) && (counthours <= 0) && (countminutes <= 0)){
+
+				var urlc = $("#myurlc").val();
+
+				var ids = $("#r_s").attr("ids");
+
+				var sa = {
+					"ids":ids,
+				}
+
+				$.ajax({
+		           "type":"POST",
+		           "url":urlc,
+		            "data":sa,
+		           "datatype":"json html script",
+
+
+		           "success":kxsss,
+		           "error":errorsss
+
+		         });
+
+		      	 function kxsss(result){
+
+		           	if(result == "1"){
+		           		$("#won_user").text("выиграл пользователь");
+		           		$("#won_user2").text("аукцион закончен");
+		           		$("#won_user2").css("color","red");
+		           		$("#r_s").attr('disabled',true);
+		           		$("#summ_stav").attr('disabled',true);
+		           	}
+
+		         }
+
+		          function errorsss(){
+		             console.log("oshibka zaprosa");
+		          }
+
+
+			}
+
+		},1000);
+
+
+
+
+
+
+
+
+
+
+		setInterval(function(){
+
+
+			var myurlb = $("#myurlb").val();
+
+			var ids = $("#r_s").attr("ids");
+
+			var sendar = {
+
+				"ids":ids
+
+			};
+
+			//console.log(ids);
+			//console.log(myurlb);
+
+			$.ajax({
+		           "type":"POST",
+		           "url":myurlb,
+		            "data":sendar,
+		           "datatype":"json html script",
+		           "success":kxss,
+		           "error":errorss
+
+		         });
+
+		      	 function kxss(result){
+
+							 //console.log(result);
+
+		           	var obj = jQuery.parseJSON(result);
+
+
+		           	$("#em_lider").text(obj[0].us_email);
+		           	$("#sum_st").text(obj[0].sum_st + " тг");
+
+		         }
+
+		          function errorss(){
+		             console.log("oshibka zaprosa");
+		          }
+
+
+		},1000);
+
+
+		$("#r_s").click(function(){
+
+				var xen1 = true;
+
+
+
+
+				$("#summ_stav").each(function(){
+
+					if(this.checkValidity()){
+
+
+
+								var element = $(this).parents(".input-group");
+								var element2 = element.find(".form-control-feedback");
+
+								element.addClass("has-success").removeClass("has-error");
+								element2.addClass("glyphicon glyphicon-ok").removeClass("glyphicon glyphicon-remove");
+
+
+						}else{
+
+
+								var element = $(this).parents(".input-group");
+								var element2 = element.find(".form-control-feedback");
+
+								element.removeClass("has-success").addClass("has-error");
+								element2.addClass("glyphicon glyphicon-ok").addClass("glyphicon glyphicon-remove");
+
+								xen1 = false;
+
+								//console.log(1);
+
+								//console.log(array[i]);
+
+
+						}
+
+					});	/*kones each*/
+
+
+				if(xen1){
+
+
+				var sum = $("#summ_stav").val();
+				var ids = $(this).attr("ids");
+
+				var u = $("#myurla").val();
+
+				var s_a = {
+					"ids":ids,
+					"sum":sum,
+				};
+
+				$.ajax({
+		           "type":"POST",
+		           "url":u,
+		            "data":s_a,
+		           "datatype":"json html script",
+
+
+		           "success":kxs,
+		           "error":errors
+
+		         });
+
+		      	 function kxs(result){
+
+		           	//console.log(result);
+
+		           	if(result == "2"){
+
+		           		var spisano = $("#spisano");
+
+		           		spisano.show(2000);
+
+		           		spisano.delay(2000).hide(1000);
+
+		           	}else if(result == "7"){
+
+		           		var nedost_sr = $("#nedost_sr");
+
+		           		nedost_sr.show(2000);
+
+		           		nedost_sr.delay(2000).hide(1000);
+
+		           	}else if(result == "3"){
+
+		           		var podnyata = $("#podnyata");
+
+		           		podnyata.show(2000);
+
+		           		podnyata.delay(2000).hide(1000);
+
+		           	}else if(result == "4"){
+
+		           		var replay_st = $("#replay_st");
+
+		           		replay_st.show(2000);
+
+		           		replay_st.delay(2000).hide(1000);
+
+		           	}else if(result == "8"){
+
+		           		var lost_sum = $("#lost_sum");
+
+		           		lost_sum.show(2000);
+
+		           		lost_sum.delay(2000).hide(1000);
+
+		           	}else if(result == "9"){
+
+		           		var lost_sum = $("#lost_sum");
+
+		           		lost_sum.show(2000);
+
+		           		lost_sum.delay(2000).hide(1000);
+
+		           	}
+
+		         }
+
+		          function errors(){
+		             console.log("oshibka zaprosa");
+		          }
+
+		          }
+
+		});
+
+
+
+
+		</script>
+
+
+
+
+<!-- </div> -->
+
+
+<?php
+
+}else{
+
+
+
+ ?>
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+<div class="col-md-12 col-sm-12 col-xs-12">
+
+<h4>Сейчас идет Аукцион! Для участия в Аукционе необходимо авторизоваться, чтобы выполнять какие либо действия..</h4>
+
+
+</div>
+</div>
+
+
+
+ <?php
+}
+
+}

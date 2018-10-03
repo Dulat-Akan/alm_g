@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Sep 16 23:52:53 ALMT 2018
+#Tue Sep 25 22:26:50 ALMT 2018
 76.base=/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/build/intermediates/assets/release
 5.base=/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/build/intermediates/assets/release
 42.base=/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/build/intermediates/assets/release

@@ -6,9 +6,9 @@
 //lovel2
 //lovel3
 
-// localStorage.setItem("role",result[3]);
-// localStorage.setItem("useridentificator",result[1]);
-// localStorage.setItem("useremail",result[2]);
+// localStorage.setItem("role",result[3]);    //1,2
+// localStorage.setItem("useridentificator",result[1]); phone
+// localStorage.setItem("useremail",result[2]);       //email
 //localStorage.setItem("deviceid",window.device.uuid);
    //console.log(window.device.uuid);
 
@@ -27,7 +27,7 @@ var myApp = new Framework7();
 
 var globaltime = 0;
 
-var appversion = 3;
+var appversion = 4;
 
 var migrateitem = new Array();
 
@@ -350,11 +350,11 @@ $(".top_input").focus(function(){
     var height = $(window).height();
 
     if(height > '570'){
-        $(".opensearch").css("top","15%");
-        $(".searchbutton").css("top","15%");
+        $(".opensearch").css("top","19%");
+        $(".searchbutton").css("top","19%");
     }else{
-        $(".opensearch").css("top","15%");
-        $(".searchbutton").css("top","15%");
+        $(".opensearch").css("top","19%");
+        $(".searchbutton").css("top","19%");
     }
 
     $(".searchbutton").css("height","11%");
@@ -12519,10 +12519,14 @@ setInterval(function(){
         if(checkcabinet == 1){
 
                       var useridentificatorforbalans = localStorage.getItem("useridentificator");
+                      var userem = localStorage.getItem("useremail");
+
+
 
                       var sendusercabinet = {
 
                                     "useridentificator":useridentificatorforbalans,
+                                    "useremail":userem
 
                                 }
 
@@ -12547,8 +12551,12 @@ setInterval(function(){
                                   function kx2881cab(result){
 
                                           $(".userbalans").empty();
+                                          $(".useremail").empty();
+
+                                          //console.log("ident: " + useridentificatorforbalans + " sum" + result);
 
                                           $(".userbalans").append(result + " тг");
+                                          $(".useremail").append(userem);
 
                                   }
 
@@ -12878,12 +12886,14 @@ $(".insertobuser").append(templateobyav);
                                     var idob = localStorage.getItem("upobid");
 
                                     var useridentificatoractiv = localStorage.getItem("useridentificator");
+                                    var useremailsend = localStorage.getItem("useremail");
 
                                     var sendactiv = {
 
                                                     "action":action,
                                                     "idob":idob,
-                                                    "phone":useridentificatoractiv
+                                                    "phone":useridentificatoractiv,
+                                                    "useremail":useremailsend
 
 
                                                 }
@@ -12915,6 +12925,8 @@ $(".insertobuser").append(templateobyav);
                                                           if(result[1] == "5"){
 
                                                                   myApp.alert('поздравляем функция активирована...!','Сервис');
+
+                                                                  firstviewob();
 
                                                                   //result[0];  --user balance
 
