@@ -855,6 +855,34 @@ ul.insertob::before{
   background-color: rgba(252, 252, 252, 0.9);
 }
 
+.mnavbarstyle{
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.navbar{
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.mtoolbarstyle{
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.mblackicons{
+  color:black !important;
+}
+
+.f7-icons{
+  color:black !important;
+}
+
+.modified-toolbar{
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: black !important;
+}
+
+.toolbar-inner{
+
+}
 
 
 

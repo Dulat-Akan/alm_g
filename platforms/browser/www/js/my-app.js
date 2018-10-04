@@ -247,7 +247,7 @@
           function savefinding(){
 
               if(checkuserauth() == false){
-                  myApp.prompt('Для продолжения работы введите ваш "EMAIL" ','KAZPOISK', function (email) {
+                  myApp.dialog.prompt('Для продолжения работы введите ваш "EMAIL" ','KAZPOISK', function (email) {
 
                       if(checkemail(email) == true){
                         myApp.dialog.alert('Большое спасибо ваш EMAIL ' + email + ' зарегистрирован в нашей системе и будет использоваться для оповещений о новых результатах по вашим запросам','KAZPOISK');
@@ -428,7 +428,7 @@
                 var ndeviceid = localStorage.getItem("deviceid");
 
                 if(checkuserauth() == false){
-                  myApp.prompt('Введите пароль от вашей почты ' + email + ' ( проверка подлинности владельца почтового ящика)','KAZPOISK', function (password) {
+                  myApp.dialog.prompt('Введите пароль от вашей почты ' + email + ' ( проверка подлинности владельца почтового ящика)','KAZPOISK', function (password) {
 
                       var sendrequest = {
                           "email":email,
@@ -1378,18 +1378,18 @@
 
           //routing
 
-          localStorage.setItem("baseurl","http://ls2.kz/public_control/");
-          localStorage.setItem("baseurlimg","http://ls2_mobile.kz/assets/img/");
-          localStorage.setItem("baseurlimg2","http://ls2_mobile.kz/assets/entry/uploads/");
-          localStorage.setItem("baseurlimg3","http://ls2_mobile.kz/assets/entry/uploadsv/");
-          localStorage.setItem("baseurlimg4","http://ls2.kz/assets/entry/uploads/");
+          // localStorage.setItem("baseurl","http://ls2.kz/public_control/");
+          // localStorage.setItem("baseurlimg","http://ls2_mobile.kz/assets/img/");
+          // localStorage.setItem("baseurlimg2","http://ls2_mobile.kz/assets/entry/uploads/");
+          // localStorage.setItem("baseurlimg3","http://ls2_mobile.kz/assets/entry/uploadsv/");
+          // localStorage.setItem("baseurlimg4","http://ls2.kz/assets/entry/uploads/");
 
 
-          // localStorage.setItem("baseurl","http://www.kazpoisk.kz/public_control/");
-          // localStorage.setItem("baseurlimg","http://www.kazpoisk.kz/assets/img/");
-          // localStorage.setItem("baseurlimg2","http://www.kazpoisk.kz/assets/entry/uploads/");
-          // localStorage.setItem("baseurlimg3","http://www.kazpoisk.kz/assets/entry/uploadsv/");
-          // localStorage.setItem("baseurlimg4","http://www.kazpoisk.kz/assets/entry/uploads/");
+          localStorage.setItem("baseurl","http://www.kazpoisk.kz/public_control/");
+          localStorage.setItem("baseurlimg","http://www.kazpoisk.kz/assets/img/");
+          localStorage.setItem("baseurlimg2","http://www.kazpoisk.kz/assets/entry/uploads/");
+          localStorage.setItem("baseurlimg3","http://www.kazpoisk.kz/assets/entry/uploadsv/");
+          localStorage.setItem("baseurlimg4","http://www.kazpoisk.kz/assets/entry/uploads/");
 
 
           //opredelenie avtorizovan li polzovatel
@@ -1755,7 +1755,7 @@
 
           function restorepassword(){
 
-              myApp.prompt('Введите телефон для восстановления?','Kazpoisk', function (phone) {
+              myApp.dialog.prompt('Введите телефон для восстановления?','Kazpoisk', function (phone) {
 
                                       var newphone = "";
 
@@ -3577,7 +3577,7 @@
 
                                       var xhr = new window.XMLHttpRequest();
 
-                                      //console.log(xhr);
+                                      console.log(xhr);
                                       //console.log(xhr);
 
 
@@ -3588,14 +3588,14 @@
                                       // делать что-то...
 
                                       var progressbar = $$('.progressbar');
-                                      myApp.setProgressbar(progressbar, percentComplete);
+                                      myApp.progressbar.set(progressbar, percentComplete);
 
                                         if(percentComplete == 100){
 
                                             $('.loader-hide').css("display","none");
                                             $('.progressbar').css("display","none");
 
-                                            myApp.setProgressbar(progressbar, 10);
+                                            myApp.progressbar.set(progressbar, 10);
 
                                         }
 
@@ -3687,14 +3687,14 @@
                                       // делать что-то...
                                       //console.log(percentComplete);
                                       var progressbar = $$('.progressbar');
-                                      myApp.setProgressbar(progressbar, percentComplete);
+                                      myApp.progressbar.set(progressbar, percentComplete);
 
                                         if(percentComplete == 100){
 
                                             $('.loader-hide').css("display","none");
                                             $('.progressbar').css("display","none");
 
-                                            myApp.setProgressbar(progressbar, 10);
+                                            myApp.progressbar.set(progressbar, 10);
                                         }
                                       }
                                       }, false);
@@ -3824,7 +3824,7 @@
           function kxzaprosphoto(result){
 
 
-
+//jjjj
                                   //console.log(result);
 
                                   // if(fixedphoto == 1){
@@ -3836,11 +3836,24 @@
 
                                       for(var g = 0; g < result.length;g++){
                                       var imgurl = localStorage.getItem("baseurlimg2");
-                                      var appendstring = '<li> <a href="#" class="item-link item-content"> <div class="item-media">'+
-                                      '<img photoids="' + g + '" src="' + imgurl + result[g] + '" width="80"></div> <div class="item-inner"> '+
-                                      '<div class="item-title-row"> <div class="item-title"><button rmid="'+ result[g] +'" rmcount="'+ g +'" class="col button button-small button-fill rotatephtwo">перевернуть</button></div> <div class="item-after"><button phid="'+ result[g] +'" class="button color-red delete_photo">удалить</button></div> </div> '+
-                                      '<div class="item-subtitle"></div> <div class="item-text"></div> </div> </a> </li>';
-                                      $(".appendphoto").append(appendstring);
+                var appendstring = '<li> <a href="#" class="item-link item-content"> <div class="item-media">'+
+                '<img photoids="' + g + '" src="' + imgurl + result[g] + '" width="80"></div> <div class="item-inner"> '+
+                '<div class="item-title-row"> <div class="item-title">'+
+                '<button rmid="'+ result[g] +'" rmcount="'+ g +'" class="col button button-small button-fill rotatephtwo">перевернуть</button>'+
+                '</div> <div class="item-after">'+
+                '<button phid="'+ result[g] +'" class="button color-red button-small button-fill delete_photo">удалить</button>'+
+                '</div> </div> '+
+                '<div class="item-subtitle"></div> <div class="item-text"></div> </div> </a> </li>';
+                $(".appendphoto").append(appendstring);
+
+                  // var templateobyav = '<li > <a href="#" ident="'+ i +'" class=" item-link item-content"> <div class="item-media"><img src="' + photourl + '" '+
+                  // ' width="80" height="80" style="background-size:cover;"></div> <div class="item-inner"> <div class="item-title-row"> <div class="item-title">'+ result[0][i].zagolovok +'</div>'+
+                  // ' <div class="item-after">'+ result[0][i].sena +'</div> </div> <div class="item-subtitle">'+ result[0][i].city +'</div>'+
+                  // ' <div class="item-text" style="margin-top:1px;"><div class="row">'+
+                  // '<i style="color:#4cd964;border:1px solid #4cd964;border-radius:5px;padding:4px;" ident="'+ i +'" class="material-icons color-green viewob">&#xE869;</i>'+
+                  // '<i style="color:#007aff;border:1px solid #007aff;border-radius:5px;padding:4px;"  upob="'+ result[0][i].id + '" class="material-icons color-blue upob">&#xE8E5;</i>'+
+                  // '<i style="color:#ff9500;border:1px solid #ff9500;border-radius:5px;padding:4px;"  retimeid="'+ result[0][i].id + '" class="material-icons color-orange retimeob">&#xE192;</i>'+
+                  // '<i style="color:#ff3b30;border:1px solid #ff3b30;border-radius:5px;padding:4px;"   rmid="'+ result[0][i].id + '" class="material-icons color-red deleteob">&#xE92B;</i></div></div> </div> </a> </li>';
 
 
                                       var imagerottwo = $('[photoids = '+ g +']');
@@ -11080,7 +11093,7 @@ var img = localStorage.getItem("baseurlimg");
                                       // делать что-то...
 
                                       var progressbar = $$('.progressbar');
-                                      myApp.setProgressbar(progressbar, percentComplete);
+                                      myApp.progressbar.set(progressbar, percentComplete);
 
                                         if(percentComplete == 100){
 
@@ -11088,7 +11101,7 @@ var img = localStorage.getItem("baseurlimg");
                                             $('.progressbar').css("display","none");
                                             $(".gifloader").hide();
 
-                                            myApp.setProgressbar(progressbar, 10);
+                                            myApp.progressbar.set(progressbar, 10);
 
                                         }
 
@@ -11166,7 +11179,7 @@ var img = localStorage.getItem("baseurlimg");
                                       // делать что-то...
                                       //console.log(percentComplete);
                                       var progressbar = $$('.progressbar');
-                                      myApp.setProgressbar(progressbar, percentComplete);
+                                      myApp.progressbar.set(progressbar, percentComplete);
 
                                         if(percentComplete == 100){
 
@@ -11174,7 +11187,7 @@ var img = localStorage.getItem("baseurlimg");
                                             $('.progressbar').css("display","none");
                                             $(".gifloader").hide();
 
-                                            myApp.setProgressbar(progressbar, 10);
+                                            myApp.progressbar.set(progressbar, 10);
                                         }
                                       }
                                       }, false);

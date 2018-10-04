@@ -702,11 +702,11 @@ ul.insertob::before{
   }
 
   .opensearch{
-    width:10%;height:4%;position:fixed;left:2%;top:8%;z-index:50 !important;
+    width:10%;height:4%;position:fixed;left:2%;top:10%;z-index:50 !important;
   }
 
   .searchbutton{
-    width:84%;height:6%;position:fixed;left:13%;top:8%;z-index:50 !important;display:none;
+    width:84%;height:6%;position:fixed;left:13%;top:10%;z-index:50 !important;display:none;
   }
 
 }
@@ -773,7 +773,7 @@ ul.insertob::before{
 }
 
 .navbar-inner{
-  background-color: white;
+  /* background-color: white; */
 }
 
 
@@ -819,11 +819,41 @@ ul.insertob::before{
 
 }
 
+
+.minw{
+  min-width:10px !important;
+}
+
+.left-right-padding{
+  padding-left:0px !important;
+  padding-right:0px !important;
+}
+
 /* .navbar{
   display: none;
   height: 0px;
 } */
 
+
+.top_input::-webkit-input-placeholder {
+  color: white;
+}
+
+.item-input-wrap > input::-webkit-input-placeholder {
+  color: #546970 !important;
+}
+
+.item-input > input::-webkit-input-placeholder {
+  color: #546970 !important;
+}
+
+.paddinglong{
+  padding-bottom:350px;
+}
+
+.popup-filter{
+  background-color: rgba(252, 252, 252, 0.9);
+}
 
 
 

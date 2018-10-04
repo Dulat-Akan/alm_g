@@ -1,4 +1,4 @@
-<div class="list-block media-list">
+<!-- <div class="list-block media-list">
   <ul>
     <li ng-repeat="ob in $ctrl.obs">
       <a class="clickevent item-link item-content"  ng-click="myclick(ob.name)">
@@ -6,16 +6,25 @@
         <div class="item-inner">
           <div class="item-title-row">
             <div class="item-title" >{{ob.name}}</div>
-           
+
           </div>
-         <!--  <div class="item-subtitle">Beatles</div> -->
         </div>
       </a>
     </li>
   </ul>
 
+</div> -->
+
+
+<div class="list tablet-inset">
+  <ul>
+    <li ng-repeat="ob in $ctrl.obs">
+      <a class="clickevent item-link item-content" ng-click="myclick(ob.name)">
+        <div class="item-media"><img src="{{ob.src}}" width="44"></div>
+        <div class="item-inner">
+          <div class="item-title">{{ob.name}}</div>
+        </div>
+      </a>
+    </li>
+  </ul>
 </div>
-
-
-
-
