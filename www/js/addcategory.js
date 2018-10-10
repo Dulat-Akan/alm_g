@@ -1382,7 +1382,7 @@ var img = localStorage.getItem("baseurlimg");
                   if(categoryname == podcategoryar[y][yy].name){
                       localStorage.setItem("level3",categoryname);
                       $scope.$ctrl.obs = defaultobs;
-                      app.popup.close();
+                      router.navigate({ name: 'add' });myApp.popup.close();
                   }
               }
           }

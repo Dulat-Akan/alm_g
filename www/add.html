@@ -23,37 +23,35 @@
 
 
               <ul>
-                <li>
-                  <div class="item-content">
 
+                 <li class="item-content item-input">
                     <div class="item-inner">
-                      <div class="item-title label">Заголовок</div>
-                      <div class="item-input">
-                        <input type="text" required name="zagolovok" placeholder="Заголовок объявления"  required ng-model="user.zagolovok">
+                      <div class="item-title item-label">Заголовок</div>
+                      <div class="item-input-wrap">
+                        <input type="text" required name="zagolovok" ng-model="user.zagolovok" placeholder="Заголовок объявления">
+                        <span class="input-clear-button"></span>
                       </div>
                     </div>
-                  </div>
-                </li>
-               <li>
+                  </li>
 
 
-                  <!-- Additional "smart-select" class -->
 
-                </li>
-                <li>
-                  <div class="item-content">
-                    <div class="item-inner">
-                    <div class="item-title label">цена</div>
-                      <div class="item-input">
-                        <input type="number" required name="sena" placeholder="цена в тг"  required ng-model="user.sena">
-                      </div>
-                    </div>
-                  </div>
-                </li>
+
+                <li class="item-content item-input">
+                   <div class="item-inner">
+                     <div class="item-title item-label">цена</div>
+                     <div class="item-input-wrap">
+                       <input type="number" required name="sena"  ng-model="user.sena" placeholder="цена в тг">
+                       <span class="input-clear-button"></span>
+                     </div>
+                   </div>
+                 </li>
                   <!-- Another radio input -->
+
                   <li>
-                    <label class="label-radio item-content">
-                      <input type="radio" name="typesena" value="Movies">
+                    <label class="item-checkbox item-content">
+                      <input type="checkbox" name="typesena" value="договорная" />
+                      <i class="icon icon-checkbox"></i>
                       <div class="item-inner">
                         <div class="item-title">договорная</div>
                       </div>
@@ -61,47 +59,46 @@
                   </li>
 
                   <li>
-                    <label class="label-radio item-content">
-                      <input type="radio" name="typesena" value="Movies">
+                    <label class="item-checkbox item-content">
+                      <input type="checkbox" name="typesena" value="отдам даром" />
+                      <i class="icon icon-checkbox"></i>
                       <div class="item-inner">
                         <div class="item-title">отдам даром</div>
                       </div>
                     </label>
                   </li>
 
-                  <li>
-                    <label class="label-checkbox item-content">
-                      <!-- Checked by default -->
-                      <input type="checkbox" name="typesena" value="obmen">
-                      <div class="item-media">
-                        <i class="icon icon-form-checkbox"></i>
-                      </div>
-                      <div class="item-inner">
-                        <div class="item-title">интересует обмен</div>
-                      </div>
-                    </label>
-                  </li>
 
-                  <li>
-                    <label class="label-checkbox item-content">
-                      <!-- Checked by default -->
-                      <input type="checkbox" name="typesena" value="zakaz">
-                      <div class="item-media">
-                        <i class="icon icon-form-checkbox"></i>
-                      </div>
-                      <div class="item-inner">
-                        <div class="item-title">на заказ</div>
-                      </div>
-                    </label>
-                  </li>
+                      <li>
+                        <label class="item-checkbox item-content">
+                          <input type="checkbox" name="inter_obmen" value="интересует обмен" />
+                          <i class="icon icon-checkbox"></i>
+                          <div class="item-inner">
+                            <div class="item-title">интересует обмен</div>
+                          </div>
+                        </label>
+                      </li>
+
+                      <li>
+                        <label class="item-checkbox item-content">
+                          <input type="checkbox" name="nalichii1" value="на заказ" />
+                          <i class="icon icon-checkbox"></i>
+                          <div class="item-inner">
+                            <div class="item-title">на заказ</div>
+                          </div>
+                        </label>
+                      </li>
+
+
+
 
                   <!-- nedvizhimost -->
 
                 <li class="nedvhide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">количество комнат</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">количество комнат</div>
+                      <div class="item-input-wrap">
                         <input type="number" required name="kolkomnat1" placeholder="количество комнат" >
                       </div>
                     </div>
@@ -109,11 +106,13 @@
                 </li>
 
 
+
+
                 <li class="nedvhide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">общая площадь/м2</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">общая площадь/м2</div>
+                      <div class="item-input-wrap">
                         <input type="number" required name="ploshad1" placeholder="общая площадь/м2" >
                       </div>
                     </div>
@@ -121,10 +120,10 @@
                 </li>
 
                 <li class="nedvhide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">этаж</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">этаж</div>
+                      <div class="item-input-wrap">
                         <input type="number" required name="etazh1" placeholder="этаж" >
                       </div>
                     </div>
@@ -132,10 +131,10 @@
                 </li>
 
                 <li class="nedvhide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">этажей в доме</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">этажей в доме</div>
+                      <div class="item-input-wrap">
                         <input type="number" required name="etazhvdome" placeholder="этажей в доме" >
                       </div>
                     </div>
@@ -143,10 +142,10 @@
                 </li>
 
                 <li class="nedvhide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">год постройки</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">год постройки</div>
+                      <div class="item-input-wrap">
                         <input type="text" required name="yearpostroiki" class="yearmask" placeholder="год постройки">
                       </div>
                     </div>
@@ -154,10 +153,10 @@
                 </li>
 
                 <li class="nedvhide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">материал стен</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">материал стен</div>
+                      <div class="item-input-wrap">
                         <input type="text" required name="materialsten" placeholder="кирпичный" readonly class="picker-sten">
                       </div>
                     </div>
@@ -168,10 +167,10 @@
 
                  <!-- prodazha domov -->
                 <li class="domhide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">расстояние от города</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">расстояние от города</div>
+                      <div class="item-input-wrap">
                         <input type="number" required name="rasstotgoroda" placeholder="расстояние от города" >
                       </div>
                     </div>
@@ -180,10 +179,10 @@
 
 
                 <li class="domhide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">площадь дома</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">площадь дома</div>
+                      <div class="item-input-wrap">
                         <input type="number" required name="ploshaddoma" placeholder="площадь дома" >
                       </div>
                     </div>
@@ -191,10 +190,10 @@
                 </li>
 
                 <li class="domhide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">тип дома</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">тип дома</div>
+                      <div class="item-input-wrap">
                         <input type="text" required name="typedoma" placeholder="коттедж" readonly id="picker-type">
                       </div>
                     </div>
@@ -202,10 +201,10 @@
                 </li>
 
                 <li class="domhide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">год постройки</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">год постройки</div>
+                      <div class="item-input-wrap">
                         <input type="text" required name="yearpostroiki2" class="yearmask" placeholder="год постройки">
                       </div>
                     </div>
@@ -217,10 +216,10 @@
                  <!-- prodazha dachi -->
 
                  <li class="dachahide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">расстояние от города</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">расстояние от города</div>
+                      <div class="item-input-wrap">
                         <input type="number" required name="rasstotgoroda2" placeholder="расстояние от города" >
                       </div>
                     </div>
@@ -229,10 +228,10 @@
 
 
                 <li class="dachahide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">площадь дома</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">площадь дома</div>
+                      <div class="item-input-wrap">
                         <input type="number" required name="ploshaddoma1" placeholder="площадь дома" >
                       </div>
                     </div>
@@ -241,10 +240,10 @@
 
 
                 <li class="dachahide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">площадь участка</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">площадь участка</div>
+                      <div class="item-input-wrap">
                         <input type="number" required name="ploshaduchastka" placeholder="площадь участка" >
                       </div>
                     </div>
@@ -252,10 +251,10 @@
                 </li>
 
                 <li class="dachahide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">тип дома</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">тип дома</div>
+                      <div class="item-input-wrap">
                         <input type="text" required name="typedoma1" placeholder="коттедж" readonly id="picker-type2">
                       </div>
                     </div>
@@ -268,10 +267,10 @@
                  <!-- prodazha uchastka -->
 
                   <li class="uchastokhide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">расстояние от города</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">расстояние от города</div>
+                      <div class="item-input-wrap">
                         <input type="number" required name="rasstotgoroda3" placeholder="расстояние от города" >
                       </div>
                     </div>
@@ -279,10 +278,10 @@
                 </li>
 
                 <li class="uchastokhide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">площадь участка</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">площадь участка</div>
+                      <div class="item-input-wrap">
                         <input type="number" required name="ploshaduchastka1" placeholder="площадь участка" >
                       </div>
                     </div>
@@ -295,10 +294,10 @@
                   <!-- prodazha ofisa -->
 
                   <li class="ofishide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">количество комнат</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">количество комнат</div>
+                      <div class="item-input-wrap">
                         <input type="number" required name="kolkomnat" placeholder="количество комнат" >
                       </div>
                     </div>
@@ -306,10 +305,10 @@
                 </li>
 
                 <li class="ofishide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">общая площадь/м2</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">общая площадь/м2</div>
+                      <div class="item-input-wrap">
                         <input type="number" required name="ploshad2" placeholder="общая площадь/м2" >
                       </div>
                     </div>
@@ -321,10 +320,10 @@
                   <!-- prodazha pomesheniya -->
 
                   <li class="pomeshhide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">общая площадь/м2</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">общая площадь/м2</div>
+                      <div class="item-input-wrap">
                         <input type="number" required name="ploshad3" placeholder="общая площадь/м2" >
                       </div>
                     </div>
@@ -332,10 +331,10 @@
                 </li>
 
                 <li class="pomeshhide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">этаж</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">этаж</div>
+                      <div class="item-input-wrap">
                         <input type="number" required name="etazh2" placeholder="этаж" >
                       </div>
                     </div>
@@ -343,10 +342,10 @@
                 </li>
 
                 <li class="pomeshhide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">этажей в здании</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">этажей в здании</div>
+                      <div class="item-input-wrap">
                         <input type="number" required name="etazhvzdanii" placeholder="этажей в здании">
                       </div>
                     </div>
@@ -354,10 +353,10 @@
                 </li>
 
                 <li class="pomeshhide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">тип помещения</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">тип помещения</div>
+                      <div class="item-input-wrap">
                         <input type="text" required name="typepomesheniya" placeholder="в бизнес центре" readonly id="picker-type3">
                       </div>
                     </div>
@@ -369,10 +368,10 @@
                   <!-- prodazha zdaniya -->
 
                   <li class="zdaniehide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">год постройки</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">год постройки</div>
+                      <div class="item-input-wrap">
                         <input type="text" required name="yearpostroiki3" class="yearmask" placeholder="год постройки">
                       </div>
                     </div>
@@ -381,10 +380,10 @@
 
 
                  <li class="zdaniehide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">общая площадь/м2</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">общая площадь/м2</div>
+                      <div class="item-input-wrap">
                         <input type="number" required name="ploshad4" placeholder="общая площадь/м2" >
                       </div>
                     </div>
@@ -393,10 +392,10 @@
 
 
                 <li class="zdaniehide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">этажей в здании</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">этажей в здании</div>
+                      <div class="item-input-wrap">
                         <input type="number" required name="etazhvzdanii1" placeholder="этажей в здании">
                       </div>
                     </div>
@@ -404,10 +403,10 @@
                 </li>
 
                 <li class="zdaniehide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">материал стен</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">материал стен</div>
+                      <div class="item-input-wrap">
                         <input type="text" required name="materialsten2" placeholder="кирпичный" readonly class="picker-sten2">
                       </div>
                     </div>
@@ -416,10 +415,10 @@
 
 
                 <li class="zdaniehide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">тип здания</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">тип здания</div>
+                      <div class="item-input-wrap">
                         <input type="text" required name="typezdaniya" placeholder="улучшенное" readonly id="picker-type4">
                       </div>
                     </div>
@@ -431,10 +430,10 @@
                   <!-- prodazha mag -->
 
                   <li class="maghide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                      <div class="item-title label">общая площадь/м2</div>
-                        <div class="item-input">
+                      <div class="item-title item-label">общая площадь/м2</div>
+                        <div class="item-input-wrap">
                           <input type="number" required name="ploshad5" placeholder="общая площадь/м2" >
                         </div>
                       </div>
@@ -442,10 +441,10 @@
                   </li>
 
                   <li class="maghide allhide">
-                  <div class="item-content">
+                  <div class="item-content item-input">
                     <div class="item-inner">
-                    <div class="item-title label">тип помещения</div>
-                      <div class="item-input">
+                    <div class="item-title item-label">тип помещения</div>
+                      <div class="item-input-wrap">
                         <input type="text" required name="typepomesh" placeholder="в бизнес центре" readonly id="picker-type7">
                       </div>
                     </div>
@@ -457,9 +456,9 @@
                   <!-- srok sdachi -->
 
                   <li class="sroksdachi allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                        <div class="item-input">
+                        <div class="item-input-wrap">
                           <input type="text" required name="srok_sdachi" placeholder="срок сдачи" readonly id="sroksdachi">
                         </div>
                       </div>
@@ -470,10 +469,10 @@
                   <!-- sena ot do -->
 
                   <li class="senaot allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                      <div class="item-title label">цена от</div>
-                        <div class="item-input">
+                      <div class="item-title item-label">цена от</div>
+                        <div class="item-input-wrap">
                           <input type="number" required name="kupit_ot" placeholder="цена от/тг" >
                         </div>
                       </div>
@@ -481,10 +480,10 @@
                   </li>
 
                   <li class="senaot allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                      <div class="item-title label">цена до</div>
-                        <div class="item-input">
+                      <div class="item-title item-label">цена до</div>
+                        <div class="item-input-wrap">
                           <input type="number" required name="kupit_do" placeholder="цена до/тг" >
                         </div>
                       </div>
@@ -501,9 +500,9 @@
                   </p>
 
                   <li class="zapchhide allhide">
-                     <div class="item-content">
+                     <div class="item-content item-input">
                        <div class="item-inner">
-                         <div class="item-input">
+                         <div class="item-input-wrap">
                            <input type="text" required name="markazapch" placeholder="выберите марку" readonly id="picker-dependentzapch">
                          </div>
                        </div>
@@ -511,9 +510,9 @@
                    </li>
 
                    <li class="zapchspeshide allhide">
-                     <div class="item-content">
+                     <div class="item-content item-input">
                        <div class="item-inner">
-                         <div class="item-input">
+                         <div class="item-input-wrap">
                            <input type="text" required name="markaspeszapch" placeholder="выберите марку" readonly id="picker-sdependentzapch">
                          </div>
                        </div>
@@ -521,9 +520,9 @@
                    </li>
 
                    <li class="zapchbuttons allhide">
-                      <div class="item-content">
+                      <div class="item-content item-input">
                         <div class="item-inner">
-                          <div class="item-input">
+                          <div class="item-input-wrap">
                             <input type="text" required name="sostzapch" placeholder="состояние запчасти" readonly id="sostoyaniezapch">
                           </div>
                         </div>
@@ -535,9 +534,9 @@
                   <!-- prodazha shin -->
 
                   <li class="shinahide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                        <div class="item-input">
+                        <div class="item-input-wrap">
                           <input type="text" required name="typeshina" placeholder="тип шины" readonly id="type-shina">
                         </div>
                       </div>
@@ -545,9 +544,9 @@
                   </li>
 
                   <li class="shinahide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                        <div class="item-input">
+                        <div class="item-input-wrap">
                           <input type="text" required name="markashini" placeholder="марка шины" readonly id="picker-shina">
                         </div>
                       </div>
@@ -555,9 +554,9 @@
                   </li>
 
                   <li class="shinahide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                        <div class="item-input">
+                        <div class="item-input-wrap">
                           <input type="text" required name="protectori" placeholder="протекторы" readonly id="picker-protektor">
                         </div>
                       </div>
@@ -566,9 +565,9 @@
 
 
                   <li class="shinahide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                        <div class="item-input">
+                        <div class="item-input-wrap">
                           <input type="text" required name="yearshina" placeholder="год выпуска шин" readonly id="year-shina">
                         </div>
                       </div>
@@ -576,9 +575,9 @@
                   </li>
 
                   <li class="shinahide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                        <div class="item-input">
+                        <div class="item-input-wrap">
                           <input type="text" required name="diamshini" placeholder="диаметр шины" readonly id="diam-shina">
                         </div>
                       </div>
@@ -586,9 +585,9 @@
                   </li>
 
                   <li class="shinahide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                        <div class="item-input">
+                        <div class="item-input-wrap">
                           <input type="text" required name="iznosshina" placeholder="износ %" readonly id="picker-iznos">
                         </div>
                       </div>
@@ -597,10 +596,10 @@
 
 
                   <li class="shinahide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                      <div class="item-title label">количество штук</div>
-                        <div class="item-input">
+                      <div class="item-title item-label">количество штук</div>
+                        <div class="item-input-wrap">
                           <input type="number" required name="kol_shin" placeholder="количество штук" >
                         </div>
                       </div>
@@ -610,9 +609,9 @@
                   <!-- prodazha shin -->
 
                   <li class="diskhide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                        <div class="item-input">
+                        <div class="item-input-wrap">
                           <input type="text" required name="typedisk" placeholder="тип дисков" readonly id="type-diskd">
                         </div>
                       </div>
@@ -620,9 +619,9 @@
                   </li>
 
                   <li class="diskhide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                        <div class="item-input">
+                        <div class="item-input-wrap">
                           <input type="text" required name="markadisk" placeholder="марка диска" readonly id="marka-disk">
                         </div>
                       </div>
@@ -630,9 +629,9 @@
                   </li>
 
                   <li class="diskhide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                        <div class="item-input">
+                        <div class="item-input-wrap">
                           <input type="text" required name="typelitie" placeholder="тип диска" readonly id="picker-disk">
                         </div>
                       </div>
@@ -641,9 +640,9 @@
 
 
                   <li class="diskhide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                        <div class="item-input">
+                        <div class="item-input-wrap">
                           <input type="text" required name="yeardisk" placeholder="год выпуска дисков" readonly id="year-disk">
                         </div>
                       </div>
@@ -651,9 +650,9 @@
                   </li>
 
                   <li class="diskhide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                        <div class="item-input">
+                        <div class="item-input-wrap">
                           <input type="text" required name="diamdisk" placeholder="диаметр дисков" readonly id="diam-diska">
                         </div>
                       </div>
@@ -661,9 +660,9 @@
                   </li>
 
                   <li class="diskhide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                        <div class="item-input">
+                        <div class="item-input-wrap">
                           <input type="text" required name="iznosdiska" placeholder="износ дисков %" readonly id="picker-iznosd">
                         </div>
                       </div>
@@ -672,10 +671,10 @@
 
 
                   <li class="diskhide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                      <div class="item-title label">количество штук</div>
-                        <div class="item-input">
+                      <div class="item-title item-label">количество штук</div>
+                        <div class="item-input-wrap">
                           <input type="number" required name="kol_disk" placeholder="количество штук">
                         </div>
                       </div>
@@ -689,9 +688,9 @@
                   <!-- prodazha avto -->
 
                   <li class="avtohide allhide">
-                     <div class="item-content">
+                     <div class="item-content item-input">
                        <div class="item-inner">
-                         <div class="item-input">
+                         <div class="item-input-wrap">
                            <input type="text" required name="marka" placeholder="выберите марку" readonly id="picker-dependent">
                          </div>
                        </div>
@@ -700,10 +699,10 @@
 
 
                    <li class="avtohide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                      <div class="item-title label">год выпуска</div>
-                        <div class="item-input">
+                      <div class="item-title item-label">год выпуска</div>
+                        <div class="item-input-wrap">
                           <input type="number" required name="yearavto" placeholder="год выпуска" >
                         </div>
                       </div>
@@ -711,10 +710,10 @@
                   </li>
 
                   <li class="avtohide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                      <div class="item-title label">пробег/км</div>
-                        <div class="item-input">
+                      <div class="item-title item-label">пробег/км</div>
+                        <div class="item-input-wrap">
                           <input type="number" required name="probeg" placeholder="пробег/км" >
                         </div>
                       </div>
@@ -723,10 +722,10 @@
 
 
                   <li class="avtohide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                      <div class="item-title label">объем</div>
-                        <div class="item-input">
+                      <div class="item-title item-label">объем</div>
+                        <div class="item-input-wrap">
                           <input type="text" required name="obem" placeholder="объем" class="obem">
                         </div>
                       </div>
@@ -895,10 +894,10 @@
                       </li>
 
                       <li class="avtohide allhide">
-                          <div class="item-content">
+                          <div class="item-content item-input">
                             <div class="item-inner">
-                            <div class="item-title label">цвет</div>
-                              <div class="item-input">
+                            <div class="item-title item-label">цвет</div>
+                              <div class="item-input-wrap">
                                 <input type="text" required name="svet" placeholder="цвет" readonly id="picker-type8">
                               </div>
                             </div>
@@ -907,10 +906,10 @@
 
 
                         <li class="avtohide allhide">
-                          <div class="item-content">
+                          <div class="item-content item-input">
                             <div class="item-inner">
-                            <div class="item-title label">состояние</div>
-                              <div class="item-input">
+                            <div class="item-title item-label">состояние</div>
+                              <div class="item-input-wrap">
                                 <input type="text" required name="sostoyanie" placeholder="состояние" readonly id="picker-type9">
                               </div>
                             </div>
@@ -1012,9 +1011,9 @@
                    <!-- prodazha spestehn -->
 
                   <li class="speshide allhide">
-                     <div class="item-content">
+                     <div class="item-content item-input">
                        <div class="item-inner">
-                         <div class="item-input">
+                         <div class="item-input-wrap">
                            <input type="text" required name="markaspes" placeholder="выберите марку" readonly id="picker-sdependent">
                          </div>
                        </div>
@@ -1022,10 +1021,10 @@
                    </li>
 
                    <li class="speshide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                      <div class="item-title label">модель</div>
-                        <div class="item-input">
+                      <div class="item-title item-label">модель</div>
+                        <div class="item-input-wrap">
                           <input type="text" required name="modelspes" placeholder="введите модель">
                         </div>
                       </div>
@@ -1033,9 +1032,9 @@
                   </li>
 
                   <li class="speshide allhide">
-                     <div class="item-content">
+                     <div class="item-content item-input">
                        <div class="item-inner">
-                         <div class="item-input">
+                         <div class="item-input-wrap">
                            <input type="text" required name="typespes" placeholder="выберите тип техники" readonly id="typedependent">
                          </div>
                        </div>
@@ -1044,10 +1043,10 @@
 
 
                   <li class="speshide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                      <div class="item-title label">год выпуска</div>
-                        <div class="item-input">
+                      <div class="item-title item-label">год выпуска</div>
+                        <div class="item-input-wrap">
                           <input type="number" required name="yearspes" placeholder="год выпуска">
                         </div>
                       </div>
@@ -1055,10 +1054,10 @@
                   </li>
 
                   <li class="speshide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                      <div class="item-title label">пробег/км</div>
-                        <div class="item-input">
+                      <div class="item-title item-label">пробег/км</div>
+                        <div class="item-input-wrap">
                           <input type="number" required name="probegspes" placeholder="пробег/км">
                         </div>
                       </div>
@@ -1067,10 +1066,10 @@
 
 
                   <li class="speshide allhide">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                      <div class="item-title label">объем</div>
-                        <div class="item-input">
+                      <div class="item-title item-label">объем</div>
+                        <div class="item-input-wrap">
                           <input type="text" required name="obemspes" placeholder="объем" class="obem">
                         </div>
                       </div>
@@ -1239,10 +1238,10 @@
                       </li>
 
                       <li class="speshide allhide">
-                          <div class="item-content">
+                          <div class="item-content item-input">
                             <div class="item-inner">
-                            <div class="item-title label">цвет</div>
-                              <div class="item-input">
+                            <div class="item-title item-label">цвет</div>
+                              <div class="item-input-wrap">
                                 <input type="text" required name="svetspes" placeholder="цвет" readonly id="picker-type8">
                               </div>
                             </div>
@@ -1251,10 +1250,10 @@
 
 
                         <li class="speshide allhide">
-                          <div class="item-content">
+                          <div class="item-content item-input">
                             <div class="item-inner">
-                            <div class="item-title label">состояние</div>
-                              <div class="item-input">
+                            <div class="item-title item-label">состояние</div>
+                              <div class="item-input-wrap">
                                 <input type="text" required name="sostoyaniespes" placeholder="состояние" readonly id="picker-type9">
                               </div>
                             </div>
@@ -1342,10 +1341,10 @@
 
 
                   <li class="align-top">
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                        <div class="item-title label">описание</div>
-                        <div class="item-input">
+                        <div class="item-title item-label">описание</div>
+                        <div class="item-input-wrap">
                             <textarea name="opisanie" required ng-model="user.description"></textarea>
                         </div>
                       </div>
@@ -1353,9 +1352,9 @@
                   </li>
 
                    <li>
-                     <div class="item-content">
+                     <div class="item-content item-input">
                        <div class="item-inner">
-                         <div class="item-input">
+                         <div class="item-input-wrap">
                            <input type="text" required name="city" placeholder="выберите регион"  required ng-model="user.city" readonly id="regionpicker">
                          </div>
                        </div>
@@ -1363,10 +1362,10 @@
                    </li>
 
                   <li>
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                      <div class="item-title label">телефон</div>
-                        <div class="item-input">
+                      <div class="item-title item-label">телефон</div>
+                        <div class="item-input-wrap">
                           <input  ng-model="user.phone" required name="telephone" class="myphone" type="text" placeholder="телефон">
                         </div>
                       </div>
@@ -1375,9 +1374,9 @@
 
 
                   <li>
-                      <div class="item-content">
+                      <div class="item-content item-input">
                         <div class="item-inner">
-                          <div class="item-input">
+                          <div class="item-input-wrap">
                             <input type="text" required name="chastn_liso"  ng-model="user.contact" placeholder="кем вы являетесь" readonly id="yourcontact">
                           </div>
                         </div>
@@ -1385,10 +1384,10 @@
                     </li>
 
                     <li>
-                    <div class="item-content">
+                    <div class="item-content item-input">
                       <div class="item-inner">
-                      <div class="item-title label">имя или название</div>
-                        <div class="item-input">
+                      <div class="item-title item-label">имя или название</div>
+                        <div class="item-input-wrap">
                           <input  required name="naimenovanie"  type="text" placeholder="имя или название">
                         </div>
                       </div>
@@ -1397,9 +1396,9 @@
 
 
                     <li>
-                      <div class="item-content">
+                      <div class="item-content item-input">
                         <div class="item-inner">
-                          <div class="item-input">
+                          <div class="item-input-wrap">
                             <input type="text" required name="commentarii" ng-model="user.comment" placeholder="разрешить комментарии" readonly id="yourcomment">
                           </div>
                         </div>
@@ -1407,10 +1406,10 @@
                     </li>
 
                     <li>
-                        <div class="item-content">
+                        <div class="item-content item-input">
                           <div class="item-media"><i class="icon f7-icons">cloud_download</i></div>
                           <div class="item-inner">
-                            <div class="item-input">
+                            <div class="item-input-wrap">
                               <a href="#" data-popup=".popup-download" class="popup-open button active">загрузка фото или видео</a>
                             </div>
                           </div>
@@ -1419,10 +1418,10 @@
 
 
                       <li>
-                        <div class="item-content">
+                        <div class="item-content item-input">
                           <div class="item-inner">
-                          <!-- <div class="item-title label">телефон</div> -->
-                            <div class="item-input">
+                          <!-- <div class="item-title item-label">телефон</div> -->
+                            <div class="item-input-wrap">
                               <!-- <a href="#"  ng-disabled="addform.$invalid"  class="sendob button">подать объявление</a> -->
                               <a href="#" class="sendob button">подать объявление</a>
                             </div>
