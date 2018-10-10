@@ -2,8 +2,8 @@ function getn1user(){
 
 
 
-
-    myApp.dialog.preloader();
+    $(".gifloader").show();
+    
 
 
       var ob = localStorage.getItem("obcabinet");
@@ -661,8 +661,7 @@ function getn1user(){
 
                               if(result[0] != "false"){
 
-                                  //$(".gifloader").hide();
-                                  myApp.dialog.close();
+                                  $(".gifloader").hide();
 
 
 
@@ -937,8 +936,7 @@ function getn1user(){
             control.addEventListener("change", function(event) {
 
 
-              //$(".gifloader").show();
-              myApp.dialog.preloader();
+              $(".gifloader").show();
 
             var files = control.files;
 
@@ -1052,8 +1050,7 @@ function getn1user(){
 
                                         $('.loader-hide').css("display","none");
                                         $('.progressbar').css("display","none");
-                                        //$(".gifloader").hide();
-                                        myApp.dialog.close();
+                                        $(".gifloader").hide();
 
                                         myApp.progressbar.set(progressbar, 10);
 
@@ -1139,7 +1136,7 @@ function getn1user(){
 
                                         $('.loader-hide').css("display","none");
                                         $('.progressbar').css("display","none");
-                                      //  $(".gifloader").hide();
+                                        $(".gifloader").hide();
 
                                         myApp.progressbar.set(progressbar, 10);
                                     }
