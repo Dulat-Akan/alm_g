@@ -3027,7 +3027,7 @@ var img = localStorage.getItem("baseurlimg");
           //rab
                             //console.log(result[0]);
                             //console.log(result[1]);
-
+                            myApp.dialog.close();
                             pageindex = result[3];
                             //pageindex = 200;
                             console.log(result);
@@ -3046,8 +3046,9 @@ var img = localStorage.getItem("baseurlimg");
                                 $(".page-content").scrollTop(0);
                                 myApp.dialog.close();
                             }else{
+                              myApp.dialog.close();
                               myApp.dialog.alert('извините ничего не найдено в данный момент мы набираем базу объявлений!','Сервис');
-                                  myApp.dialog.close();
+
                             }
 
                             //console.log(pageindex);
@@ -3055,7 +3056,9 @@ var img = localStorage.getItem("baseurlimg");
                             //console.log(result[5]);
 
 
-
+                              setTimeout(function(){
+                                myApp.dialog.close();
+                              },2000);
 
 
                       }

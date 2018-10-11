@@ -3,7 +3,7 @@ function getn1user(){
 
 
     $(".gifloader").show();
-    
+
 
 
       var ob = localStorage.getItem("obcabinet");
@@ -902,7 +902,7 @@ function getn1user(){
 
 
 
-      $(".backeventtwo").click(function(){
+      $(".popup-close-event").click(function(){
 
           globalfixcabinet = 0;
 
@@ -911,7 +911,8 @@ function getn1user(){
           //$(".inserth1us").empty();
 
           //mainView.router.back();
-          router.back();
+          myApp.popup.close();
+          //router.back();
 
       });
       //back
