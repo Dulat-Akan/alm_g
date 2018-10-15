@@ -39,4 +39,103 @@ function checkOsenka(){
       }
   }
 
-}
+};
+
+
+function restorepassword(){
+
+    myApp.dialog.prompt('Введите телефон для восстановления?','Kazpoisk', function (phone) {
+
+                            var newphone = "";
+
+
+                            if(phone.length <= 0){
+
+                              myApp.dialog.alert('Поле ввода не должно быть пустым','Kazpoisk');
+
+                              setTimeout(function(){
+
+                                  myApp.dialog.close();
+
+                                  restorepassword();
+
+                              },2000);
+
+                            }else{
+
+                                  for(var g = 0;g < phone.length;g++){
+
+                                      if(g == 1){
+                                        newphone += "(" + phone[g];
+                                      }else if(g == 4){
+                                        newphone += ")" + phone[g];
+                                      }else{
+
+                                        if(g == 0){
+                                            if(phone[g] == "7"){
+                                                newphone += "8";
+                                            }else{
+                                                newphone += phone[g];
+                                            }
+                                        }else{
+                                          newphone += phone[g];
+                                        }
+
+                                      }
+
+                                  }
+
+                                  //console.log(newphone);
+
+                                  var sendrestorepass = {
+
+                                                          "phone":newphone,
+
+                                                      }
+
+                                      //console.log(useridentificator4);
+
+                                         var urlrestore = localStorage.getItem("baseurl");
+
+                                        $.ajax({
+                                              "type":"GET",
+                                              "url": urlrestore + "restoreemailpassword/",    /*random restourants menu zakaZ*/
+
+                                              dataType: "jsonp",
+                                              crossDomain: true,
+                                              "data": sendrestorepass,
+
+                                              "success":kxrestore,
+                                              "error":errorfuncrestore
+
+                                              });
+
+
+                                        function kxrestore(result){
+
+                                                console.log(result);
+
+                                                if(result[1] == "ok"){
+                                                    myApp.dialog.alert('новый пароль выслан на email: ' + result[0],'Kazpoisk');
+                                                }else{
+                                                    myApp.dialog.alert('Номер абонента не найден! проверьте телефон ','Kazpoisk');
+                                                }
+
+
+
+
+
+                                        }
+
+                                        function errorfuncrestore(){
+
+
+                                        }
+
+                                  //
+
+                                  }
+
+                        });
+
+};

@@ -34,3 +34,33 @@ myApp.popup.close();
 
 
 closeByOutsideClick:true,
+
+
+
+
+
+
+getn1user
+backeventtwo
+popup-close-event
+myApp.dialog.preloader();
+
+
+<div class='container'>
+    <div class='loader-2'>
+      <div class='loader--dot'></div>
+      <div class='loader--dot'></div>
+      <div class='loader--dot'></div>
+      <div class='loader--dot'></div>
+      <div class='loader--dot'></div>
+      <div class='loader--dot'></div>
+      <div class='loader--text'></div>
+    </div>
+  </div>
+
+
+
+  <i class="icon icon-form-radio"
+  <i class="icon icon-radio"></i>
+
+  <i class="icon icon-checkbox"></i>

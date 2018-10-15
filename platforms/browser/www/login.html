@@ -1,147 +1,105 @@
+<div class="views">
 
-    <div class="views">
-
-      <!-- Your main view, should have "view-main" class-->
-      <div class="view view-main">
-        <!-- Top Navbar-->
-
-
-        
-
-
-         <!--  <div class="pages"> -->
-                <div data-page="login" class="page theme-blue toolbar-fixed navbar-fixed">
+  <div class="page" data-name="login">
 
 
 
+      <div class="navbar">
+          <div class="navbar-inner sliding">
+            <div class="left">
+              <a class="link back">
+                <i class="f7-icons">reply</i>
+                <span class="ios-only">назад</span>
+              </a>
+            </div>
+            <div class="title">Вход</div>
+          </div>
+        </div>
+
+
+    <div class="page-content login-screen-content">
+
+
+      <div class="gifloader_login" style="display:none;">
+
+                <div class='container'>
+                    <div class='loader-2'>
+                      <div class='loader--dot'></div>
+                      <div class='loader--dot'></div>
+                      <div class='loader--dot'></div>
+                      <div class='loader--dot'></div>
+                      <div class='loader--dot'></div>
+                      <div class='loader--dot'></div>
+                      <div class='loader--text'></div>
+                    </div>
+                  </div>
+
+             </div>
+
+      <span class="progressbar-infinite color-multi" style="display: none;"></span>
+
+
+            <div style="text-align:center;font-size:18px;padding:10px;">Вход</div>
+
+                 <form id="form-login" class="list store-data">
+
+                     <ul>
+
+
+                       <li class="item-content item-input">
+                         <div class="item-inner">
+                           <div class="item-title item-label">Телефон</div>
+                           <div class="item-input-wrap">
+                             <input type="text" required name="phone" placeholder="Ваш телефон">
+                           </div>
+                         </div>
+                       </li>
+
+
+                       <li class="item-content item-input">
+                         <div class="item-inner">
+                           <div class="item-title item-label">Пароль</div>
+                           <div class="item-input-wrap">
+                             <input type="password" required name="password" placeholder="Ваш пароль">
+                           </div>
+                         </div>
+                       </li>
+                     </ul>
+
+
+                 </form>
+
+                 <div class="content-block">
+                       <a href="#" class="button button-raised form-to-login">войти</a>
+                 </div>
+
+                 <div class="row">
+                     <div class="col-100">
+
+                       <p style="text-align: center;"><a  class="registr close-login-screen">регистрация </a><a href="#" class="close-login-screen restorepass">| восстановление забытого пароля</a></p>
+
+                     </div>
+
+                     <div class="col-100">
 
 
 
-                        <!-- Top Navbar-->
-                      <div class="navbar">
-                        <div class="navbar-inner">
-                          <div class="left">
-                            <a href="#" class="back link">
-                              <i class="icon icon-back"></i>
-                              <span>назад</span>
-                             </a>
-                          </div>
-                          <div class="center sliding">Вход</div>
-                          <div class="right">
-                            <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- /End of Top Navbar-->
-                  
-                   
-                   <div class="page-content login-screen-content">
+                     </div>
 
-                   <div class="gifloader">
-                            
-                            <div class="cssload-tetrominos">
-                                <div class="cssload-tetromino cssload-box1"></div>
-                                <div class="cssload-tetromino cssload-box2"></div>
-                                <div class="cssload-tetromino cssload-box3"></div>
-                                <div class="cssload-tetromino cssload-box4"></div>
-                              </div>
-                              
-                          </div>
+                     <!-- <div class="col-100">
 
-                   <span class="progressbar-infinite color-multi" style="display: none;"></span>
+                       <fb:login-button
+                         scope="public_profile,email"
+                         onlogin="checkLoginState();">
+                       </fb:login-button>
 
-                             
+                     </div>
+-->
 
-                              <form id="form-login" class="list-block store-data">
-                               
-                                  <ul>
-                                    <li class="item-content">
-                                      <div class="item-inner">
-                                        <div class="item-title label">Телефон</div>
-                                        <div class="item-input">
-                                          <input type="text" required name="phone" placeholder="Ваш телефон">
-                                        </div>
-                                      </div>
-                                    </li>
-                                   
+                 </div>
 
-                                    <li class="item-content">
-                                      <div class="item-inner">
-                                        <div class="item-title label">Пароль</div>
-                                        <div class="item-input">
-                                          <input type="password" required name="password" placeholder="Ваш пароль">
-                                        </div>
-                                      </div>
-                                    </li>
-                                  </ul>
-                               
-                                
-                              </form>
-
-                              <div class="content-block">
-                                    <a href="#" class="button form-to-login">войти</a>
-                              </div>
-
-                              <div class="row">
-                                  <div class="col-100">
-                                                        
-                                    <p style="text-align: center;"><a  class="registr close-login-screen">регистрация </a><a href="#" class="close-login-screen restorepass">| восстановление забытого пароля</a></p>
-
-                                  </div>
-
-                                  <div class="col-100">
-
-                                      <h3>Вход через социальные сети</h3>            
-                          
-                                  </div>
-
-                                  <!-- <div class="col-100">
-                                    
-                                    <fb:login-button 
-                                      scope="public_profile,email"
-                                      onlogin="checkLoginState();">
-                                    </fb:login-button>
-                            
-                                  </div>
- -->
-
-                              </div>
-                            </div>
-                          </div>
-
-
-                 
-
-
-                   
-
-
-
-
-                </div>
-             <!--  </div>  -->
-
-
-              
-
-
-      </div>
-      <!-- main view -->
 
     </div>
+  </div>
 
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
+</div>

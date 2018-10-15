@@ -19,7 +19,7 @@
 
 
 
-        <form name="addform" id="form_to_submit" ng-submit="" style="margin-bottom: 50px;" class="list no-hairlines-md "> <!-- store-data -->
+        <form name="addform" id="form_to_submit" ng-submit="" style="margin-bottom: 200px;" class="list no-hairlines-md "> <!-- store-data -->
 
 
               <ul>
@@ -493,11 +493,16 @@
 
 
                   <!-- prodazha zapchasti -->
+                  <div class="block zapchbuttons allhide">
+                    <p class="segmented segmented-raised">
+                      <button class="legk button ">легковая</button>
+                      <button class="gruz button ">грузовая</button>
+                    </p>
 
-                  <p class="buttons-row zapchbuttons allhide">
-                    <a href="#" class="legk button">легковая</a>
-                    <a href="#" class="gruz button">грузовая</a>
-                  </p>
+                  </div>
+
+
+
 
                   <li class="zapchhide allhide">
                      <div class="item-content item-input">
@@ -732,16 +737,14 @@
                     </div>
                   </li>
 
-                  <div class="content-block-title avtohide allhide">тип короби передач</div>
+                  <div class="block-title avtohide allhide">тип короби передач</div>
+
 
 
                    <li class="avtohide allhide">
-                        <label class="label-radio item-content">
-                          <!-- Checked by default -->
-                          <input type="radio" name="korobka" value="автомат" >
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                        <label class="item-radio item-content">
+                          <input type="radio" name="korobka" value="автомат"  >
+                            <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">автомат</div>
                           </div>
@@ -749,22 +752,18 @@
                       </li>
                       <!-- Another radio input -->
                       <li class="avtohide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="korobka" value="механика">
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">маханика</div>
                           </div>
                         </label>
                       </li>
                       <li class="avtohide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="korobka" value="электро">
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">прямой привод без кпп(для электрокаров)</div>
                           </div>
@@ -773,59 +772,49 @@
 
 
                       <li class="avtohide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="rul" value="левый руль" >
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">левый руль</div>
                           </div>
                         </label>
                       </li>
                       <li class="avtohide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="rul" value="правый руль">
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">правый руль</div>
                           </div>
                         </label>
                       </li>
 
-                      <div class="content-block-title avtohide allhide">тип топлива</div>
+                      <div class="block-title avtohide allhide">тип топлива</div>
 
 
                       <li class="avtohide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="toplivo" value="бензин" >
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">бензин</div>
                           </div>
                         </label>
                       </li>
                       <li class="avtohide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="toplivo" value="дизель" >
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">дизель</div>
                           </div>
                         </label>
                       </li>
                       <li class="avtohide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="toplivo" value="газ-бензин">
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">газ-бензин</div>
                           </div>
@@ -833,37 +822,31 @@
                       </li>
 
                       <li class="avtohide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="toplivo" value="электричество">
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">электричество</div>
                           </div>
                         </label>
                       </li>
                       <li class="avtohide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="toplivo" value="гибрид">
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">гибрид</div>
                           </div>
                         </label>
                       </li>
 
-                      <div class="content-block-title avtohide allhide">тип привода</div>
+                      <div class="block-title avtohide allhide">тип привода</div>
 
 
                       <li class="avtohide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="privod" value="передний" >
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">передний</div>
                           </div>
@@ -871,22 +854,18 @@
                       </li>
 
                       <li class="avtohide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="privod" value="4WD(полный привод)">
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">4WD(полный привод)</div>
                           </div>
                         </label>
                       </li>
                       <li class="avtohide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="privod" value="задний">
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">задний</div>
                           </div>
@@ -917,18 +896,16 @@
                         </li>
 
 
-                        <div class="content-block-title avtohide allhide">дополнительные опции</div>
+                        <div class="block-title avtohide allhide">дополнительные опции</div>
 
 
 
 
                       <li class="avtohide allhide">
-                        <label class="label-checkbox item-content">
+                        <label class="item-checkbox item-content">
                           <!-- Checked by default -->
                           <input type="checkbox" name="obmen" value="обмен">
-                          <div class="item-media">
-                            <i class="icon icon-form-checkbox"></i>
-                          </div>
+                          <i class="icon icon-checkbox"></i>
                           <div class="item-inner">
                             <div class="item-title">обмен</div>
                           </div>
@@ -936,11 +913,9 @@
                       </li>
                       <!-- Another chekbox item -->
                       <li class="avtohide allhide">
-                        <label class="label-checkbox item-content">
+                        <label class="item-checkbox item-content">
                           <input type="checkbox" name="obmen2" value="битый или не на ходу">
-                          <div class="item-media">
-                            <i class="icon icon-form-checkbox"></i>
-                          </div>
+                          <i class="icon icon-checkbox"></i>
                           <div class="item-inner">
                             <div class="item-title">битый или не на ходу</div>
                           </div>
@@ -948,12 +923,10 @@
                       </li>
 
                       <li class="avtohide allhide">
-                        <label class="label-checkbox item-content">
+                        <label class="item-checkbox item-content">
                           <!-- Checked by default -->
                           <input type="checkbox" name="obmen3" value="продажа по запчастям">
-                          <div class="item-media">
-                            <i class="icon icon-form-checkbox"></i>
-                          </div>
+                          <i class="icon icon-checkbox"></i>
                           <div class="item-inner">
                             <div class="item-title">продажа по запчастям</div>
                           </div>
@@ -961,11 +934,9 @@
                       </li>
                       <!-- Another chekbox item -->
                       <li class="avtohide allhide">
-                        <label class="label-checkbox item-content">
+                        <label class="item-checkbox item-content">
                           <input type="checkbox" name="obmen4" value="требуются вложения">
-                          <div class="item-media">
-                            <i class="icon icon-form-checkbox"></i>
-                          </div>
+                          <i class="icon icon-checkbox"></i>
                           <div class="item-inner">
                             <div class="item-title">требуются вложения</div>
                           </div>
@@ -973,11 +944,9 @@
                       </li>
 
                       <li class="avtohide allhide">
-                        <label class="label-checkbox item-content">
+                        <label class="item-checkbox item-content">
                           <input type="checkbox" name="obmen5" value="эта машина на заказ">
-                          <div class="item-media">
-                            <i class="icon icon-form-checkbox"></i>
-                          </div>
+                          <i class="icon icon-checkbox"></i>
                           <div class="item-inner">
                             <div class="item-title">эта машина на заказ</div>
                           </div>
@@ -986,11 +955,9 @@
 
 
                       <li class="avtohide allhide">
-                        <label class="label-checkbox item-content">
+                        <label class="item-checkbox item-content">
                           <input type="checkbox" name="tuning" value="машина прошла тюнинг">
-                          <div class="item-media">
-                            <i class="icon icon-form-checkbox"></i>
-                          </div>
+                          <i class="icon icon-checkbox"></i>
                           <div class="item-inner">
                             <div class="item-title">машина прошла тюнинг</div>
                           </div>
@@ -1076,15 +1043,13 @@
                     </div>
                   </li>
 
-                      <div class="content-block-title speshide allhide">тип короби передач</div>
+                      <div class="block-title speshide allhide">тип короби передач</div>
 
                    <li class="speshide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <!-- Checked by default -->
                           <input type="radio" name="korobkaspes" value="автомат" >
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">автомат</div>
                           </div>
@@ -1092,84 +1057,70 @@
                       </li>
                       <!-- Another radio input -->
                       <li class="speshide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="korobkaspes" value="механика">
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">маханика</div>
                           </div>
                         </label>
                       </li>
                       <li class="speshide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="korobkaspes" value="электро">
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">прямой привод без кпп(для электрокаров)</div>
                           </div>
                         </label>
                       </li>
 
-                      <div class="content-block-title speshide allhide">тип руля</div>
+                      <div class="block-title speshide allhide">тип руля</div>
 
                       <li class="speshide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="rulspes" value="левый руль" >
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">левый руль</div>
                           </div>
                         </label>
                       </li>
                       <li class="speshide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="rulspes" value="правый руль">
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">правый руль</div>
                           </div>
                         </label>
                       </li>
 
-                      <div class="content-block-title speshide allhide">тип топлива</div>
+                      <div class="block-title speshide allhide">тип топлива</div>
 
 
                       <li class="speshide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="toplivospes" value="бензин" >
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">бензин</div>
                           </div>
                         </label>
                       </li>
                       <li class="speshide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="toplivospes" value="дизель" >
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">дизель</div>
                           </div>
                         </label>
                       </li>
                       <li class="speshide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="toplivospes" value="газ-бензин">
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">газ-бензин</div>
                           </div>
@@ -1177,37 +1128,31 @@
                       </li>
 
                       <li class="speshide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="toplivospes" value="электричество">
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">электричество</div>
                           </div>
                         </label>
                       </li>
                       <li class="speshide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="toplivospes" value="гибрид">
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">гибрид</div>
                           </div>
                         </label>
                       </li>
 
-                      <div class="content-block-title speshide allhide">тип привода</div>
+                      <div class="block-title speshide allhide">тип привода</div>
 
 
                       <li class="speshide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="privodspes" value="передний" >
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">передний</div>
                           </div>
@@ -1215,22 +1160,18 @@
                       </li>
 
                       <li class="speshide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="privodspes" value="4WD(полный привод)">
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">4WD(полный привод)</div>
                           </div>
                         </label>
                       </li>
                       <li class="speshide allhide">
-                        <label class="label-radio item-content">
+                        <label class="item-radio item-content">
                           <input type="radio" name="privodspes" value="задний">
-                          <div class="item-media">
-                            <i class="icon icon-form-radio"></i>
-                          </div>
+                          <i class="icon icon-radio"></i>
                           <div class="item-inner">
                             <div class="item-title">задний</div>
                           </div>
@@ -1260,18 +1201,16 @@
                           </div>
                         </li>
 
-                        <div class="content-block-title speshide allhide">дополнительные опции</div>
+                        <div class="block-title speshide allhide">дополнительные опции</div>
 
 
 
 
                       <li class="speshide allhide">
-                        <label class="label-checkbox item-content">
+                        <label class="item-checkbox item-content">
                           <!-- Checked by default -->
                           <input type="checkbox" name="obmenspes" value="обмен">
-                          <div class="item-media">
-                            <i class="icon icon-form-checkbox"></i>
-                          </div>
+                          <i class="icon icon-checkbox"></i>
                           <div class="item-inner">
                             <div class="item-title">обмен</div>
                           </div>
@@ -1279,11 +1218,9 @@
                       </li>
                       <!-- Another chekbox item -->
                       <li class="speshide allhide">
-                        <label class="label-checkbox item-content">
+                        <label class="item-checkbox item-content">
                           <input type="checkbox" name="obmen2spes" value="битый или не на ходу">
-                          <div class="item-media">
-                            <i class="icon icon-form-checkbox"></i>
-                          </div>
+                          <i class="icon icon-checkbox"></i>
                           <div class="item-inner">
                             <div class="item-title">битый или не на ходу</div>
                           </div>
@@ -1291,12 +1228,10 @@
                       </li>
 
                       <li class="speshide allhide">
-                        <label class="label-checkbox item-content">
+                        <label class="item-checkbox item-content">
                           <!-- Checked by default -->
                           <input type="checkbox" name="obmen3spes" value="продажа по запчастям">
-                          <div class="item-media">
-                            <i class="icon icon-form-checkbox"></i>
-                          </div>
+                          <i class="icon icon-checkbox"></i>
                           <div class="item-inner">
                             <div class="item-title">продажа по запчастям</div>
                           </div>
@@ -1304,11 +1239,9 @@
                       </li>
                       <!-- Another chekbox item -->
                       <li class="speshide allhide">
-                        <label class="label-checkbox item-content">
+                        <label class="item-checkbox item-content">
                           <input type="checkbox" name="obmen4spes" value="требуются вложения">
-                          <div class="item-media">
-                            <i class="icon icon-form-checkbox"></i>
-                          </div>
+                          <i class="icon icon-checkbox"></i>
                           <div class="item-inner">
                             <div class="item-title">требуются вложения</div>
                           </div>
@@ -1316,11 +1249,9 @@
                       </li>
 
                       <li class="speshide allhide">
-                        <label class="label-checkbox item-content">
+                        <label class="item-checkbox item-content">
                           <input type="checkbox" name="obmen5spes" value="эта машина на заказ">
-                          <div class="item-media">
-                            <i class="icon icon-form-checkbox"></i>
-                          </div>
+                          <i class="icon icon-checkbox"></i>
                           <div class="item-inner">
                             <div class="item-title">эта техника на заказ</div>
                           </div>
@@ -1410,7 +1341,7 @@
                           <div class="item-media"><i class="icon f7-icons">cloud_download</i></div>
                           <div class="item-inner">
                             <div class="item-input-wrap">
-                              <a href="#" data-popup=".popup-download" class="popup-open button active">загрузка фото или видео</a>
+                              <a href="#" data-popup=".popup-download" class="popup-open button button-fill">загрузка фото или видео</a>
                             </div>
                           </div>
                         </div>
@@ -1423,7 +1354,8 @@
                           <!-- <div class="item-title item-label">телефон</div> -->
                             <div class="item-input-wrap">
                               <!-- <a href="#"  ng-disabled="addform.$invalid"  class="sendob button">подать объявление</a> -->
-                              <a href="#" class="sendob button">подать объявление</a>
+                              <!-- <a href="#" ng-disabled="addform.$invalid" class="sendob col button button-big button-raised button-fill">подать объявление</a> -->
+                              <button ng-disabled="addform.$invalid" class="sendob col button button-big button-outline">подать объявление</button>
                             </div>
                           </div>
                         </div>

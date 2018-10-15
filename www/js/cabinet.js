@@ -4,7 +4,7 @@
             $$(document).on('page:beforein', '.page[data-name="cabinet"]', function (e) {
 
 
-                          $(".gifloader").show();
+                          $(".gifloader2").show();
 
 
 
@@ -20,7 +20,7 @@
 
                             //console.log(useridentificator4);
 
-                            $('.loader-hide').css("display","block");
+                            $('.loader-hide2').css("display","block");
 
                                var urlm = localStorage.getItem("baseurl");
 
@@ -44,8 +44,8 @@
                                 if(result[0] != "noob"){
 
                                   //console.log(result);
-                                  $('.loader-hide').css("display","none");
-                                  $(".gifloader").hide();
+                                  $('.loader-hide2').css("display","none");
+                                  $(".gifloader2").hide();
                                   insertviewobuser(result);
                                 }
 
@@ -58,7 +58,7 @@
 
                               function errorfuncg(){
 
-                                $('.loader-hide').css("display","none");
+                                $('.loader-hide2').css("display","none");
                               }
 
                               //avtiv obyavlen
@@ -79,7 +79,7 @@
 
                             //console.log(useridentificator4);
 
-                            $('.loader-hide').css("display","block");
+                            $('.loader-hide2').css("display","block");
 
                                var urlmn = localStorage.getItem("baseurl");
 
@@ -105,8 +105,8 @@
                                 if(result[0] != "noob"){
 
                                   //console.log(result);
-                                  $('.loader-hide').css("display","none");
-                                  $(".gifloader").hide();
+                                  $('.loader-hide2').css("display","none");
+                                  $(".gifloader2").hide();
                                   insertviewobuserdeleted(result);
                                 }
 
@@ -119,7 +119,7 @@
 
                               function errorfuncgg(){
 
-                                $('.loader-hide').css("display","none");
+                                $('.loader-hide2').css("display","none");
                               }
 
                               //neactiv obyavl
@@ -198,7 +198,7 @@
 
                             //console.log(useridentificator4);
 
-                            $('.loader-hide').css("display","block");
+                            $('.loader-hide2').css("display","block");
 
                                var urlm = localStorage.getItem("baseurl");
 
@@ -222,8 +222,8 @@
                                 if(result[0] != "noob"){
 
                                   //console.log(result);
-                                  $('.loader-hide').css("display","none");
-                                  $(".gifloader").hide();
+                                  $('.loader-hide2').css("display","none");
+                                  $(".gifloader2").hide();
                                   insertviewobuser(result);
                                 }
 
@@ -236,7 +236,7 @@
 
                               function errorfuncg(){
 
-                                $('.loader-hide').css("display","none");
+                                $('.loader-hide2').css("display","none");
                               }
 
                               //avtiv obyavlen
@@ -257,7 +257,7 @@
 
                             //console.log(useridentificator4);
 
-                            $('.loader-hide').css("display","block");
+                            $('.loader-hide2').css("display","block");
 
                                var urlmn = localStorage.getItem("baseurl");
 
@@ -283,8 +283,8 @@
                                 if(result[0] != "noob"){
 
                                   //console.log(result);
-                                  $('.loader-hide').css("display","none");
-                                  $(".gifloader").hide();
+                                  $('.loader-hide2').css("display","none");
+                                  $(".gifloader2").hide();
                                   insertviewobuserdeleted(result);
                                 }
 
@@ -297,7 +297,7 @@
 
                               function errorfuncgg(){
 
-                                $('.loader-hide').css("display","none");
+                                $('.loader-hide2').css("display","none");
                               }
 
                               //neactiv obyavl
@@ -478,7 +478,7 @@
          ' width="80" height="80" style="background-size:cover;"></div> <div class="item-inner"> <div class="item-title-row"> <div class="item-title">'+ result[0][i].zagolovok +'</div>'+
          ' <div class="item-after">'+ result[0][i].sena +'</div> </div> <div class="item-subtitle">'+ result[0][i].city +'</div>'+
          ' <div class="item-text" style="margin-top:1px;"><div class="row">'+
-         '<i style="color:#4cd964;border:1px solid #4cd964;border-radius:5px;padding:4px;" ident="'+ i +'" class="material-icons color-green viewob">&#xE869;</i>'+
+         '<i style="color:#4cd964;border:1px solid #4cd964;border-radius:5px;padding:4px;" ident="'+ i +'" class="material-icons color-green viewobuser">&#xE869;</i>'+
          '<i style="color:#007aff;border:1px solid #007aff;border-radius:5px;padding:4px;"  upob="'+ result[0][i].id + '" class="material-icons color-blue upob">&#xE8E5;</i>'+
          '<i style="color:#ff9500;border:1px solid #ff9500;border-radius:5px;padding:4px;"  retimeid="'+ result[0][i].id + '" class="material-icons color-orange retimeob">&#xE192;</i>'+
          '<i style="color:#ff3b30;border:1px solid #ff3b30;border-radius:5px;padding:4px;"   rmid="'+ result[0][i].id + '" class="material-icons color-red deleteob">&#xE92B;</i></div></div> </div> </a> </li>';
@@ -745,7 +745,7 @@
 
                                            });
 
-                                           $(".viewob").click(function(){
+                                           $(".viewobuser").click(function(){
 
                                                var ident = $(this).attr("ident");
 

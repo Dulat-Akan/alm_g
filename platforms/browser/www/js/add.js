@@ -1265,6 +1265,10 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
 
                         $('[name = "markaspeszapch"]').val("");
 
+                        $(".legk").addClass("button-active");
+                        $(".gruz").removeClass("button-active");
+
+
                         localStorage.setItem("typezapchasti","легковая");
 
                     });
@@ -1273,6 +1277,9 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
 
                         $(".zapchhide").hide();
                         $(".zapchspeshide").show();
+
+                        $(".gruz").addClass("button-active");
+                        $(".legk").removeClass("button-active");
 
                         $('[name = "markazapch"]').val("");
 
