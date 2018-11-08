@@ -1,4 +1,4 @@
-#Tue Sep 25 22:26:50 ALMT 2018
+#Thu Nov 08 23:35:02 ALMT 2018
 base.0=/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/build/intermediates/transforms/dex/release/0
 renamed.0=classes.dex
 file.0=/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/build/intermediates/transforms/dex/release/0/classes.dex

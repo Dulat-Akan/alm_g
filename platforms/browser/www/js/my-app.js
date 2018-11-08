@@ -44,12 +44,12 @@
                     },
                     {
                       path: '/home/',
-                      url: '/main.html',
+                      url: 'main.html',
                       name:'home'
                     },
                     {
                       path: '/n1/',
-                      url: '/n1.html',
+                      url: 'n1.html',
                       name:'n1'
                     }
                   ],
@@ -74,7 +74,7 @@
 
           var globaltime = 0;
 
-          var appversion = 4;
+          var appversion = 5;
 
           var migrateitem = new Array();
 
@@ -788,10 +788,10 @@
                 if(result[0] != "false"){
 
                   $(".insertob").empty();
-
+//xxxx
                                             var countfindobjects = result[0].length;
 
-                                            $(".searchkvbutton").text("найдено " + countfindobjects + " объявлений");
+                                            $(".searchkvbutton").text("найдено " + countfindobjects + " публикаций");
 
                                             setTimeout(function () {
                                                 myApp.preloader.hide();
@@ -867,11 +867,8 @@
                                                             array2[j] = "";
                                                           }else{/*zakritie if*/
 
-
                                                             array[j];
                                                             array2[j];
-
-
 
                                                           }
 
@@ -897,23 +894,10 @@
                                                            }
 
                                                            if(fixz == 0){
-
-
-
                                                                   op = opisanie;
-
-
-
-
-
                                                            }
 
                                                } /*zakritie for*/
-
-
-
-
-
 
 
                                               var cityview = "";
@@ -923,11 +907,6 @@
                                               if(city != "0"){
                                                 cityview = city;
                                               }
-             //x10
-          //#ffd6d6 -- svet
-          //module podsvetki
-
-          //status promo == 1
 
           var newstatus = 0;
 
@@ -954,7 +933,7 @@
 //llll
 
           var templateobyav = '<li status="'+ newstatus + '" listid="'+ newstatus + " | " + statusid
-          +'" class="li_img_styling exmachange"> <div ident="'+ i +'" cashid="' + result[3] + '" class="viewob imgheight lazy" style="background: url(' + photourl
+          +'" class="li_img_styling exmachange"> <div ident="'+ i +'" cashid="' + result[3] + '" class="viewob imgheight" style="background: url(' + photourl
           + ') no-repeat center/cover;"> <div class="imgheight_div"> <div class="imgheight_title" >' + result[0][i].zagolovok
           + '</div> <div class="imgheight_text" >'+ cityview +'</div> <div class="imgheight_text" >'
           + array[0] + array2[0]+' '+array[1]+array2[1]+array[2]+array2[2]+' '+array[3]+array2[3] + ' ' + op
@@ -1161,7 +1140,7 @@
 
                                             var countfindobjects = result[0].length;
 
-                                            $(".searchkvbutton").text("найдено " + countfindobjects + " объявлений");
+                                            $(".searchkvbutton").text("найдено " + countfindobjects + " публикаций");
 
                                             setTimeout(function () {
                                                 myApp.preloader.hide();

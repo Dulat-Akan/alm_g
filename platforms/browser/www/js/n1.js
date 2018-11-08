@@ -422,7 +422,7 @@ for(var j = 0;j < array2.length;j++){
 
       if(array[j] == "телефон: "){
           phone = '<tr><td class="label-cell">'+ array[j] +'</td> <td  class="numeric-cell">'+ array2[j] +'</td></tr>';
-          $(".floating-button").attr("href","tel:" + array2[j]);
+          $("#phoneattr").attr("href","tel:" + array2[j]);
       }
 
       if(array[j] == "частное лицо: "){
