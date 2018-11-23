@@ -1,3 +1,6 @@
+
+//chrome://inspect/#devices
+
 $$(document).on('page:init', '.page[data-name="about"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
 });

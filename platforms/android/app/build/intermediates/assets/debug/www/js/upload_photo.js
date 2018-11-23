@@ -1,4 +1,23 @@
 
+
+//new exsperience photo module
+
+$(".openphotos").click(function(){
+
+    window.imagePicker.getPictures(
+      function(results) {
+          for (var i = 0; i < results.length; i++) {
+              console.log('Image URI: ' + results[i]);
+          }
+      }, function (error) {
+          console.log('Error: ' + error);
+      }
+    );
+
+});
+//new exsperience photo module
+
+
           //module upload photo
 
 

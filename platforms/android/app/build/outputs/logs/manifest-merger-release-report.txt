@@ -11,15 +11,18 @@ INJECTED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app
 	android:name
 		ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:12:127-180
 manifest
-ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
+ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:2:1-22:12
+MERGED from [com.android.support:appcompat-v7:23.4.0] /home/coderx/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.4.0.aar/e136ba66adb2d1542277eeccce4baf91/AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] /home/coderx/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-23.4.0.aar/143049547a8d18836f77918b0b53deb7/AndroidManifest.xml:2:1-9:12
+MERGED from [com.android.support:support-vector-drawable:23.4.0] /home/coderx/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-23.4.0.aar/469ef8cddafc32cdd084c67dd4266d0a/AndroidManifest.xml:2:1-9:12
 MERGED from [com.android.support:support-v4:24.1.1] /home/coderx/.gradle/caches/transforms-1/files-1.1/support-v4-24.1.1.aar/e418772e3bccae037df652ec66404b9c/AndroidManifest.xml:17:1-27:12
 MERGED from [:CordovaLib] /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/CordovaLib/build/intermediates/manifests/full/release/AndroidManifest.xml:20:1-27:12
-INJECTED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
+INJECTED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:2:1-22:12
 	package
 		ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:2:102-126
 		INJECTED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml
@@ -55,7 +58,13 @@ ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/sr
 	android:name
 		ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:4:22-64
 application
-ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:5:5-15:19
+ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:5:5-16:19
+MERGED from [com.android.support:appcompat-v7:23.4.0] /home/coderx/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.4.0.aar/e136ba66adb2d1542277eeccce4baf91/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:appcompat-v7:23.4.0] /home/coderx/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.4.0.aar/e136ba66adb2d1542277eeccce4baf91/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] /home/coderx/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-23.4.0.aar/143049547a8d18836f77918b0b53deb7/AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] /home/coderx/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-23.4.0.aar/143049547a8d18836f77918b0b53deb7/AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] /home/coderx/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-23.4.0.aar/469ef8cddafc32cdd084c67dd4266d0a/AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] /home/coderx/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-23.4.0.aar/469ef8cddafc32cdd084c67dd4266d0a/AndroidManifest.xml:7:5-20
 MERGED from [com.android.support:support-v4:24.1.1] /home/coderx/.gradle/caches/transforms-1/files-1.1/support-v4-24.1.1.aar/e418772e3bccae037df652ec66404b9c/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:24.1.1] /home/coderx/.gradle/caches/transforms-1/files-1.1/support-v4-24.1.1.aar/e418772e3bccae037df652ec66404b9c/AndroidManifest.xml:25:5-20
 	android:supportsRtl
@@ -92,22 +101,48 @@ category#android.intent.category.LAUNCHER
 ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:9:17-77
 	android:name
 		ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:9:27-74
+activity#com.synconset.MultiImageChooserActivity
+ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:15:9-160
+	android:label
+		ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:15:19-57
+	android:theme
+		ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:15:113-157
+	android:name
+		ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:15:58-112
 uses-sdk
-ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:16:5-74
+ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:17:5-74
+MERGED from [com.android.support:appcompat-v7:23.4.0] /home/coderx/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.4.0.aar/e136ba66adb2d1542277eeccce4baf91/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:23.4.0] /home/coderx/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.4.0.aar/e136ba66adb2d1542277eeccce4baf91/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] /home/coderx/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-23.4.0.aar/143049547a8d18836f77918b0b53deb7/AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] /home/coderx/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-23.4.0.aar/143049547a8d18836f77918b0b53deb7/AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.4.0] /home/coderx/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-23.4.0.aar/469ef8cddafc32cdd084c67dd4266d0a/AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-vector-drawable:23.4.0] /home/coderx/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-23.4.0.aar/469ef8cddafc32cdd084c67dd4266d0a/AndroidManifest.xml:5:5-43
 MERGED from [com.android.support:support-v4:24.1.1] /home/coderx/.gradle/caches/transforms-1/files-1.1/support-v4-24.1.1.aar/e418772e3bccae037df652ec66404b9c/AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-v4:24.1.1] /home/coderx/.gradle/caches/transforms-1/files-1.1/support-v4-24.1.1.aar/e418772e3bccae037df652ec66404b9c/AndroidManifest.xml:21:5-23:54
 MERGED from [:CordovaLib] /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/CordovaLib/build/intermediates/manifests/full/release/AndroidManifest.xml:25:5-44
 MERGED from [:CordovaLib] /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/CordovaLib/build/intermediates/manifests/full/release/AndroidManifest.xml:25:5-44
 	tools:overrideLibrary
-		ADDED from [com.android.support:support-v4:24.1.1] /home/coderx/.gradle/caches/transforms-1/files-1.1/support-v4-24.1.1.aar/e418772e3bccae037df652ec66404b9c/AndroidManifest.xml:23:9-51
+		ADDED from [com.android.support:appcompat-v7:23.4.0] /home/coderx/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.4.0.aar/e136ba66adb2d1542277eeccce4baf91/AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
-		ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:16:42-71
+		ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:17:42-71
 	android:minSdkVersion
-		ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:16:15-41
+		ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:17:15-41
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:17:5-81
+ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:18:5-81
 	android:name
-		ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:17:22-78
+		ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:18:22-78
+uses-permission#android.permission.READ_CONTACTS
+ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:19:5-72
+	android:name
+		ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:19:22-69
+uses-permission#android.permission.WRITE_CONTACTS
+ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:20:5-73
+	android:name
+		ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:20:22-70
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:21:5-71
+	android:name
+		ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:21:22-68
 meta-data#android.support.FILE_PROVIDER_PATHS
 ADDED from /home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/AndroidManifest.xml:13:13-123
 	android:resource

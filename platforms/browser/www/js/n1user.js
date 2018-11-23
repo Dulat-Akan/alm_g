@@ -386,9 +386,10 @@ function getn1user(){
 
             $(".inserth1us").empty();
 
-            var templateedituser = '<li class="align-top"> <div class="item-content">'+
-            ' <div class="item-inner"> <div class="item-title label">заголовок</div> <div class="item-input"> <textarea  name="заголовок" '+
-            'required ng-model="user.description">' + templateh1 + '</textarea> </div> </div> </div> </li>';
+
+            var templateedituser = '<li class="align-top"> <div class="item-content item-input"> <div class="item-inner"> <div class="item-title item-label">описание</div> <div class="item-input-wrap"> <textarea name="заголовок" required ng-model="user.description">' + templateh1 + '</textarea> </div> </div> </div> </li>';
+
+
 
             $(".inserth1us").append(templateedituser);
 
@@ -425,16 +426,19 @@ function getn1user(){
 
                           if(array[j] == "описание: "){
 
-                              templateob += '<li class="align-top"> <div class="item-content">'+
-                              ' <div class="item-inner"> <div class="item-title label">' + array[j] + '</div> <div class="item-input"> <textarea  name="' +array[j]+ '" '+
+                              templateob += '<li class="align-top"> <div class="item-content item-input">'+
+                              ' <div class="item-inner"> <div class="item-title item-label">' + array[j] + '</div> <div class="item-input-wrap"> <textarea  name="' +array[j]+ '" '+
                               'required >' + array2[j] + '</textarea> </div> </div> </div> </li>';
+
+
+
 
                           }else{
 
                             if(array[j] == "цена: "){
 
-                              templateob += '<li> <div class="item-content"> <div class="item-inner">'+
-                            ' <div class="item-title label">'+ array[j] +'</div> <div class="item-input"> <input  ng-model="user.phone" '+
+                              templateob += '<li> <div class="item-content item-input"> <div class="item-inner">'+
+                            ' <div class="item-title item-label">'+ array[j] +'</div> <div class="item-input-wrap"> <input  ng-model="user.phone" '+
                             ' required name="' +array[j]+ '" class="myphone" type="text" value="'+ array2[j] +'"> </div> </div> </div> </li>';
 
                             }
@@ -452,8 +456,8 @@ function getn1user(){
 
             if(array[j] == "телефон: "){
                // phone = '<tr><td class="label-cell">'+ array[j] +'</td> <td  class="numeric-cell">'+ array2[j] +'</td></tr>';
-                phone = '<li> <div class="item-content"> <div class="item-inner">'+
-                          ' <div class="item-title label">'+ array[j] +'</div> <div class="item-input"> <input  ng-model="user.phone" '+
+                phone = '<li> <div class="item-content item-input"> <div class="item-inner">'+
+                          ' <div class="item-title item-label">'+ array[j] +'</div> <div class="item-input-wrap"> <input  ng-model="user.phone" '+
                           ' required name="' + array[j] + '" class="myphone" type="text" value="'+ array2[j] +'"> </div> </div> </div> </li>';
                 //$(".floating-button").attr("href","tel:" + array2[j]);
             }
@@ -479,6 +483,10 @@ function getn1user(){
 
 
       $(".inserth1us").append(templateob);
+
+
+
+
 
 
 
@@ -669,7 +677,7 @@ function getn1user(){
                                   for(var g = 0; g < result[0].length;g++){
                                   var imgurl = localStorage.getItem("baseurlimg2");
                                   var appendstring = '<li> <a href="#" class="item-link item-content"> <div class="item-media">'+
-                                  '<img photoids="' + g + '" src="' + imgurl + result[0][g] + '" width="80"></div> <div class="item-inner"> '+
+                                  '<img style="height:80px;" photoids="' + g + '" src="' + imgurl + result[0][g] + '" width="80"></div> <div class="item-inner"> '+
                                   '<div class="item-title-row"> <div class="item-title"><button rmid="'+ idss +'" rmcount="'+ g +'" class="col button button-small button-fill rotatephtwoy">перевернуть</button></div> <div class="item-after"><button rmid="'+ idss +'" rmcount="' + g + '" class="button color-red removephy">удалить</button></div> </div> '+
                                   '<div class="item-subtitle"></div> <div class="item-text"></div> </div> </a> </li>';
                                   $(".appendphototwo").append(appendstring);
@@ -1202,6 +1210,26 @@ function getn1user(){
             globalfixcodecabinet = 1;
 
 
+            var newprosm = "0." + String(kol_prosmotrov);
+            var newnumber = Number(newprosm);
+
+            var demoGaugey = myApp.gauge.create({
+                el: '.ob-gaugetwo',
+                type: 'circle',
+                value: newnumber,
+                size: 250,
+                borderColor: '#2196f3',
+                borderWidth: 10,
+                valueText: String(kol_prosmotrov),
+                valueFontSize: 41,
+                valueTextColor: '#2196f3',
+                labelText: 'количество просмотров',
+            });
+
+            demoGaugey.update({
+               value: newnumber,
+               valueText: String(kol_prosmotrov)
+             });
 
 
                 },10);
@@ -1212,5 +1240,33 @@ function getn1user(){
 
 
       }
+
+
+
+
+
+      $(".changetabsuser").click(function(){
+
+
+          var mydivtabs = ["#tab-6","#tab-7"];
+
+          var tt = $(this).attr("href");
+
+          for(var g = 0;g < mydivtabs.length;g++){
+
+              if(mydivtabs[g] == tt){
+
+                  $(mydivtabs[g]).css("display","block");
+
+              }else{
+
+                  $(mydivtabs[g]).css("display","none");
+
+              }
+
+          }
+
+
+      });
 
 }

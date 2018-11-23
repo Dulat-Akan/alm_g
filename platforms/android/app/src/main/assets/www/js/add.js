@@ -1015,9 +1015,39 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
                           $(".gifloader").show();
 
 
-                          var formData = myApp.form.convertToData('#form_to_submit');
+                          //var formData = myApp.form.convertToData('#form_to_submit');
+                          var formarray = $('#form_to_submit').serializeArray();
+
+                          var formData = new Object();
+
+                          for(var j = 0;j < formarray.length;j++){
+                              formData[formarray[j].name] = formarray[j].value;
+                          }
 
 
+
+
+                          var arrayn = ['sena1','sena2'];
+
+                          $.each(formData, function( index, value ) {
+
+                              for(var i = 0;i < arrayn.length;i++){
+
+                                  if(index == arrayn[i]){
+                                      if(value.length > 0){
+                                          formData['sena'] = value;
+                                          console.log( index + ": " + value );
+                                      }
+                                  }
+
+                              }
+
+
+                            });
+
+                            //console.log(formData);
+
+                          //return false;
 
                           //manipulyasiya s dannimi
 
@@ -1196,7 +1226,7 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
 
 
                             function kx001(result){
-
+///xxx
                                 //console.log(result);
 
                                     if(result[0] == "ok"){
@@ -1226,7 +1256,8 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
 
                                         setTimeout(function(){
 
-                                            window.location.reload();
+                                            firstviewob();
+                                            //window.location.reload();
 
 
                                         },2000);

@@ -471,9 +471,9 @@ if(arraytwo[globalvalue] != "n.jpg"){
 
 
 
-photoar.push(photourl);
+          photoar.push(photourl);
 
-g = 1;
+          g = 1;
 
 
 
@@ -604,12 +604,67 @@ var mySwiper2 = myApp.swiper.create('.swiper-2', {
 //slider
 
 
-//video
+//insert graph
+
+var newprosm = "0." + String(kol_prosmotrov);
+var newnumber = Number(newprosm);
+
+
+// Init top demo gauge
+var demoGauget = myApp.gauge.create({
+    el: '.ob-gauge',
+    type: 'circle',
+    value: newnumber,
+    size: 250,
+    borderColor: '#2196f3',
+    borderWidth: 10,
+    valueText: String(kol_prosmotrov),
+    valueFontSize: 41,
+    valueTextColor: '#2196f3',
+    labelText: 'количество просмотров',
+});
+
+demoGauget.update({
+   value: newnumber,
+   valueText: String(kol_prosmotrov)
+ });
 
 
 
-//video
 
+$(".changetabsn").click(function(){
+
+
+    var mydivtabs = ["#tab-11","#tab-22"];
+
+    var tt = $(this).attr("href");
+
+    for(var g = 0;g < mydivtabs.length;g++){
+
+        if(mydivtabs[g] == tt){
+
+            $(mydivtabs[g]).css("display","block");
+
+        }else{
+
+            $(mydivtabs[g]).css("display","none");
+
+        }
+
+    }
+
+
+});
+//insert graph
+
+
+//counting view
+
+
+countionview(id);
+
+
+//counting view
 
 
 
@@ -633,3 +688,42 @@ var mySwiper2 = myApp.swiper.create('.swiper-2', {
 
 
 });
+
+
+function countionview(ids){
+
+
+    var sendupdate = {
+                        "id":ids,
+                    }
+
+                       var bur = localStorage.getItem("baseurl");
+
+                      $.ajax({
+                            "type":"GET",
+                            "url": bur + "countingviews/",    /*random restourants menu zakaZ*/
+
+                            dataType: "jsonp",
+                            crossDomain: true,
+                            "data": sendupdate,
+
+                            "success":kx2881,
+                            "error":errorfunc
+
+                            });
+
+
+                      function kx2881(result){
+
+                              //console.log(result);
+
+                      }
+
+                      function errorfunc(){
+
+
+                      }
+
+
+
+};

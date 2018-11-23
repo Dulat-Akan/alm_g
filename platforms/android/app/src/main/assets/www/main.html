@@ -10,9 +10,14 @@
     <!-- Your app title -->
     <title>kazpoisk</title>
     <!-- Path to Framework7 Library CSS -->
+
     <link rel="stylesheet" href="css/framework7-icons.css">
 
     <link rel="stylesheet" href="css/framework7.min.css">
+      <link rel="stylesheet" href="js/gauge/gauge.css">
+
+
+
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="css/my-app.css">
 
@@ -145,6 +150,14 @@
                   <div class="page-content hide-toolbar-on-scroll hide-navbar-on-scroll">
 
                     <!-- <div class="page-content " style="background-color: white;"> -->
+
+                    <!-- we will init this gauge in JavaScript -->
+
+
+
+
+
+
 
                       <div id="opensearch" class="opensearch" >
                           <img style="width:100%;" src="http://kazpoisk.kz/img/icons/magnifier.png" alt="">
@@ -1923,6 +1936,27 @@
 
 
 
+                                <!-- <div class="list">
+                                  <ul>
+                                    <li>
+                                      <div class="item-content">
+                                        <div class="item-media"><i class="f7-icons">cloud_upload</i></div>
+                                        <div class="item-inner">
+                                          <div class="item-title label">select photos</div>
+                                          <div class="item-input">
+                                              <button class="button openphotos">open photo</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </li>
+                                  </ul>
+                                </div> -->
+
+
+
+
+
+
                                 <p><a href="#" class="button button-small button-fill popup-close" style="">закрыть</a></p>
 
 
@@ -1941,7 +1975,7 @@
                       <div class="popup popup-n1user">
 
 
-                                      <div class="navbar">
+                                      <div class="navbar" >
                                           <div class="navbar-inner sliding">
                                             <div class="left">
                                               <!-- <a href="/cabinet/" class="link back"> -->
@@ -1950,138 +1984,167 @@
                                                 <span class="ios-only">назад</span>
                                               </a>
                                             </div>
-                                            <div class="title" style="color:black;">Личный кабинет</div>
+                                            <div class="title" style="color:black;">Редактирование</div>
+                                          </div>
+                                        </div>
+
+
+                                        <div class="toolbar tabbar" style="top:0px;" >
+                                          <div class="toolbar-inner">
+                                            <a href="#tab-6" class="tab-link tab-link-active changetabsuser" >основная</a>
+                                            <a href="#tab-7" class="tab-link changetabsuser" >статистика</a>
                                           </div>
                                         </div>
 
 
 
 
-                                        <div  class="page-content" style="background: white;">
 
 
+                                        <div  class="page-content" style="background: white;padding-top:0px;">
 
 
-                                          <form id="edituserob" class="list  form_edituser">
+                                              <div class="tabs">
 
-                                          <ul class="inserth1us">
+                                                <div id="tab-6" class="tab tab-active" style="display: block;">
 
+                                                        <form id="edituserob" class="list no-hairlines-md  form_edituser" >
 
-
-
-
-                                          </ul>
-
-                                              <button class="button col button-fill updateevent">обновить</button>
-
-
-
-                                          </form>
-
-                                          <div class="list">
-
-                                              <ul class="insertimgus">
-
-                                              </ul>
-
-
-                                          </div>
-                                   <!-- x3 -->
-                                           <div class="content-block-title" style="text-align: center;">фотографии и видео</div>
-
-                                           <div class="demo-progressbar-inline">
-                                                        <p><span data-progress="10"  style="border:2px solid white;color:red;" class="progressbar color-red"></span></p>
-                                                        <p><span data-progress="10"  style="border:2px solid white;color:red;" class="progressbar color-green"></span></p>
-                                                        <p><span data-progress="10"  style="border:2px solid white;color:red;" class="progressbar color-yellow"></span></p>
-                                                      </div>
-
-
-                                                      <div class="gifloader loader-hide">
-
-
-                                                            <div class='container'>
-                                                                <div class='loader-2'>
-                                                                  <div class='loader--dot'></div>
-                                                                  <div class='loader--dot'></div>
-                                                                  <div class='loader--dot'></div>
-                                                                  <div class='loader--dot'></div>
-                                                                  <div class='loader--dot'></div>
-                                                                  <div class='loader--dot'></div>
-                                                                  <div class='loader--text'></div>
-                                                                </div>
-                                                              </div>
-
-                                                        </div>
+                                                        <ul class="inserth1us">
 
 
 
 
 
-                                           <div class="list">
-                                                          <ul>
-                                                            <li>
-                                                              <div class="item-content">
-                                                                <div class="item-media"><i class="f7-icons">cloud_upload</i></div>
-                                                                <div class="item-inner">
-                                                                  <div class="item-title label">загрузка</div>
-                                                                  <div class="item-input">
-                                                                      <input type="file" name="myfile" multiple id="myfile5" accept="image/*;video/*;capture=camera">
-                                                                  </div>
-                                                                </div>
-                                                              </div>
-                                                            </li>
-                                                          </ul>
-                                                        </div>
+                                                        </ul>
+
+                                                            <button class="button col button-fill updateevent">обновить</button>
 
 
-                                                            <div class="list media-list">
-                                                              <ul class="appendphototwo">
 
+                                                        </form>
 
-                                                              </ul>
-                                                            </div>
+                                                        <div class="list">
 
-
-                                                          <div class="list">
-                                                            <ul class="appendvideotwo">
+                                                            <ul class="insertimgus" >
 
                                                             </ul>
-                                                          </div>
-
-                                                          <div class="progressbar progressbar-infinite color-multi "></div>
 
 
+                                                        </div>
+                                                 <!-- x3 -->
+                                                         <div class="block" style="text-align: center;">фотографии и видео</div>
+
+                                                         <div class="demo-progressbar-inline">
+                                                                      <p><span data-progress="10"  style="border:2px solid white;color:red;" class="progressbar color-red"></span></p>
+                                                                      <p><span data-progress="10"  style="border:2px solid white;color:red;" class="progressbar color-green"></span></p>
+                                                                      <p><span data-progress="10"  style="border:2px solid white;color:red;" class="progressbar color-yellow"></span></p>
+                                                                    </div>
+
+
+                                                                    <div class="gifloader loader-hide">
+
+
+                                                                          <div class='container'>
+                                                                              <div class='loader-2'>
+                                                                                <div class='loader--dot'></div>
+                                                                                <div class='loader--dot'></div>
+                                                                                <div class='loader--dot'></div>
+                                                                                <div class='loader--dot'></div>
+                                                                                <div class='loader--dot'></div>
+                                                                                <div class='loader--dot'></div>
+                                                                                <div class='loader--text'></div>
+                                                                              </div>
+                                                                            </div>
+
+                                                                      </div>
 
 
 
-                                          <div class="swiper-container swiper-2">
-
-                                           <!--  <div class="insertimgus">
 
 
-                                            </div> -->
-                                          </div>
-
-                                          <div class="insertvideous">
-
-
-                                          </div>
-
-
-
-                                          <div class="data-table card">
-
-
-                                            <!-- <table >
-
-                                              <tbody class="insertobvnus">
-
-                                              </tbody>
-
-                                            </table> -->
+                                                         <div class="list">
+                                                                        <ul>
+                                                                          <li>
+                                                                            <div class="item-content">
+                                                                              <div class="item-media"><i class="f7-icons">cloud_upload</i></div>
+                                                                              <div class="item-inner">
+                                                                                <div class="item-title label">загрузка</div>
+                                                                                <div class="item-input">
+                                                                                    <input type="file" name="myfile" multiple id="myfile5" accept="image/*;video/*;capture=camera">
+                                                                                </div>
+                                                                              </div>
+                                                                            </div>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
 
 
-                                          </div>
+                                                                          <div class="list media-list" style="height:10em;">
+                                                                            <ul class="appendphototwo" style="">
+
+
+                                                                            </ul>
+                                                                          </div>
+
+
+                                                                        <div class="list" style="height:10em;">
+                                                                          <ul class="appendvideotwo">
+
+                                                                          </ul>
+                                                                        </div>
+
+                                                                        <div class="progressbar progressbar-infinite color-multi "></div>
+
+
+
+
+
+                                                        <div class="swiper-container swiper-2">
+
+                                                         <!--  <div class="insertimgus">
+
+
+                                                          </div> -->
+                                                        </div>
+
+                                                        <div class="insertvideous">
+
+
+                                                        </div>
+
+
+
+                                                        <div class="data-table card">
+
+
+                                                          <!-- <table >
+
+                                                            <tbody class="insertobvnus">
+
+                                                            </tbody>
+
+                                                          </table> -->
+
+
+                                                        </div>
+
+
+                                                </div>
+
+                                                <div id="tab-7" class="tab">
+
+                                                  <div class="block block-strong text-align-center">
+
+                                                          <div class="gauge ob-gaugetwo "></div>
+
+                                                    </div>
+
+
+                                                </div>
+                                              </div>
+
+
 
                                           <!-- <video width="100%" src="http://www.kazpoisk.kz/assets/entry/uploadsv/0ff9f07e2906a89923669189928a87ce.mp4"></video> -->
 
@@ -2090,6 +2153,9 @@
 
 
                                         </div>
+
+
+
 
 
 
@@ -2119,6 +2185,9 @@
 
     <script src="cordova.js"></script>
     <!-- Path to Framework7 Library JS-->
+
+
+        <script type="text/javascript" src="js/gauge/gauge.js"></script>
     <script type="text/javascript" src="js/framework7.min.js"></script>
 
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
@@ -2130,6 +2199,8 @@
 
    <script type="text/javascript" src="js/validation.js"></script>
     <!-- Path to your app js-->
+
+
 
     <script type="text/javascript" src="js/my-app.js"></script>
 

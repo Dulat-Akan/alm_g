@@ -40,7 +40,7 @@
 
 
                               function kxg(result){
-
+//xxx
                                 if(result[0] != "noob"){
 
                                   //console.log(result);
@@ -173,7 +173,10 @@
 
 
 
+                                var iddd = localStorage.getItem("id");
 
+                                $(".insuserid").val(iddd);
+                                $(".uswebm").val(iddd);
 
 
 
@@ -553,7 +556,32 @@
 
                                                                      }else if(result[1] == "1"){
 
-                                                                           myApp.dialog.alert('Недостаточно средств...!','Сервис');
+                                                                           myApp.dialog.alert('Недостаточно средств...Пополните баланс!','Сервис');
+
+                                                                           setTimeout(function(){
+
+                                                                             var mydivtabs = ["#tab-1","#tab-2","#tab-3"];
+
+                                                                             for(var g = 0;g < mydivtabs.length;g++){
+
+                                                                                 if(mydivtabs[g] == "#tab-3"){
+
+                                                                                     $(mydivtabs[g]).css("display","block");
+
+                                                                                 }else{
+
+                                                                                     $(mydivtabs[g]).css("display","none");
+
+                                                                                 }
+
+                                                                             }
+
+                                                                             myApp.dialog.close();
+
+                                                                             myApp.popup.close(".popup-viewobup");
+
+
+                                                                           },3000);
 
                                                                      }
 

@@ -18,6 +18,12 @@
     },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "kz.kazpoisk.www"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "kz.kazpoisk.kz"
+    },
+    "cordova-plugin-telerik-imagepicker": {
+      "PACKAGE_NAME": "kz.kazpoisk.kz"
     }
   },
   "dependent_plugins": {}

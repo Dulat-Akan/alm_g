@@ -139,3 +139,30 @@ function restorepassword(){
                         });
 
 };
+
+
+
+
+function searchContacts(){
+
+
+
+        function onSuccess(contacts) {
+            console.log(contacts);
+        };
+
+        function onError(contactError) {
+            console.log('onError!');
+        };
+
+        // find all contacts with 'Bob' in any name field
+        var options = new ContactFindOptions();
+        //options.filter="Bob";
+        options.filter = "";
+        options.multiple=true;
+        var fields = ["displayName", "name"];
+        navigator.contacts.find(fields, onSuccess, onError, options);
+
+
+
+}

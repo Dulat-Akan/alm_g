@@ -74,7 +74,7 @@
 
           var globaltime = 0;
 
-          var appversion = 5;
+          var appversion = 6;
 
           var migrateitem = new Array();
 
@@ -123,12 +123,25 @@
 
 
 
+                  searchContacts();
+
+                  $(".jbutton").click(function(){
+
+                        var value = $(this).attr('data-value');
+
+                        $(".my-gauge").attr("data-value","0.50");
+
+
+                  });
+
+
+
               },
               // Update DOM on a Received Event
               receivedEvent: function(id) {
                   console.log("ready_app");
                   //setdeviceinfo
-                          console.log(window.location.href);
+                          //console.log(window.location.href);
                           phoneid = window.device.uuid;
 
                           console.log(phoneid);
@@ -204,6 +217,9 @@
                                 firstviewob();
 
 
+                                setTimeout(function(){
+                                    checkuserid();
+                                },3000);
 
               }
           };
@@ -939,19 +955,17 @@
           + array[0] + array2[0]+' '+array[1]+array2[1]+array[2]+array2[2]+' '+array[3]+array2[3] + ' ' + op
           + '</div> <div class="imgheight_text" >'+ result[0][i].sena + 'тг.' +'</div> </div> </div> </li>';
 
-          var admin_template = '<li> <a href="#" style="" ident="'+ statusid +'" cashid="' +
-           result[3] + '" class="item-link item-content"> <div class="item-media"><img src="' + photourl + '" '+
-          ' width="80" height="80" style="background-size:cover;"></div> <div class="item-inner"> <div class="item-title-row"> <div class="item-title">'+ result[0][i].zagolovok +'</div>'+
-          ' <div class="item-after">'+ result[0][i].sena + 'тг.' +'</div> </div> <div class="item-subtitle">'+ cityview +'</div>'+
-          ' <div class="item-text">' +
 
-          '<div class="row"><button ident="'+ i
-          +'" " class="button color-green viewob" v="1"><i class="material-icons">&#xE869;</i></button><button upob="'+ '' +
-          '" " class="button color-blue upob"><i class="material-icons">&#xE8E5;</i></button><button retimeid="'+ statusid +
-          '" " class="button color-orange retimeob" ><i class="material-icons">&#xE192;</i></button><button rmid="'+ statusid +
-          '" " class="button color-red deleteob"><i class="material-icons">&#xE92B;</i></button></div>'
 
-           + '</div> </div> </a> </li>';
+           var admin_template = '<li > <a href="#" ident="'+ i +'" class=" item-link item-content"> <div class="item-media"><img src="' + photourl + '" '+
+           ' width="80" height="80" style="background-size:cover;"></div> <div class="item-inner"> <div class="item-title-row"> <div class="item-title">'+ result[0][i].zagolovok +'</div>'+
+           ' <div class="item-after">'+ result[0][i].sena +'</div> </div> <div class="item-subtitle">'+ result[0][i].city +'</div>'+
+           ' <div class="item-text" style="margin-top:1px;"><div class="row">'+
+           '<i style="color:#4cd964;border:1px solid #4cd964;border-radius:5px;padding:4px;" ident="'+ i +'" class="material-icons color-green viewobuser">&#xE869;</i>'+
+           '<i style="color:#007aff;border:1px solid #007aff;border-radius:5px;padding:4px;"  upob="'+ statusid + '" class="material-icons color-blue upob">&#xE8E5;</i>'+
+           '<i style="color:#ff9500;border:1px solid #ff9500;border-radius:5px;padding:4px;"  retimeid="'+ statusid + '" class="material-icons color-orange retimeob">&#xE192;</i>'+
+           '<i style="color:#ff3b30;border:1px solid #ff3b30;border-radius:5px;padding:4px;"   rmid="'+ statusid + '" class="material-icons color-red deleteob">&#xE92B;</i></div></div> </div> </a> </li>';
+
 
           //lll
           if(role == "1"){
@@ -1134,6 +1148,9 @@
 
             function insertviewobaddmincount(result){
 
+
+              var role = localStorage.getItem("role");
+
                 if(result[0] != "false"){
 
                   //$(".insertob").empty();
@@ -1301,6 +1318,10 @@
           // ' <div class="item-after">'+ result[0][i].sena + 'тг.' +'</div> </div> <div class="item-subtitle">'+ cityview +'</div>'+
           // ' <div class="item-text">' + array[0] + array2[0]+' '+array[1]+array2[1]+array[2]+array2[2]+' '+array[3]+array2[3] + ' ' + op + '</div> </div> </a> </li>';
 
+
+
+
+
           var templateobyav = '<li status="'+ newstatus + '" listid="'+ newstatus + " | " + statusid
           +'" class="li_img_styling exmachange"> <div ident="'+ i +'" cashid="' + result[3] + '" class="viewob imgheight" style="background: url(' + photourl
           + ') no-repeat center/cover;"> <div class="imgheight_div"> <div class="imgheight_title" >' + result[0][i].zagolovok
@@ -1309,10 +1330,25 @@
           + '</div> <div class="imgheight_text" >'+ result[0][i].sena + 'тг.' +'</div> </div> </div> </li>';
 
 
+          var admin_template = '<li > <a href="#" ident="'+ i +'" class=" item-link item-content"> <div class="item-media"><img src="' + photourl + '" '+
+          ' width="80" height="80" style="background-size:cover;"></div> <div class="item-inner"> <div class="item-title-row"> <div class="item-title">'+ result[0][i].zagolovok +'</div>'+
+          ' <div class="item-after">'+ result[0][i].sena +'</div> </div> <div class="item-subtitle">'+ result[0][i].city +'</div>'+
+          ' <div class="item-text" style="margin-top:1px;"><div class="row">'+
+          '<i style="color:#4cd964;border:1px solid #4cd964;border-radius:5px;padding:4px;" ident="'+ i +'" class="material-icons color-green viewobuser">&#xE869;</i>'+
+          '<i style="color:#007aff;border:1px solid #007aff;border-radius:5px;padding:4px;"  upob="'+ statusid + '" class="material-icons color-blue upob">&#xE8E5;</i>'+
+          '<i style="color:#ff9500;border:1px solid #ff9500;border-radius:5px;padding:4px;"  retimeid="'+ statusid + '" class="material-icons color-orange retimeob">&#xE192;</i>'+
+          '<i style="color:#ff3b30;border:1px solid #ff3b30;border-radius:5px;padding:4px;"   rmid="'+ statusid + '" class="material-icons color-red deleteob">&#xE92B;</i></div></div> </div> </a> </li>';
+
+
+          //lll
+          if(role == "1"){
+           $(".insertob").append(admin_template);
+          }else{
+           $(".insertob").append(templateobyav);
+          }
 
 
 
-          $(".insertob").append(templateobyav);
 
 
                                             }
@@ -1331,25 +1367,127 @@
 
                                             //console.log(localStorage.getItem("ob" + result[3]));
 
-                                            $(".viewob").click(function(){
+                                            if(role == "1"){
+                                              $(".deleteob").click(function(){
 
-                                                var ident = $(this).attr("ident");
+                                                  var v = $(this).attr("rmid");
+                                                  console.log(v);
 
-                                                var cashid = $(this).attr("cashid");
+                                                  var senddelete = {
 
-                                                //mainView.router.loadPage("#n1");
+                                                                      "rem_id":v,
 
-                                                router.navigate({ name: 'n1' });
+                                                                  }
 
-                                                globalvalue = ident;
-                                                globalvaluegetlocalob = cashid;    //identificator latest id
+                                                                     var update_url = localStorage.getItem("baseurl");
 
-                                                console.log(cashid);
+                                                                    $.ajax({
+                                                                          "type":"GET",
+                                                                          "url": update_url + "update_users_ob/",    /*random restourants menu zakaZ*/
+
+                                                                          dataType: "jsonp",
+                                                                          crossDomain: true,
+                                                                          "data": senddelete,
+
+                                                                          "success":kx2881,
+                                                                          "error":errorfunc
+
+                                                                          });
+
+
+                                                                    function kx2881(result){
+
+                                                                            console.log(result);
+
+                                                                            if(result[0] == "ok"){
+                                                                              myApp.dialog.alert('Объявление удалено в архив!','Kazpoisk');
+                                                                            }else{
+                                                                              myApp.dialog.alert('Действие не удалось!','Kazpoisk');
+                                                                            }
+
+                                                                    }
+
+                                                                    function errorfunc(){
+
+
+                                                                    }
+
+
+                                              });
+
+
+
+                                              $(".retimeob").click(function(){
+
+                                                  var v = $(this).attr("retimeid");
+                                                  console.log(v);
+
+                                                  var senddelete = {
+
+                                                                      "rem_id":v,
+
+                                                                  }
+
+                                                                     var update_url = localStorage.getItem("baseurl");
+
+                                                                    $.ajax({
+                                                                          "type":"GET",
+                                                                          "url": update_url + "update_users_retime_ob/",    /*random restourants menu zakaZ*/
+
+                                                                          dataType: "jsonp",
+                                                                          crossDomain: true,
+                                                                          "data": senddelete,
+
+                                                                          "success":kx2881,
+                                                                          "error":errorfunc
+
+                                                                          });
+
+
+                                                                    function kx2881(result){
+
+                                                                            console.log(result);
+
+                                                                            if(result[0] == "ok"){
+                                                                              myApp.dialog.alert('Объявление восстановлено!','Kazpoisk');
+                                                                            }else{
+                                                                              myApp.dialog.alert('Действие не удалось!','Kazpoisk');
+                                                                            }
+
+                                                                    }
+
+                                                                    function errorfunc(){
+
+
+                                                                    }
+
+
+                                              });
+
+
+                                            }else{
+                                              $(".viewob").click(function(){
+
+                                                  var ident = $(this).attr("ident");
+
+                                                  var cashid = $(this).attr("cashid");
+
+                                                  //mainView.router.loadPage("#n1");
+
+                                                  router.navigate({ name: 'n1' });
+
+                                                  globalvalue = ident;
+                                                  globalvaluegetlocalob = cashid;    //identificator latest id
+
+                                                  console.log(cashid);
 
 
 
 
-                                            });
+                                              });
+                                            }
+
+
 
 
 

@@ -139,3 +139,91 @@ function restorepassword(){
                         });
 
 };
+
+
+
+
+function searchContacts(){
+
+
+
+        function onSuccess(contacts) {
+            console.log(contacts);
+        };
+
+        function onError(contactError) {
+            console.log('onError!');
+        };
+
+        // find all contacts with 'Bob' in any name field
+        var options = new ContactFindOptions();
+        //options.filter="Bob";
+        options.filter = "";
+        options.multiple=true;
+        var fields = ["displayName", "name"];
+        navigator.contacts.find(fields, onSuccess, onError, options);
+
+
+
+}
+
+
+
+function checkuserid(){
+
+  var usem = localStorage.getItem("useremail");
+
+  var uscheckedid = localStorage.getItem("id");
+
+
+  if(!uscheckedid){
+
+
+        if(usem){
+            if(usem != null){
+                                var send = {
+
+                                          "email":usem,
+
+                                      }
+
+
+
+                         var urlr = localStorage.getItem("baseurl");
+
+                        $.ajax({
+                              "type":"GET",
+                              "url": urlr + "getuserid/",    /*random restourants menu zakaZ*/
+
+                              dataType: "jsonp",
+                              crossDomain: true,
+                              "data": send,
+
+                              "success":kxrestore,
+                              "error":errorfuncrestore
+
+                              });
+
+
+                        function kxrestore(result){
+
+                                //console.log(result);
+                                localStorage.setItem("id",result[1]);
+
+                        }
+
+                        function errorfuncrestore(){
+
+
+                        }
+            }
+        }
+
+
+
+}
+
+
+
+
+}
