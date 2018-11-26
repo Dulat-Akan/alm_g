@@ -31,21 +31,6 @@
             ]
         },
         {
-            "outputFile": "/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/build/intermediates/res/merged/release/values-el_values-el.arsc.flat",
-            "map": [
-                {
-                    "source": "/home/coderx/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.4.0.aar/e136ba66adb2d1542277eeccce4baf91/res/values-el/values-el.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,173,281,404,515,632,717,822,948,1036,1122,1207,1318,1428,1530,1641,1750,1858,1981,2081",
-                        "endColumns": "117,107,122,110,116,84,104,125,87,85,84,110,109,101,110,108,107,122,99,100",
-                        "endOffsets": "168,276,399,510,627,712,817,943,1031,1117,1202,1313,1423,1525,1636,1745,1853,1976,2076,2177"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/build/intermediates/res/merged/release/values-zh-rHK_values-zh-rHK.arsc.flat",
             "map": [
                 {
@@ -56,6 +41,21 @@
                         "startOffsets": "55,150,257,380,473,573,655,752,860,936,1012,1090,1186,1282,1377,1474,1569,1667,1780,1874",
                         "endColumns": "94,106,122,92,99,81,96,107,75,75,77,95,95,94,96,94,97,112,93,101",
                         "endOffsets": "145,252,375,468,568,650,747,855,931,1007,1085,1181,1277,1372,1469,1564,1662,1775,1869,1971"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/build/intermediates/res/merged/release/values-el_values-el.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/coderx/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.4.0.aar/e136ba66adb2d1542277eeccce4baf91/res/values-el/values-el.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,173,281,404,515,632,717,822,948,1036,1122,1207,1318,1428,1530,1641,1750,1858,1981,2081",
+                        "endColumns": "117,107,122,110,116,84,104,125,87,85,84,110,109,101,110,108,107,122,99,100",
+                        "endOffsets": "168,276,399,510,627,712,817,943,1031,1117,1202,1313,1423,1525,1636,1745,1853,1976,2076,2177"
                     }
                 }
             ]
@@ -327,21 +327,6 @@
             ]
         },
         {
-            "outputFile": "/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/build/intermediates/res/merged/release/values-night-v8_values-night-v8.arsc.flat",
-            "map": [
-                {
-                    "source": "/home/coderx/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.4.0.aar/e136ba66adb2d1542277eeccce4baf91/res/values-night-v8/values-night-v8.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "55,125,209,293,389,491,593",
-                        "endColumns": "69,83,83,95,101,101,93",
-                        "endOffsets": "120,204,288,384,486,588,682"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/build/intermediates/res/merged/release/values-uk_values-uk.arsc.flat",
             "map": [
                 {
@@ -352,6 +337,21 @@
                         "startOffsets": "55,165,273,396,498,604,690,798,916,995,1075,1156,1262,1369,1467,1575,1681,1790,1914,2014",
                         "endColumns": "109,107,122,101,105,85,107,117,78,79,80,105,106,97,107,105,108,123,99,100",
                         "endOffsets": "160,268,391,493,599,685,793,911,990,1070,1151,1257,1364,1462,1570,1676,1785,1909,2009,2110"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/build/intermediates/res/merged/release/values-night-v8_values-night-v8.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/coderx/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.4.0.aar/e136ba66adb2d1542277eeccce4baf91/res/values-night-v8/values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593",
+                        "endColumns": "69,83,83,95,101,101,93",
+                        "endOffsets": "120,204,288,384,486,588,682"
                     }
                 }
             ]
@@ -463,16 +463,16 @@
             ]
         },
         {
-            "outputFile": "/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/build/intermediates/res/merged/release/values-ne-rNP_values-ne-rNP.arsc.flat",
+            "outputFile": "/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/build/intermediates/res/merged/release/values-uz-rUZ_values-uz-rUZ.arsc.flat",
             "map": [
                 {
-                    "source": "/home/coderx/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.4.0.aar/e136ba66adb2d1542277eeccce4baf91/res/values-ne-rNP/values-ne-rNP.xml",
+                    "source": "/home/coderx/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.4.0.aar/e136ba66adb2d1542277eeccce4baf91/res/values-uz-rUZ/values-uz-rUZ.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,160,268,391,495,603,694,801,928,1022,1112,1200,1310,1426,1529,1644,1746,1861,1992,2104",
-                        "endColumns": "104,107,122,103,107,90,106,126,93,89,87,109,115,102,114,101,114,130,111,100",
-                        "endOffsets": "155,263,386,490,598,689,796,923,1017,1107,1195,1305,1421,1524,1639,1741,1856,1987,2099,2200"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,160,268,391,495,612,698,809,925,1005,1084,1168,1277,1384,1485,1593,1698,1803,1902",
+                        "endColumns": "104,107,122,103,116,85,110,115,79,78,83,108,106,100,107,104,104,98,100",
+                        "endOffsets": "155,263,386,490,607,693,804,920,1000,1079,1163,1272,1379,1480,1588,1693,1798,1897,1998"
                     }
                 }
             ]
@@ -493,16 +493,16 @@
             ]
         },
         {
-            "outputFile": "/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/build/intermediates/res/merged/release/values-uz-rUZ_values-uz-rUZ.arsc.flat",
+            "outputFile": "/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/build/intermediates/res/merged/release/values-ne-rNP_values-ne-rNP.arsc.flat",
             "map": [
                 {
-                    "source": "/home/coderx/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.4.0.aar/e136ba66adb2d1542277eeccce4baf91/res/values-uz-rUZ/values-uz-rUZ.xml",
+                    "source": "/home/coderx/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.4.0.aar/e136ba66adb2d1542277eeccce4baf91/res/values-ne-rNP/values-ne-rNP.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,160,268,391,495,612,698,809,925,1005,1084,1168,1277,1384,1485,1593,1698,1803,1902",
-                        "endColumns": "104,107,122,103,116,85,110,115,79,78,83,108,106,100,107,104,104,98,100",
-                        "endOffsets": "155,263,386,490,607,693,804,920,1000,1079,1163,1272,1379,1480,1588,1693,1798,1897,1998"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,160,268,391,495,603,694,801,928,1022,1112,1200,1310,1426,1529,1644,1746,1861,1992,2104",
+                        "endColumns": "104,107,122,103,107,90,106,126,93,89,87,109,115,102,114,101,114,130,111,100",
+                        "endOffsets": "155,263,386,490,598,689,796,923,1017,1107,1195,1305,1421,1524,1639,1741,1856,1987,2099,2200"
                     }
                 }
             ]

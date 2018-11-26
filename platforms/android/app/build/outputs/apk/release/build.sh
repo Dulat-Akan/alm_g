@@ -25,3 +25,8 @@ cordova run android
 
 adb devices
 chrome://inspect
+
+
+//build browser
+
+cordova build browser --prod

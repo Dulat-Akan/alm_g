@@ -606,31 +606,31 @@
 
                                                    case "promo":
 
-                                                       myApp.dialog.alert('Это возможность добавить ваше объявление со статусом "ПРОМО" (высшая категория, 7 дней)','Kazpoisk');
+                                                       myApp.dialog.alert('Публикация с приоритетом 1 "Gold"','Kazpoisk');
 
                                                    break;
 
                                                    case "top":
 
-                                                       myApp.dialog.alert('Это возможность добавить ваше объявление со статусом "TOП" (20 первых объявлений 3 дня)','Kazpoisk');
+                                                       myApp.dialog.alert('Публикация с приоритетом 2 "Premium"','Kazpoisk');
 
                                                    break;
 
                                                    case "warm":
 
-                                                   myApp.dialog.alert('Это возможность добавить ваше объявление со статусом "Горячие" (рамка и значок огонь 7 дней)','Kazpoisk');
+                                                   myApp.dialog.alert('Публикация с приоритетом 3 "Classic"','Kazpoisk');
 
                                                    break;
 
                                                    case "time":
 
-                                                   myApp.dialog.alert('Это возможность добавить ваше объявление со статусом "Срочно" (красного цвета 7 дней)','Kazpoisk');
+                                                   myApp.dialog.alert('Публикация с приоритетом 4 "Quick"','Kazpoisk');
 
                                                    break;
 
                                                    case "up":
 
-                                                   myApp.dialog.alert('Это возможность поднять ваше объявление вверх по списку','Kazpoisk');
+                                                   myApp.dialog.alert('Публикация с приоритетом 5 "Easy"','Kazpoisk');
 
                                                    break;
                                                  }

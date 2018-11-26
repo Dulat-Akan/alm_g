@@ -692,10 +692,10 @@ ul.insertob::before{
 
 } */
 
-
-@media only screen and (max-height:800px){
+@media only screen and (max-height:1200px){
 
   .imgheight_div{
+    max-width: 70%;
     width:70%;height:52%;margin-left:15%;margin-top:15%;
     border-radius: 5px;
     background: rgba(0,0,0,.2);
@@ -711,23 +711,86 @@ ul.insertob::before{
 
 }
 
-@media only screen and (max-height:570px){
+
+@media only screen and (max-height:800px){
 
   .imgheight_div{
+    max-width: 70%;
+    width:70%;height:52%;margin-left:15%;margin-top:15%;
+    border-radius: 5px;
+    background: rgba(0,0,0,.2);
+  }
+
+  .opensearch{
+    width:10%;height:4%;position:fixed;left:2%;top:11%;z-index:50 !important;
+  }
+
+  .searchbutton{
+    width:84%;height:6%;position:fixed;left:13%;top:11%;z-index:50 !important;display:none;
+  }
+
+}
+
+
+@media only screen and (max-height:650px){
+
+  .imgheight_div{
+    max-width:70%;
     width:70%;height:63%;margin-left:15%;margin-top:9%;
     border-radius: 5px;
     background: rgba(0,0,0,.2);
   }
 
   .opensearch{
-    width:10%;height:4%;position:fixed;left:2%;top:9%;z-index:50 !important;
+    width:10%;height:4%;position:fixed;left:2%;top:12%;z-index:50 !important;
   }
 
   .searchbutton{
-    width:84%;height:6%;position:fixed;left:13%;top:9%;z-index:50 !important;display:none;
+    width:84%;height:6%;position:fixed;left:13%;top:12%;z-index:50 !important;display:none;
   }
 
 }
+
+@media only screen and (max-height:570px){
+
+  .imgheight_div{
+    max-width:70%;
+    width:70%;height:63%;margin-left:15%;margin-top:9%;
+    border-radius: 5px;
+    background: rgba(0,0,0,.2);
+  }
+
+  .opensearch{
+    width:10%;height:4%;position:fixed;left:2%;top:13%;z-index:50 !important;
+  }
+
+  .searchbutton{
+    width:84%;height:6%;position:fixed;left:13%;top:13%;z-index:50 !important;display:none;
+  }
+
+}
+
+
+@media only screen and (max-height:530px){
+
+  .imgheight_div{
+    max-width: 70%;
+    width:70%;height:75%;margin-left:15%;margin-top:9%;
+    border-radius: 5px;
+    background: rgba(0,0,0,.2);
+  }
+
+  .opensearch{
+    width:10%;height:4%;position:fixed;left:2%;top:13%;z-index:50 !important;
+  }
+
+  .searchbutton{
+    width:84%;height:6%;position:fixed;left:13%;top:13%;z-index:50 !important;display:none;
+  }
+
+}
+
+
 
 
 

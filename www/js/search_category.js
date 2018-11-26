@@ -3351,8 +3351,8 @@ var img = localStorage.getItem("baseurlimg");
 
           function autosearch(request){
 
-              //myApp.preloader.show('работаю..');
-              myApp.dialog.progress("секунду..");
+
+              //myApp.dialog.progress("секунду..");
 
               var whatbuttons = request;
 
@@ -3596,7 +3596,7 @@ var img = localStorage.getItem("baseurlimg");
 
 
 
-              sendsearch(myform);
+              //sendsearch(myform);
 
 
               //console.log(myform);

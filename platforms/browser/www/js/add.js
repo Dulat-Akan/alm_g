@@ -1213,7 +1213,7 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
                           $.ajax({
 
                                   "type":"GET",
-                                  "url": baseurl + "setuserob/",    /*random restourants menu zakaZ*/
+                                  "url": baseurl + "setuserob_modified/",    /*random restourants menu zakaZ*/
 
                                   dataType: "jsonp",
                                   crossDomain: true,
@@ -1257,6 +1257,9 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
                                         setTimeout(function(){
 
                                             firstviewob();
+
+                                            $(".appendphoto").empty();
+                                            $(".appendvideo").empty();
                                             //window.location.reload();
 
 

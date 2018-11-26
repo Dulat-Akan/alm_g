@@ -256,13 +256,10 @@
 
             var height = $(window).height();
 
-            if(height > '570'){
-                $(".opensearch").css("top","10%");
-                $(".searchbutton").css("top","10%");
-            }else{
-              $(".opensearch").css("top","10%");
-              $(".searchbutton").css("top","10%");
-            }
+
+              $(".opensearch").css("top","13%");
+              $(".searchbutton").css("top","13%");
+
 
             $(".searchbutton").css("height","6%");
 
@@ -470,6 +467,7 @@
                           "deviceid":ndeviceid,
                       }
 
+                      console.log(sendrequest);
                       var result = newrequest(sendrequest,"autocheckpasswordapp");
 
 

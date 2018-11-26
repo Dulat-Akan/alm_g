@@ -44,12 +44,12 @@
         "source": "/home/coderx/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.4.0.aar/e136ba66adb2d1542277eeccce4baf91/res/drawable/abc_btn_default_mtrl_shape.xml"
     },
     {
-        "merged": "/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/build/intermediates/res/merged/release/drawable-mdpi_ic_action_discard_light.png.flat",
-        "source": "/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/res/drawable-mdpi/ic_action_discard_light.png"
-    },
-    {
         "merged": "/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/build/intermediates/res/merged/release/drawable-hdpi_screen.png.flat",
         "source": "/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/res/drawable-hdpi/screen.png"
+    },
+    {
+        "merged": "/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/build/intermediates/res/merged/release/drawable-mdpi_ic_action_discard_light.png.flat",
+        "source": "/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/src/main/res/drawable-mdpi/ic_action_discard_light.png"
     },
     {
         "merged": "/home/coderx/myprojects/npm/cordova/kazpoisk/platforms/android/app/build/intermediates/res/merged/release/drawable-xhdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
