@@ -3030,7 +3030,7 @@ var img = localStorage.getItem("baseurlimg");
                             myApp.dialog.close();
                             pageindex = result[3];
                             //pageindex = 200;
-                            console.log(result);
+                            //console.log(result);
                             if(result[0].length > 0){
                               insertviewob(result);
                                 //console.log(result[0][0]);

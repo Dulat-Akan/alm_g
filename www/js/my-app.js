@@ -144,9 +144,47 @@
                           //console.log(window.location.href);
                           phoneid = window.device.uuid;
 
-                          console.log(phoneid);
+                          //console.log(phoneid);
 
-                          localStorage.setItem("deviceid",phoneid);
+
+                          function generateRandomNumber(min_value , max_value)
+                          {
+                              return Math.random() * (max_value-min_value) + min_value;
+                          }
+
+                          var checkdeviceid = localStorage.getItem("deviceid");
+
+                          var fixdevicememory = 0;
+                          //if device id is in memory is not empty
+                          if(checkdeviceid){
+                              localStorage.setItem("deviceid",checkdeviceid);
+                              //console.log("checked");
+                              fixdevicememory = 1;
+                          }
+
+
+                          //console.log(phoneid);
+
+                          if((phoneid == null) && (fixdevicememory == 0)){
+
+                            console.log("checked1");
+
+                            var generatevalue = generateRandomNumber(1,5555555555555);
+
+                            localStorage.setItem("deviceid",generatevalue);
+
+                            //console.log("2222");
+
+                          }else if(phoneid != null){
+                            localStorage.setItem("deviceid",phoneid);
+                            //console.log("333");
+                          }
+
+
+                          //var newval = localStorage.getItem("deviceid");
+
+
+                          //console.log(newval);
 
                           //setdeviceinfo
                           //readFile();
@@ -298,6 +336,18 @@
 
                         var newdeviceid = localStorage.getItem("deviceid");
 
+
+                                if(newdeviceid == "null"){
+                                  return false;
+                                }
+
+                                if(!newdeviceid){
+                                  return false;
+                                }
+
+                                if(newdeviceid == null){
+                                  return false;
+                                }
 
                                 var sendnewregistration = {
 
@@ -458,6 +508,18 @@
 
                 var ndeviceid = localStorage.getItem("deviceid");
 
+                if(!ndeviceid){
+                  return false;
+                }
+
+                if(ndeviceid == null){
+                  return false;
+                }
+
+                if(ndeviceid == "null"){
+                  return false;
+                }
+
                 if(checkuserauth() == false){
                   myApp.dialog.prompt('Введите пароль от вашей почты ' + email + ' ( проверка подлинности владельца почтового ящика)','KAZPOISK', function (password) {
 
@@ -482,7 +544,7 @@
 
           function firstviewob(){
 
-            console.log("firstviewob");
+            //console.log("firstviewob");
 
                         var userid = localStorage.getItem("useridentificator");
                         var phid = localStorage.getItem("deviceid");
@@ -637,7 +699,7 @@
                               //var startcountsum = pageindex - startcount;
                               var startcountsum = pageindex;
 
-                              console.log(startcountsum);
+                            //  console.log(startcountsum);
 
                               if(pagefixed == 0){
                                   getviewobs(startcountsum,10);
@@ -695,7 +757,7 @@
                                         function kxgs(result){
 
 
-                                          console.log(result);
+                                          //console.log(result);
 
                                           if(result[0] != "no"){
                                             insertviewobaddmincount(result);
