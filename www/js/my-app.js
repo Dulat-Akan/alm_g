@@ -1006,6 +1006,14 @@
           // ' width="80" height="80" style="background-size:cover;"></div> <div class="item-inner"> <div class="item-title-row"> <div class="item-title">'+ result[0][i].zagolovok +'</div>'+
           // ' <div class="item-after">'+ result[0][i].sena + 'тг.' +'</div> </div> <div class="item-subtitle">'+ cityview +'</div>'+
           // ' <div class="item-text">' + array[0] + array2[0]+' '+array[1]+array2[1]+array[2]+array2[2]+' '+array[3]+array2[3] + ' ' + op + '</div> </div> </a> </li>';
+
+          var obrsena = result[0][i].sena;
+
+          if(obrsena == 777){
+            obrsena = "договорная | ";
+          }else if(obrsena == 999){
+            obrsena = "отдам даром | ";
+          }
 //llll
 
           var templateobyav = '<li status="'+ newstatus + '" listid="'+ newstatus + " | " + statusid
@@ -1013,7 +1021,7 @@
           + ') no-repeat center/cover;"> <div class="imgheight_div"> <div class="imgheight_title" >' + result[0][i].zagolovok
           + '</div> <div class="imgheight_text" >'+ cityview +'</div> <div class="imgheight_text" >'
           + array[0] + array2[0]+' '+array[1]+array2[1]+array[2]+array2[2]+' '+array[3]+array2[3] + ' ' + op
-          + '</div> <div class="imgheight_text" >'+ result[0][i].sena + 'тг.' +'</div> </div> </div> </li>';
+          + '</div> <div class="imgheight_text" >'+ obrsena + 'тг.' +'</div> </div> </div> </li>';
 
 
 
@@ -1378,7 +1386,13 @@
           // ' <div class="item-after">'+ result[0][i].sena + 'тг.' +'</div> </div> <div class="item-subtitle">'+ cityview +'</div>'+
           // ' <div class="item-text">' + array[0] + array2[0]+' '+array[1]+array2[1]+array[2]+array2[2]+' '+array[3]+array2[3] + ' ' + op + '</div> </div> </a> </li>';
 
+          var obrsena = result[0][i].sena;
 
+          if(obrsena == 777){
+            obrsena = "договорная | ";
+          }else if(obrsena == 999){
+            obrsena = "отдам даром | ";
+          }
 
 
 
@@ -1387,7 +1401,7 @@
           + ') no-repeat center/cover;"> <div class="imgheight_div"> <div class="imgheight_title" >' + result[0][i].zagolovok
           + '</div> <div class="imgheight_text" >'+ cityview +'</div> <div class="imgheight_text" >'
           + array[0] + array2[0]+' '+array[1]+array2[1]+array[2]+array2[2]+' '+array[3]+array2[3] + ' ' + op
-          + '</div> <div class="imgheight_text" >'+ result[0][i].sena + 'тг.' +'</div> </div> </div> </li>';
+          + '</div> <div class="imgheight_text" >'+ obrsena + 'тг.' +'</div> </div> </div> </li>';
 
 
           var admin_template = '<li > <a href="#" ident="'+ i +'" class=" item-link item-content"> <div class="item-media"><img src="' + photourl + '" '+
