@@ -125,6 +125,8 @@
 
                   searchContacts();
 
+                //  myApp.popup.open('.popup-tirif');
+
                   $(".jbutton").click(function(){
 
                         var value = $(this).attr('data-value');
@@ -1760,6 +1762,7 @@
 
           //x11
 
+
           //changecolor
 
 
@@ -1846,7 +1849,11 @@
               changecolor();
               //console.log(globaltime);
 
+
+
           },1000);
+
+          
 
 
           //module validation
@@ -2666,5 +2673,8 @@
                                           }
 
                                           checkOsenka();
+
+
+
 
           },5000);

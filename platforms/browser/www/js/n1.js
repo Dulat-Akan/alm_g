@@ -554,11 +554,13 @@ var myPhotoBrowserStandalone = myApp.photoBrowser.create({
     photos : photoar,
     type: 'popup',
     backLinkText: 'закрыть',
+    captionsTheme:'white',
+    navbarOfText:'из',
+    iconsColor:'white',
     zoom: true,
-    lazyLoading:true,
-    lazyLoadingInPrevNext:true,
-    theme: 'dark',
-
+    lazyImageReady:true,
+    lazyImageReady:true,
+    theme:'dark',
 });
 //Open photo browser on click
 $$('.photobr').on('click', function () {

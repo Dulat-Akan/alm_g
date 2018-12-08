@@ -6,7 +6,7 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
     localStorage.setItem("typezapchasti","0");
 
    // myApp.formDeleteData('form_to_submit');
-
+   fixcheck_ob = 1;
 
   var level1 = localStorage.getItem("level1");
   var level2 = localStorage.getItem("level2");
@@ -1024,7 +1024,13 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
                               formData[formarray[j].name] = formarray[j].value;
                           }
 
+                          var checkdeviceid = localStorage.getItem("deviceid");
 
+                          if(!checkdeviceid){
+                            checkdeviceid = "";
+                          }
+
+                          formData['device_id'] = checkdeviceid;
 
 
                           var arrayn = ['sena1','sena2'];
@@ -1285,6 +1291,20 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
 
                       //alert(JSON.stringify(formData));
                       //console.log(formData);
+                    });
+
+
+                    $(".opencashform").click(function(){
+
+                        myApp.popup.open('.popup-send_money');
+
+                    });
+
+
+                    $(".tarif").click(function(){
+
+                        myApp.popup.open('.popup-tirif');
+
                     });
 
 

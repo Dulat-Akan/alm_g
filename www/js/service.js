@@ -210,6 +210,8 @@ function checkuserid(){
                                 //console.log(result);
                                 localStorage.setItem("id",result[1]);
 
+                                insertMoney();
+
                         }
 
                         function errorfuncrestore(){
@@ -224,6 +226,98 @@ function checkuserid(){
 }
 
 
-
-
 }
+
+
+function insertMoney(){
+
+    var iddd = localStorage.getItem("id");
+
+    if(iddd){
+      $(".insuserid").val(iddd);
+      $(".uswebm").val(iddd);
+      //console.log("t1");
+    }
+}
+
+
+socket.on('connect', () => {
+  //console.log(socket.connected); // true
+  console.log("io connected to server");
+
+  //check_ob_count();
+});
+
+
+socket.on('disconnect', () => {
+  socket.open();
+});
+
+
+socket.on('error', function(){
+  socket.socket.reconnect();
+  console.log("reconnect..");
+});
+
+//module check obyavlenie count
+
+
+//check new ads
+var fixcheck_ob = 0;
+//check new ads
+
+setInterval(function(){
+  if(fixcheck_ob == 1){
+
+      check_ob_count();
+
+  }
+},3000);
+
+
+function check_ob_count(){
+  var sendemail = localStorage.getItem("useremail");
+
+  var phone = $(".myphone").val();
+  var checkphone = 0;
+  //console.log(phone);
+
+  if(phone){
+    if(phone.length == 14){
+
+        if(phone.indexOf("_") < 0){
+          checkphone = 1;
+        }
+
+    }
+  }
+
+
+  if(sendemail){
+
+    var checkdeviceid = localStorage.getItem("deviceid");
+
+    if(!checkdeviceid){
+      checkdeviceid = "";
+    }
+
+    if(checkphone == 0){
+      phone = "";
+    }
+    socket.emit('check_ob', {email: sendemail,phone:phone,deviceid:checkdeviceid});
+    //console.log(sendemail);
+  }
+}
+
+
+socket.on('check_ob_action', function(data){
+      console.log(data);
+      if(data.msg == "false"){
+
+      }else if(data.msg == "blocked_user"){
+        
+      }
+    });
+
+
+//module check obyavlenie count

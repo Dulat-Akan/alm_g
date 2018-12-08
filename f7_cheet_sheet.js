@@ -33,6 +33,7 @@ router.back();
 router.navigate("login.html");
 
 myApp.popup.close();
+myApp.popup.open('.popup-viewobup');
 
 
 

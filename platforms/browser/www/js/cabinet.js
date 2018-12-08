@@ -172,17 +172,34 @@
                               //---------------------------------------------------------
 
 
+                                //zapis v service js pri vizove vnachale prilozheniya
 
-                                var iddd = localStorage.getItem("id");
+                                setTimeout(function(){
 
-                                $(".insuserid").val(iddd);
-                                $(".uswebm").val(iddd);
+                                  var iddd = localStorage.getItem("id");
+
+                                  if(iddd){
+                                    insertMoney();
+
+                                  }else{
+                                    checkuserid();
+                                    //console.log("t2");
+                                  }
+
+                                },1000);
+
+
+
+
 
 
 
 
 
           });
+
+
+          
 
 
 

@@ -1057,6 +1057,18 @@ ul.insertob::before{
 
 
 
+/* color icons */
+
+.green_icon{
+  color:#50d8a3;
+}
+.red_icon{
+  color:#f05f5c;
+}
+/* color icons */
+
+
+
 
 
 /*https://icons8.com/cssload/en/3d-loaders*/

@@ -100,96 +100,107 @@
                        </table>
                      </div>
 
+                     <div class="card">
+                        <div class="card-header">Yandex money</div>
+                        <div class="card-content card-content-padding">
 
-
-                           <div class="block-title" style="text-align:center;font-size:20px;color:black;">Yandex money</div>
-                           <hr align="center" style="width:100%;" size="2" color="#000000" />
-                                  <form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml" class="list no-hairlines-md external">
-                                    <ul>
-                                      <li class="item-content item-input">
+                          <form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml" class="list no-hairlines-md external">
+                            <ul>
+                              <li class="item-content item-input">
+                                <div class="item-inner">
+                                  <div class="item-title item-label">Сумма</div>
+                                  <div class="item-input-wrap">
+                                    <input required id="inputsum" type="number" style="border-bottom:1px solid black;" name="sum" placeholder="валюта RUB" data-type="number">
+                                    <span class="input-clear-button"></span>
+                                  </div>
+                                </div>
+                              </li>
+                              <li>
+                                      <label class="item-radio item-content">
+                                        <!-- Radio input -->
+                                        <input type="radio" name="paymentType" value="PC" />
+                                        <!-- Radio icon -->
+                                        <i class="icon icon-radio"></i>
                                         <div class="item-inner">
-                                          <div class="item-title item-label">Сумма</div>
-                                          <div class="item-input-wrap">
-                                            <input required id="inputsum" type="number" name="sum" placeholder="валюта RUB" data-type="number">
-                                            <span class="input-clear-button"></span>
-                                          </div>
+                                          <!-- Radio Title -->
+                                          <div class="item-title">Яндекс.Деньгами</div>
                                         </div>
-                                      </li>
-                                      <li>
-                                              <label class="item-radio item-content">
-                                                <!-- Radio input -->
-                                                <input type="radio" name="paymentType" value="PC" />
-                                                <!-- Radio icon -->
-                                                <i class="icon icon-radio"></i>
-                                                <div class="item-inner">
-                                                  <!-- Radio Title -->
-                                                  <div class="item-title">Яндекс.Деньгами</div>
-                                                </div>
-                                              </label>
-                                            </li>
-                                            <!-- Another radio item -->
-                                            <li>
-                                              <label class="item-radio item-content">
-                                                <!-- Checked by default -->
-                                                <input type="radio" name="paymentType" value="AC" checked/>
-                                                <i class="icon icon-radio"></i>
-                                                <div class="item-inner">
-                                                  <div class="item-title">Банковской картой</div>
-                                                </div>
-                                              </label>
-                                            </li>
-                                            <li>
-                                              <label class="item-radio item-content">
-                                                <!-- Checked by default -->
-                                                <input type="radio" name="paymentType" value="MC" />
-                                                <i class="icon icon-radio"></i>
-                                                <div class="item-inner">
-                                                  <div class="item-title">Оплата с мобильного</div>
-                                                </div>
-                                              </label>
-                                            </li>
-
-                                            <input type="hidden" name="receiver" value="410015478271191">
-                                            <input type="hidden" class="insuserid" id="userid" name="label" value="">
-                                            <input type="hidden" name="quickpay-form" value="shop">
-                                            <input type="hidden" name="targets" value="Пополнение аккаунта ">
-                                            <input type="hidden" name="need-fio" value="false">
-                                            <input type="hidden" name="need-email" value="false">
-                                            <input type="hidden" name="need-phone" value="false">
-                                            <input type="hidden" name="need-address" value="false">
-                                            <input type="hidden" name="successURL" value="http://kazpoisk.kz/public_control/successyandexpayment">
-
-
-                                            <button  type="submit" class="button external">Пополнить</button>
-                                    </ul>
-                                  </form>
-
-
-
-                           <div class="block-title" style="text-align:center;font-size:20px; color:black;">Webmoney</div>
-                           <hr align="center" style="width:100%;" size="2" color="#000000" />
-                                  <form style="margin-bottom:100px;" method="POST" action="https://merchant.webmoney.ru/lmi/payment_utf.asp" accept-charset="utf-8" class="list no-hairlines-md external">
-                                    <ul>
-                                      <li class="item-content item-input">
+                                      </label>
+                                    </li>
+                                    <!-- Another radio item -->
+                                    <li>
+                                      <label class="item-radio item-content">
+                                        <!-- Checked by default -->
+                                        <input type="radio" name="paymentType" value="AC" checked/>
+                                        <i class="icon icon-radio"></i>
                                         <div class="item-inner">
-                                          <div class="item-title item-label">Сумма</div>
-                                          <div class="item-input-wrap">
-                                            <input type="number" required name="LMI_PAYMENT_AMOUNT" placeholder="валюта KZT">
-                                            <span class="input-clear-button"></span>
-                                          </div>
+                                          <div class="item-title">Банковской картой</div>
                                         </div>
-                                      </li>
+                                      </label>
+                                    </li>
+                                    <li>
+                                      <label class="item-radio item-content">
+                                        <!-- Checked by default -->
+                                        <input type="radio" name="paymentType" value="MC" />
+                                        <i class="icon icon-radio"></i>
+                                        <div class="item-inner">
+                                          <div class="item-title">Оплата с мобильного</div>
+                                        </div>
+                                      </label>
+                                    </li>
+
+                                    <input type="hidden" name="receiver" value="410015478271191">
+                                    <input type="hidden" class="insuserid" id="userid" name="label" value="">
+                                    <input type="hidden" name="quickpay-form" value="shop">
+                                    <input type="hidden" name="targets" value="Пополнение аккаунта ">
+                                    <input type="hidden" name="need-fio" value="false">
+                                    <input type="hidden" name="need-email" value="false">
+                                    <input type="hidden" name="need-phone" value="false">
+                                    <input type="hidden" name="need-address" value="false">
+                                    <input type="hidden" name="successURL" value="http://kazpoisk.kz/public_control/successyandexpayment">
 
 
-                                      <input type="hidden" name="LMI_PAYMENT_DESC" value="платеж по счету">
-                                      <input type="hidden" name="LMI_PAYMENT_NO" value="<?php echo rand(5, 50000000); ?>">
-                                      <!-- nomer platezha -->
-                                      <input type="hidden" name="LMI_PAYEE_PURSE" value="K362633572926">
-                                      <input type="hidden" class="uswebm" name="userid" value="">
+                                    <button  type="submit" class="button external">Пополнить</button>
+                            </ul>
+                          </form>
 
-                                            <button  type="submit" class="button external">Пополнить</button>
-                                    </ul>
-                                  </form>
+
+                        </div>
+
+                      </div>
+
+
+                      <div class="card" style="margin-bottom:100px;">
+                          <div class="card-header">Webmoney</div>
+                          <div class="card-content card-content-padding">
+
+                            <form  method="POST" action="https://merchant.webmoney.ru/lmi/payment_utf.asp" accept-charset="utf-8" class="list no-hairlines-md external">
+                              <ul>
+                                <li class="item-content item-input">
+                                  <div class="item-inner">
+                                    <div class="item-title item-label">Сумма</div>
+                                    <div class="item-input-wrap">
+                                      <input type="number" style="border-bottom:1px solid black;" required name="LMI_PAYMENT_AMOUNT" placeholder="валюта KZT">
+                                      <span class="input-clear-button"></span>
+                                    </div>
+                                  </div>
+                                </li>
+
+
+                                <input type="hidden" name="LMI_PAYMENT_DESC" value="платеж по счету">
+                                <input type="hidden" name="LMI_PAYMENT_NO" value="<?php echo rand(5, 50000000); ?>">
+                                <!-- nomer platezha -->
+                                <input type="hidden" name="LMI_PAYEE_PURSE" value="K362633572926">
+                                <input type="hidden" class="uswebm" name="userid" value="">
+
+                                      <button  type="submit" class="button external">Пополнить</button>
+                              </ul>
+                            </form>
+
+
+                          </div>
+
+                        </div>
 
 
 
