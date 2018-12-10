@@ -1354,9 +1354,11 @@
                           <div class="item-inner">
                           <!-- <div class="item-title item-label">телефон</div> -->
                             <div class="item-input-wrap">
-                              <!-- <a href="#"  ng-disabled="addform.$invalid"  class="sendob button">подать объявление</a> -->
-                              <!-- <a href="#" ng-disabled="addform.$invalid" class="sendob col button button-big button-raised button-fill">подать объявление</a> -->
-                              <button ng-disabled="addform.$invalid" class="sendob col button button-big button-outline">опубликовать</button>
+
+                              <!-- <button ng-disabled="addform.$invalid" class="sendob col button button-big button-outline">опубликовать</button> -->
+                              <button ng-disabled="addform.$invalid" class="tarif col button button-big button-outline">продолжить</button>
+
+                              <button ng-disabled="addform.$invalid" style="display:none;" class="limit col button button-big button-outline">Превышен лимит дневного использования</button>
 
                             </div>
                           </div>
@@ -1374,9 +1376,9 @@
 
             </form>
 
-
+          <button  class="tariftest col button button-big button-outline">продолжить</button>
             <button  class="opencashform col button button-big button-outline">popup</button>
-            <button  class="tarif col button button-big button-outline">tarif</button>
+
 
 
 

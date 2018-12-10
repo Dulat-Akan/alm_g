@@ -258,8 +258,12 @@
 
 
                                 setTimeout(function(){
+                                    ////vstavka platezhnoi informasii proverka
                                     checkuserid();
+                                    load_all_info();
                                 },3000);
+
+
 
               }
           };
@@ -544,6 +548,8 @@
           }
 
 
+          var checkautoauth = 0;
+
           function firstviewob(){
 
             //console.log("firstviewob");
@@ -584,7 +590,12 @@
                                         function kxg(result){
 
                                           //console.log(result[3]); //auth data
-                                          auto_auth(result[4]);
+
+                                          if(checkautoauth == 0){
+                                            auto_auth(result[4]);
+                                            checkautoauth = 1;
+                                          }
+
                                           //$('.loader-hide').css("display","none");
                                           $(".gifloader").hide();
                                           insertviewob(result);
@@ -1589,18 +1600,18 @@
 
           //routing
 
-          // localStorage.setItem("baseurl","http://ls2.kz/public_control/");
-          // localStorage.setItem("baseurlimg","http://ls2_mobile.kz/assets/img/");
-          // localStorage.setItem("baseurlimg2","http://ls2_mobile.kz/assets/entry/uploads/");
-          // localStorage.setItem("baseurlimg3","http://ls2_mobile.kz/assets/entry/uploadsv/");
-          // localStorage.setItem("baseurlimg4","http://ls2.kz/assets/entry/uploads/");
+          localStorage.setItem("baseurl","http://ls2.kz/public_control/");
+          localStorage.setItem("baseurlimg","http://ls2_mobile.kz/assets/img/");
+          localStorage.setItem("baseurlimg2","http://ls2_mobile.kz/assets/entry/uploads/");
+          localStorage.setItem("baseurlimg3","http://ls2_mobile.kz/assets/entry/uploadsv/");
+          localStorage.setItem("baseurlimg4","http://ls2.kz/assets/entry/uploads/");
 
 
-          localStorage.setItem("baseurl","http://www.kazpoisk.kz/public_control/");
-          localStorage.setItem("baseurlimg","http://www.kazpoisk.kz/assets/img/");
-          localStorage.setItem("baseurlimg2","http://www.kazpoisk.kz/assets/entry/uploads/");
-          localStorage.setItem("baseurlimg3","http://www.kazpoisk.kz/assets/entry/uploadsv/");
-          localStorage.setItem("baseurlimg4","http://www.kazpoisk.kz/assets/entry/uploads/");
+          // localStorage.setItem("baseurl","http://www.kazpoisk.kz/public_control/");
+          // localStorage.setItem("baseurlimg","http://www.kazpoisk.kz/assets/img/");
+          // localStorage.setItem("baseurlimg2","http://www.kazpoisk.kz/assets/entry/uploads/");
+          // localStorage.setItem("baseurlimg3","http://www.kazpoisk.kz/assets/entry/uploadsv/");
+          // localStorage.setItem("baseurlimg4","http://www.kazpoisk.kz/assets/entry/uploads/");
 
 
           //opredelenie avtorizovan li polzovatel
@@ -1693,7 +1704,7 @@
                                   $(this).children(".viewob").children(".imgheight_div").children(".imgheight_text").css("color","#fff");
                                   changecolorvariable = 0;
                               }
-
+                              //Easy
                           }else if(thiscolor == "2"){
 
                               if(changecolorvariabletwo == 0){
@@ -1707,9 +1718,10 @@
                                   $(this).children(".viewob").children(".imgheight_div").children(".imgheight_text").css("color","#fff");
                                   changecolorvariabletwo = 0;
                               }
-
+                              //Quick
                           }else if(thiscolor == "3"){
 
+                              //Classic
                               if(changecolorvariablethree == 0){
                                   $(this).css("background","#ffb665");
                                   $(this).children(".viewob").children(".imgheight_div").children(".imgheight_title").css("color","#ffb665");
@@ -1724,6 +1736,7 @@
 
                           }else if(thiscolor == "4"){
 
+                              //premium_button
                               if(changecolorvariablefour == 0){
                                   $(this).css("background","#ff7094");
                                   $(this).children(".viewob").children(".imgheight_div").children(".imgheight_title").css("color","#ff7094");
@@ -1738,6 +1751,7 @@
                             //console.log(1);
                           }else if(thiscolor == "5"){
 
+                              //gold
                               if(changecolorvariablefive == 0){
                                   $(this).css("background","#cdfffe");
                                   $(this).children(".viewob").children(".imgheight_div").children(".imgheight_title").css("color","#cdfffe");
@@ -1764,6 +1778,7 @@
 
 
           //changecolor
+
 
 
           setInterval(function(){
@@ -1837,11 +1852,15 @@
 
                                if(checkforms == 0){
                                     //$(".sendob").prop("disabled",false);
-                                    $(".sendob").removeAttr("disabled");
+                                    $(".tarif").removeAttr("disabled");
+                                    $(".tarif").css("border","2px solid #2196f3");
+                                    $(".tarif").css("color","#2196f3");
 
                                }else{
                                     //$(".sendob").prop('disabled',true);
-                                    $(".sendob").attr('disabled','disabled');
+                                    $(".tarif").attr('disabled','disabled');
+                                    $(".tarif").css("border","2px solid red");
+                                    $(".tarif").css("color","red");
                                }
 
               globaltime += 1;
@@ -1853,7 +1872,7 @@
 
           },1000);
 
-          
+
 
 
           //module validation

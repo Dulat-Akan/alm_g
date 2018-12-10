@@ -35,7 +35,7 @@ router.navigate("login.html");
 myApp.popup.close();
 myApp.popup.open('.popup-viewobup');
 
-
+myApp.dialog.alert('Превышен лимит дневного использования','Сервис');
 
 closeByOutsideClick:true,
 
