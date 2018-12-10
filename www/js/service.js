@@ -245,8 +245,8 @@ function insertMoney(){
 socket.on('connect', () => {
   //console.log(socket.connected); // true
   console.log("io connected to server");
-
   //check_ob_count();
+
 });
 
 
@@ -268,9 +268,15 @@ var fixcheck_ob = 0;
 //check new ads
 //service variable
 
-var emptyob = "";
 
 var money = 0;
+var gold_price = 450;
+var premium_price = 200;
+var classic_price = 150;
+var quick_price = 100;
+var easy_price = 40;
+
+
 var enable_money = 0;
 var blocked_user = 0;
 var checkblock = 0;
@@ -280,6 +286,9 @@ var valyuta = "KZT";
 
 var textpod = 'подано на проверку';
 var status_cash_text_status = 'no';
+var temp_status_text = "temp";
+
+var automatic_publication_status = "send_automatic";
 var doverie = 0;
 //service variable
 
@@ -300,7 +309,10 @@ function load_all_info(){
     var device = localStorage.getItem("deviceid");
 
     if(device){
+
+      //console.log(device);
       socket.emit('load_all_info', {device: device,valyuta:valyuta});
+
     }
 
 
@@ -309,7 +321,16 @@ function load_all_info(){
 
 socket.on('load_all_info_action', function(data){
 
-
+    //console.log(data);
+    money = data.empty_ob_price;
+    gold_price = data.gold_price;
+    premium_price = premium_price;
+    classic_price = data.classic_price;
+    quick_price = data.quick_price;
+    easy_price = data.easy_price;
+    empty_pod_text = data.empty_pod_text;
+    automatic_publication_status = data.automatic_publication_status;
+    temp_status_text = data.temp_status_text;
 
 });
 
@@ -355,25 +376,46 @@ function check_ob_count(){
 
 
 //zagruzit tarifi sdelat check i sdelat fixgold i sdelat raskrasku changecolor
+//proverit checklimit activasiya prostogo tarifa
+
+var check_money = 0;
 
 socket.on('check_ob_action', function(data){
       console.log(data);
-      if(data.msg == "false"){
-          emptyob = data.emptyob;
+      if((data.check_cash == 1) || (data.check_limit == 1)){
 
+
+          return false;
           if(limit == 1){
             return false;
           }
           if(blocked_user == 1){
             return false;
           }
-          $(".sendob").text("опубликовать за " + emptyob + " тг");
-          textpod = status_cash_text_status;
-          money = emptyob;
-          enable_money = 1;
+          $(".sendob").text("опубликовать за " + money + " тг");
 
-      }else if(data.msg == "blocked_user"){
-          emptyob = data.emptyob;
+          if(check_money == 0){
+            enable_money = 1;
+            check_money = 1;
+          }
+
+      }
+
+
+      if((data.doverie == 1) || (data.doverie == 0)){
+
+        //doverie
+        if(data.doverie == 1){
+          textpod = automatic_publication_status;
+        }else{
+          textpod = status_cash_text_status;
+        }
+
+
+      }
+
+      if(data.checkblockuser == 1){
+
 
           if(limit == 1){
             return false;
@@ -387,16 +429,17 @@ socket.on('check_ob_action', function(data){
           $(".sendob").css("display","none");
           blocked_user = 1;
 
-      }else if(data.msg == "datelimit"){
+      }
+
+      if(data.datecheck_limit == 1){
         //datelimit
         return false;
+
         if(blocked_user == 1){
           return false;
         }
 
-        limit = 1;
-          emptyob = data.emptyob;
-
+          limit = 1;
 
           $(".sendob").css("display","none");
           $(".limit").css("display","block");
@@ -408,6 +451,46 @@ socket.on('check_ob_action', function(data){
           }
 
       }
+
+      if(data.findphone_check_limit == 1){
+
+            if(limit == 1){
+              return false;
+            }
+            if(blocked_user == 1){
+              return false;
+            }
+            $(".sendob").text("опубликовать за " + money + " тг");
+
+            if(check_money == 0){
+              enable_money = 1;
+              check_money = 1;
+            }
+
+      }
+
+
+      if(data.findphone_datelimit == 1){
+
+        if(blocked_user == 1){
+          return false;
+        }
+
+          limit = 1;
+
+          $(".sendob").css("display","none");
+          $(".limit").css("display","block");
+
+          if(checklimit == 0){
+
+            myApp.dialog.alert('Превышен лимит дневного использования','Сервис');
+            checklimit = 1;
+          }
+
+      }
+
+
+
     });
 
     //проверка обьявления
