@@ -132,6 +132,14 @@ module.exports = [
     "clobbers": [
       "plugins.imagePicker"
     ]
+  },
+  {
+    "id": "WatsonSpeechPlugin.WatsonSDK",
+    "file": "plugins/WatsonSpeechPlugin/www/watson-sdk.js",
+    "pluginId": "WatsonSpeechPlugin",
+    "clobbers": [
+      "window.WatsonSDK"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -142,7 +150,8 @@ module.exports.metadata =
   "cordova-plugin-camera": "4.0.3",
   "cordova-plugin-splashscreen": "5.0.3-dev",
   "cordova-plugin-contacts": "3.0.2-dev",
-  "cordova-plugin-telerik-imagepicker": "2.2.2"
+  "cordova-plugin-telerik-imagepicker": "2.2.2",
+  "WatsonSpeechPlugin": "1.0.0"
 };
 // BOTTOM OF METADATA
 });

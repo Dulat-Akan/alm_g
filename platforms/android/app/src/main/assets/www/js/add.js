@@ -6,7 +6,7 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
     localStorage.setItem("typezapchasti","0");
 
    // myApp.formDeleteData('form_to_submit');
-
+   fixcheck_ob = 1;
 
   var level1 = localStorage.getItem("level1");
   var level2 = localStorage.getItem("level2");
@@ -1024,7 +1024,19 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
                               formData[formarray[j].name] = formarray[j].value;
                           }
 
+                          var checkdeviceid = localStorage.getItem("deviceid");
 
+                          if(!checkdeviceid){
+                            checkdeviceid = "";
+                          }
+
+                          formData['device_id'] = checkdeviceid;
+                          formData['status'] = textpod;
+                          formData['money'] = money;
+                          formData['enable_money'] = enable_money;
+                          //dodelat v bd
+                          //sdelat proverku v podache
+                          //one day limit
 
 
                           var arrayn = ['sena1','sena2'];
@@ -1213,7 +1225,7 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
                           $.ajax({
 
                                   "type":"GET",
-                                  "url": baseurl + "setuserob/",    /*random restourants menu zakaZ*/
+                                  "url": baseurl + "setuserob_modified/",    /*random restourants menu zakaZ*/
 
                                   dataType: "jsonp",
                                   crossDomain: true,
@@ -1241,13 +1253,24 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
 
                                         //clean formdata
 
-                                        myApp.dialog.alert('Спасибо ваше объявление подано!','Сервис');
+                                        if(enable_money == 0){
+                                          myApp.dialog.alert('Спасибо уже опубликовано!','Сервис');
+                                        }else{
+                                          myApp.dialog.alert('Ваша публикация ожидает оплаты!','Сервис');
+                                        }
 
-                                        localStorage.setItem("osenka","1");
+
+                                        if(enable_money == 0){
+                                          localStorage.setItem("osenka","1");
+                                          router.back();
+                                        }else{
+
+                                        }
+
                                         //mainView.router.refreshPage("#add");
                                         //mainView.router.loadPage("#");
                                         //router.navigate({ name: 'index' });
-                                        router.back();
+
 
 
 
@@ -1257,6 +1280,9 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
                                         setTimeout(function(){
 
                                             firstviewob();
+
+                                            $(".appendphoto").empty();
+                                            $(".appendvideo").empty();
                                             //window.location.reload();
 
 
@@ -1282,6 +1308,25 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
 
                       //alert(JSON.stringify(formData));
                       //console.log(formData);
+                    });
+
+
+                    $(".opencashform").click(function(){
+
+                        myApp.popup.open('.popup-send_money');
+
+                    });
+
+
+                    $(".tarif").click(function(){
+
+                        myApp.popup.open('.popup-tirif');
+
+                    });
+                    $(".tariftest").click(function(){
+
+                        myApp.popup.open('.popup-tirif');
+
                     });
 
 
@@ -1329,6 +1374,11 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
     $(".yearmask").mask("9999");
 
 
+    setTimeout(function(){
+
+        myApp.dialog.alert('Для лучших продаж или услуг старайтесь загружать фото (хорошего качества) или видео для привлечения клиентов..','Рекомендация');
+
+    },2000);
 
 
 

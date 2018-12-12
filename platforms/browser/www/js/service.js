@@ -290,6 +290,18 @@ var temp_status_text = "temp";
 
 var automatic_publication_status = "send_automatic";
 var doverie = 0;
+
+var enable_gold_status = 0;
+var enable_premium_status = 0;
+var enable_classic_status = 0;
+var enable_quick_status = 0;
+var enable_easy_status = 0;
+
+var count_gold_status = 0;
+var count_premium_status = 0;
+var count_classic_status = 0;
+var count_quick_status = 0;
+var count_easy_status = 0;
 //service variable
 
 setInterval(function(){
@@ -376,6 +388,7 @@ function check_ob_count(){
 
 
 //zagruzit tarifi sdelat check i sdelat fixgold i sdelat raskrasku changecolor
+//proverit checklimit activasiya prostogo tarifa
 
 var check_money = 0;
 
@@ -432,7 +445,7 @@ socket.on('check_ob_action', function(data){
 
       if(data.datecheck_limit == 1){
         //datelimit
-        return false;
+        //return false;
 
         if(blocked_user == 1){
           return false;
@@ -486,6 +499,23 @@ socket.on('check_ob_action', function(data){
             checklimit = 1;
           }
 
+      }
+
+      //godelat statusi sdelat cards napisanie preemushestva napisat skolko daetsya obyavl dlya kazhdogo statusa
+      if(data.enable_gold_status == 1){
+        count_gold_status = data.count_gold_status;
+      }
+      if(data.enable_premium_status == 1){
+        count_premium_status = data.count_premium_status;
+      }
+      if(data.enable_classic_status == 1){
+        count_classic_status = data.count_classic_status;
+      }
+      if(data.enable_quick_status == 1){
+        count_quick_status = data.count_quick_status;
+      }
+      if(data.enable_easy_status == 1){
+        count_easy_status = data.count_easy_status;
       }
 
 

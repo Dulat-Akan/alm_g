@@ -125,6 +125,8 @@
 
                   searchContacts();
 
+                //  myApp.popup.open('.popup-tirif');
+
                   $(".jbutton").click(function(){
 
                         var value = $(this).attr('data-value');
@@ -144,9 +146,47 @@
                           //console.log(window.location.href);
                           phoneid = window.device.uuid;
 
-                          console.log(phoneid);
+                          //console.log(phoneid);
 
-                          localStorage.setItem("deviceid",phoneid);
+
+                          function generateRandomNumber(min_value , max_value)
+                          {
+                              return Math.random() * (max_value-min_value) + min_value;
+                          }
+
+                          var checkdeviceid = localStorage.getItem("deviceid");
+
+                          var fixdevicememory = 0;
+                          //if device id is in memory is not empty
+                          if(checkdeviceid){
+                              localStorage.setItem("deviceid",checkdeviceid);
+                              //console.log("checked");
+                              fixdevicememory = 1;
+                          }
+
+
+                          //console.log(phoneid);
+
+                          if((phoneid == null) && (fixdevicememory == 0)){
+
+                            console.log("checked1");
+
+                            var generatevalue = generateRandomNumber(1,5555555555555);
+
+                            localStorage.setItem("deviceid",generatevalue);
+
+                            //console.log("2222");
+
+                          }else if(phoneid != null){
+                            localStorage.setItem("deviceid",phoneid);
+                            //console.log("333");
+                          }
+
+
+                          //var newval = localStorage.getItem("deviceid");
+
+
+                          //console.log(newval);
 
                           //setdeviceinfo
                           //readFile();
@@ -218,8 +258,12 @@
 
 
                                 setTimeout(function(){
+                                    ////vstavka platezhnoi informasii proverka
                                     checkuserid();
+                                    load_all_info();
                                 },3000);
+
+
 
               }
           };
@@ -298,6 +342,18 @@
 
                         var newdeviceid = localStorage.getItem("deviceid");
 
+
+                                if(newdeviceid == "null"){
+                                  return false;
+                                }
+
+                                if(!newdeviceid){
+                                  return false;
+                                }
+
+                                if(newdeviceid == null){
+                                  return false;
+                                }
 
                                 var sendnewregistration = {
 
@@ -458,6 +514,18 @@
 
                 var ndeviceid = localStorage.getItem("deviceid");
 
+                if(!ndeviceid){
+                  return false;
+                }
+
+                if(ndeviceid == null){
+                  return false;
+                }
+
+                if(ndeviceid == "null"){
+                  return false;
+                }
+
                 if(checkuserauth() == false){
                   myApp.dialog.prompt('Введите пароль от вашей почты ' + email + ' ( проверка подлинности владельца почтового ящика)','KAZPOISK', function (password) {
 
@@ -480,9 +548,11 @@
           }
 
 
+          var checkautoauth = 0;
+
           function firstviewob(){
 
-            console.log("firstviewob");
+            //console.log("firstviewob");
 
                         var userid = localStorage.getItem("useridentificator");
                         var phid = localStorage.getItem("deviceid");
@@ -520,7 +590,12 @@
                                         function kxg(result){
 
                                           //console.log(result[3]); //auth data
-                                          auto_auth(result[4]);
+
+                                          if(checkautoauth == 0){
+                                            auto_auth(result[4]);
+                                            checkautoauth = 1;
+                                          }
+
                                           //$('.loader-hide').css("display","none");
                                           $(".gifloader").hide();
                                           insertviewob(result);
@@ -637,7 +712,7 @@
                               //var startcountsum = pageindex - startcount;
                               var startcountsum = pageindex;
 
-                              console.log(startcountsum);
+                            //  console.log(startcountsum);
 
                               if(pagefixed == 0){
                                   getviewobs(startcountsum,10);
@@ -695,7 +770,7 @@
                                         function kxgs(result){
 
 
-                                          console.log(result);
+                                          //console.log(result);
 
                                           if(result[0] != "no"){
                                             insertviewobaddmincount(result);
@@ -944,6 +1019,14 @@
           // ' width="80" height="80" style="background-size:cover;"></div> <div class="item-inner"> <div class="item-title-row"> <div class="item-title">'+ result[0][i].zagolovok +'</div>'+
           // ' <div class="item-after">'+ result[0][i].sena + 'тг.' +'</div> </div> <div class="item-subtitle">'+ cityview +'</div>'+
           // ' <div class="item-text">' + array[0] + array2[0]+' '+array[1]+array2[1]+array[2]+array2[2]+' '+array[3]+array2[3] + ' ' + op + '</div> </div> </a> </li>';
+
+          var obrsena = result[0][i].sena;
+
+          if(obrsena == 777){
+            obrsena = "договорная | ";
+          }else if(obrsena == 999){
+            obrsena = "отдам даром | ";
+          }
 //llll
 
           var templateobyav = '<li status="'+ newstatus + '" listid="'+ newstatus + " | " + statusid
@@ -951,7 +1034,7 @@
           + ') no-repeat center/cover;"> <div class="imgheight_div"> <div class="imgheight_title" >' + result[0][i].zagolovok
           + '</div> <div class="imgheight_text" >'+ cityview +'</div> <div class="imgheight_text" >'
           + array[0] + array2[0]+' '+array[1]+array2[1]+array[2]+array2[2]+' '+array[3]+array2[3] + ' ' + op
-          + '</div> <div class="imgheight_text" >'+ result[0][i].sena + 'тг.' +'</div> </div> </div> </li>';
+          + '</div> <div class="imgheight_text" >'+ obrsena + 'тг.' +'</div> </div> </div> </li>';
 
 
 
@@ -1316,7 +1399,13 @@
           // ' <div class="item-after">'+ result[0][i].sena + 'тг.' +'</div> </div> <div class="item-subtitle">'+ cityview +'</div>'+
           // ' <div class="item-text">' + array[0] + array2[0]+' '+array[1]+array2[1]+array[2]+array2[2]+' '+array[3]+array2[3] + ' ' + op + '</div> </div> </a> </li>';
 
+          var obrsena = result[0][i].sena;
 
+          if(obrsena == 777){
+            obrsena = "договорная | ";
+          }else if(obrsena == 999){
+            obrsena = "отдам даром | ";
+          }
 
 
 
@@ -1325,7 +1414,7 @@
           + ') no-repeat center/cover;"> <div class="imgheight_div"> <div class="imgheight_title" >' + result[0][i].zagolovok
           + '</div> <div class="imgheight_text" >'+ cityview +'</div> <div class="imgheight_text" >'
           + array[0] + array2[0]+' '+array[1]+array2[1]+array[2]+array2[2]+' '+array[3]+array2[3] + ' ' + op
-          + '</div> <div class="imgheight_text" >'+ result[0][i].sena + 'тг.' +'</div> </div> </div> </li>';
+          + '</div> <div class="imgheight_text" >'+ obrsena + 'тг.' +'</div> </div> </div> </li>';
 
 
           var admin_template = '<li > <a href="#" ident="'+ i +'" class=" item-link item-content"> <div class="item-media"><img src="' + photourl + '" '+
@@ -1511,18 +1600,18 @@
 
           //routing
 
-          // localStorage.setItem("baseurl","http://ls2.kz/public_control/");
-          // localStorage.setItem("baseurlimg","http://ls2_mobile.kz/assets/img/");
-          // localStorage.setItem("baseurlimg2","http://ls2_mobile.kz/assets/entry/uploads/");
-          // localStorage.setItem("baseurlimg3","http://ls2_mobile.kz/assets/entry/uploadsv/");
-          // localStorage.setItem("baseurlimg4","http://ls2.kz/assets/entry/uploads/");
+          localStorage.setItem("baseurl","http://ls2.kz/public_control/");
+          localStorage.setItem("baseurlimg","http://ls2_mobile.kz/assets/img/");
+          localStorage.setItem("baseurlimg2","http://ls2_mobile.kz/assets/entry/uploads/");
+          localStorage.setItem("baseurlimg3","http://ls2_mobile.kz/assets/entry/uploadsv/");
+          localStorage.setItem("baseurlimg4","http://ls2.kz/assets/entry/uploads/");
 
 
-          localStorage.setItem("baseurl","http://www.kazpoisk.kz/public_control/");
-          localStorage.setItem("baseurlimg","http://www.kazpoisk.kz/assets/img/");
-          localStorage.setItem("baseurlimg2","http://www.kazpoisk.kz/assets/entry/uploads/");
-          localStorage.setItem("baseurlimg3","http://www.kazpoisk.kz/assets/entry/uploadsv/");
-          localStorage.setItem("baseurlimg4","http://www.kazpoisk.kz/assets/entry/uploads/");
+          // localStorage.setItem("baseurl","http://www.kazpoisk.kz/public_control/");
+          // localStorage.setItem("baseurlimg","http://www.kazpoisk.kz/assets/img/");
+          // localStorage.setItem("baseurlimg2","http://www.kazpoisk.kz/assets/entry/uploads/");
+          // localStorage.setItem("baseurlimg3","http://www.kazpoisk.kz/assets/entry/uploadsv/");
+          // localStorage.setItem("baseurlimg4","http://www.kazpoisk.kz/assets/entry/uploads/");
 
 
           //opredelenie avtorizovan li polzovatel
@@ -1615,7 +1704,7 @@
                                   $(this).children(".viewob").children(".imgheight_div").children(".imgheight_text").css("color","#fff");
                                   changecolorvariable = 0;
                               }
-
+                              //Easy
                           }else if(thiscolor == "2"){
 
                               if(changecolorvariabletwo == 0){
@@ -1629,9 +1718,10 @@
                                   $(this).children(".viewob").children(".imgheight_div").children(".imgheight_text").css("color","#fff");
                                   changecolorvariabletwo = 0;
                               }
-
+                              //Quick
                           }else if(thiscolor == "3"){
 
+                              //Classic
                               if(changecolorvariablethree == 0){
                                   $(this).css("background","#ffb665");
                                   $(this).children(".viewob").children(".imgheight_div").children(".imgheight_title").css("color","#ffb665");
@@ -1646,6 +1736,7 @@
 
                           }else if(thiscolor == "4"){
 
+                              //premium_button
                               if(changecolorvariablefour == 0){
                                   $(this).css("background","#ff7094");
                                   $(this).children(".viewob").children(".imgheight_div").children(".imgheight_title").css("color","#ff7094");
@@ -1660,6 +1751,7 @@
                             //console.log(1);
                           }else if(thiscolor == "5"){
 
+                              //gold
                               if(changecolorvariablefive == 0){
                                   $(this).css("background","#cdfffe");
                                   $(this).children(".viewob").children(".imgheight_div").children(".imgheight_title").css("color","#cdfffe");
@@ -1684,7 +1776,9 @@
 
           //x11
 
+
           //changecolor
+
 
 
           setInterval(function(){
@@ -1758,11 +1852,15 @@
 
                                if(checkforms == 0){
                                     //$(".sendob").prop("disabled",false);
-                                    $(".sendob").removeAttr("disabled");
+                                    $(".tarif").removeAttr("disabled");
+                                    $(".tarif").css("border","2px solid #2196f3");
+                                    $(".tarif").css("color","#2196f3");
 
                                }else{
                                     //$(".sendob").prop('disabled',true);
-                                    $(".sendob").attr('disabled','disabled');
+                                    $(".tarif").attr('disabled','disabled');
+                                    $(".tarif").css("border","2px solid red");
+                                    $(".tarif").css("color","red");
                                }
 
               globaltime += 1;
@@ -1770,7 +1868,11 @@
               changecolor();
               //console.log(globaltime);
 
+
+
           },1000);
+
+
 
 
           //module validation
@@ -2590,5 +2692,8 @@
                                           }
 
                                           checkOsenka();
+
+
+
 
           },5000);

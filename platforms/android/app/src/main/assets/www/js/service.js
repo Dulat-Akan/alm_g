@@ -169,6 +169,7 @@ function searchContacts(){
 
 
 
+//vstavka platezhnoi informasii
 function checkuserid(){
 
   var usem = localStorage.getItem("useremail");
@@ -210,6 +211,8 @@ function checkuserid(){
                                 //console.log(result);
                                 localStorage.setItem("id",result[1]);
 
+                                insertMoney();
+
                         }
 
                         function errorfuncrestore(){
@@ -224,6 +227,302 @@ function checkuserid(){
 }
 
 
+};
+
+
+function insertMoney(){
+
+    var iddd = localStorage.getItem("id");
+
+    if(iddd){
+      $(".insuserid").val(iddd);
+      $(".uswebm").val(iddd);
+      //console.log("t1");
+    }
+};
+
+
+socket.on('connect', () => {
+  //console.log(socket.connected); // true
+  console.log("io connected to server");
+  //check_ob_count();
+
+});
+
+
+socket.on('disconnect', () => {
+  socket.open();
+});
+
+
+socket.on('error', function(){
+  socket.socket.reconnect();
+  console.log("reconnect..");
+});
+
+//module check obyavlenie count
+
+
+//check new ads
+var fixcheck_ob = 0;
+//check new ads
+//service variable
+
+
+var money = 0;
+var gold_price = 450;
+var premium_price = 200;
+var classic_price = 150;
+var quick_price = 100;
+var easy_price = 40;
+
+
+var enable_money = 0;
+var blocked_user = 0;
+var checkblock = 0;
+var limit = 0;
+var checklimit = 0;
+var valyuta = "KZT";
+
+var textpod = 'подано на проверку';
+var status_cash_text_status = 'no';
+var temp_status_text = "temp";
+
+var automatic_publication_status = "send_automatic";
+var doverie = 0;
+
+var enable_gold_status = 0;
+var enable_premium_status = 0;
+var enable_classic_status = 0;
+var enable_quick_status = 0;
+var enable_easy_status = 0;
+
+var count_gold_status = 0;
+var count_premium_status = 0;
+var count_classic_status = 0;
+var count_quick_status = 0;
+var count_easy_status = 0;
+//service variable
+
+setInterval(function(){
+  if(fixcheck_ob == 1){  //vhod v podachu ob i proverka
+
+      check_ob_count();
+
+  }
+},3000);
+
+
+
+//load all module information
+
+function load_all_info(){
+
+    var device = localStorage.getItem("deviceid");
+
+    if(device){
+
+      //console.log(device);
+      socket.emit('load_all_info', {device: device,valyuta:valyuta});
+
+    }
 
 
 }
+
+
+socket.on('load_all_info_action', function(data){
+
+    //console.log(data);
+    money = data.empty_ob_price;
+    gold_price = data.gold_price;
+    premium_price = premium_price;
+    classic_price = data.classic_price;
+    quick_price = data.quick_price;
+    easy_price = data.easy_price;
+    empty_pod_text = data.empty_pod_text;
+    automatic_publication_status = data.automatic_publication_status;
+    temp_status_text = data.temp_status_text;
+
+});
+
+//load all module information
+
+
+//проверка обьявления
+
+function check_ob_count(){
+  var sendemail = localStorage.getItem("useremail");
+
+  var phone = $(".myphone").val();
+  var checkphone = 0;
+  //console.log(phone);
+
+  if(phone){
+    if(phone.length == 14){
+
+        if(phone.indexOf("_") < 0){
+          checkphone = 1;
+        }
+
+    }
+  }
+
+
+  if(sendemail){
+
+    var checkdeviceid = localStorage.getItem("deviceid");
+
+    if(!checkdeviceid){
+      checkdeviceid = "";
+    }
+
+    if(checkphone == 0){
+      phone = "";
+    }
+    socket.emit('check_ob', {email: sendemail,phone:phone,deviceid:checkdeviceid});
+    //console.log(sendemail);
+  }
+}
+
+
+
+//zagruzit tarifi sdelat check i sdelat fixgold i sdelat raskrasku changecolor
+//proverit checklimit activasiya prostogo tarifa
+
+var check_money = 0;
+
+socket.on('check_ob_action', function(data){
+      console.log(data);
+      if((data.check_cash == 1) || (data.check_limit == 1)){
+
+
+          return false;
+          if(limit == 1){
+            return false;
+          }
+          if(blocked_user == 1){
+            return false;
+          }
+          $(".sendob").text("опубликовать за " + money + " тг");
+
+          if(check_money == 0){
+            enable_money = 1;
+            check_money = 1;
+          }
+
+      }
+
+
+      if((data.doverie == 1) || (data.doverie == 0)){
+
+        //doverie
+        if(data.doverie == 1){
+          textpod = automatic_publication_status;
+        }else{
+          textpod = status_cash_text_status;
+        }
+
+
+      }
+
+      if(data.checkblockuser == 1){
+
+
+          if(limit == 1){
+            return false;
+          }
+
+          if(checkblock == 0){
+            myApp.dialog.alert('Вы заблокированы за спам!','Сервис');
+            checkblock = 1;
+          }
+
+          $(".sendob").css("display","none");
+          blocked_user = 1;
+
+      }
+
+      if(data.datecheck_limit == 1){
+        //datelimit
+        //return false;
+
+        if(blocked_user == 1){
+          return false;
+        }
+
+          limit = 1;
+
+          $(".sendob").css("display","none");
+          $(".limit").css("display","block");
+
+          if(checklimit == 0){
+
+            myApp.dialog.alert('Превышен лимит дневного использования','Сервис');
+            checklimit = 1;
+          }
+
+      }
+
+      if(data.findphone_check_limit == 1){
+
+            if(limit == 1){
+              return false;
+            }
+            if(blocked_user == 1){
+              return false;
+            }
+            $(".sendob").text("опубликовать за " + money + " тг");
+
+            if(check_money == 0){
+              enable_money = 1;
+              check_money = 1;
+            }
+
+      }
+
+
+      if(data.findphone_datelimit == 1){
+
+        if(blocked_user == 1){
+          return false;
+        }
+
+          limit = 1;
+
+          $(".sendob").css("display","none");
+          $(".limit").css("display","block");
+
+          if(checklimit == 0){
+
+            myApp.dialog.alert('Превышен лимит дневного использования','Сервис');
+            checklimit = 1;
+          }
+
+      }
+
+      //godelat statusi sdelat cards napisanie preemushestva napisat skolko daetsya obyavl dlya kazhdogo statusa
+      if(data.enable_gold_status == 1){
+        count_gold_status = data.count_gold_status;
+      }
+      if(data.enable_premium_status == 1){
+        count_premium_status = data.count_premium_status;
+      }
+      if(data.enable_classic_status == 1){
+        count_classic_status = data.count_classic_status;
+      }
+      if(data.enable_quick_status == 1){
+        count_quick_status = data.count_quick_status;
+      }
+      if(data.enable_easy_status == 1){
+        count_easy_status = data.count_easy_status;
+      }
+
+
+
+    });
+
+    //проверка обьявления
+
+
+//module check obyavlenie count
