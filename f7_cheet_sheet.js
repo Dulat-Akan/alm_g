@@ -68,3 +68,18 @@ myApp.dialog.preloader();
   <i class="icon icon-radio"></i>
 
   <i class="icon icon-checkbox"></i>
+// kuat_rax@mail.ru
+// 3YDRBmzwno
+
+npx babel --watch src_babel --out-dir ./js --presets react-app/prod
+
+  $ cordova plugin add cordova-plugin-browsersync
+$ cordova run browser -- --live-reload
+cordova build browser --prod
+
+socket.emit('insert_users_data', {deviceid:device,parsed_form:parsed_form});
+
+socket.on('insert_users_data', function(msg){
+
+
+        });

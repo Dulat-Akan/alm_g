@@ -1,3 +1,6 @@
+
+
+
           var myApp = new Framework7({
             // App root element
                   root: '#app',
@@ -62,7 +65,9 @@
           });
 
 
-          var mainView = myApp.views.create('.view-main');
+          var mainView = myApp.views.create('.view-main',{
+                                              url: '/home'
+                                            });
 
           var router = mainView.router;
 

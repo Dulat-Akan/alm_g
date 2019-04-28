@@ -1006,308 +1006,377 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
 
     ///-----------------add js
 
+                    function generateOrder()
+                    {
+                        return new Date().getTime();
+                    }
+
+                    function setPayments(){
+
+                      var userp = localStorage.getItem("useremail");
+
+                      ///yandex
+
+                      $(".customer_number").val(userp);
 
 
-                    //module sendob
-                    $$('.sendob').on('click', function(){
+                      var order_number = generateOrder();
+                      $(".orderNumber_n").val(order_number);
+                      $(".yan_sum").val(parseInt(money / currency_ru));
+                      //$(".sendyan_form").submit();
+                      //yandex
+
+                      $(".webmoney_sum").val(money);
+                      $(".webmoney_payment_number").val(order_number);
+                      $(".uswebm").val(userp);
 
 
-                          $(".gifloader").show();
+                    }
+
+                    function send_ob(){
+
+                                $(".sendpay").hide();
+
+                                $$('.sendob').hide();
+
+                                $(".gifloader").show();
 
 
-                          //var formData = myApp.form.convertToData('#form_to_submit');
-                          var formarray = $('#form_to_submit').serializeArray();
+                                //var formData = myApp.form.convertToData('#form_to_submit');
+                                var formarray = $('#form_to_submit').serializeArray();
 
-                          var formData = new Object();
+                                var formData = new Object();
 
-                          for(var j = 0;j < formarray.length;j++){
-                              formData[formarray[j].name] = formarray[j].value;
-                          }
-
-                          var checkdeviceid = localStorage.getItem("deviceid");
-
-                          if(!checkdeviceid){
-                            checkdeviceid = "";
-                          }
-
-                          formData['device_id'] = checkdeviceid;
-                          formData['status'] = textpod;
-                          formData['money'] = money;
-                          formData['enable_money'] = enable_money;
-                          //dodelat v bd
-                          //sdelat proverku v podache
-                          //one day limit
-
-
-                          var arrayn = ['sena1','sena2'];
-
-                          $.each(formData, function( index, value ) {
-
-                              for(var i = 0;i < arrayn.length;i++){
-
-                                  if(index == arrayn[i]){
-                                      if(value.length > 0){
-                                          formData['sena'] = value;
-                                          console.log( index + ": " + value );
-                                      }
-                                  }
-
-                              }
-
-
-                            });
-
-                            //console.log(formData);
-
-                          //return false;
-
-                          //manipulyasiya s dannimi
-
-                          formData['category1'] = localStorage.getItem("level1");
-                          formData['category2'] = localStorage.getItem("level2");
-                          formData['category3'] = localStorage.getItem("level3");
-
-                          var country = formData['city'];
-
-                          if(country != null){
-
-                          var arrayscountry = country.split(':');
-                          formData['city'] = arrayscountry[1];
-
-                          var splittingstringarray = arrayscountry[0].split("_");
-
-                          formData['strana'] = splittingstringarray[0] + " " + splittingstringarray[1];
-
-                          }
-
-                          formData['valyuta'] = "тг";
-
-
-                          var marka = formData['marka'];
-
-                          if(marka != null){
-
-                              var arraysmarka = marka.split(':');
-
-                              formData['marka'] = arraysmarka[0];
-                              formData['model'] = arraysmarka[1];
-
-                            }
-
-
-
-                          var markazapch = formData['markazapch'];
-
-                          if(markazapch != null){
-
-                              var arraysmarkazapch = markazapch.split(':');
-
-                              formData['markazapch'] = arraysmarkazapch[0];
-                              formData['modelzapch'] = arraysmarkazapch[1];
-
-                            }
-
-                          var typezapchasti = localStorage.getItem("typezapchasti");
-
-                          if((typezapchasti) || (typezapchasti != 0)){
-                            formData['typezapchasti'] = typezapchasti;
-                          }else{
-                            formData['typezapchasti'] = "нет";
-                          }
-
-                          var markazapch = formData['markazapch'];
-
-                          if(markazapch != null){
-
-                              var arraysmarkazapch = markazapch.split(':');
-
-                              formData['markazapch'] = arraysmarkazapch[1];
-
-                              formData['modelzapch'] = arraysmarkazapch[0];
-
-                          }
-
-                          var useremail = localStorage.getItem("useremail");
-
-                          if(useremail){
-                              formData['email'] = useremail;
-                          }
-                    //manipulyasiya s dannimi
-
-
-
-
-                        //function zapolneniya
-
-                        for (keys in formData) {
-
-                           // console.log(formData[keys]);
-                            if((formData[keys] == null) || (formData[keys] == undefined) || (formData[keys] == "") || (formData[keys] == " undefined")){
-
-                                if(!formData[keys]){
-                                  formData[keys] = 0;
-                                }else{
-                                  formData[keys] = 0;
+                                for(var j = 0;j < formarray.length;j++){
+                                    formData[formarray[j].name] = formarray[j].value;
                                 }
-                                  formData[keys] = 0;
+
+                                var checkdeviceid = localStorage.getItem("deviceid");
+
+                                if(!checkdeviceid){
+                                  checkdeviceid = "";
+                                }
 
 
+                                formData['device_id'] = checkdeviceid;
+                                formData['status'] = textpod;
+                                formData['money'] = money;
+                                formData['enable_money'] = enable_money;
+                                //dodelat v bd
+                                //sdelat proverku v podache
+                                //one day limit
 
 
-                            }
+                                var arrayn = ['sena1','sena2'];
 
-                            //console.log(formData[keys]);
+                                $.each(formData, function( index, value ) {
 
+                                    for(var i = 0;i < arrayn.length;i++){
 
-                        }
-                        //function zapolneniya
-
-
-
-
-
-
-
-
-                    var validate = ["script","alert","php","xss","*","-- -","--","<",">","concat","=","<script>","</script>","</"];
-
-                        //validate function
-
-                        for (key in formData) {
-
-                          for(var i = 0;i < validate.length;i++){
-
-                            var tt = formData[key];
-                            ttxt = tt.toString();
-                            var xt = ttxt.indexOf(validate[i]);
-
-                            //console.log(xt);
-
-                            if(xt >= 0){
-
-                                formData[key] = ".";
-                                //console.log("заменена");
-
-                            }
-
-
-                            var t = formData[key].length;
-
-                            for(var j = 0;j < t;j++){
-
-                              var y = formData[key][j];
-
-                              if(y == validate[i]){
-                                formData[key][j] = ".";
-                                //console.log("заменена");
-                              }
-
-                            }
-
-                          }
-
-                          //console.log(key);
-
-                        }
-                        //validate function
-
-                       //console.log(formData);
-
-                    //return false;
-
-                        //dalee sdelat' zapolnenie
-
-                    //rab4
-
-
-                          var baseurl = localStorage.getItem("baseurl");
-
-                          $.ajax({
-
-                                  "type":"GET",
-                                  "url": baseurl + "setuserob_modified/",    /*random restourants menu zakaZ*/
-
-                                  dataType: "jsonp",
-                                  crossDomain: true,
-                                  "data": formData,
-
-                                  "success":kx001,
-                                  "error":errorfunc001
-
-                                  });
-
-
-                            function kx001(result){
-///xxx
-                                //console.log(result);
-
-                                    if(result[0] == "ok"){
-
-                                        //clean formdata
-
-                                        // for (newkey in formData) {
-
-                                        //     $('[name = '+ newkey +']').val("");
-
-                                        // }
-
-                                        //clean formdata
-
-                                        if(enable_money == 0){
-                                          myApp.dialog.alert('Спасибо уже опубликовано!','Сервис');
-                                        }else{
-                                          myApp.dialog.alert('Ваша публикация ожидает оплаты!','Сервис');
+                                        if(index == arrayn[i]){
+                                            if(value.length > 0){
+                                                formData['sena'] = value;
+                                                console.log( index + ": " + value );
+                                            }
                                         }
-
-
-                                        if(enable_money == 0){
-                                          localStorage.setItem("osenka","1");
-                                          router.back();
-                                        }else{
-
-                                        }
-
-                                        //mainView.router.refreshPage("#add");
-                                        //mainView.router.loadPage("#");
-                                        //router.navigate({ name: 'index' });
-
-
-
-
-                                        $(".gifloader").hide();
-
-
-                                        setTimeout(function(){
-
-                                            firstviewob();
-
-                                            $(".appendphoto").empty();
-                                            $(".appendvideo").empty();
-                                            //window.location.reload();
-
-
-                                        },2000);
-
-
-
 
                                     }
 
 
-                            }
+                                  });
 
-                            function errorfunc001(){
+                                  //console.log(formData);
 
-                                   $(".gifloader").hide();
-                            }
+                                //return false;
+
+                                //manipulyasiya s dannimi
+
+                                formData['category1'] = localStorage.getItem("level1");
+                                formData['category2'] = localStorage.getItem("level2");
+                                formData['category3'] = localStorage.getItem("level3");
+
+                                var country = formData['city'];
+
+                                if(country != null){
+
+                                var arrayscountry = country.split(':');
+                                formData['city'] = arrayscountry[1];
+
+                                var splittingstringarray = arrayscountry[0].split("_");
+
+                                formData['strana'] = splittingstringarray[0] + " " + splittingstringarray[1];
+
+                                }
+
+                                formData['valyuta'] = "тг";
 
 
-                            globalfixobupload = 0;
+                                var marka = formData['marka'];
+
+                                if(marka != null){
+
+                                    var arraysmarka = marka.split(':');
+
+                                    formData['marka'] = arraysmarka[0];
+                                    formData['model'] = arraysmarka[1];
+
+                                  }
 
 
 
-                      //alert(JSON.stringify(formData));
-                      //console.log(formData);
+                                var markazapch = formData['markazapch'];
+
+                                if(markazapch != null){
+
+                                    var arraysmarkazapch = markazapch.split(':');
+
+                                    formData['markazapch'] = arraysmarkazapch[0];
+                                    formData['modelzapch'] = arraysmarkazapch[1];
+
+                                  }
+
+                                var typezapchasti = localStorage.getItem("typezapchasti");
+
+                                if((typezapchasti) || (typezapchasti != 0)){
+                                  formData['typezapchasti'] = typezapchasti;
+                                }else{
+                                  formData['typezapchasti'] = "нет";
+                                }
+
+                                var markazapch = formData['markazapch'];
+
+                                if(markazapch != null){
+
+                                    var arraysmarkazapch = markazapch.split(':');
+
+                                    formData['markazapch'] = arraysmarkazapch[1];
+
+                                    formData['modelzapch'] = arraysmarkazapch[0];
+
+                                }
+
+                                var useremail = localStorage.getItem("useremail");
+
+                                if(useremail){
+                                    formData['email'] = useremail;
+                                }
+                          //manipulyasiya s dannimi
+
+
+
+
+                              //function zapolneniya
+
+                              for (keys in formData) {
+
+                                 // console.log(formData[keys]);
+                                  if((formData[keys] == null) || (formData[keys] == undefined) || (formData[keys] == "") || (formData[keys] == " undefined")){
+
+                                      if(!formData[keys]){
+                                        formData[keys] = 0;
+                                      }else{
+                                        formData[keys] = 0;
+                                      }
+                                        formData[keys] = 0;
+
+
+
+
+                                  }
+
+                                  //console.log(formData[keys]);
+
+
+                              }
+                              //function zapolneniya
+
+
+
+
+
+
+
+
+                          var validate = ["script","alert","php","xss","*","-- -","--","<",">","concat","=","<script>","</script>","</"];
+
+                              //validate function
+
+                              for (key in formData) {
+
+                                for(var i = 0;i < validate.length;i++){
+
+                                  var tt = formData[key];
+                                  ttxt = tt.toString();
+                                  var xt = ttxt.indexOf(validate[i]);
+
+                                  //console.log(xt);
+
+                                  if(xt >= 0){
+
+                                      formData[key] = ".";
+                                      //console.log("заменена");
+
+                                  }
+
+
+                                  var t = formData[key].length;
+
+                                  for(var j = 0;j < t;j++){
+
+                                    var y = formData[key][j];
+
+                                    if(y == validate[i]){
+                                      formData[key][j] = ".";
+                                      //console.log("заменена");
+                                    }
+
+                                  }
+
+                                }
+
+                                //console.log(key);
+
+                              }
+                              //validate function
+
+                             //console.log(formData);
+
+                          //return false;
+
+                              //dalee sdelat' zapolnenie
+
+                          //rab4
+
+
+                                var baseurl = localStorage.getItem("baseurl");
+
+                                $.ajax({
+
+                                        "type":"GET",
+                                        "url": baseurl + "setuserob_modified/",    /*random restourants menu zakaZ*/
+
+                                        dataType: "jsonp",
+                                        crossDomain: true,
+                                        "data": formData,
+
+                                        "success":kx001,
+                                        "error":errorfunc001
+
+                                        });
+
+
+                                  function kx001(result){
+
+                                      //console.log(result);
+
+                                          if(result[0] == "ok"){
+
+                                              //clean formdata
+
+                                              // for (newkey in formData) {
+
+                                              //     $('[name = '+ newkey +']').val("");
+
+                                              // }
+
+                                              //clean formdata
+
+                                              $(".sendpay").show();
+
+                                              $$('.sendob').show();
+
+
+                                              if(enable_money == 0){
+                                                myApp.dialog.alert('Спасибо уже опубликовано!','Сервис');
+                                              }else{
+                                                myApp.dialog.alert('Ваша публикация ожидает оплаты!','Сервис');
+                                              }
+
+
+                                              if(enable_money == 0){
+                                                localStorage.setItem("osenka","1");
+                                                router.back();
+
+
+                                                myApp.popup.close('.popup-tirif');
+                                                myApp.popup.close('.popup-send_money');
+                                              }else{
+
+                                                router.back();
+
+                                                myApp.popup.close('.popup-tirif');
+                                                myApp.popup.open('.popup-send_money');
+
+                                                setPayments();
+
+                                              }
+
+                                              //mainView.router.refreshPage("#add");
+                                              //mainView.router.loadPage("#");
+                                              //router.navigate({ name: 'index' });
+
+
+                                              $(".gifloader").hide();
+
+
+                                              setTimeout(function(){
+
+                                                  firstviewob();
+
+                                                  $(".appendphoto").empty();
+                                                  $(".appendvideo").empty();
+                                                  //window.location.reload();
+
+
+
+
+                                              },2000);
+
+
+
+
+                                          }
+
+
+                                  }
+
+                                  function errorfunc001(){
+
+                                         $(".gifloader").hide();
+                                  }
+
+
+                                  globalfixobupload = 0;
+
+
+
+                            //alert(JSON.stringify(formData));
+                            //console.log(formData);
+
+
+                    }
+
+
+
+                    //module sendob
+
+                    //xx
+                    $$('.sendob').on('click', function(){
+
+                          money = Number($(".sendob").attr("sum"));
+
+                          send_ob();
+
+                    });
+
+                    $(".sendpay").click(function(){
+
+                      var sum = Number($(this).attr("sum"));
+
+                      money = sum;
+
+                      send_ob();
+
                     });
 
 
@@ -1321,6 +1390,7 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
                     $(".tarif").click(function(){
 
                         myApp.popup.open('.popup-tirif');
+                        money = money_temp;
 
                     });
                     $(".tariftest").click(function(){
@@ -1379,6 +1449,9 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
         myApp.dialog.alert('Для лучших продаж или услуг старайтесь загружать фото (хорошего качества) или видео для привлечения клиентов..','Рекомендация');
 
     },2000);
+
+
+
 
 
 

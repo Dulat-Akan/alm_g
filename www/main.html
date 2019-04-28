@@ -11,8 +11,11 @@
 
 
     <meta charset="utf-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="google-signin-client_id" content="791144738416-atva1aq90r1qb0l7opn56d0tm85otc6j.apps.googleusercontent.com">
     <meta name="apple-mobile-web-app-capable" content="yes">
+
     <!-- Color theme for statusbar -->
     <meta name="theme-color" content="#2196f3">
     <!-- Your app title -->
@@ -43,6 +46,10 @@
 
   </head>
   <body class="theme-black">
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
 
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MV6PPHG"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -89,6 +96,20 @@
                   </div>
 
               </li>
+              <li>
+                <div class="item-content hide_login">
+                  <div class="item-media minw"><i class="f7-icons">forward</i></div>
+                  <div class="item-inner left-right-padding">
+                    <div class="item-title">
+
+                      <div id="my-signin2" class="panel-close" ></div>
+                      <!-- <a href="#"  style="color: black;font-size: 14px;" onclick="signOut();" class="panel-close button">выход</a> -->
+
+                    </div>
+                    </div>
+                  </div>
+
+              </li>
 
               <li>
                 <div class="item-content hide_cabinet">
@@ -117,6 +138,9 @@
               </li>
 
             </ul>
+
+
+
           </div>
 
       </div>
@@ -132,16 +156,16 @@
       <!-- Your main view, should have "view-main" class -->
       <div class="view view-main">
         <!-- Initial Page, "data-name" contains page name -->
-                <div data-name="home" class="page">
+                <div data-name="home" class="page no-navbar">
 
                   <!-- Top Navbar -->
 
 
-                  <div class="navbar mnavbarstyle">
+                  <!-- <div class="navbar mnavbarstyle">
                       <div class="navbar-inner sliding">
                         <p class="kazpoiskcl"><img  class="kazpoiskcll" src="http://www.kazpoisk.kz/assets/img/kazpoisk.png" alt="kazpoisk" /></p>
                       </div>
-                    </div>
+                    </div> -->
 
                   <!-- Toolbar -->
                   <div class="toolbar toolbar-bottom-md  mtoolbarstyle">
@@ -156,7 +180,8 @@
                             <!-- <a class="link addcategoryevent">
                                 <i class="f7-icons">add</i>
                             </a> -->
-                            <a class="tab-link popup-open" data-popup=".popup-addcategory">
+                            <!-- <a class="tab-link open_p popup-open" data-popup=".popup-addcategory"> -->
+                            <a class="tab-link open_p">
                                 <i class="f7-icons mblackicons">add</i>
                             </a>
 
@@ -167,19 +192,111 @@
                   </div>
 
                   <!-- Scrollable page content -->
-                  <div class="page-content hide-toolbar-on-scroll hide-navbar-on-scroll">
+                  <div class="page-content hide-toolbar-on-scroll hide-navbar-on-scroll ">
 
                     <!-- <div class="page-content " style="background-color: white;"> -->
 
                     <!-- we will init this gauge in JavaScript -->
 
+                    <form class="searchbar">
+                        <div class="searchbar-inner">
+                          <div class="searchbar-input-wrap">
+                            <input type="search" id="musearchinput" placeholder="Search">
+                            <i class="searchbar-icon"></i>
+                            <span class="input-clear-button"></span>
+                          </div>
+                          <span class="searchbar-disable-button if-not-aurora">Cancel</span>
+                        </div>
+                      </form>
+
+
+
+                      <div class="row">
+
+                        <div class="globtwo">
+                            <ul class="myhidescrolledtwo">
+                                <li>
+                                  <a>
+                                      <div class="header-photo-two">
+                                        <i class="material-icons icon-draw">
+                                            home
+                                        </i>
+                                      </div>
+                                      <div class="photo-description-two">
+                                          <div class="small-text-two">Apartment</div>
+                                      </div>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a>
+                                      <div class="header-photo-cars">
+                                        <i class="material-icons icon-draw-car">
+                                            commute
+                                        </i>
+                                      </div>
+                                      <div class="photo-description-two">
+                                          <div class="small-text-two">Cars</div>
+                                      </div>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a>
+                                      <div class="header-photo-work">
+                                        <i class="material-icons icon-draw-work">
+                                            work
+                                        </i>
+                                      </div>
+                                      <div class="photo-description-two">
+                                          <div class="small-text-two">Work</div>
+                                      </div>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a>
+                                      <div class="header-photo-electronic">
+                                        <i class="material-icons icon-draw-electronic">
+                                            tv
+                                        </i>
+                                      </div>
+                                      <div class="photo-description-two">
+                                          <div class="small-text-two">Electronics</div>
+                                      </div>
+                                  </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                      </div>
+
+                <div class="hideHome">
+
+                      <div id="reactPremium"></div>
+
+                      <!-- nizhnii block -->
+
+                      <div id="reactGold"></div>
+
+                </div>
+
+                      <!-- nizhnii block -->
+                      <!-- search block -->
+
+                      <div id="reactOb"></div>
+
+            <!-- <div class="main_row">
+              <div class="three_view" style="background-image: url(http://kazpoisk.kz/assets/entry/uploads/a6066c16344a53ebd37a05d4a6839497.jpg)"></div>
+            </div> -->
+
+
+                      <!-- search block -->
 
 
 
 
 
 
-                      <div id="opensearch" class="opensearch" >
+                      <!-- <div id="opensearch" class="opensearch" >
                           <img style="width:100%;" src="http://kazpoisk.kz/img/icons/magnifier.png" alt="">
                       </div>
 
@@ -187,17 +304,17 @@
 
                         <input style="width:100%;height:100%;border-radius:10px;font-size:20px;padding-left:5px;background: rgba(0, 0, 0,0.5);color:white;-webkit-input-placeholder-color:white;" type="search" id="musearchinput" class="top_input" placeholder="Поиск">
 
-                      </div>
+                      </div> -->
 
 
 
-                    <div class="list media-list" style="margin-top:0px;height: 100%;">
+                    <!-- <div class="list media-list" style="margin-top:0px;height: 100%;">
 
                        <ul style="height: 100%;" class="insertob">
 
 
                        </ul>
-                    </div>
+                    </div> -->
 
 
                     <div class="gifloader">
@@ -1928,31 +2045,28 @@
                                   </div>
 
 
-                              <div class="demo-progressbar-inline">
-                                <p><span data-progress="10"  style="border:2px solid white;color:red;" class="progressbar color-red"></span></p>
-                                <p><span data-progress="10"  style="border:2px solid white;color:red;" class="progressbar color-green"></span></p>
-                                <p><span data-progress="10"  style="border:2px solid white;color:red;" class="progressbar color-yellow"></span></p>
-                              </div>
-
-                              <div class="progressbar progressbar-infinite color-multi "></div>
-
-<!-- jjjj -->
-
-                                <div class="list">
-                                  <ul>
-                                    <li>
-                                      <div class="item-content">
-                                        <div class="item-media"><i class="f7-icons">cloud_upload</i></div>
-                                        <div class="item-inner">
-                                          <div class="item-title label">загрузка</div>
-                                          <div class="item-input">
-                                              <input type="file" name="myfile"  multiple id="myfile2" accept="image/*;video/*;capture=camera">
-                                          </div>
-                                        </div>
+                                  <div class="row">
+                                      <!-- Each "cell" has col-[width in percents] class -->
+                                      <div class="col-50">
+                                        <i class="material-icons photo_upload" style="color:#2196f3; margin-left:40%; font-size:50px;">
+                                          add_a_photo
+                                        </i>
                                       </div>
-                                    </li>
-                                  </ul>
-                                </div>
+                                      <div class="col-50">
+                                        <i class="material-icons video_upload" style="color:#2196f3;margin-left:30%; font-size:55px;">
+                                          videocam
+                                        </i>
+
+                                      </div>
+                                  </div>
+
+
+
+                                  <input type="file" id="filethree" style="display:none;" multiple accept="image/*;video/*;capture=camera" />
+                                  <input type="file" id="filefour" style="display:none;" multiple accept="image/*;video/*;capture=camera" />
+
+                                  <p><span data-progress="10" class="progressbar" id="download_progressbar"></span></p>
+
 
 
 
@@ -2006,6 +2120,26 @@
 
 
                             <div  class="page-content" style="background: white;padding-top:0px;">
+
+                              <div class="gifloader loader-hide">
+
+
+                                    <div class='container'>
+                                        <div class='loader-2'>
+                                          <div class='loader--dot'></div>
+                                          <div class='loader--dot'></div>
+                                          <div class='loader--dot'></div>
+                                          <div class='loader--dot'></div>
+                                          <div class='loader--dot'></div>
+                                          <div class='loader--dot'></div>
+                                          <div class='loader--text'></div>
+                                        </div>
+                                      </div>
+
+                                </div>
+
+
+
                               <div class="list" style="margin-bottom:100px;">
 
                             <div class="data-table " >
@@ -2135,24 +2269,26 @@
                                     <div class="block block-strong">
 
                                       <p class="row">
-                                          <button  class="gold_button col button button-big button-outline">GOLD</button>
+                                          <button sum="0" status="gold" priority="5"  class="gold_button sendpay col button button-big button-outline">GOLD</button>
                                       </p>
                                       <p class="row">
-                                          <button  class="premium_button col button button-big button-outline">Premium</button>
+                                          <button sum="0" status="premium" priority="4" class="premium_button sendpay col button button-big button-outline">Premium</button>
                                       </p>
                                       <p class="row">
-                                          <button  class="classic_button col button button-big button-outline">Classic</button>
+                                          <button sum="0" status="classic" priority="3" class="classic_button sendpay col button button-big button-outline">Classic</button>
                                       </p>
                                       <p class="row">
-                                          <button  class="Quick_button col button button-big button-outline">Quick</button>
+                                          <button sum="0" status="quick" priority="2" class="Quick_button sendpay col button button-big button-outline">Quick</button>
                                       </p>
                                       <p class="row">
-                                          <button  class="Easy_button col button button-big button-outline">Easy</button>
+                                          <button sum="0" status="easy" priority="1" class="Easy_button sendpay col button button-big button-outline">Easy</button>
                                       </p>
                                       <p class="row">
-                                          <button  class="sendob col button button-big button-outline">опубликовать</button>
+                                          <button sum="0" status="empty" priority="0" class="sendob col button button-big button-outline">опубликовать</button>
                                       </p>
                                     </div>
+
+
 
 
 
@@ -2207,68 +2343,34 @@
                           <div  class="page-content" style="background: white;padding-top:0px;">
 
                                 <div class="card">
-                                   <div class="card-header">Yandex money</div>
+                                   <div class="card-header">Yandex payment</div>
                                    <div class="card-content card-content-padding">
 
-                                     <form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml" class="list no-hairlines-md external">
-                                       <ul>
-                                         <li class="item-content item-input">
-                                           <div class="item-inner">
-                                             <div class="item-title item-label">Сумма</div>
-                                             <div class="item-input-wrap">
-                                               <input required id="inputsum" type="number" style="border-bottom:1px solid black;" name="sum" placeholder="валюта RUB" data-type="number">
-                                               <span class="input-clear-button"></span>
-                                             </div>
-                                           </div>
-                                         </li>
-                                         <li>
-                                                 <label class="item-radio item-content">
-                                                   <!-- Radio input -->
-                                                   <input type="radio" name="paymentType" value="PC" />
-                                                   <!-- Radio icon -->
-                                                   <i class="icon icon-radio"></i>
-                                                   <div class="item-inner">
-                                                     <!-- Radio Title -->
-                                                     <div class="item-title">Яндекс.Деньгами</div>
-                                                   </div>
-                                                 </label>
-                                               </li>
-                                               <!-- Another radio item -->
-                                               <li>
-                                                 <label class="item-radio item-content">
-                                                   <!-- Checked by default -->
-                                                   <input type="radio" name="paymentType" value="AC" checked/>
-                                                   <i class="icon icon-radio"></i>
-                                                   <div class="item-inner">
-                                                     <div class="item-title">Банковской картой</div>
-                                                   </div>
-                                                 </label>
-                                               </li>
-                                               <li>
-                                                 <label class="item-radio item-content">
-                                                   <!-- Checked by default -->
-                                                   <input type="radio" name="paymentType" value="MC" />
-                                                   <i class="icon icon-radio"></i>
-                                                   <div class="item-inner">
-                                                     <div class="item-title">Оплата с мобильного</div>
-                                                   </div>
-                                                 </label>
-                                               </li>
 
-                                               <input type="hidden" name="receiver" value="410015478271191">
-                                               <input type="hidden" class="insuserid" id="userid" name="label" value="">
-                                               <input type="hidden" name="quickpay-form" value="shop">
-                                               <input type="hidden" name="targets" value="Пополнение аккаунта ">
-                                               <input type="hidden" name="need-fio" value="false">
-                                               <input type="hidden" name="need-email" value="false">
-                                               <input type="hidden" name="need-phone" value="false">
-                                               <input type="hidden" name="need-address" value="false">
-                                               <input type="hidden" name="successURL" value="http://kazpoisk.kz/public_control/successyandexpayment">
+                                     <form class="sendyan_form" action="https://money.yandex.ru/eshop.xml" method="post">
+                                         <input name="shopId" value="530496" type="hidden"/>
+                                         <input name="scid" value="864356" type="hidden"/>
+                                         <input name="sum" class="yan_sum" value="2" type="hidden">
+                                         <!-- userid -->
+                                         <!-- shopSuccessURL -->
+                                         <!-- shopDefaultUrl button back -->
+                                         <input class="customer_number" name="customerNumber" value="abc000" type="hidden"/>
+                                         <!-- <input name="paymentType" value="AC" type="hidden"/> -->
+                                         <input name="paymentType" value="" type="hidden"/>
+                                         <!-- unique number -->
+                                         <input class="orderNumber_n" name="orderNumber" value="abc1111111" type="hidden"/>
+                                         <input class="customer_number" name="cps_phone" value="+77083531200" type="hidden"/>
 
-
-                                               <button  type="submit" class="button external">Пополнить</button>
-                                       </ul>
+                                         <input type="hidden" name="shopDefaultUrl" value="http://mobile.kazpoisk.kz/main.html">
+                                         <input type="hidden" name="nnn" value="kazpoisk">
+                                         <!-- sendmail -->
+                                         <!-- cps_phone -->
+                                         <!-- <input name="cps_email" value="user@domain.com" type="hidden"/> -->
+                                         <!-- kuda posilat kvitansiyu -->
+                                       <input class="col button color-blue " type="submit" value="Оплатить"/>
                                      </form>
+
+
 
 
                                    </div>
@@ -2282,7 +2384,7 @@
 
                                        <form  method="POST" action="https://merchant.webmoney.ru/lmi/payment_utf.asp" accept-charset="utf-8" class="list no-hairlines-md external">
                                          <ul>
-                                           <li class="item-content item-input">
+                                           <!-- <li class="item-content item-input">
                                              <div class="item-inner">
                                                <div class="item-title item-label">Сумма</div>
                                                <div class="item-input-wrap">
@@ -2290,16 +2392,16 @@
                                                  <span class="input-clear-button"></span>
                                                </div>
                                              </div>
-                                           </li>
+                                           </li> -->
 
-
+                                          <input type="hidden" class="webmoney_sum" name="LMI_PAYMENT_AMOUNT" placeholder="валюта KZT">
                                            <input type="hidden" name="LMI_PAYMENT_DESC" value="платеж по счету">
-                                           <input type="hidden" name="LMI_PAYMENT_NO" value="<?php echo rand(5, 50000000); ?>">
+                                           <input type="hidden" class="webmoney_payment_number" name="LMI_PAYMENT_NO" >
                                            <!-- nomer platezha -->
                                            <input type="hidden" name="LMI_PAYEE_PURSE" value="K362633572926">
                                            <input type="hidden" class="uswebm" name="userid" value="">
 
-                                                 <button  type="submit" class="button external">Пополнить</button>
+                                                 <button  type="submit" class="button external">Оплатить</button>
                                          </ul>
                                        </form>
 
@@ -2527,24 +2629,38 @@
     <script src="cordova.js"></script>
     <!-- Path to Framework7 Library JS-->
 
-    <script src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="js/socket.io.js"></script>
 
     <script>
-      const socket = io('http://localhost:3000', {
+      // const socket = io('http://localhost:3001', {
+      const socket = io('http://kazpoisk.kz:3001', {
         'reconnection': true,
         'reconnectionDelay': 500,
         'reconnectionAttempts': 10
         });
     </script>
+
+    <script src="js/modules/socket_file.js"></script>
+
+
     <script type="text/javascript" src="js/gauge/gauge.js"></script>
     <script type="text/javascript" src="js/framework7.min.js"></script>
 
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
    <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="js/angular.min.js"></script>
+  <!-- react -->
+  <!-- <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script> -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <!-- <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- react -->
+
             <!-- phantom library, needed for Cordova api calls, added during build -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
-
+  <script src="js/modules/photo_video_upload.js"></script>
 
    <script type="text/javascript" src="js/validation.js"></script>
     <!-- Path to your app js-->
@@ -2562,10 +2678,19 @@
     <script type="text/javascript" src="js/registration.js"></script>
     <script type="text/javascript" src="js/n1.js"></script>
     <script type="text/javascript" src="js/n1user.js"></script>
+    <script type="text/javascript" src="js/google_auth.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
 
     <script type="text/javascript" src="js/search_category.js"></script>
     <script type="text/javascript" src="js/facebook_auth.js"></script>
+    <script type="text/javascript" src="js/controllers/homePage.js"></script>
+    <script type="text/javascript" src="js/loadHomePageData.js"></script>
+
+
+
+
+
 
 
 
@@ -2622,6 +2747,7 @@
 
 </html>
 
-
+<!-- dodelat promo status v activasii oplati-->
+<!-- bekend dodelat searchData-->
 
 <!-- ispravit n1user oshibku, proverit vse ostalnoe,razobrat'sya s zagruzkoi raznisi -->

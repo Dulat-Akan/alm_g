@@ -232,7 +232,7 @@ function checkuserid(){
 
 function insertMoney(){
 
-    var iddd = localStorage.getItem("id");
+    var iddd = localStorage.getItem("useremail");
 
     if(iddd){
       $(".insuserid").val(iddd);
@@ -260,6 +260,16 @@ socket.on('error', function(){
   console.log("reconnect..");
 });
 
+
+socket.on('chat message', function(msg){
+          console.log(msg);
+        });
+
+$(".cl").click(function(){
+
+  socket.emit('chat message', $message);
+
+});
 //module check obyavlenie count
 
 
@@ -275,6 +285,7 @@ var premium_price = 200;
 var classic_price = 150;
 var quick_price = 100;
 var easy_price = 40;
+var priority = 0;
 
 
 var enable_money = 0;
@@ -285,7 +296,7 @@ var checklimit = 0;
 var valyuta = "KZT";
 
 var textpod = 'подано на проверку';
-var status_cash_text_status = 'no';
+var status_cash_text_status = 'cash';
 var temp_status_text = "temp";
 
 var automatic_publication_status = "send_automatic";
@@ -330,11 +341,16 @@ function load_all_info(){
 
 }
 
+var money_temp = 0;
+var currency_ru = 0;
 
 socket.on('load_all_info_action', function(data){
 
-    //console.log(data);
+    console.log(data);
+
+    //return false;
     money = data.empty_ob_price;
+    money_temp = data.empty_ob_price;
     gold_price = data.gold_price;
     premium_price = premium_price;
     classic_price = data.classic_price;
@@ -343,10 +359,27 @@ socket.on('load_all_info_action', function(data){
     empty_pod_text = data.empty_pod_text;
     automatic_publication_status = data.automatic_publication_status;
     temp_status_text = data.temp_status_text;
+    currency_ru = data.currency_ru;
+
+    $(".sendob").attr("sum",data.empty_ob_price);
+    $(".gold_button").text("GOLD - " + gold_price + " тг.");
+    $(".gold_button").attr("sum",gold_price);
+    $(".premium_button").text("Premium - " + premium_price + " тг.");
+    $(".premium_button").attr("sum",premium_price);
+    $(".classic_button").text("Classic - " + classic_price + " тг.");
+    $(".classic_button").attr("sum",classic_price);
+    $(".Quick_button").text("Quick - " + quick_price + " тг.");
+    $(".Quick_button").attr("sum",quick_price);
+    $(".Easy_button").text("Easy - " + easy_price + " тг.");
+    $(".Easy_button").attr("sum",easy_price);
 
 });
 
 //load all module information
+
+
+
+
 
 
 //проверка обьявления
@@ -393,23 +426,30 @@ function check_ob_count(){
 var check_money = 0;
 
 socket.on('check_ob_action', function(data){
+
+      //data.findphone_datelimit = 0;
       console.log(data);
       if((data.check_cash == 1) || (data.check_limit == 1)){
 
-
-          return false;
+          //return false;
           if(limit == 1){
             return false;
           }
           if(blocked_user == 1){
             return false;
           }
-          $(".sendob").text("опубликовать за " + money + " тг");
+
+          console.log("1_1");
 
           if(check_money == 0){
             enable_money = 1;
             check_money = 1;
+
+            //console.log(enable_money);
+            //console.log(check_money);
           }
+
+          $(".sendob").text("опубликовать за " + money + " тг");
 
       }
 
@@ -443,8 +483,54 @@ socket.on('check_ob_action', function(data){
 
       }
 
-      if(data.datecheck_limit == 1){
+      if(data.datecheck_limit == 1){ //check_limit
         //datelimit
+        //return false;
+        console.log("1_2");
+        if(blocked_user == 1){
+          return false;
+        }
+
+          limit = 1;
+
+          $(".sendob").css("display","none");
+          //$(".limit").css("display","block");
+
+          if(checklimit == 0){
+
+            //myApp.dialog.alert('Превышен лимит дневного использования','Сервис');
+            enable_money = 1;
+            checklimit = 1;
+          }
+
+      }
+
+      if(data.findphone_check_limit == 1){    //check_limit no date for phone
+
+            console.log("1_3");
+            if(limit == 1){
+              return false;
+            }
+            if(blocked_user == 1){
+              return false;
+            }
+
+
+//xx
+            if(check_money == 0){
+              enable_money = 1;
+              check_money = 1;
+
+            }
+
+            $(".sendob").text("опубликовать за " + money + " тг");
+            //console.log("Лимит обьявл в общем");
+
+      }
+
+
+      if(data.findphone_datelimit == 1){    //day limit for phone
+
         //return false;
 
         if(blocked_user == 1){
@@ -454,49 +540,14 @@ socket.on('check_ob_action', function(data){
           limit = 1;
 
           $(".sendob").css("display","none");
-          $(".limit").css("display","block");
+          //$(".limit").css("display","block");
 
           if(checklimit == 0){
 
-            myApp.dialog.alert('Превышен лимит дневного использования','Сервис');
+            //myApp.dialog.alert('Превышен лимит дневного использования','Сервис');
             checklimit = 1;
-          }
+            enable_money = 1;
 
-      }
-
-      if(data.findphone_check_limit == 1){
-
-            if(limit == 1){
-              return false;
-            }
-            if(blocked_user == 1){
-              return false;
-            }
-            $(".sendob").text("опубликовать за " + money + " тг");
-
-            if(check_money == 0){
-              enable_money = 1;
-              check_money = 1;
-            }
-
-      }
-
-
-      if(data.findphone_datelimit == 1){
-
-        if(blocked_user == 1){
-          return false;
-        }
-
-          limit = 1;
-
-          $(".sendob").css("display","none");
-          $(".limit").css("display","block");
-
-          if(checklimit == 0){
-
-            myApp.dialog.alert('Превышен лимит дневного использования','Сервис');
-            checklimit = 1;
           }
 
       }
@@ -519,8 +570,11 @@ socket.on('check_ob_action', function(data){
       }
 
 
-
     });
+
+    // import store from './controllers/reducers.js'
+    //
+    // store.dispatch({ type: 'INCREMENT' })
 
     //проверка обьявления
 

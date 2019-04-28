@@ -10,7 +10,7 @@
   "cordova-plugin-device": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-device"
+      "id": "cordova-plugin-device@^2.0.2"
     },
     "is_top_level": true,
     "variables": {}
@@ -34,7 +34,7 @@
   "cordova-plugin-contacts": {
     "source": {
       "type": "registry",
-      "id": "https://github.com/apache/cordova-plugin-contacts.git"
+      "id": "git+https://github.com/apache/cordova-plugin-contacts.git"
     },
     "is_top_level": true,
     "variables": {}
@@ -48,5 +48,13 @@
     "variables": {
       "PHOTO_LIBRARY_USAGE_DESCRIPTION": "App would like to access the photos"
     }
+  },
+  "cordova-plugin-browsersync": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-browsersync@^1.1.0"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

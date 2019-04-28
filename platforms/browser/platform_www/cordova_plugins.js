@@ -15,50 +15,6 @@ module.exports = [
         "runs": true
     },
     {
-        "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
-        "id": "cordova-plugin-camera.Camera",
-        "pluginId": "cordova-plugin-camera",
-        "clobbers": [
-            "Camera"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-camera/www/CameraPopoverOptions.js",
-        "id": "cordova-plugin-camera.CameraPopoverOptions",
-        "pluginId": "cordova-plugin-camera",
-        "clobbers": [
-            "CameraPopoverOptions"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-camera/www/Camera.js",
-        "id": "cordova-plugin-camera.camera",
-        "pluginId": "cordova-plugin-camera",
-        "clobbers": [
-            "navigator.camera"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-camera/src/browser/CameraProxy.js",
-        "id": "cordova-plugin-camera.CameraProxy",
-        "pluginId": "cordova-plugin-camera",
-        "runs": true
-    },
-    {
-        "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
-        "id": "cordova-plugin-splashscreen.SplashScreen",
-        "pluginId": "cordova-plugin-splashscreen",
-        "clobbers": [
-            "navigator.splashscreen"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-splashscreen/src/browser/SplashScreenProxy.js",
-        "id": "cordova-plugin-splashscreen.SplashScreenProxy",
-        "pluginId": "cordova-plugin-splashscreen",
-        "runs": true
-    },
-    {
         "file": "plugins/cordova-plugin-contacts/www/contacts.js",
         "id": "cordova-plugin-contacts.contacts",
         "pluginId": "cordova-plugin-contacts",
@@ -142,25 +98,14 @@ module.exports = [
         "merges": [
             "navigator.contacts"
         ]
-    },
-    {
-        "file": "plugins/cordova-plugin-telerik-imagepicker/www/imagepicker.js",
-        "id": "cordova-plugin-telerik-imagepicker.ImagePicker",
-        "pluginId": "cordova-plugin-telerik-imagepicker",
-        "clobbers": [
-            "plugins.imagePicker"
-        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "cordova-plugin-whitelist": "1.3.3",
+    "cordova-plugin-browsersync": "0.1.7",
     "cordova-plugin-device": "2.0.2",
-    "cordova-plugin-camera": "4.0.3",
-    "cordova-plugin-splashscreen": "5.0.3-dev",
-    "cordova-plugin-contacts": "3.0.2-dev",
-    "cordova-plugin-telerik-imagepicker": "2.2.2"
+    "cordova-plugin-contacts": "3.0.2-dev"
 }
 // BOTTOM OF METADATA
 });

@@ -7,8 +7,8 @@
   "_phantomChildren": {},
   "_requested": {
     "type": "git",
-    "raw": "https://github.com/apache/cordova-plugin-contacts.git",
-    "rawSpec": "https://github.com/apache/cordova-plugin-contacts.git",
+    "raw": "git+https://github.com/apache/cordova-plugin-contacts.git",
+    "rawSpec": "git+https://github.com/apache/cordova-plugin-contacts.git",
     "saveSpec": "git+https://github.com/apache/cordova-plugin-contacts.git",
     "fetchSpec": "https://github.com/apache/cordova-plugin-contacts.git",
     "gitCommittish": null
@@ -17,9 +17,9 @@
     "#USER",
     "/"
   ],
-  "_resolved": "git+https://github.com/apache/cordova-plugin-contacts.git#99f9ea9ff94959c20a7823619744118725d09e31",
-  "_spec": "https://github.com/apache/cordova-plugin-contacts.git",
-  "_where": "/home/coderx/myprojects/npm/cordova/kazpoisk",
+  "_resolved": "git+https://github.com/apache/cordova-plugin-contacts.git#8a905cac1f0bd3a1319b6c8a0624185e4ca7c78f",
+  "_spec": "git+https://github.com/apache/cordova-plugin-contacts.git",
+  "_where": "/Users/apple/myproject/kazpoisk_new_f7",
   "author": {
     "name": "Apache Software Foundation"
   },

@@ -1,3 +1,6 @@
+
+
+
           var myApp = new Framework7({
             // App root element
                   root: '#app',
@@ -58,11 +61,19 @@
                     //iosOverlaysWebView: true,
                     enabled:false,
                   },
+                  panel: {
+                    swipe: 'left',
+                    leftBreakpoint: 768,
+                    rightBreakpoint: 1440,
+                    swipeOnlyClose:true
+                  }
             // ... other parameters
           });
 
 
-          var mainView = myApp.views.create('.view-main');
+          var mainView = myApp.views.create('.view-main',{
+                                              url: '/home'
+                                            });
 
           var router = mainView.router;
 
@@ -218,16 +229,44 @@
 
                           var role = localStorage.getItem("role");
 
+                          //.popup-addcategory
+                          $(".open_p").click(function(){
 
+                            var useridentificatort = localStorage.getItem("useremail");
+
+                            if(useridentificatort == 0){
+                              //  mainView.router.loadPage("login.html");
+                                //router.navigate({ name: 'login' });
+
+
+                                myApp.panel.open("left");
+                                //myApp.panel.open(".panel-left");
+                                // $$('.panel-left').on('panel:open', function () {
+                                //     console.log('Panel left: open');
+                                //   });
+                            }else{
+                                //mainView.router.loadPage("cabinet.html");
+                                //router.navigate({ name: 'cabinet' });
+                                myApp.popup.open('.popup-addcategory');
+                            }
+
+                          });
 
 
                           $(".cabinetclick").click(function(){
 
-                              var useridentificator = localStorage.getItem("useridentificator");
+                              var useridentificator = localStorage.getItem("useremail");
 
                               if(useridentificator == 0){
                                 //  mainView.router.loadPage("login.html");
-                                  router.navigate({ name: 'login' });
+                                  //router.navigate({ name: 'login' });
+
+
+                                  myApp.panel.open("left");
+                                  //myApp.panel.open(".panel-left");
+                                  // $$('.panel-left').on('panel:open', function () {
+                                  //     console.log('Panel left: open');
+                                  //   });
                               }else{
                                   //mainView.router.loadPage("cabinet.html");
                                   router.navigate({ name: 'cabinet' });
@@ -254,7 +293,9 @@
 
                                 //insertob
 
-                                firstviewob();
+                              //  firstviewob();
+
+                            //  getHomeData();
 
 
                                 setTimeout(function(){
@@ -272,12 +313,12 @@
 
 
 
-
-          $("#opensearch").click(function(){
-
-              $("#searchbutton").toggle(800);
-
-          });
+          //xxxx
+          // $("#opensearch").click(function(){
+          //
+          //     $("#searchbutton").toggle(800);
+          //
+          // });
 
           $(".top_input").focus(function(){
 
@@ -598,7 +639,7 @@
 
                                           //$('.loader-hide').css("display","none");
                                           $(".gifloader").hide();
-                                          insertviewob(result);
+                                          //insertviewob(result);
 
                                           pageindex = result[3];
                                           //pageindex = 40;
@@ -917,9 +958,20 @@
 
                                                   photo = result[1][i].photo_path[0];
 
+                                                  //ph
+
+                                                  result[0][i].photo_path = result[1][i];
+
+                                                  //ph
+
+                                              }else{
+                                                result[0][i].photo_path = photo;
                                               }
 
                                               var photourl = baseurlimg2 + photo;
+
+
+
 
 
                                               var op = "";
@@ -1027,6 +1079,8 @@
           }else if(obrsena == 999){
             obrsena = "отдам даром | ";
           }
+
+
 //llll
 
           var templateobyav = '<li status="'+ newstatus + '" listid="'+ newstatus + " | " + statusid
@@ -1052,7 +1106,12 @@
           if(role == "1"){
             $(".insertob").append(admin_template);
           }else{
-            $(".insertob").append(templateobyav);
+            //$(".insertob").append(templateobyav);
+
+            //SendingData(result[0]);
+            //console.log(result[0]);
+
+            $(".hideHome").hide();
           }
 
 
@@ -1602,14 +1661,14 @@
 
           localStorage.setItem("baseurl","http://ls2.kz/public_control/");
           localStorage.setItem("baseurlimg","http://ls2_mobile.kz/assets/img/");
-          localStorage.setItem("baseurlimg2","http://ls2_mobile.kz/assets/entry/uploads/");
+          // localStorage.setItem("baseurlimg2","http://ls2_mobile.kz/assets/entry/uploads/");
           localStorage.setItem("baseurlimg3","http://ls2_mobile.kz/assets/entry/uploadsv/");
           localStorage.setItem("baseurlimg4","http://ls2.kz/assets/entry/uploads/");
 
 
           // localStorage.setItem("baseurl","http://www.kazpoisk.kz/public_control/");
           // localStorage.setItem("baseurlimg","http://www.kazpoisk.kz/assets/img/");
-          // localStorage.setItem("baseurlimg2","http://www.kazpoisk.kz/assets/entry/uploads/");
+           localStorage.setItem("baseurlimg2","http://www.kazpoisk.kz/assets/entry/uploads/");
           // localStorage.setItem("baseurlimg3","http://www.kazpoisk.kz/assets/entry/uploadsv/");
           // localStorage.setItem("baseurlimg4","http://www.kazpoisk.kz/assets/entry/uploads/");
 
@@ -2451,7 +2510,14 @@
 
 
           //module search input
-
+          var searchbar = myApp.searchbar.create({
+            el: '.searchbar-backdrop',
+            on: {
+              enable: function () {
+                console.log('Searchbar enabled')
+              }
+            }
+          })
 
           $("#musearchinput").keypress(function(){
 

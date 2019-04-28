@@ -7,22 +7,13 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "kz.kazpoisk.www"
-    },
-    "cordova-plugin-device": {
-      "PACKAGE_NAME": "kz.kazpoisk.www"
-    },
-    "cordova-plugin-camera": {
-      "PACKAGE_NAME": "kz.kazpoisk.www"
-    },
-    "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "kz.kazpoisk.www"
-    },
-    "cordova-plugin-contacts": {
+    "cordova-plugin-browsersync": {
       "PACKAGE_NAME": "kz.kazpoisk.kz"
     },
-    "cordova-plugin-telerik-imagepicker": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "kz.kazpoisk.kz"
+    },
+    "cordova-plugin-contacts": {
       "PACKAGE_NAME": "kz.kazpoisk.kz"
     }
   },

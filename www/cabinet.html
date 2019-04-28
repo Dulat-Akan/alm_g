@@ -104,64 +104,29 @@
                         <div class="card-header">Yandex money</div>
                         <div class="card-content card-content-padding">
 
-                          <form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml" class="list no-hairlines-md external">
-                            <ul>
-                              <li class="item-content item-input">
-                                <div class="item-inner">
-                                  <div class="item-title item-label">Сумма</div>
-                                  <div class="item-input-wrap">
-                                    <input required id="inputsum" type="number" style="border-bottom:1px solid black;" name="sum" placeholder="валюта RUB" data-type="number">
-                                    <span class="input-clear-button"></span>
-                                  </div>
-                                </div>
-                              </li>
-                              <li>
-                                      <label class="item-radio item-content">
-                                        <!-- Radio input -->
-                                        <input type="radio" name="paymentType" value="PC" />
-                                        <!-- Radio icon -->
-                                        <i class="icon icon-radio"></i>
-                                        <div class="item-inner">
-                                          <!-- Radio Title -->
-                                          <div class="item-title">Яндекс.Деньгами</div>
-                                        </div>
-                                      </label>
-                                    </li>
-                                    <!-- Another radio item -->
-                                    <li>
-                                      <label class="item-radio item-content">
-                                        <!-- Checked by default -->
-                                        <input type="radio" name="paymentType" value="AC" checked/>
-                                        <i class="icon icon-radio"></i>
-                                        <div class="item-inner">
-                                          <div class="item-title">Банковской картой</div>
-                                        </div>
-                                      </label>
-                                    </li>
-                                    <li>
-                                      <label class="item-radio item-content">
-                                        <!-- Checked by default -->
-                                        <input type="radio" name="paymentType" value="MC" />
-                                        <i class="icon icon-radio"></i>
-                                        <div class="item-inner">
-                                          <div class="item-title">Оплата с мобильного</div>
-                                        </div>
-                                      </label>
-                                    </li>
+          
 
-                                    <input type="hidden" name="receiver" value="410015478271191">
-                                    <input type="hidden" class="insuserid" id="userid" name="label" value="">
-                                    <input type="hidden" name="quickpay-form" value="shop">
-                                    <input type="hidden" name="targets" value="Пополнение аккаунта ">
-                                    <input type="hidden" name="need-fio" value="false">
-                                    <input type="hidden" name="need-email" value="false">
-                                    <input type="hidden" name="need-phone" value="false">
-                                    <input type="hidden" name="need-address" value="false">
-                                    <input type="hidden" name="successURL" value="http://kazpoisk.kz/public_control/successyandexpayment">
+                          <form class="sendyan_form" action="https://money.yandex.ru/eshop.xml" method="post">
+                              <input name="shopId" value="530496" type="hidden"/>
+                              <input name="scid" value="864356" type="hidden"/>
+                              <input name="sum" class="yan_sum" value="" required type="number" placeholder="сумма в рублях">
+                              <!-- userid -->
+                              <!-- shopSuccessURL -->
+                              <!-- shopDefaultUrl button back -->
+                              <input class="insuserid" name="customerNumber" value="abc000" type="hidden"/>
+                              <!-- <input name="paymentType" value="AC" type="hidden"/> -->
+                              <input name="paymentType" value="" type="hidden"/>
+                              <!-- unique number -->
+                              <input class="orderNumber_n" name="orderNumber" value="abc1111111" type="hidden"/>
+                              <input class="customer_number" name="cps_phone" value="+77083531200" type="hidden"/>
 
-
-                                    <button  type="submit" class="button external">Пополнить</button>
-                            </ul>
+                              <input type="hidden" name="shopDefaultUrl" value="http://mobile.kazpoisk.kz/main.html">
+                              <input type="hidden" name="nnn" value="kazpoisk">
+                              <!-- sendmail -->
+                              <!-- cps_phone -->
+                              <!-- <input name="cps_email" value="user@domain.com" type="hidden"/> -->
+                              <!-- kuda posilat kvitansiyu -->
+                            <input class="col button color-blue " type="submit" value="Оплатить"/>
                           </form>
 
 

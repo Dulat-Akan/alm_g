@@ -1,4 +1,72 @@
 
+function sendRegistration(name,email){
+
+
+
+  var sendauth = {
+                    "name":name,
+                    "email":email
+                }
+
+
+            //    console.log(sendauth);
+
+
+             var authurl = localStorage.getItem("baseurl") + "facebook_auth/";
+
+                  $.ajax({
+                        "type":"GET",
+                        "url": authurl,
+
+                        dataType: "jsonp",
+                        crossDomain: true,
+                        "data": sendauth,
+
+                        "success":authsuccess,
+                        "error":errorauth
+
+                        });
+
+
+                  function authsuccess(result){
+
+                      if((result[0] == "olduser") || (result[0] == "newuser")){
+
+                            $(".hide_reg").hide();
+                            $(".hide_login").hide();
+                            $(".show_vihod").show();
+                            $(".hide_cabinet").show();
+
+                            var storage_email = localStorage.getItem("useremail");
+
+                            if(!storage_email){
+
+                              localStorage.setItem("role","2");
+                              localStorage.setItem("useridentificator","0(000)0000000");//phone
+                              localStorage.setItem("useremail",result[1]);
+
+                              console.log(result[1]);
+
+                            }
+
+
+
+                        }
+  //xf
+
+
+
+                  }
+
+                  function errorauth(){
+
+
+                  }
+
+
+
+}
+
 
 
                      function checkLoginState() {
@@ -35,57 +103,9 @@
                                             var name = userobj.name;
                                             var email = userobj.email;
 
-                                            var sendauth = {
-                                                              "name":name,
-                                                              "email":email
-                                                          }
+                                            sendRegistration(name,email);
 
 
-                                                          console.log(sendauth);
-
-
-                                                       var authurl = localStorage.getItem("baseurl") + "facebook_auth/";
-
-                                                            $.ajax({
-                                                                  "type":"GET",
-                                                                  "url": authurl,
-
-                                                                  dataType: "jsonp",
-                                                                  crossDomain: true,
-                                                                  "data": sendauth,
-
-                                                                  "success":authsuccess,
-                                                                  "error":errorauth
-
-                                                                  });
-
-
-                                                            function authsuccess(result){
-
-                                                                if((result[0] == "olduser") || (result[0] == "newuser")){
-
-                                                                      $(".hide_reg").hide();
-                                                                      $(".hide_login").hide();
-                                                                      $(".show_vihod").show();
-                                                                      $(".hide_cabinet").show();
-
-                                                                      localStorage.setItem("role","2");
-                                                                      localStorage.setItem("useridentificator","0(000)0000000");//phone
-                                                                      localStorage.setItem("useremail",result[1]);
-
-                                                                      console.log(result[1]);
-
-                                                                  }
-          //xf
-
-
-
-                                                            }
-
-                                                            function errorauth(){
-
-
-                                                            }
                             //console.log(name + " | " + email);
                           }
                         });

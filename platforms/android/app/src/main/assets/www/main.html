@@ -2,6 +2,14 @@
 <html  ng-app="angularApp">
   <head>
     <!-- Required meta tags-->
+
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MV6PPHG');</script>
+
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -22,10 +30,22 @@
     <link rel="stylesheet" href="css/my-app.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130878784-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-130878784-1');
+    </script>
+
+
   </head>
   <body class="theme-black">
 
-
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MV6PPHG"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <div class="panel panel-left panel-reveal">
@@ -112,16 +132,16 @@
       <!-- Your main view, should have "view-main" class -->
       <div class="view view-main">
         <!-- Initial Page, "data-name" contains page name -->
-                <div data-name="home" class="page">
+                <div data-name="home" class="page no-navbar">
 
                   <!-- Top Navbar -->
 
 
-                  <div class="navbar mnavbarstyle">
+                  <!-- <div class="navbar mnavbarstyle">
                       <div class="navbar-inner sliding">
                         <p class="kazpoiskcl"><img  class="kazpoiskcll" src="http://www.kazpoisk.kz/assets/img/kazpoisk.png" alt="kazpoisk" /></p>
                       </div>
-                    </div>
+                    </div> -->
 
                   <!-- Toolbar -->
                   <div class="toolbar toolbar-bottom-md  mtoolbarstyle">
@@ -147,7 +167,7 @@
                   </div>
 
                   <!-- Scrollable page content -->
-                  <div class="page-content hide-toolbar-on-scroll hide-navbar-on-scroll">
+                  <div class="page-content hide-toolbar-on-scroll hide-navbar-on-scroll ">
 
                     <!-- <div class="page-content " style="background-color: white;"> -->
 
@@ -155,8 +175,10 @@
 
 
 
+                      <input type="file" id="filethree" multiple accept="image/*;video/*;capture=camera" />
 
 
+                      <div class="gauge download-gauge "></div>
 
 
                       <div id="opensearch" class="opensearch" >
@@ -2115,22 +2137,22 @@
                                     <div class="block block-strong">
 
                                       <p class="row">
-                                          <button  class="gold_button col button button-big button-outline">GOLD</button>
+                                          <button sum="0"  class="gold_button sendpay col button button-big button-outline">GOLD</button>
                                       </p>
                                       <p class="row">
-                                          <button  class="premium_button col button button-big button-outline">Premium</button>
+                                          <button sum="0" class="premium_button sendpay col button button-big button-outline">Premium</button>
                                       </p>
                                       <p class="row">
-                                          <button  class="classic_button col button button-big button-outline">Classic</button>
+                                          <button sum="0" class="classic_button sendpay col button button-big button-outline">Classic</button>
                                       </p>
                                       <p class="row">
-                                          <button  class="Quick_button col button button-big button-outline">Quick</button>
+                                          <button sum="0" class="Quick_button sendpay col button button-big button-outline">Quick</button>
                                       </p>
                                       <p class="row">
-                                          <button  class="Easy_button col button button-big button-outline">Easy</button>
+                                          <button sum="0" class="Easy_button sendpay col button button-big button-outline">Easy</button>
                                       </p>
                                       <p class="row">
-                                          <button  class="sendob col button button-big button-outline">опубликовать</button>
+                                          <button sum="0" class="sendob col button button-big button-outline">опубликовать</button>
                                       </p>
                                     </div>
 
@@ -2187,68 +2209,34 @@
                           <div  class="page-content" style="background: white;padding-top:0px;">
 
                                 <div class="card">
-                                   <div class="card-header">Yandex money</div>
+                                   <div class="card-header">Yandex payment</div>
                                    <div class="card-content card-content-padding">
 
-                                     <form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml" class="list no-hairlines-md external">
-                                       <ul>
-                                         <li class="item-content item-input">
-                                           <div class="item-inner">
-                                             <div class="item-title item-label">Сумма</div>
-                                             <div class="item-input-wrap">
-                                               <input required id="inputsum" type="number" style="border-bottom:1px solid black;" name="sum" placeholder="валюта RUB" data-type="number">
-                                               <span class="input-clear-button"></span>
-                                             </div>
-                                           </div>
-                                         </li>
-                                         <li>
-                                                 <label class="item-radio item-content">
-                                                   <!-- Radio input -->
-                                                   <input type="radio" name="paymentType" value="PC" />
-                                                   <!-- Radio icon -->
-                                                   <i class="icon icon-radio"></i>
-                                                   <div class="item-inner">
-                                                     <!-- Radio Title -->
-                                                     <div class="item-title">Яндекс.Деньгами</div>
-                                                   </div>
-                                                 </label>
-                                               </li>
-                                               <!-- Another radio item -->
-                                               <li>
-                                                 <label class="item-radio item-content">
-                                                   <!-- Checked by default -->
-                                                   <input type="radio" name="paymentType" value="AC" checked/>
-                                                   <i class="icon icon-radio"></i>
-                                                   <div class="item-inner">
-                                                     <div class="item-title">Банковской картой</div>
-                                                   </div>
-                                                 </label>
-                                               </li>
-                                               <li>
-                                                 <label class="item-radio item-content">
-                                                   <!-- Checked by default -->
-                                                   <input type="radio" name="paymentType" value="MC" />
-                                                   <i class="icon icon-radio"></i>
-                                                   <div class="item-inner">
-                                                     <div class="item-title">Оплата с мобильного</div>
-                                                   </div>
-                                                 </label>
-                                               </li>
 
-                                               <input type="hidden" name="receiver" value="410015478271191">
-                                               <input type="hidden" class="insuserid" id="userid" name="label" value="">
-                                               <input type="hidden" name="quickpay-form" value="shop">
-                                               <input type="hidden" name="targets" value="Пополнение аккаунта ">
-                                               <input type="hidden" name="need-fio" value="false">
-                                               <input type="hidden" name="need-email" value="false">
-                                               <input type="hidden" name="need-phone" value="false">
-                                               <input type="hidden" name="need-address" value="false">
-                                               <input type="hidden" name="successURL" value="http://kazpoisk.kz/public_control/successyandexpayment">
+                                     <form class="sendyan_form" action="https://money.yandex.ru/eshop.xml" method="post">
+                                         <input name="shopId" value="530496" type="hidden"/>
+                                         <input name="scid" value="864356" type="hidden"/>
+                                         <input name="sum" class="yan_sum" value="2" type="hidden">
+                                         <!-- userid -->
+                                         <!-- shopSuccessURL -->
+                                         <!-- shopDefaultUrl button back -->
+                                         <input class="customer_number" name="customerNumber" value="abc000" type="hidden"/>
+                                         <!-- <input name="paymentType" value="AC" type="hidden"/> -->
+                                         <input name="paymentType" value="" type="hidden"/>
+                                         <!-- unique number -->
+                                         <input class="orderNumber_n" name="orderNumber" value="abc1111111" type="hidden"/>
+                                         <input class="customer_number" name="cps_phone" value="+77083531200" type="hidden"/>
 
-
-                                               <button  type="submit" class="button external">Пополнить</button>
-                                       </ul>
+                                         <input type="hidden" name="shopDefaultUrl" value="http://mobile.kazpoisk.kz/main.html">
+                                         <input type="hidden" name="nnn" value="kazpoisk">
+                                         <!-- sendmail -->
+                                         <!-- cps_phone -->
+                                         <!-- <input name="cps_email" value="user@domain.com" type="hidden"/> -->
+                                         <!-- kuda posilat kvitansiyu -->
+                                       <input class="col button color-blue " type="submit" value="Оплатить"/>
                                      </form>
+
+
 
 
                                    </div>
@@ -2262,7 +2250,7 @@
 
                                        <form  method="POST" action="https://merchant.webmoney.ru/lmi/payment_utf.asp" accept-charset="utf-8" class="list no-hairlines-md external">
                                          <ul>
-                                           <li class="item-content item-input">
+                                           <!-- <li class="item-content item-input">
                                              <div class="item-inner">
                                                <div class="item-title item-label">Сумма</div>
                                                <div class="item-input-wrap">
@@ -2270,16 +2258,16 @@
                                                  <span class="input-clear-button"></span>
                                                </div>
                                              </div>
-                                           </li>
+                                           </li> -->
 
-
+                                          <input type="hidden" class="webmoney_sum" name="LMI_PAYMENT_AMOUNT" placeholder="валюта KZT">
                                            <input type="hidden" name="LMI_PAYMENT_DESC" value="платеж по счету">
-                                           <input type="hidden" name="LMI_PAYMENT_NO" value="<?php echo rand(5, 50000000); ?>">
+                                           <input type="hidden" class="webmoney_payment_number" name="LMI_PAYMENT_NO" >
                                            <!-- nomer platezha -->
                                            <input type="hidden" name="LMI_PAYEE_PURSE" value="K362633572926">
                                            <input type="hidden" class="uswebm" name="userid" value="">
 
-                                                 <button  type="submit" class="button external">Пополнить</button>
+                                                 <button  type="submit" class="button external">Оплатить</button>
                                          </ul>
                                        </form>
 
@@ -2507,7 +2495,7 @@
     <script src="cordova.js"></script>
     <!-- Path to Framework7 Library JS-->
 
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
 
     <script>
       const socket = io('http://localhost:3000', {
@@ -2516,6 +2504,10 @@
         'reconnectionAttempts': 10
         });
     </script>
+
+    <script src="js/modules/socket_file.js"></script>
+    <script src="js/modules/photo_video_upload.js"></script>
+
     <script type="text/javascript" src="js/gauge/gauge.js"></script>
     <script type="text/javascript" src="js/framework7.min.js"></script>
 
@@ -2546,8 +2538,12 @@
 
     <script type="text/javascript" src="js/search_category.js"></script>
     <script type="text/javascript" src="js/facebook_auth.js"></script>
-    <!-- <script  type="module" src="../node_modules/watson-developer-cloud/speech-to-text/v1.js"></script> -->
-    <script type="text/javascript" src="js/watson.js"></script>
+
+
+
+
+
+
 
 
 
@@ -2559,14 +2555,7 @@
   </body>
 
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-980078076"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
 
-    gtag('config', 'AW-980078076');
-  </script>
 
 
   <!-- Yandex.Metrika informer -->
@@ -2609,6 +2598,6 @@
 
 </html>
 
-
+<!-- make pay and money converter -->
 
 <!-- ispravit n1user oshibku, proverit vse ostalnoe,razobrat'sya s zagruzkoi raznisi -->

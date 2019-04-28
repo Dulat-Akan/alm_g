@@ -1,6 +1,6 @@
 {
-  "name": "Kazpoisk",
-  "short_name": "Kazpoisk",
+  "name": "kazpoisk",
+  "short_name": "kazpoisk",
   "description": "Description of your app from template",
   "start_url": "index.html",
   "scope": "index.html",
