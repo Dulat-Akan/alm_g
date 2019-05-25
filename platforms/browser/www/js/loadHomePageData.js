@@ -1,22 +1,48 @@
 var homedeviceid = localStorage.getItem("deviceid");
 
+var fixedsearch = 0;
+var tempsearchdata = new Object();
+var tempmassivdata = new Array();
+
 $(".searchkvbutton").text("Найти");
 
 function getHomeData() {
   socket.emit('homeStart', { deviceid: homedeviceid });
 }
 
+function getSearchData() {
+  var useridentificatorsearch = localStorage.getItem("useridentificator");
+
+  var useremailsearch = localStorage.getItem("useremail");
+
+  if (useridentificatorsearch == 0) {
+    useridentificatorsearch = 0;
+    useremailsearch = 0;
+  }
+
+  //console.log(tempsearchdata);
+
+  socket.emit('searchData', { email: useremailsearch, formdata: tempsearchdata });
+}
+
 getHomeData();
 
 setInterval(function () {
-  getHomeData();
+
+  if (fixedsearch == 0) {
+    getHomeData();
+  } else if (fixedsearch == 1) {
+    getSearchData();
+  } else if (fixedsearch == 2) {} else if (fixedsearch == 4) {}
+
+  //  },10000);
 }, 60000);
 
 function CheckPhoto(item) {
 
   var path = 'n.jpg';
 
-  //console.log(item.photo_path);
+  //console.log(item.id);
 
   if (item.photo_path) {
     if (item.photo_path != path) {
@@ -214,11 +240,7 @@ function ShowData(props) {
     React.createElement(
       "div",
       { col: "100 " },
-      React.createElement(
-        "div",
-        { className: "hot-listings" },
-        "Latest 40"
-      )
+      React.createElement("div", { className: "hot-listings" })
     ),
     React.createElement(
       "div",
@@ -228,17 +250,61 @@ function ShowData(props) {
   );
 }
 
+var latestid = 0;
+
 socket.on('homeStart', function (data) {
 
-  //console.log(data);
+  console.log(data);
 
   ReactDOM.render(React.createElement(ShowGold, { items: data.gold }), document.getElementById('reactGold'));
 
   ReactDOM.render(React.createElement(ShowPremium, { items: data.premium }), document.getElementById('reactPremium'));
 
   ReactDOM.render(React.createElement(ShowData, { items: data.latest }), document.getElementById('reactOb'));
+
+  tempmassivdata = data.latest;
+  startcount = data.latestid;
+  searchType = "usually";
+
+  console.log(startcount);
+
+  // ReactDOM.render(
+  //   <ShowDataUpdateClass items={data.latest} />,
+  //   document.getElementById('reactOb')
+  // );
+
 });
 
 function SendingData(data) {
-  ReactDOM.render(React.createElement(ShowData, { items: data }), document.getElementById('reactOb'));
+
+  if (clearItems == 1) {
+    tempmassivdata = new Array();
+    clearItems = 0;
+  }
+
+  for (var i = 0; i < data.length; i++) {
+
+    if (tempmassivdata.length > 0) {
+      var fixfound = 0;
+      for (var j = 0; j < tempmassivdata.length; j++) {
+        if (tempmassivdata[j].id == data[i].id) {
+          fixfound = 1;
+        }
+      }
+
+      if (fixfound == 0) {
+        tempmassivdata.push(data[i]);
+      }
+    } else {
+      tempmassivdata.push(data[i]);
+    }
+  }
+
+  //  setTimeout(function(){
+  ReactDOM.render(React.createElement(ShowData, { items: tempmassivdata }), document.getElementById('reactOb'));
+  //  },500);
+
+
+  //startcount = data.latestid;
+  //console.log(startcount);
 }

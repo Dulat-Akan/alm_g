@@ -192,11 +192,9 @@
                   </div>
 
                   <!-- Scrollable page content -->
-                  <div class="page-content hide-toolbar-on-scroll hide-navbar-on-scroll ">
+                  <div class="page-content hide-toolbar-on-scroll hide-navbar-on-scroll infinite-scroll-content">
 
-                    <!-- <div class="page-content " style="background-color: white;"> -->
 
-                    <!-- we will init this gauge in JavaScript -->
 
                     <form class="searchbar">
                         <div class="searchbar-inner">
@@ -211,7 +209,7 @@
 
 
 
-                      <div class="row">
+                      <div class="row hideHome">
 
                         <div class="globtwo">
                             <ul class="myhidescrolledtwo">
@@ -283,6 +281,13 @@
                       <!-- search block -->
 
                       <div id="reactOb"></div>
+
+
+                      <div id="reactTest"></div>
+
+
+
+
 
             <!-- <div class="main_row">
               <div class="three_view" style="background-image: url(http://kazpoisk.kz/assets/entry/uploads/a6066c16344a53ebd37a05d4a6839497.jpg)"></div>
@@ -2632,18 +2637,20 @@
         <script type="text/javascript" src="js/socket.io.js"></script>
 
     <script>
-      // const socket = io('http://localhost:3001', {
-      const socket = io('http://kazpoisk.kz:3001', {
-        'reconnection': true,
-        'reconnectionDelay': 500,
-        'reconnectionAttempts': 10
+       const socket = io('http://localhost:3001', {
+      //const socket = io('http://kazpoisk.kz:3001', {
+        reconnection: true,
+        reconnectionDelay: 1000,
+        reconnectionDelayMax : 5000,
+        reconnectionAttempts: Infinity
         });
     </script>
+
 
     <script src="js/modules/socket_file.js"></script>
 
 
-    <script type="text/javascript" src="js/gauge/gauge.js"></script>
+
     <script type="text/javascript" src="js/framework7.min.js"></script>
 
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
@@ -2656,6 +2663,7 @@
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
   <!-- <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+   <script type="text/javascript" src="js/rxjslib/rxmin.js"></script>
   <!-- react -->
 
             <!-- phantom library, needed for Cordova api calls, added during build -->
@@ -2666,7 +2674,7 @@
     <!-- Path to your app js-->
 
 
-
+    <script type="text/javascript" src="js/gauge/gauge.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
 
     <script type="text/javascript" src="js/addcategory.js"></script>
@@ -2686,6 +2694,7 @@
     <script type="text/javascript" src="js/facebook_auth.js"></script>
     <script type="text/javascript" src="js/controllers/homePage.js"></script>
     <script type="text/javascript" src="js/loadHomePageData.js"></script>
+
 
 
 
@@ -2748,5 +2757,6 @@
 </html>
 
 <!-- dodelat promo status v activasii oplati-->
+<!-- bekend dodelat searchData-->
 
 <!-- ispravit n1user oshibku, proverit vse ostalnoe,razobrat'sya s zagruzkoi raznisi -->

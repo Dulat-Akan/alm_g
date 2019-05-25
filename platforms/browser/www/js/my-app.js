@@ -915,11 +915,11 @@
 
                 var role = localStorage.getItem("role");
 
-                if(result[0] != "false"){
+                if(result.data.length > 0){
 
                   $(".insertob").empty();
 //xxxx
-                                            var countfindobjects = result[0].length;
+                                            var countfindobjects = result.data.length;
 
                                             $(".searchkvbutton").text("найдено " + countfindobjects + " публикаций");
 
@@ -928,59 +928,46 @@
                                             }, 1000);
                                             //searchkvbutton
 
-                                            for(var i = 0;i < result[0].length;i++){
+                                            for(var i = 0;i < result.data.length;i++){
 
-                                              var statusid = result[0][i].id;
-                                              var status = result[0][i].status;
+                                              var statusid = result.data[i].id;
+                                              var status = result.data[i].status;
                                               //console.log(status);
-                                              var r_alm = result[0][i].r_alm;
-                                              var city_alm = result[0][i].city_alm;
-                                              var r_astana = result[0][i].r_astana;
-                                              var city_ast = result[0][i].city_ast;
-                                              var vremya_nachala_auxion = result[0][i].vremya_nachala_auxion;
-                                              var vremya_okonch_auxion = result[0][i].vremya_okonch_auxion;
+                                              var r_alm = result.data[i].r_alm;
+                                              var city_alm = result.data[i].city_alm;
+                                              var r_astana = result.data[i].r_astana;
+                                              var city_ast = result.data[i].city_ast;
+                                              var vremya_nachala_auxion = result.data[i].vremya_nachala_auxion;
+                                              var vremya_okonch_auxion = result.data[i].vremya_okonch_auxion;
 
-                                              var vremya_okonch_auxion = result[0][i].vremya_okonch_auxion;
+                                              var vremya_okonch_auxion = result.data[i].vremya_okonch_auxion;
 
                                               var photo = "n.jpg";
                                               var baseurlimg2 = localStorage.getItem("baseurlimg4");
 
-                                              var year_build_car = result[0][i].year_build_car;
-                                              var obem40x = result[0][i].obem40x;
+                                              var year_build_car = result.data[i].year_build_car;
+                                              var obem40x = result.data[i].obem40x;
 
-                                              var opisanie = result[0][i].opisanie;
+                                              var opisanie = result.data[i].opisanie;
 
                                               var array = [" ","ЖК: "," ","ЖК: ","время начала аукциона: ","время окончания аукциона: "];
                                               var array2 = [r_alm,city_alm,r_astana,city_ast,vremya_nachala_auxion,vremya_okonch_auxion];
 
 
-                                              if(result[1][i] != "n.jpg"){
+                                              if(result.data[i] != "n.jpg"){
 
-                                                  photo = result[1][i].photo_path[0];
-
-                                                  //ph
-
-                                                  result[0][i].photo_path = result[1][i];
-
-                                                  //ph
+                                                  photo = result.data[i].photo_path[0];
 
                                               }else{
-                                                result[0][i].photo_path = photo;
+                                                result.data[i].photo_path = photo;
                                               }
 
                                               var photourl = baseurlimg2 + photo;
 
 
-
-
-
                                               var op = "";
 
-
                                               for(var j = 0; j < array2.length; j++) {
-
-
-
 
                                                           if(array2[j] == "нет"){
 
@@ -1023,8 +1010,6 @@
 
                                                                   fixz = 1;
 
-
-
                                                                   array2[0] = array4[0] + array3[0];
 
                                                                   if(array4[1] != "0"){
@@ -1043,7 +1028,7 @@
 
                                               var cityview = "";
 
-                                              var city = result[0][i].city;
+                                              var city = result.data[i].city;
 
                                               if(city != "0"){
                                                 cityview = city;
@@ -1072,7 +1057,7 @@
           // ' <div class="item-after">'+ result[0][i].sena + 'тг.' +'</div> </div> <div class="item-subtitle">'+ cityview +'</div>'+
           // ' <div class="item-text">' + array[0] + array2[0]+' '+array[1]+array2[1]+array[2]+array2[2]+' '+array[3]+array2[3] + ' ' + op + '</div> </div> </a> </li>';
 
-          var obrsena = result[0][i].sena;
+          var obrsena = result.data[i].sena;
 
           if(obrsena == 777){
             obrsena = "договорная | ";
@@ -1085,7 +1070,7 @@
 
           var templateobyav = '<li status="'+ newstatus + '" listid="'+ newstatus + " | " + statusid
           +'" class="li_img_styling exmachange"> <div ident="'+ i +'" cashid="' + result[3] + '" class="viewob imgheight" style="background: url(' + photourl
-          + ') no-repeat center/cover;"> <div class="imgheight_div"> <div class="imgheight_title" >' + result[0][i].zagolovok
+          + ') no-repeat center/cover;"> <div class="imgheight_div"> <div class="imgheight_title" >' + result.data[i].zagolovok
           + '</div> <div class="imgheight_text" >'+ cityview +'</div> <div class="imgheight_text" >'
           + array[0] + array2[0]+' '+array[1]+array2[1]+array[2]+array2[2]+' '+array[3]+array2[3] + ' ' + op
           + '</div> <div class="imgheight_text" >'+ obrsena + 'тг.' +'</div> </div> </div> </li>';
@@ -2530,7 +2515,7 @@
 
 
 
-                    myApp.preloader.show('работаю..');
+                    //myApp.preloader.show('working..');
 
                     var useridentificatorsearch = localStorage.getItem("useridentificator");
 
@@ -2545,66 +2530,73 @@
 
                     var sendsearch = {
 
-                            "searchtext":searchstring,
+                            "searchstring":searchstring,
                             "useridentificatorsearch":useridentificatorsearch,
-                            "useremailsearch":useremailsearch,
+                            "email":useremailsearch,
                             "newphoneid":newphoneid,
 
                         }
 
-                        //console.log(useridentificator4);
+                        sendsearchstring = searchstring;
+
+                        fixedsearch = 4;
+                        searchType = "input";
+
+
+                        //getStringData
+                        socket.emit('getStringData', sendsearch);
 
                            var searchurl = localStorage.getItem("baseurl");
 
-                          $.ajax({
-                                "type":"GET",
-                                "url": searchurl + "searchinputapp/",    /*random restourants menu zakaZ*/
-
-                                dataType: "jsonp",
-                                crossDomain: true,
-                                "data": sendsearch,
-
-                                "success":kxsearch,
-                                "error":errorsearch
-
-                                });
-
-
-                          function kxsearch(result){
-
-                                  if(result[0].length != 0){
+                          // $.ajax({
+                          //       "type":"GET",
+                          //       "url": searchurl + "searchinputapp/",    /*random restourants menu zakaZ*/
+                          //
+                          //       dataType: "jsonp",
+                          //       crossDomain: true,
+                          //       "data": sendsearch,
+                          //
+                          //       "success":kxsearch,
+                          //       "error":errorsearch
+                          //
+                          //       });
 
 
-                                      $(".page-content").scrollTop(0);
-
-                                      pagescroll = 20;
-
-                                      pageindex = result[3];
-
-                                      //console.log(pageindex);
-
-                                      pagefixed = 0;
-
-                                      insertviewob(result);
-                                      myApp.preloader.hide();
-                                  }else{
-                                    myApp.preloader.hide();
-                                  }
-
-                                  myApp.preloader.hide();
-
-                          }
-
-                          function errorsearch(){
-
-                              myApp.preloader.hide();
-                          }
+                          // function kxsearch(result){
+                          //
+                          //         if(result[0].length != 0){
+                          //
+                          //
+                          //             $(".page-content").scrollTop(0);
+                          //
+                          //             pagescroll = 20;
+                          //
+                          //             pageindex = result[3];
+                          //
+                          //             //console.log(pageindex);
+                          //
+                          //             pagefixed = 0;
+                          //
+                          //             insertviewob(result);
+                          //             myApp.preloader.hide();
+                          //         }else{
+                          //           myApp.preloader.hide();
+                          //         }
+                          //
+                          //         myApp.preloader.hide();
+                          //
+                          // }
+                          //
+                          // function errorsearch(){
+                          //
+                          //     myApp.preloader.hide();
+                          // }
 
                       }
 
               }else{
 
-                    myApp.preloader.show('ip адрес сохранен, поиск вашего местоположения, определение номера телефона.. ваш номер определен.. ваш номер и положение занесены в базу данных :) !');
+                    //myApp.preloader.show('ip адрес сохранен, поиск вашего местоположения, определение номера телефона.. ваш номер определен.. ваш номер и положение занесены в базу данных :) !');
 
               }
 
@@ -2612,6 +2604,21 @@
 
 
 
+          });
+
+
+          socket.on('getStringData', function(data){
+
+            //console.log(data);
+            $(".hideHome").hide();
+            clearItems = 1;
+            startcount = data.latestid;
+            SendingData(data.data);
+
+            //$(".page-content").scrollTop(750);
+
+
+              //myApp.preloader.hide();
           });
 
 
@@ -2763,3 +2770,70 @@
 
 
           },5000);
+
+
+
+
+
+          ///------------ load content
+          var searchType = "usually";
+          var clearItems = 0;
+          var startcount = 0;
+          var pagesum = 40;
+          var searchSqlrequest = "";
+          var processSendCount = 0;
+          var sendsearchstring = "";
+
+          // Loading flag
+            var allowInfinite = true;
+            // Last loaded index
+            var lastItemIndex = $$('.list li').length;
+
+            // Max items to load
+            var maxItems = 200;
+
+            // Append items per load
+            var itemsPerLoad = 20;
+
+            // Attach 'infinite' event handler
+            $$('.infinite-scroll-content').on('infinite', function () {
+              // Exit, if loading in progress
+
+              if(processSendCount == 1){
+                return false;
+              }
+
+              var em_search = localStorage.getItem("useremail");
+
+              if(em_search == 0){
+                 em_search = 0;
+              }
+
+              if(startcount < 1){
+                return false;
+              }
+
+              var sendData = {
+                email:em_search,
+                searchType: searchType,
+                startcount:startcount,
+                pagesum:pagesum,
+                searchSqlrequest:searchSqlrequest,
+                searchstring:sendsearchstring
+              };
+              //console.log(sendData);
+
+              socket.emit('getCountData', sendData);
+              processSendCount = 1;
+              fixedsearch = 2;
+              // Emulate 1s loading
+
+            });
+
+            socket.on('getCountData', function(data){
+              processSendCount = 0;
+              console.log(data.latestid);
+              startcount = data.latestid;
+              SendingData(data.data);
+                //console.log(data);
+            });

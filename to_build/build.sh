@@ -30,3 +30,4 @@ chrome://inspect
 //build browser
 
 cordova build browser --prod
+ionic cordova build browser --prod

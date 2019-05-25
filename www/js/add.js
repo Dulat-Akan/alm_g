@@ -1064,6 +1064,8 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
                                 formData['enable_money'] = enable_money;
                                 formData['priority'] = priority;
 
+                                //opredelyaesya v
+
                                 // gold
                                 // premium
                                 // classic
@@ -1429,7 +1431,8 @@ $$(document).on('page:beforein', '.page[data-name="add"]', function (e) {
 
                       var prioritys = $(this).attr("priority");
 
-                      textpod = status;
+                      //textpod = status;
+                      textpod = "no";
 
                       priority = Number(prioritys);
 

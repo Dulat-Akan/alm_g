@@ -2980,6 +2980,9 @@ var img = localStorage.getItem("baseurlimg");
 
 
           //module search
+
+          var fixhidepanel = 0;
+
           function sendsearch(formdata){
 
 
@@ -2999,8 +3002,6 @@ var img = localStorage.getItem("baseurlimg");
 
                        var newphoneid = phoneid;
 
-
-
                        //console.log(newphoneid + " | " + useridentificatorsearch + " | " + useremailsearch);
 
                        formdata['useridentificatorsearch'] = useridentificatorsearch;
@@ -3008,69 +3009,52 @@ var img = localStorage.getItem("baseurlimg");
                        formdata['newphoneid'] = newphoneid;
 
                        console.log(formdata);
+                       fixedsearch = 1;
+                       searchType = "filter";
+                       tempsearchdata = formdata;
+                       fixhidepanel = 1;
+                       socket.emit('searchData', {email:useremailsearch,formdata:formdata});
 
-                      $.ajax({
-                            "type":"GET",
-                            "url": urlmessagesend5 + "searchusers/",    /*search users option*/
+                       setTimeout(function(){
+                         myApp.dialog.close();
+                         myApp.dialog.close();
+                       },2000);
 
-                            dataType: "jsonp",
-                            crossDomain: true,
-                            "data": formdata,
-
-                            "success":kx1,
-                            "error":errorfunc1
-
-                            });
-
-
-                      function kx1(result){
-          //rab
-                            //console.log(result[0]);
-                            //console.log(result[1]);
-                            myApp.dialog.close();
-                            pageindex = result[3];
-                            //pageindex = 200;
-                            //console.log(result);
-                            if(result[0].length > 0){
-                              insertviewob(result);
-                                //console.log(result[0][0]);
-
-                                pagescroll = 100;
-                                pagefixed = 0;
-
-                                if(openpopup == 1){
-                                  myApp.popup.close();
-                                  openpopup = 0;
-                                }
-
-                                $(".page-content").scrollTop(0);
-                                myApp.dialog.close();
-                            }else{
-                              myApp.dialog.close();
-                              myApp.dialog.alert('извините ничего не найдено в данный момент мы набираем базу объявлений!','Сервис');
-
-                            }
-
-                            //console.log(pageindex);
-                            //console.log(result[4]);
-                            //console.log(result[5]);
-
-
-                              setTimeout(function(){
-                                myApp.dialog.close();
-                              },2000);
-
-
-                      }
-
-                      function errorfunc1(){
-                          //myApp.preloader.hide();
-                          myApp.dialog.close();
-
-                      }
+                       //clearInverval(timeout);
 
 
           }
+
+          socket.on('searchData', function(data){
+
+                 myApp.dialog.close();
+
+                 //console.log(data);
+
+                 if(data.data.length > 0){
+                   $(".hideHome").hide();
+                   clearItems = 1;
+                   searchSqlrequest = data.sql;
+                   startcount = data.latestid;
+                   SendingData(data.data);
+                 }
+
+                 if(fixhidepanel == 1){
+                   myApp.popup.close(".popup-filter");
+                   fixhidepanel = 0;
+                 }
+
+                 setTimeout(function(){
+                   myApp.dialog.close();
+                  // $(".page-content").scrollTop(30);
+                   if(fixhidepanel == 1){
+                     myApp.popup.close(".popup-filter");
+                     fixhidepanel = 0;
+                   }
+                 },1000);
+
+
+                  });
 
 
 
