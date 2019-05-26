@@ -191,6 +191,14 @@ function getSearchData(){
       );
   }
 
+  var senditem = new Object();
+
+  function navigateToDetail(item,e) {
+    console.log(item);
+    senditem = item;
+    router.navigate({ name: 'n1' });
+  }
+
   function ShowData(props) {
 
       const items = props.items;
@@ -198,7 +206,7 @@ function getSearchData(){
       const baseUrl = localStorage.getItem("baseurlimg2");
 
       const content = items.map((item) =>
-        <div key={item.id} className="threeview" style={{ backgroundImage: "url("+ baseUrl + CheckPhoto(item) +")" }}></div>
+        <div key={item.id} className="threeview" onClick={(e) => this.navigateToDetail(item, e)} style={{ backgroundImage: "url("+ baseUrl + CheckPhoto(item) +")" }}></div>
       );
 
       return (
@@ -206,7 +214,7 @@ function getSearchData(){
         <div className="row">
         <div col="100 ">
             <div className="hot-listings">
-              
+
             </div>
         </div>
         <div className="mainrow">{content}</div>
@@ -231,6 +239,11 @@ socket.on('homeStart', function(data){
         ReactDOM.render(
           <ShowPremium items={data.premium} />,
           document.getElementById('reactPremium')
+        );
+        
+        ReactDOM.render(
+          <ShowPremium items={data.premium} />,
+          document.getElementById('userAds')
         );
 
 

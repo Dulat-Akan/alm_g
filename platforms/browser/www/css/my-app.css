@@ -121,6 +121,35 @@ body {
   font-size:21px;
 }
 
+.demo-swiper .swiper-slide {
+  font-size: 25px;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  color: #000;
+}
+.demo-swiper .swiper-slide {
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+.demo-swiper {
+  margin: 0px;
+  font-size: 18px;
+  height: 35vh;
+}
+.demo-swiper.demo-swiper-auto .swiper-slide {
+  width: 85%;
+}
+.demo-swiper.demo-swiper-auto .swiper-slide:nth-child(2n) {
+  width: 70%;
+}
+.demo-swiper.demo-swiper-auto .swiper-slide:nth-child(3n) {
+  width: 30%;
+}
+
 
 
 
@@ -851,23 +880,120 @@ ul.insertob::before{
   background-color: white;
 }
 
+.upBlock{
+  width: 100%;
+  height: 9vh;
+  margin-top: 1%;
+}
+
+.onea{
+  width: 20%;
+  height: 100%;
+  float: left;
+
+}
+
+.insertvideo{
+  z-index: 200;
+}
+
+.circle-img{
+  background: aqua;
+  width: 63%;
+  height: 75%;
+  border-radius: 50px;
+  margin-top: 10%;
+  margin-left: 23%;
+  background: url(https://www.daily-sun.com/assets/news_images/2017/08/14/thumbnails/Daily-Sun-38-01-14-08-2017.jpg) no-repeat center/cover;
+}
+
+.oneb{
+  width: 68%;
+  height: 100%;
+  float: left;
+
+}
+
 .inserth1{
 
   /* background-image: linear-gradient(to right, #29323c , #485563); */
-  background-color: white;
-  color:black;
-  text-align: center;margin-left:10px;margin-right:10px;
-  border-radius: 10px;
-  padding:5px;
-  margin-bottom:0px;
+  color: black;
+  text-align: center;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: 7%;
+  font-size: 1em;
+  font-weight: 600;
+  opacity: 0.7;
+
 }
+
+.onec{
+  width: 12%;
+  height: 100%;
+  float: left;
+
+}
+
+.icona{
+  width: 100%;
+  height: 100%;
+  margin-left: 6%;
+  margin-top: 23%;
+}
+
+
+.downBlock{
+  width:100%;
+  height: 5.6vh;
+  margin-top:1%;
+
+}
+
+.mysizeicons{
+  font-size: 30px !important;
+}
+
+.discriptionName{
+  width: 100%;
+  margin-top:2px;
+  margin-bottom: 2px;
+}
+
+
+.childA{
+  float:left;
+  width:10%;
+  height: 100%;
+  margin-left: 29%;
+}
+.childB{
+  float:left;
+  width:10%;
+  height: 100%;
+  margin-left: 1%;
+}
+.childC{
+  float:left;
+  width:10%;
+  height: 100%;
+  margin-left: 1%;
+}
+.childD{
+  float:left;
+  width:10%;
+  height: 100%;
+  margin-left: 1%;
+}
+
+
 
 
 .imageheight{
 
           width: 100%;
           height: 100%;
-          border-radius: 10px;
 
   }
 
@@ -1625,3 +1751,8 @@ vh */
   width:33.3%;
 }
 /* three_view main */
+
+
+.insertimg{
+  height:35vh;
+}

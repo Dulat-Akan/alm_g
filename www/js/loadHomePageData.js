@@ -224,14 +224,25 @@ function ShowGold(props) {
   );
 }
 
+var senditem = new Object();
+
+function navigateToDetail(item, e) {
+  console.log(item);
+  senditem = item;
+  router.navigate({ name: 'n1' });
+}
+
 function ShowData(props) {
+  var _this = this;
 
   var items = props.items;
 
   var baseUrl = localStorage.getItem("baseurlimg2");
 
   var content = items.map(function (item) {
-    return React.createElement("div", { key: item.id, className: "threeview", style: { backgroundImage: "url(" + baseUrl + CheckPhoto(item) + ")" } });
+    return React.createElement("div", { key: item.id, className: "threeview", onClick: function onClick(e) {
+        return _this.navigateToDetail(item, e);
+      }, style: { backgroundImage: "url(" + baseUrl + CheckPhoto(item) + ")" } });
   });
 
   return React.createElement(
@@ -259,6 +270,12 @@ socket.on('homeStart', function (data) {
   ReactDOM.render(React.createElement(ShowGold, { items: data.gold }), document.getElementById('reactGold'));
 
   ReactDOM.render(React.createElement(ShowPremium, { items: data.premium }), document.getElementById('reactPremium'));
+
+  // ReactDOM.render(
+  //   <ShowPremium items={data.premium} />,
+  //   document.getElementById('userAds')
+  // );
+
 
   ReactDOM.render(React.createElement(ShowData, { items: data.latest }), document.getElementById('reactOb'));
 

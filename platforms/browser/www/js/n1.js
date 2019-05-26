@@ -1,221 +1,204 @@
 $$(document).on('page:beforein', '.page[data-name="n1"]', function (e) {
 
 
-
 setTimeout(function(){
 
 
-var newcashid = globalvaluegetlocalob;
 
-var ob = localStorage.getItem("ob" + newcashid);
-
-//xx
-
-if(ob){
-    var obj = jQuery.parseJSON(ob);
-    var arrayone = obj[0];
-    var arraytwo = obj[1];
-    var arraythree = obj[2];
-
-
-
-
-//text
-
-              var zagolovok = arrayone[globalvalue].zagolovok;
-              var osnovnaya_sena = arrayone[globalvalue].sena;
-              var valyuta = arrayone[globalvalue].valyuta;
-              var oblast = arrayone[globalvalue].strana;
-              var city = arrayone[globalvalue].city;
-              var id = arrayone[globalvalue].id;
-              var telephone = arrayone[globalvalue].telephone;
-              var email = arrayone[globalvalue].email;
-              var dostavka = arrayone[globalvalue].dostavka777;
-              var opisanie = arrayone[globalvalue].opisanie;
-              var sostoyanie = arrayone[globalvalue].res_peremen_string1;
-              var date_start_aux777 = arrayone[globalvalue].date_start_aux777;
-              var date_finish_aux777 = arrayone[globalvalue].date_finish_aux777;
-              var selev_auditor777 = arrayone[globalvalue].selev_auditor777;
-              var kol_uchastn777 = arrayone[globalvalue].kol_uchastn777;
-              var watsapp = arrayone[globalvalue].watsapp;
-              var viber = arrayone[globalvalue].viber;
-              var obmen = arrayone[globalvalue].obmen;
-              var instagram = arrayone[globalvalue].instagram;
-              var vk = arrayone[globalvalue].vk;
-              var skype = arrayone[globalvalue].skype;
-              var mail = arrayone[globalvalue].mail;
-              var google = arrayone[globalvalue].google;
-              var other = arrayone[globalvalue].other;
-              var chastn_liso = arrayone[globalvalue].chastn_liso;
-              var companiya = arrayone[globalvalue].kompaniya;
-              var biznes = arrayone[globalvalue].biznes;
-              var agenstvo = arrayone[globalvalue].agenstvo;
-              var naimenovanie = arrayone[globalvalue].naimenovanie;
-              var commentarii = arrayone[globalvalue].commentarii;
-              var komnat = arrayone[globalvalue].komnat;
-              var obsh_ploshad = arrayone[globalvalue].obsh_ploshad;
-              var etazh = arrayone[globalvalue].etazh;
-              var mat_sten = arrayone[globalvalue].mat_sten;
-              var tip_doma = arrayone[globalvalue].tip_doma;
-              var et_v_dome = arrayone[globalvalue].et_v_dome;
-              var year_build = arrayone[globalvalue].year_build;
-              var sostoyanie22x = arrayone[globalvalue].sostoyanie22x;
-              var sanuzel22x = arrayone[globalvalue].sanuzel22x;
-              var dver22x = arrayone[globalvalue].dver22x;
-              var poli22x = arrayone[globalvalue].poli22x;
-              var telephone22x = arrayone[globalvalue].telephone22x;
-              var balkon22x = arrayone[globalvalue].balkon22x;
-              var parkovka22x = arrayone[globalvalue].parkovka22x;
-              var steni22x = arrayone[globalvalue].steni22x;
-              var internet22x = arrayone[globalvalue].internet22x;
-              var balkon_osteklennii22x = arrayone[globalvalue].balkon_osteklennii22x;
-              var mebel22x = arrayone[globalvalue].mebel22x;
-              var otoplenie22x = arrayone[globalvalue].otoplenie22x;
-              var signalizasiya22x = arrayone[globalvalue].signalizasiya22x;
-              var videonabl22x = arrayone[globalvalue].videonabl22x;
-              var konserzh22x = arrayone[globalvalue].konserzh22x;
-              var domofon22x = arrayone[globalvalue].domofon22x;
-              var ohrana22x = arrayone[globalvalue].ohrana22x;
-              var kodov_zamok22x = arrayone[globalvalue].kodov_zamok22x;
-              var reshetki_na_oknah22x = arrayone[globalvalue].reshetki_na_oknah;
-              var datchik_dvizh22x = arrayone[globalvalue].datchik_dvizh22x;
-              var video_domof22x = arrayone[globalvalue].video_domof22x;
-              var udobno_pod_kommers22x = arrayone[globalvalue].udobno_pod_kommers22x;
-              var neuglov22x = arrayone[globalvalue].neuglov22x;
-              var plastik_okna22x = arrayone[globalvalue].plastik_okna22x;
-              var kuhnya_studiya22x = arrayone[globalvalue].kuhnya_studiya22x;
-              var uluchshennaya22x = arrayone[globalvalue].uluchshennaya22x;
-              var komn_izolir22x = arrayone[globalvalue].komn_izolir22x;
-              var new_santehnika22x = arrayone[globalvalue].new_santehnika22x;
-              var vstroennaya_kuhnya22x = arrayone[globalvalue].vstroennaya_kuhnya22x;
-              var imeetsya_kladov22x = arrayone[globalvalue].imeetsya_kladov22x;
-              var schetchiki22x = arrayone[globalvalue].schetchiki22x;
-              var tihii_dvor22x = arrayone[globalvalue].tihii_dvor22x;
-              var konditioner22x = arrayone[globalvalue].konditioner22x;
-              var rasst_ot_goroda25x = arrayone[globalvalue].rasst_ot_goroda25x;
-              var s_doma25x = arrayone[globalvalue].s_doma25x;
-              var type_doma25x = arrayone[globalvalue].type_doma25x;
-              var year_build25x = arrayone[globalvalue].year_build25x;
-              var rasst_ot_goroda26x = arrayone[globalvalue].rasst_ot_goroda26x;
-              var s_doma26x = arrayone[globalvalue].s_doma26x;
-              var s_uchastka26x = arrayone[globalvalue].s_uchastka26x;
-              var type_doma26x = arrayone[globalvalue].type_doma26x;
-              var rasst_ot_goroda27x = arrayone[globalvalue].rasst_ot_goroda27x;
-              var s_uchastka27x = arrayone[globalvalue].s_uchastka27x;
-              var kol_komnat28x = arrayone[globalvalue].kol_komnat28x;
-              var s_obsh28x = arrayone[globalvalue].s_obsh28x;
-              var etazh28x = arrayone[globalvalue].etazh28x;
-              var et_v_zdanii28x = arrayone[globalvalue].et_v_zdanii28x;
-              var type_ofisa28x = arrayone[globalvalue].type_ofisa28x;
-              var s_obsh29x = arrayone[globalvalue].s_obsh29x;
-              var etazh29x = arrayone[globalvalue].etazh29x;
-              var et_v_zdanii29x = arrayone[globalvalue].et_v_zdanii29x;
-              var type_pomesheniya29x = arrayone[globalvalue].type_pomesheniya29x;
-              var year_build30x = arrayone[globalvalue].year_build30x;
-              var s_obsh30x = arrayone[globalvalue].s_obsh30x;
-              var et_v_dome30x = arrayone[globalvalue].et_v_dome30x;
-              var mat_sten30x = arrayone[globalvalue].mat_sten30x;
-              var type_zdaniya30x = arrayone[globalvalue].type_zdaniya30x;
-              var s_obsh31x = arrayone[globalvalue].s_obsh31x;
-              var type_pomesheniya31x = arrayone[globalvalue].type_pomesheniya31x;
-              var srok_sdachi = arrayone[globalvalue].srok_sdachi;
-              var kupit_ot33x = arrayone[globalvalue].kupit_ot33x;
-              var kupit_do33x = arrayone[globalvalue].kupit_do33x;
-              var valyuta33x = arrayone[globalvalue].valyuta33x;      /*30*/
-              var marka40x = arrayone[globalvalue].marka40x;
-              var model40x = arrayone[globalvalue].model40x;
-              var year_build_car = arrayone[globalvalue].year_build_car;  /*100*/
-              var probeg40x = arrayone[globalvalue].probeg40x;
-              var obem40x = arrayone[globalvalue].obem40x;
-              var korobka40x = arrayone[globalvalue].korobka40x;
-              var bezdokov40x = arrayone[globalvalue].bezdokov40x;
-              var bit_ili_na_zak40x = arrayone[globalvalue].bit_ili_na_zak40x;
-              var prodazha_po_zapchast40x = arrayone[globalvalue].prodazha_po_zapchast40x;
-              var trebuyutsya_vlozheniya40x = arrayone[globalvalue].trebuyutsya_vlozheniya40x;
-              var eta_mash_na_zakaz40x = arrayone[globalvalue].eta_mash_na_zakaz40x;
-              var mash_prosh_tuning40x = arrayone[globalvalue].mash_prosh_tuning40x;
-              var rul40x = arrayone[globalvalue].rul40x;
-              var toplivo40x = arrayone[globalvalue].toplivo40x;
-              var privod40x = arrayone[globalvalue].privod40x;
-              var svet40x = arrayone[globalvalue].svet40x;
-              var sostoyanie_mash40x = arrayone[globalvalue].sostoyanie_mash40x;    /*14*/
-              var marka_spes45x = arrayone[globalvalue].marka_spes45x;
-              var model45x = arrayone[globalvalue].model45x;
-              var probeg45x = arrayone[globalvalue].probeg45x;
-              var obem45x = arrayone[globalvalue].obem45x;
-              var korobka45x = arrayone[globalvalue].korobka45x;
-              var bezdokov45x = arrayone[globalvalue].bezdokov45x;
-              var bit_ili_na_zak45x = arrayone[globalvalue].bit_ili_na_zak45x;
-              var prodazha_po_zapchast45x = arrayone[globalvalue].prodazha_po_zapchast45x;
-              var trebyutsya_vlozheniya45x = arrayone[globalvalue].trebyutsya_vlozheniya45x;
-              var eta_mash_na_zakaz45x = arrayone[globalvalue].eta_mash_na_zakaz45x;
-              var sostoyanie_mash45x = arrayone[globalvalue].sostoyanie_mash45x;
-              var rul45x = arrayone[globalvalue].rul45x;
-              var toplivo45x = arrayone[globalvalue].toplivo45x;
-              var privod45x = arrayone[globalvalue].privod45x;
-              var svet45x = arrayone[globalvalue].svet45x;
-              var year_build45x = arrayone[globalvalue].year_build45x;
-              var kol_mest50x = arrayone[globalvalue].kol_mest50x;
-              var nar50x = arrayone[globalvalue].nar50x;
-              var vis_vish50x = arrayone[globalvalue].vis_vish50x;
-              var nar50x2 = arrayone[globalvalue].nar50x2;
-              var vis_vish50x2 = arrayone[globalvalue].vis_vish50x2;
-              var gruzop50x2 = arrayone[globalvalue].gruzop50x2;
-              var ob_sist51x = arrayone[globalvalue].ob_sist51x;    /*23*/
-              var narab50x3 = arrayone[globalvalue].narab50x3;
-              var vis_pod50x3 = arrayone[globalvalue].vis_pod50x3;
-              var narab50x4 = arrayone[globalvalue].narab50x4;
-              var ob_sist414x = arrayone[globalvalue].ob_sist414x;
-              var narab50x5 = arrayone[globalvalue].narab50x5;
-              var massa214x = arrayone[globalvalue].massa214x;
-              var gruzop214x = arrayone[globalvalue].gruzop214x;
-              var narab614x = arrayone[globalvalue].narab614x;
-              var gruzop614x = arrayone[globalvalue].gruzop614x;
-              var massa814x = arrayone[globalvalue].massa814x;
-              var narab914x = arrayone[globalvalue].narab914x;
-              var ob_kov514x = arrayone[globalvalue].ob_kov514x;
-              var massa1014x = arrayone[globalvalue].massa1014x;
-              var narab1114x = arrayone[globalvalue].narab1114x;
-              var mosh1414x = arrayone[globalvalue].mosh1414x;      /*15*/      /*52*/
-              var marka_legk67x = arrayone[globalvalue].marka_legk67x;
-              var model67x = arrayone[globalvalue].model67x;
-              var sost_zapch_legk77 = arrayone[globalvalue].sost_zapch_legk77;
-              var marka_zapch_spes68x = arrayone[globalvalue].marka_zapch_spes68x;
-              var sost_zapch_spes75 = arrayone[globalvalue].sost_zapch_spes75;
-              var sena_ot_zap = arrayone[globalvalue].sena_ot_zap;
-              var sena_do_zap = arrayone[globalvalue].sena_do_zap;
-              var valyuta_zapch = arrayone[globalvalue].valyuta_zapch;
-              var type_shina55x = arrayone[globalvalue].type_shina55x;
-              var marka_shini55x = arrayone[globalvalue].marka_shini55x;
-              var protector55x = arrayone[globalvalue].protector55x;
-              var year_build_shina55x = arrayone[globalvalue].year_build_shina55x;
-              var diam_shina55x = arrayone[globalvalue].diam_shina55x;
-              var iznos_shina55x = arrayone[globalvalue].iznos_shina55x;
-              var kol_shtuk55x = arrayone[globalvalue].kol_shtuk55x;
-              var type_disk56x = arrayone[globalvalue].type_disk56x;
-              var model_diska56x = arrayone[globalvalue].model_diska56x;
-              var type_diska217x56x = arrayone[globalvalue].type_diska217x56x;
-              var year_disk17x56x = arrayone[globalvalue].year_disk17x56x;
-              var diam_diska17x56x = arrayone[globalvalue].diam_diska17x56x;
-              var iznos_diska17x56x = arrayone[globalvalue].iznos_diska17x56x;
-              var kol_shtuk_diskov17x56x = arrayone[globalvalue].kol_shtuk_diskov17x56x;
-              var date_start_aux777 = arrayone[globalvalue].date_start_aux777;
-              var date_finish_aux777 = arrayone[globalvalue].date_finish_aux777;
-              var selev_auditor777 = arrayone[globalvalue].selev_auditor777;
-              var kol_uchastn777 = arrayone[globalvalue].kol_uchastn777;
-              var res_peremen_string1 = arrayone[globalvalue].res_peremen_string1;
-              var res_peremen_string2 = arrayone[globalvalue].res_peremen_string2;
-              var res_peremen_string3 = arrayone[globalvalue].res_peremen_string3;
-              var res_peremen_chisl4 = arrayone[globalvalue].res_peremen_chisl4;
-              var res_peremen_chisl5 = arrayone[globalvalue].res_peremen_chisl5;
-              var res_peremen_chisl6 = arrayone[globalvalue].res_peremen_chisl6;
-              var r_alm = arrayone[globalvalue].r_alm;
-              var city_alm = arrayone[globalvalue].city_alm;
-              var r_astana = arrayone[globalvalue].r_astana;
-              var city_ast = arrayone[globalvalue].city_ast;
-              var vremya_nachala_auxion = arrayone[globalvalue].vremya_nachala_auxion;
-              var vremya_okonch_auxion = arrayone[globalvalue].vremya_okonch_auxion;
-              var kol_prosmotrov = arrayone[globalvalue].kol_prosmotrov;
+              var zagolovok = senditem.zagolovok;
+              var osnovnaya_sena = senditem.sena;
+              var valyuta = senditem.valyuta;
+              var oblast = senditem.strana;
+              var city = senditem.city;
+              var id = senditem.id;
+              var telephone = senditem.telephone;
+              var email = senditem.email;
+              var dostavka = senditem.dostavka777;
+              var opisanie = senditem.opisanie;
+              var sostoyanie = senditem.res_peremen_string1;
+              var date_start_aux777 = senditem.date_start_aux777;
+              var date_finish_aux777 = senditem.date_finish_aux777;
+              var selev_auditor777 = senditem.selev_auditor777;
+              var kol_uchastn777 = senditem.kol_uchastn777;
+              var watsapp = senditem.watsapp;
+              var viber = senditem.viber;
+              var obmen = senditem.obmen;
+              var instagram = senditem.instagram;
+              var vk = senditem.vk;
+              var skype = senditem.skype;
+              var mail = senditem.mail;
+              var google = senditem.google;
+              var other = senditem.other;
+              var chastn_liso = senditem.chastn_liso;
+              var companiya = senditem.kompaniya;
+              var biznes = senditem.biznes;
+              var agenstvo = senditem.agenstvo;
+              var naimenovanie = senditem.naimenovanie;
+              var commentarii = senditem.commentarii;
+              var komnat = senditem.komnat;
+              var obsh_ploshad = senditem.obsh_ploshad;
+              var etazh = senditem.etazh;
+              var mat_sten = senditem.mat_sten;
+              var tip_doma = senditem.tip_doma;
+              var et_v_dome = senditem.et_v_dome;
+              var year_build = senditem.year_build;
+              var sostoyanie22x = senditem.sostoyanie22x;
+              var sanuzel22x = senditem.sanuzel22x;
+              var dver22x = senditem.dver22x;
+              var poli22x = senditem.poli22x;
+              var telephone22x = senditem.telephone22x;
+              var balkon22x = senditem.balkon22x;
+              var parkovka22x = senditem.parkovka22x;
+              var steni22x = senditem.steni22x;
+              var internet22x = senditem.internet22x;
+              var balkon_osteklennii22x = senditem.balkon_osteklennii22x;
+              var mebel22x = senditem.mebel22x;
+              var otoplenie22x = senditem.otoplenie22x;
+              var signalizasiya22x = senditem.signalizasiya22x;
+              var videonabl22x = senditem.videonabl22x;
+              var konserzh22x = senditem.konserzh22x;
+              var domofon22x = senditem.domofon22x;
+              var ohrana22x = senditem.ohrana22x;
+              var kodov_zamok22x = senditem.kodov_zamok22x;
+              var reshetki_na_oknah22x = senditem.reshetki_na_oknah;
+              var datchik_dvizh22x = senditem.datchik_dvizh22x;
+              var video_domof22x = senditem.video_domof22x;
+              var udobno_pod_kommers22x = senditem.udobno_pod_kommers22x;
+              var neuglov22x = senditem.neuglov22x;
+              var plastik_okna22x = senditem.plastik_okna22x;
+              var kuhnya_studiya22x = senditem.kuhnya_studiya22x;
+              var uluchshennaya22x = senditem.uluchshennaya22x;
+              var komn_izolir22x = senditem.komn_izolir22x;
+              var new_santehnika22x = senditem.new_santehnika22x;
+              var vstroennaya_kuhnya22x = senditem.vstroennaya_kuhnya22x;
+              var imeetsya_kladov22x = senditem.imeetsya_kladov22x;
+              var schetchiki22x = senditem.schetchiki22x;
+              var tihii_dvor22x = senditem.tihii_dvor22x;
+              var konditioner22x = senditem.konditioner22x;
+              var rasst_ot_goroda25x = senditem.rasst_ot_goroda25x;
+              var s_doma25x = senditem.s_doma25x;
+              var type_doma25x = senditem.type_doma25x;
+              var year_build25x = senditem.year_build25x;
+              var rasst_ot_goroda26x = senditem.rasst_ot_goroda26x;
+              var s_doma26x = senditem.s_doma26x;
+              var s_uchastka26x = senditem.s_uchastka26x;
+              var type_doma26x = senditem.type_doma26x;
+              var rasst_ot_goroda27x = senditem.rasst_ot_goroda27x;
+              var s_uchastka27x = senditem.s_uchastka27x;
+              var kol_komnat28x = senditem.kol_komnat28x;
+              var s_obsh28x = senditem.s_obsh28x;
+              var etazh28x = senditem.etazh28x;
+              var et_v_zdanii28x = senditem.et_v_zdanii28x;
+              var type_ofisa28x = senditem.type_ofisa28x;
+              var s_obsh29x = senditem.s_obsh29x;
+              var etazh29x = senditem.etazh29x;
+              var et_v_zdanii29x = senditem.et_v_zdanii29x;
+              var type_pomesheniya29x = senditem.type_pomesheniya29x;
+              var year_build30x = senditem.year_build30x;
+              var s_obsh30x = senditem.s_obsh30x;
+              var et_v_dome30x = senditem.et_v_dome30x;
+              var mat_sten30x = senditem.mat_sten30x;
+              var type_zdaniya30x = senditem.type_zdaniya30x;
+              var s_obsh31x = senditem.s_obsh31x;
+              var type_pomesheniya31x = senditem.type_pomesheniya31x;
+              var srok_sdachi = senditem.srok_sdachi;
+              var kupit_ot33x = senditem.kupit_ot33x;
+              var kupit_do33x = senditem.kupit_do33x;
+              var valyuta33x = senditem.valyuta33x;      /*30*/
+              var marka40x = senditem.marka40x;
+              var model40x = senditem.model40x;
+              var year_build_car = senditem.year_build_car;  /*100*/
+              var probeg40x = senditem.probeg40x;
+              var obem40x = senditem.obem40x;
+              var korobka40x = senditem.korobka40x;
+              var bezdokov40x = senditem.bezdokov40x;
+              var bit_ili_na_zak40x = senditem.bit_ili_na_zak40x;
+              var prodazha_po_zapchast40x = senditem.prodazha_po_zapchast40x;
+              var trebuyutsya_vlozheniya40x = senditem.trebuyutsya_vlozheniya40x;
+              var eta_mash_na_zakaz40x = senditem.eta_mash_na_zakaz40x;
+              var mash_prosh_tuning40x = senditem.mash_prosh_tuning40x;
+              var rul40x = senditem.rul40x;
+              var toplivo40x = senditem.toplivo40x;
+              var privod40x = senditem.privod40x;
+              var svet40x = senditem.svet40x;
+              var sostoyanie_mash40x = senditem.sostoyanie_mash40x;    /*14*/
+              var marka_spes45x = senditem.marka_spes45x;
+              var model45x = senditem.model45x;
+              var probeg45x = senditem.probeg45x;
+              var obem45x = senditem.obem45x;
+              var korobka45x = senditem.korobka45x;
+              var bezdokov45x = senditem.bezdokov45x;
+              var bit_ili_na_zak45x = senditem.bit_ili_na_zak45x;
+              var prodazha_po_zapchast45x = senditem.prodazha_po_zapchast45x;
+              var trebyutsya_vlozheniya45x = senditem.trebyutsya_vlozheniya45x;
+              var eta_mash_na_zakaz45x = senditem.eta_mash_na_zakaz45x;
+              var sostoyanie_mash45x = senditem.sostoyanie_mash45x;
+              var rul45x = senditem.rul45x;
+              var toplivo45x = senditem.toplivo45x;
+              var privod45x = senditem.privod45x;
+              var svet45x = senditem.svet45x;
+              var year_build45x = senditem.year_build45x;
+              var kol_mest50x = senditem.kol_mest50x;
+              var nar50x = senditem.nar50x;
+              var vis_vish50x = senditem.vis_vish50x;
+              var nar50x2 = senditem.nar50x2;
+              var vis_vish50x2 = senditem.vis_vish50x2;
+              var gruzop50x2 = senditem.gruzop50x2;
+              var ob_sist51x = senditem.ob_sist51x;    /*23*/
+              var narab50x3 = senditem.narab50x3;
+              var vis_pod50x3 = senditem.vis_pod50x3;
+              var narab50x4 = senditem.narab50x4;
+              var ob_sist414x = senditem.ob_sist414x;
+              var narab50x5 = senditem.narab50x5;
+              var massa214x = senditem.massa214x;
+              var gruzop214x = senditem.gruzop214x;
+              var narab614x = senditem.narab614x;
+              var gruzop614x = senditem.gruzop614x;
+              var massa814x = senditem.massa814x;
+              var narab914x = senditem.narab914x;
+              var ob_kov514x = senditem.ob_kov514x;
+              var massa1014x = senditem.massa1014x;
+              var narab1114x = senditem.narab1114x;
+              var mosh1414x = senditem.mosh1414x;      /*15*/      /*52*/
+              var marka_legk67x = senditem.marka_legk67x;
+              var model67x = senditem.model67x;
+              var sost_zapch_legk77 = senditem.sost_zapch_legk77;
+              var marka_zapch_spes68x = senditem.marka_zapch_spes68x;
+              var sost_zapch_spes75 = senditem.sost_zapch_spes75;
+              var sena_ot_zap = senditem.sena_ot_zap;
+              var sena_do_zap = senditem.sena_do_zap;
+              var valyuta_zapch = senditem.valyuta_zapch;
+              var type_shina55x = senditem.type_shina55x;
+              var marka_shini55x = senditem.marka_shini55x;
+              var protector55x = senditem.protector55x;
+              var year_build_shina55x = senditem.year_build_shina55x;
+              var diam_shina55x = senditem.diam_shina55x;
+              var iznos_shina55x = senditem.iznos_shina55x;
+              var kol_shtuk55x = senditem.kol_shtuk55x;
+              var type_disk56x = senditem.type_disk56x;
+              var model_diska56x = senditem.model_diska56x;
+              var type_diska217x56x = senditem.type_diska217x56x;
+              var year_disk17x56x = senditem.year_disk17x56x;
+              var diam_diska17x56x = senditem.diam_diska17x56x;
+              var iznos_diska17x56x = senditem.iznos_diska17x56x;
+              var kol_shtuk_diskov17x56x = senditem.kol_shtuk_diskov17x56x;
+              var date_start_aux777 = senditem.date_start_aux777;
+              var date_finish_aux777 = senditem.date_finish_aux777;
+              var selev_auditor777 = senditem.selev_auditor777;
+              var kol_uchastn777 = senditem.kol_uchastn777;
+              var res_peremen_string1 = senditem.res_peremen_string1;
+              var res_peremen_string2 = senditem.res_peremen_string2;
+              var res_peremen_string3 = senditem.res_peremen_string3;
+              var res_peremen_chisl4 = senditem.res_peremen_chisl4;
+              var res_peremen_chisl5 = senditem.res_peremen_chisl5;
+              var res_peremen_chisl6 = senditem.res_peremen_chisl6;
+              var r_alm = senditem.r_alm;
+              var city_alm = senditem.city_alm;
+              var r_astana = senditem.r_astana;
+              var city_ast = senditem.city_ast;
+              var vremya_nachala_auxion = senditem.vremya_nachala_auxion;
+              var vremya_okonch_auxion = senditem.vremya_okonch_auxion;
+              var kol_prosmotrov = senditem.kol_prosmotrov;
 
               if(kol_prosmotrov == null){
                   kol_prosmotrov = 0;
@@ -385,6 +368,7 @@ for(var j = 0;j < array2.length;j++){
           if(array[j] != "частное лицо: "){
                 if(array[j] != "продавец: "){
 
+
                   if(array2[j].length > 10){
 
                           var g = "";
@@ -413,7 +397,11 @@ for(var j = 0;j < array2.length;j++){
                           array2[j];
                       }
 
-                    templateob += '<tr class="inserttr"><td class="label-cell">'+ array[j] +'</td> <td  class="numeric-cell">'+ array2[j] +'</td></tr>';
+                      if(array[j] != "описание: "){
+                        templateob += '<tr class="inserttr"><td class="label-cell">'+ array[j] +'</td> <td  class="numeric-cell">'+ array2[j] +'</td></tr>';
+                      }else if(array[j] == "описание: "){
+                        templateob += '<tr class="inserttr"> <td colspan="2" class="label-cell">' + '<div class="discriptionName">' + array[j] + '</div>' + array2[j] +'</td></tr>';
+                      }
                 }
 
           }
@@ -456,28 +444,38 @@ var photoar = new Array();
 
 var g = 0;
 
-if(arraytwo[globalvalue] != "n.jpg"){
+if(senditem.photo_path != "n.jpg"){
 
-    photo = arraytwo[globalvalue].photo_path;
+    console.log(senditem.photo_path.photo_path);
+    photo = senditem.photo_path.photo_path;
 
-    for(var h = 0; h < photo.length;h++){
-        var photourl = baseurlimg2 + photo[h];
+var insertimg = "";
 
-        if(h == 0){
-            var insertimg = '<div class="photobr imageheight" style="background: url(' + photourl + ') no-repeat center/cover;"></div>';
+    for (var k in photo){
+        if (photo.hasOwnProperty(k)) {
 
-                $(".insertimg").append(insertimg);
+              var photourl = baseurlimg2 + photo[k];
+
+            //  if(k == 0){
+                  //var insertimg = '<div class="photobr imageheight" style="background: url(' + photourl + ') no-repeat center/cover;"></div>';
+                  insertimg += '<div class="swiper-slide photobr imageheight" style="background: url(' + photourl + ') no-repeat center/cover;"></div>';
+
+
+              //}
+
+              photoar.push(photourl);
+
+              g = 1;
+
         }
-
-
-
-          photoar.push(photourl);
-
-          g = 1;
-
-
-
     }
+
+    if(g == 1){
+      $(".insertimg").append(insertimg);
+    }
+
+
+
 
 
 
@@ -503,35 +501,23 @@ if(arraytwo[globalvalue] != "n.jpg"){
 
   $(".insertvideo").empty();
 
-  if(arraythree[globalvalue] != "нет"){
+  if(senditem.video != "нет"){
+
+    var video = senditem.video.photo_path;
 
 
+    for (var j in video){
+        if (video.hasOwnProperty(j)) {
 
-    var video = arraythree[globalvalue].photo_path;
+          var urlpathvideo = '<video id="video1" width="100%" autoplay="autoplay" tabindex="0" >'+
 
+          ' <source src="https://www.kazpoisk.kz/assets/entry/uploadsv/' + video[j] + '" '+
 
+          ' type="video/mp4"> </video>';
 
-    for(var l = 0; l < video.length;l++){
+            $(".insertvideo").append(urlpathvideo);
 
-
-  var urlpathvideo = '<video id="video1" width="100%" controls="controls" tabindex="0" style="margin-top: 50px;">'+
-
-  ' <source src="https://www.kazpoisk.kz/assets/entry/uploadsv/' + video[l] + '" '+
-
-  ' type="video/mp4"></source> </video>';
-
-
-    $(".insertvideo").append(urlpathvideo);
-
-
-
-
-
-
-
-
-
-
+        }
     }
 
 
@@ -554,17 +540,32 @@ var myPhotoBrowserStandalone = myApp.photoBrowser.create({
     photos : photoar,
     type: 'popup',
     backLinkText: 'закрыть',
-    captionsTheme:'white',
+    captionsTheme:'black',
     navbarOfText:'из',
-    iconsColor:'white',
+    iconsColor:'black',
     zoom: true,
     lazyImageReady:true,
-    lazyImageReady:true,
-    theme:'dark',
+    theme:'white',
 });
 //Open photo browser on click
 $$('.photobr').on('click', function () {
     myPhotoBrowserStandalone.open();
+});
+
+
+var vids = $("video");
+$.each(vids, function(){
+       this.controls = false;
+});
+//Loop though all Video tags and set Controls as false
+
+$("video").click(function() {
+  //console.log(this);
+  if (this.paused) {
+    this.play();
+  } else {
+    this.pause();
+  }
 });
 
 }
@@ -574,11 +575,16 @@ $$('.photobr').on('click', function () {
 
 $(".backevent").click(function(){
 
-      var videoev = $("#video1")[0];
+      // var videoev = $("#video1")[0];
+      // 
+      // if(videoev){
+      //   videoev.pause();
+      // }
 
-      if(videoev){
-        videoev.pause();
-      }
+      var vids = $("video");
+      $.each(vids, function(){
+             this.pause();
+      });
 
 
 
@@ -596,11 +602,22 @@ $(".backevent").click(function(){
 
 
 //slider
-var mySwiper2 = myApp.swiper.create('.swiper-2', {
-  pagination:'.swiper-2 .swiper-pagination',
-
-  spaceBetween: 50
+var swiper = myApp.swiper.create('.swiper-container', {
+    speed: 400,
+    spaceBetween: 100,
+    setWrapperSize:true,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      dynamicBullets:true
+    }
 });
+
+// var mySwiper2 = myApp.swiper.create('.swiper-2', {
+//   pagination:'.swiper-2 .swiper-pagination',
+//
+//   spaceBetween: 50
+// });
 
 
 //slider
@@ -671,7 +688,7 @@ countionview(id);
 
 
 
-}
+
 
 
 
