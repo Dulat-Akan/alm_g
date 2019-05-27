@@ -509,7 +509,7 @@ var insertimg = "";
     for (var j in video){
         if (video.hasOwnProperty(j)) {
 
-          var urlpathvideo = '<video id="video1" width="100%" autoplay="autoplay" tabindex="0" >'+
+          var urlpathvideo = '<video id="video1" width="100%"  tabindex="0" >'+
 
           ' <source src="https://www.kazpoisk.kz/assets/entry/uploadsv/' + video[j] + '" '+
 
@@ -575,11 +575,6 @@ $("video").click(function() {
 
 $(".backevent").click(function(){
 
-      // var videoev = $("#video1")[0];
-      // 
-      // if(videoev){
-      //   videoev.pause();
-      // }
 
       var vids = $("video");
       $.each(vids, function(){
@@ -589,7 +584,8 @@ $(".backevent").click(function(){
 
 
       //mainView.router.back();
-      router.back();
+      //router.back();
+      //router.navigate({ name: 'home' });
 
 });
 
@@ -679,27 +675,54 @@ $(".changetabsn").click(function(){
 
 //counting view
 
-
 countionview(id);
-
 
 //counting view
 
+//getUserInfo
 
 
 
+var myemail = localStorage.getItem("useremail");
 
+if(myemail == 0){
+   myemail = 0;
+}
 
+socket.emit('getUserDetailData', {email:myemail,remail:email,id:id});
+//getUserInfo
 
+//follows
+
+//checkstatus
+    socket.emit('userDetailService', {action:"checkstatus",email:myemail,remail:email,id:id});
+//checkstatus
+
+$(".follow").click(function(){
+    socket.emit('userDetailService', {action:"follow",email:myemail,remail:email,id:id});
+});
+//follows
+//favorite
+$(".favorite").click(function(){
+    socket.emit('userDetailService', {action:"favorite",email:myemail,remail:email,id:id});
+});
+//favorite
+
+//navigate to comment
+$(".comment").click(function(){
+
+  localStorage.setItem("toEmail",email);
+  localStorage.setItem("toId",id);
+
+  router.navigate({ name: 'comment' });
+
+});
+
+//navigate to comment
 
 
 
           },10);
-
-
-
-
-
 
 
 
@@ -746,3 +769,55 @@ function countionview(ids){
 
 
 };
+
+socket.on('getUserDetailData', function(data){
+
+      console.log(data.usersdata[0].image_url);
+
+      if(data.usersdata[0].image_url != 0){
+
+        $(".circle-img").css("background","url(" + data.usersdata[0].image_url + ") no-repeat center/cover");
+
+      }
+
+      ShowUserContent(data.data);
+
+        });
+
+socket.on('userDetailService', function(data){
+
+      if(data.action == "follow"){
+        if(data.status == "followed"){
+            sendNotification("Thanks! your followed!");
+            $(".f1").hide();
+            $(".f2").show();
+        }else if(data.status == "unfollowed"){
+            sendNotification("Thanks! your unfollowed!");
+            $(".f1").show();
+            $(".f2").hide();
+        }
+      }else if(data.action == "favorite"){
+        if(data.status == "on"){
+            sendNotification("Added to favorite!");
+            $(".fw1").hide();
+            $(".fw2").show();
+        }else if(data.status == "off"){
+            sendNotification("Removed from favorite!");
+            $(".fw1").show();
+            $(".fw2").hide();
+        }
+      }else if(data.action == "checkstatus"){
+        if(data.followstatus == 1){
+            $(".f1").hide();
+            $(".f2").show();
+        }
+
+        if(data.favoritestatus == 1){
+            $(".fw1").hide();
+            $(".fw2").show();
+        }
+      }
+      //console.log(data);
+
+
+        });

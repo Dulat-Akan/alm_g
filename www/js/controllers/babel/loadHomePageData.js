@@ -89,7 +89,7 @@ function getSearchData(){
           <li key={item.id}>
 
             <a>
-                <div className="header-photo" style={{ backgroundImage: "url("+ baseUrl + CheckPhoto(item) +")" }}></div>
+                <div className="header-photo" onClick={(e) => this.navigateToDetail(item, e)} style={{ backgroundImage: "url("+ baseUrl + CheckPhoto(item) +")" }}></div>
                 <div className="photo-description">
                     <div className="header-text">{item.zagolovok}</div>
                     <div className="small-text">{item.opisanie}</div>
@@ -143,6 +143,71 @@ function getSearchData(){
       );
   }
 
+
+  function ShowPremiumUser(props) {
+
+      const items = props.items;
+
+      const baseUrl = localStorage.getItem("baseurlimg2");
+
+      const content = items.map((item) =>
+          <li key={item.id}>
+
+            <a>
+                <div className="header-photo" onClick={(e) => this.backAndnavigateToDetail(item, e)} style={{ backgroundImage: "url("+ baseUrl + CheckPhoto(item) +")" }}></div>
+                <div className="photo-description">
+                    <div className="header-text">{item.zagolovok}</div>
+                    <div className="small-text">{item.opisanie}</div>
+                    <div className="stars-line">
+
+                      <div className="stars-line-child">
+                          <i className="material-icons">
+                          star
+                          </i>
+                          <i className="material-icons">
+                          star
+                          </i>
+                          <i className="material-icons">
+                          star
+                          </i>
+                          <i className="material-icons">
+                          star
+                          </i>
+                          <i className="material-icons">
+                          star_border
+                          </i>
+                      </div>
+                      <div className="stars-reiting">{setReiting()}.0</div>
+
+                    </div>
+                </div>
+            </a>
+          </li>
+      );
+
+      return (
+
+        <div className="row">
+
+            <div col="100">
+                <div className="hot-listings">
+                  User suggestion
+                </div>
+            </div>
+
+            <div className="col-100">
+              <div className="glob">
+                  <ul className="myhidescrolled">
+                      {content}
+                  </ul>
+              </div>
+            </div>
+
+        </div>
+
+      );
+  }
+
   function ShowGold(props) {
 
       const items = props.items;
@@ -152,7 +217,7 @@ function getSearchData(){
       const content = items.map((item) =>
                     <li key={item.id}>
                       <a>
-                          <div className="aChild" style={{ backgroundImage: "url("+ baseUrl + CheckPhoto(item) +")" }}>
+                          <div className="aChild" onClick={(e) => this.navigateToDetail(item, e)} style={{ backgroundImage: "url("+ baseUrl + CheckPhoto(item) +")" }}>
                                 <div className="bChild">
                                     <div className="headT">
                                           {item.zagolovok}
@@ -194,9 +259,18 @@ function getSearchData(){
   var senditem = new Object();
 
   function navigateToDetail(item,e) {
-    console.log(item);
     senditem = item;
     router.navigate({ name: 'n1' });
+  }
+
+  function backAndnavigateToDetail(item,e) {
+    senditem = item;
+    router.back();
+
+    setTimeout(function(){
+      router.navigate({ name: 'n1' });
+    },1500);
+
   }
 
   function ShowData(props) {
@@ -240,12 +314,6 @@ socket.on('homeStart', function(data){
           <ShowPremium items={data.premium} />,
           document.getElementById('reactPremium')
         );
-        
-        // ReactDOM.render(
-        //   <ShowPremium items={data.premium} />,
-        //   document.getElementById('userAds')
-        // );
-
 
 
         ReactDOM.render(
@@ -272,9 +340,6 @@ socket.on('homeStart', function(data){
 
 
 function SendingData(data){
-
-
-
 
 
   if(clearItems == 1){
@@ -309,11 +374,15 @@ function SendingData(data){
 //  },500);
 
 
+}
 
+function ShowUserContent(data){
 
+  if(data.length > 0){
+    ReactDOM.render(
+      <ShowPremiumUser items={data} />,
+      document.getElementById('userAds')
+    );
+  }
 
-
-
-  //startcount = data.latestid;
-  //console.log(startcount);
 }

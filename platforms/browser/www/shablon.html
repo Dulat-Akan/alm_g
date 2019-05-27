@@ -1,137 +1,176 @@
-<!DOCTYPE html>
-<html>
-<!--
-  * Please see the included README.md file for license terms and conditions.
-  -->
-<head>
-    <title>Blank Cordova Mobile App Template</title>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 
-    <!-- see http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
-    <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
-    <style>
-        /* following two viewport lines are equivalent to meta viewport statement above, and is needed for Windows */
-        /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and http://dev.w3.org/csswg/css-device-adapt/ */
-        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
-        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
-        /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
-    </style>
+  <div class="page" data-name="n1">
 
-    <!-- See explanation at the bottom of this file for info regarding placement of JS libraries. -->
-    <!-- These library references (below) are just examples to give you the general idea... -->
-    <!-- <script src="lib/mc/hammer.js"></script> -->
-    <!-- <script src="lib/ft/fastclick.js"></script> -->
-    <!-- <script src="lib/jq/jquery.js"></script> -->
-
-    <link rel="stylesheet" href="css/app.css">
-</head>
+    <div class="navbar">
+        <div class="navbar-inner sliding">
+          <div class="left">
+            <a class="link backevent">
+              <i class="f7-icons">reply</i>
+              <span class="ios-only">Back</span>
+            </a>
+          </div>
+          <div class="title " style="color:black;"></div>
+        </div>
+      </div>
 
 
-<body>
-    <h1 class="align-center">A Blank Project Template</h1>
-    <p class="align-center">
-        To use this template as a starter app, start with init-app.js and app.js for your JavaScript code.
-        See the README.md file for more details and the comments inside index.html, app.js and init-app.js.
-    </p>
-    <br>
-    <p class="align-center">
-        <input type="button" id="id_btnHello" value="Touch Me">
-    </p>
 
-    <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
-    <!-- Place your remote debugging weinre script URL here, if it does not work below. -->
+      <div class="fab fab-right-bottom">
+           <a id="phoneattr" class="external" href="#">
+             <i class="material-icons">
+                    phone
+              </i>
+           </a>
+         </div>
 
-    <!-- See <head> section above for additional JS libraries loaded as part of this application. -->
 
-    <!-- "Phantom" cordova.js required for projects that use Cordova plugins. -->
-    <script src="cordova.js"></script>
+    <div class="page-content obstyle hide-navbar-on-scroll">
 
-    <!-- for your event code, see README and file comments for details -->
-    <script src="js/app.js"></script>
-    <!-- for your init code, see README and file comments for details -->
-    <script src="js/init-app.js"></script>
-    <!-- normalizes device and document ready events, see file for details -->
-    <script src="xdk/init-dev.js"></script>
+                <div class="tabs">
 
-    <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
-    <!-- Place your remote debugging weinre script URL here, if it does not work above. -->
-</body>
 
-<!--
+                      <div id="tab-11" class="tab tab-active" style="display: block;">
 
-    Recommended JavaScript library load order for hybrid Cordova apps:
 
-    * "Device-Independent" JavaScript libraries.
-    * optional: weinre debug script tag for remote console debug (see notes).
-    * Intel XDK device JavaScript library.
-    * Cordova/PhoneGap device JavaScript library.
-    * "Device-Dependent" JavaScript libraries.
-    * Application JavaScript <script> tags and libraries.
-    * optional: weinre debug script tag for remote console debug (see notes).
+                        <div class="upBlock">
 
-    In complex projects, the JavaScript load order is important. You must
-    insure that the underlying device API native code finishes its init, which
-    usually takes longer than the webview init...
+                            <div class="onea">
+                              <div class="circle-img">
 
-    VERY IMPORTANT: notice that all of the libraries used in this project are
-    located within the app's local directories, which means they will get
-    bundled with the app. They are NOT being pulled in over the net. In most
-    cases, this is what you should be doing when you build a hybrid mobile
-    app. This insures that you always use the JS code that you debugged
-    against AND that you are not requiring a data connection (network
-    connection) to get the app started. If your app startup required a data
-    connection to initialize and start interaction with the user, lack of a
-    reliable network connection could be disasterous. Not to mention it
-    generally results in a slower load time. Loading locally is much
-    friendlier to your end user's data plan and their device battery.  :-)
+                              </div>
 
-    NOTE: do not use a directory prefix with the cordova.js file - it is
-    inserted automatically by the build system, simulator and other tools and
-    is assumed to be in the index.html source directory. You will not find
-    this JS file anywhere in your project, it is a "phantom" library. If you
-    do see copies of this file as part of your project it should be removed to
-    avoid confusion and problems.
+                            </div>
 
-    LIBRARY NOTE: If you are using a large number of JavaScript libraries,
-    especially third-party libraries (like jQuery, {{ mustache }}, Underscore,
-    etc.) that are "independent" of the device APIs provided by the Cordova
-    library and plugins - and they are independent of your app code - your
-    app initialization will be most successful if you load these libraries
-    BEFORE the Cordova JS file, in the <head> section of your index.html file.
-    Obviously, any code that depends on Cordova APIs must be loaded AFTER the
-    cordova.js library.
+                            <div class="oneb">
 
-    Libraries that are "independent" of the device APIs are libraries that you
-    could use in a desktop browser. "Dependent" libraries are, most likely,
-    your own code that you've written specifically to work with the Cordova
-    device APIs. In some cases, if your device-dependent code requires access
-    to device-independent code to get started, you may have to use something
-    like CommonJS to force the device-dependent code to wait for the
-    device-independent code to initialize, otherwise you may have trouble
-    getting your app started.
+                              <div class="inserth1">
 
-    Because of this added dependency on the underlying native code (device)
-    initialization, you should not use the "document ready" event to start
-    your application. You should wait for the cordova "deviceready" event
-    before you begin your application (if it uses any Cordova device APIs); in
-    practice, it is best to wait for both. (See the init-dev.js file in this
-    template for an example of how to wait for both, it generates a custom
-    "app.Ready" event that you can wait for and just forget about the other
-    events.)
+                              </div>
 
-    NOTE: *any* library that redefines addEventListener() or fiddles with
-    outstanding events may interfere with capturing the Cordova "deviceready"
-    event and should, therefore, be placed *BEFORE* the Cordova JS library in
-    the load order.
+                            </div>
 
-    ALSO: if you use weinre for debugging, you may have to experiment with the
-    placement of the weinre script. Some recommended locations are shown
-    within this app. If these locations do not work, you may have to
-    experiment. The optimum placement can be app-specific, primarily as a
-    function of the included JavaScript libraries and your initialization.
+                            <div class="onec">
 
--->
+                              <div class="icona">
+                                <i class="material-icons follow f1" style="font-size: 35px;color:#2196f3;">
+                                  add
+                                </i>
 
-</html>
+                                <i class="material-icons follow f2" style="font-size: 35px;color:#2196f3;display:none;">
+                                  check_circle
+                                </i>
+
+                              </div>
+
+                            </div>
+
+                        </div>
+
+
+
+
+
+                        <div data-pagination='{"el": ".swiper-pagination"}' data-space-between="50" class="swiper-container swiper-init demo-swiper">
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-wrapper insertimg">
+
+
+                            </div>
+                          </div>
+
+                     <div class="insertvideo">
+
+
+
+                     </div>
+
+                     <div class="downBlock">
+
+                       <div class="childA">
+                         <i class="mysizeicons favorite material-icons fw1" style="color:#f44b42;">
+                           favorite_border
+                           </i>
+
+                           <i class="mysizeicons favorite material-icons fw2"  style="color:#f44b42;display:none;">
+                             favorite
+                           </i>
+
+                       </div>
+                       <div class="childB">
+                         <i class="mysizeicons material-icons" >
+                           comment
+                         </i>
+
+                       </div>
+                       <div class="childC">
+                         <i class="mysizeicons material-icons" >
+                           chat_bubble_outline
+                         </i>
+                       </div>
+                       <div class="childD">
+                         <i class="mysizeicons material-icons" >
+                           share
+                         </i>
+                       </div>
+
+                     </div>
+
+
+
+
+                                 <div class="data-table card" >
+
+
+                                   <table >
+
+                                     <tbody class="insertobvn">
+
+                                     </tbody>
+
+                                   </table>
+
+
+                                 </div>
+
+
+                      <div id="userAds" style="margin-bottom:70px;"></div>
+
+
+                  </div>
+
+
+                  <div id="tab-22" class="tab">
+
+                    <div class="block block-strong text-align-center">
+
+                            <div class="gauge ob-gauge "></div>
+
+                      </div>
+
+
+
+
+                  </div>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+        <div class="toolbar tabbar toolbar-bottom-md color-theme-black ">
+          <div class="toolbar-inner">
+            <a href="#tab-11" class="tab-link tab-link-active changetabsn">основная</a>
+            <a href="#tab-22" class="tab-link changetabsn">статистика</a>
+          </div>
+        </div>
+  </div>

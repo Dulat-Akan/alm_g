@@ -63,6 +63,7 @@ function setReiting() {
 }
 
 function ShowPremium(props) {
+  var _this = this;
 
   var items = props.items;
 
@@ -75,7 +76,9 @@ function ShowPremium(props) {
       React.createElement(
         "a",
         null,
-        React.createElement("div", { className: "header-photo", style: { backgroundImage: "url(" + baseUrl + CheckPhoto(item) + ")" } }),
+        React.createElement("div", { className: "header-photo", onClick: function onClick(e) {
+            return _this.navigateToDetail(item, e);
+          }, style: { backgroundImage: "url(" + baseUrl + CheckPhoto(item) + ")" } }),
         React.createElement(
           "div",
           { className: "photo-description" },
@@ -161,7 +164,110 @@ function ShowPremium(props) {
   );
 }
 
+function ShowPremiumUser(props) {
+  var _this2 = this;
+
+  var items = props.items;
+
+  var baseUrl = localStorage.getItem("baseurlimg2");
+
+  var content = items.map(function (item) {
+    return React.createElement(
+      "li",
+      { key: item.id },
+      React.createElement(
+        "a",
+        null,
+        React.createElement("div", { className: "header-photo", onClick: function onClick(e) {
+            return _this2.backAndnavigateToDetail(item, e);
+          }, style: { backgroundImage: "url(" + baseUrl + CheckPhoto(item) + ")" } }),
+        React.createElement(
+          "div",
+          { className: "photo-description" },
+          React.createElement(
+            "div",
+            { className: "header-text" },
+            item.zagolovok
+          ),
+          React.createElement(
+            "div",
+            { className: "small-text" },
+            item.opisanie
+          ),
+          React.createElement(
+            "div",
+            { className: "stars-line" },
+            React.createElement(
+              "div",
+              { className: "stars-line-child" },
+              React.createElement(
+                "i",
+                { className: "material-icons" },
+                "star"
+              ),
+              React.createElement(
+                "i",
+                { className: "material-icons" },
+                "star"
+              ),
+              React.createElement(
+                "i",
+                { className: "material-icons" },
+                "star"
+              ),
+              React.createElement(
+                "i",
+                { className: "material-icons" },
+                "star"
+              ),
+              React.createElement(
+                "i",
+                { className: "material-icons" },
+                "star_border"
+              )
+            ),
+            React.createElement(
+              "div",
+              { className: "stars-reiting" },
+              setReiting(),
+              ".0"
+            )
+          )
+        )
+      )
+    );
+  });
+
+  return React.createElement(
+    "div",
+    { className: "row" },
+    React.createElement(
+      "div",
+      { col: "100" },
+      React.createElement(
+        "div",
+        { className: "hot-listings" },
+        "User suggestion"
+      )
+    ),
+    React.createElement(
+      "div",
+      { className: "col-100" },
+      React.createElement(
+        "div",
+        { className: "glob" },
+        React.createElement(
+          "ul",
+          { className: "myhidescrolled" },
+          content
+        )
+      )
+    )
+  );
+}
+
 function ShowGold(props) {
+  var _this3 = this;
 
   var items = props.items;
 
@@ -176,7 +282,9 @@ function ShowGold(props) {
         null,
         React.createElement(
           "div",
-          { className: "aChild", style: { backgroundImage: "url(" + baseUrl + CheckPhoto(item) + ")" } },
+          { className: "aChild", onClick: function onClick(e) {
+              return _this3.navigateToDetail(item, e);
+            }, style: { backgroundImage: "url(" + baseUrl + CheckPhoto(item) + ")" } },
           React.createElement(
             "div",
             { className: "bChild" },
@@ -227,13 +335,21 @@ function ShowGold(props) {
 var senditem = new Object();
 
 function navigateToDetail(item, e) {
-  console.log(item);
   senditem = item;
   router.navigate({ name: 'n1' });
 }
 
+function backAndnavigateToDetail(item, e) {
+  senditem = item;
+  router.back();
+
+  setTimeout(function () {
+    router.navigate({ name: 'n1' });
+  }, 1500);
+}
+
 function ShowData(props) {
-  var _this = this;
+  var _this4 = this;
 
   var items = props.items;
 
@@ -241,7 +357,7 @@ function ShowData(props) {
 
   var content = items.map(function (item) {
     return React.createElement("div", { key: item.id, className: "threeview", onClick: function onClick(e) {
-        return _this.navigateToDetail(item, e);
+        return _this4.navigateToDetail(item, e);
       }, style: { backgroundImage: "url(" + baseUrl + CheckPhoto(item) + ")" } });
   });
 
@@ -270,12 +386,6 @@ socket.on('homeStart', function (data) {
   ReactDOM.render(React.createElement(ShowGold, { items: data.gold }), document.getElementById('reactGold'));
 
   ReactDOM.render(React.createElement(ShowPremium, { items: data.premium }), document.getElementById('reactPremium'));
-
-  // ReactDOM.render(
-  //   <ShowPremium items={data.premium} />,
-  //   document.getElementById('userAds')
-  // );
-
 
   ReactDOM.render(React.createElement(ShowData, { items: data.latest }), document.getElementById('reactOb'));
 
@@ -321,7 +431,11 @@ function SendingData(data) {
   ReactDOM.render(React.createElement(ShowData, { items: tempmassivdata }), document.getElementById('reactOb'));
   //  },500);
 
+}
 
-  //startcount = data.latestid;
-  //console.log(startcount);
+function ShowUserContent(data) {
+
+  if (data.length > 0) {
+    ReactDOM.render(React.createElement(ShowPremiumUser, { items: data }), document.getElementById('userAds'));
+  }
 }

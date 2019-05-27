@@ -572,6 +572,23 @@ socket.on('check_ob_action', function(data){
 
     });
 
+    function sendNotification(message){
+
+      var notificationFull = myApp.notification.create({
+        icon: '<i class="material-icons">notification_important</i>',
+        title: 'Service',
+        titleRightText: 'new',
+        subtitle: 'message from service',
+        text: message,
+        closeTimeout: 3000,
+      });
+
+      notificationFull.open();
+
+    }
+
+
+
     // import store from './controllers/reducers.js'
     //
     // store.dispatch({ type: 'INCREMENT' })
