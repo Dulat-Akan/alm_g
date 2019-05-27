@@ -1,103 +1,157 @@
 
-    <div class="views">
+  <div class="page" data-name="message">
 
-      <!-- Your main view, should have "view-main" class-->
-      <div class="view view-main">
-        <!-- Top Navbar-->
-
-
-        
-
-
-         <!--  <div class="pages"> -->
-                <div data-page="message" class="page toolbar-fixed">
-
-                        <!-- Top Navbar-->
-                      <div class="navbar">
-                        <div class="navbar-inner">
-                          <div class="left">
-                            <a href="xdk/restourantpage.html"  class="back link">
-                              <i class="icon icon-back"></i>
-                              <span>Back</span>
-                             </a>
-                          </div>
-                          <div class="center sliding">Сообщения</div>
-                          <div class="right">
-                            <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- /End of Top Navbar-->
-                  
-                   
-                   <div class="page-content messages-content">
-                      <div class="messages">
-                        <!-- Date stamp -->
-                        
-                      </div>
-                    </div>
-
-
-                  <div class="toolbar messagebar">
-                    <div class="toolbar-inner">
-                      <textarea placeholder="Message"></textarea><a href="#" class="link">Send</a>
-                    </div>
-                  </div> 
-
-
-                   
-
-
-
-
-                </div>
-             <!--  </div>  -->
-
-
-              
-
-
+    <div class="navbar">
+        <div class="navbar-inner sliding">
+          <div class="left">
+            <a class="link back">
+              <i class="f7-icons">reply</i>
+              <span class="ios-only">Back</span>
+            </a>
+          </div>
+          <div class="title" style="color:black;">Message</div>
+        </div>
       </div>
-      <!-- main view -->
+
+
+
+    <div class="page-content obstyle hide-navbar-on-scroll messages-content">
+
+
+      <div class="messages">
+
+            <div class="messages-title"></div>
+
+            <!-- <div class="message message-sent">
+              <div class="message-avatar" style="background-image:url(https://cdn.framework7.io/placeholder/people-100x100-7.jpg);"></div>
+              <div class="message-content">
+                <div class="message-name">John Doe</div>
+                <div class="message-header">Message header</div>
+                <div class="message-bubble">
+                  <div class="message-text-header">Text header</div>
+                  <div class="message-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                  <div class="message-text-footer">Text footer</div>
+                </div>
+                <div class="message-footer">Message footer</div>
+              </div>
+            </div>
+
+            <div class="message message-received">
+              <div class="message-avatar" style="background-image:url(https://cdn.framework7.io/placeholder/people-100x100-7.jpg);"></div>
+              <div class="message-content">
+                <div class="message-name">John Doe</div>
+                <div class="message-header">Message header</div>
+                <div class="message-bubble">
+                  <div class="message-text-header">Text header</div>
+                  <div class="message-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                  <div class="message-text-footer">Text footer</div>
+                </div>
+                <div class="message-footer">Message footer</div>
+              </div>
+            </div>
+
+            <div class="message message-sent">
+              <div class="message-content">
+                <div class="message-bubble">
+                  <div class="message-text">Hi, Kate</div>
+                </div>
+              </div>
+            </div>
+            <div class="message message-sent">
+              <div class="message-content">
+                <div class="message-bubble">
+                  <div class="message-text">How are you?</div>
+                </div>
+              </div>
+            </div>
+            <div class="message message-received">
+              <div class="message-avatar" style="background-image:url(https://cdn.framework7.io/placeholder/people-100x100-9.jpg);"></div>
+              <div class="message-content">
+                <div class="message-name">Kate</div>
+                <div class="message-bubble">
+                  <div class="message-text">Hi, I am good!</div>
+                </div>
+              </div>
+            </div>
+            <div class="message message-received">
+              <div class="message-avatar" style="background-image:url(https://cdn.framework7.io/placeholder/people-100x100-7.jpg);"></div>
+              <div class="message-content">
+                <div class="message-name">Blue Ninja</div>
+                <div class="message-bubble">
+                  <div class="message-text">Hi there, I am also fine, thanks! And how are you?</div>
+                </div>
+              </div>
+            </div>
+            <div class="message message-sent">
+              <div class="message-content">
+                <div class="message-bubble">
+                  <div class="message-text">Hey, Blue Ninja! Glad to see you ;)</div>
+                </div>
+              </div>
+            </div>
+            <div class="message message-sent">
+              <div class="message-content">
+                <div class="message-bubble">
+                  <div class="message-text">Hey, look, cutest kitten ever!</div>
+                </div>
+              </div>
+            </div>
+            <div class="message message-sent">
+              <div class="message-content">
+                <div class="message-bubble">
+                  <div class="message-image"><img src="https://cdn.framework7.io/placeholder/cats-200x260-4.jpg" style="width:200px; height: 260px;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="message message-received">
+              <div class="message-avatar" style="background-image:url(https://cdn.framework7.io/placeholder/people-100x100-9.jpg);"></div>
+              <div class="message-content">
+                <div class="message-name">Kate</div>
+                <div class="message-bubble">
+                  <div class="message-text">Nice!</div>
+                </div>
+              </div>
+            </div>
+            <div class="message message-received">
+              <div class="message-avatar" style="background-image:url(https://cdn.framework7.io/placeholder/people-100x100-9.jpg);"></div>
+              <div class="message-content">
+                <div class="message-name">Kate</div>
+                <div class="message-bubble">
+                  <div class="message-text">Like it very much!</div>
+                </div>
+              </div>
+            </div>
+            <div class="message message-received">
+              <div class="message-avatar" style="background-image:url(https://cdn.framework7.io/placeholder/people-100x100-7.jpg);"></div>
+              <div class="message-content">
+                <div class="message-name">Blue Ninja</div>
+                <div class="message-bubble">
+                  <div class="message-text">Awesome!</div>
+                </div>
+              </div>
+            </div> -->
+
+
+          </div>
+
+
+
+
+
 
     </div>
 
-
-
-
-
-
-
-         
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div data-page="about" class="page no-toolbar">
-  <div class="page-content">
-    <div class="content-block">
-      <p><a href="#" class="back button">Go Back</a></p>
-      ...
+    <div class="toolbar messagebar">
+        <div class="toolbar-inner">
+        <div class="messagebar-area">
+        <textarea class="resizable" placeholder="Message"></textarea>
+        </div><a class="link send-link" href="#">Send</a>
+        </div>
     </div>
+
+    <audio id="voice">
+        <source src="voice/to-the-point.ogg" type="audio/ogg">
+        <source src="voice/to-the-point.mp3" type="audio/mpeg">
+    </audio>
+
   </div>
-</div> -->
-
-
-
-
-
-
-
-
-
-

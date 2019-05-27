@@ -59,6 +59,11 @@
                       path: '/comment/',
                       url: 'comment.html',
                       name:'comment'
+                    },
+                    {
+                      path: '/message/',
+                      url: 'message.html',
+                      name:'message'
                     }
                   ],
 

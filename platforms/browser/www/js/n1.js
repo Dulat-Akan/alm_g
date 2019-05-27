@@ -718,6 +718,17 @@ $(".comment").click(function(){
 
 });
 
+$(".navigateTomessage").click(function(){
+
+  localStorage.setItem("toEmail",email);
+  localStorage.setItem("toId",id);
+
+  router.navigate({ name: 'message' });
+
+});
+
+
+
 //navigate to comment
 
 
