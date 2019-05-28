@@ -77,10 +77,10 @@ $$(document).on('page:beforein', '.page[data-name="message"]', function (e) {
     var avatar = "https://www.w3schools.com/howto/img_avatar.png";
     var name = myemail;
 
-    // if(myemail == toEmail){
-    //   sendNotification("Not for Yourself!");
-    //   return false;
-    // }
+    if(myemail == toEmail){
+      sendNotification("Not for Yourself!");
+      return false;
+    }
 
     // Add message to messages
     messages.addMessage({

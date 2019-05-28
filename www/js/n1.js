@@ -584,7 +584,8 @@ $(".backevent").click(function(){
 
 
       //mainView.router.back();
-      //router.back();
+      router.back();
+      //router.back({ name: 'home' },{ force: true, reloadCurrent: false});
       //router.navigate({ name: 'home' });
 
 });
@@ -783,13 +784,17 @@ function countionview(ids){
 
 socket.on('getUserDetailData', function(data){
 
-      console.log(data.usersdata[0].image_url);
 
-      if(data.usersdata[0].image_url != 0){
 
-        $(".circle-img").css("background","url(" + data.usersdata[0].image_url + ") no-repeat center/cover");
+      if(data.usersdata[0].image_url){
+        if(data.usersdata[0].image_url != 0){
 
+          $(".circle-img").css("background","url(" + data.usersdata[0].image_url + ") no-repeat center/cover");
+
+        }
       }
+
+
 
       ShowUserContent(data.data);
 

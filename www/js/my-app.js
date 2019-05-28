@@ -46,14 +46,13 @@
 
                     },
                     {
-                      path: '/home/',
-                      url: 'main.html',
+                      path: '/',
                       name:'home'
                     },
                     {
                       path: '/n1/',
                       url: 'n1.html',
-                      name:'n1'
+                      name:'n1',
                     },
                     {
                       path: '/comment/',
@@ -82,7 +81,8 @@
 
 
           var mainView = myApp.views.create('.view-main',{
-                                              url: '/home'
+                                              url: '/',
+                                              stackPages: true 
                                             });
 
           var router = mainView.router;

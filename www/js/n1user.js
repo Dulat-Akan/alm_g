@@ -913,6 +913,7 @@ function getn1user(){
       $(".popup-close-event").click(function(){
 
           globalfixcabinet = 0;
+          globalfixobupload = 0;
 
           //mainView.router.refreshPage("n1user");
 

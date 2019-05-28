@@ -260,7 +260,7 @@ function getSearchData(){
 
   function navigateToDetail(item,e) {
     senditem = item;
-    router.navigate({ name: 'n1' });
+    router.navigate({ name: 'n1'});
   }
 
   function backAndnavigateToDetail(item,e) {
