@@ -144,9 +144,11 @@ function getSearchData(){
   }
 
 
-  function ShowPremiumUser(props) {
+  function ShowUniversal(props) {
 
       const items = props.items;
+
+      const desc = props.desc;
 
       const baseUrl = localStorage.getItem("baseurlimg2");
 
@@ -191,7 +193,7 @@ function getSearchData(){
 
             <div col="100">
                 <div className="hot-listings">
-                  User suggestion
+                  {desc}
                 </div>
             </div>
 
@@ -259,8 +261,17 @@ function getSearchData(){
   var senditem = new Object();
 
   function navigateToDetail(item,e) {
-    senditem = item;
-    router.navigate({ name: 'n1'});
+
+    var check = checkAuthorize();
+
+    if(check == true){
+      senditem = item;
+      router.navigate({ name: 'n1'});
+
+    }else{
+      router.navigate({ name: 'login' });
+    }
+
   }
 
   function backAndnavigateToDetail(item,e) {
@@ -380,9 +391,22 @@ function ShowUserContent(data){
 
   if(data.length > 0){
     ReactDOM.render(
-      <ShowPremiumUser items={data} />,
+      <ShowUniversal items={data} desc={'User suggestion'} />,
       document.getElementById('userAds')
     );
   }
+
+}
+
+function ShowSubscribeContent(data){
+
+  if(data.length > 0){
+    ReactDOM.render(
+      <ShowUniversal items={data} desc={'User subscribers'} />,
+      document.getElementById('reactSubscribe')
+    );
+  }
+
+  
 
 }

@@ -164,10 +164,12 @@ function ShowPremium(props) {
   );
 }
 
-function ShowPremiumUser(props) {
+function ShowUniversal(props) {
   var _this2 = this;
 
   var items = props.items;
+
+  var desc = props.desc;
 
   var baseUrl = localStorage.getItem("baseurlimg2");
 
@@ -247,7 +249,7 @@ function ShowPremiumUser(props) {
       React.createElement(
         "div",
         { className: "hot-listings" },
-        "User suggestion"
+        desc
       )
     ),
     React.createElement(
@@ -335,8 +337,15 @@ function ShowGold(props) {
 var senditem = new Object();
 
 function navigateToDetail(item, e) {
-  senditem = item;
-  router.navigate({ name: 'n1' });
+
+  var check = checkAuthorize();
+
+  if (check == true) {
+    senditem = item;
+    router.navigate({ name: 'n1' });
+  } else {
+    router.navigate({ name: 'login' });
+  }
 }
 
 function backAndnavigateToDetail(item, e) {
@@ -436,6 +445,13 @@ function SendingData(data) {
 function ShowUserContent(data) {
 
   if (data.length > 0) {
-    ReactDOM.render(React.createElement(ShowPremiumUser, { items: data }), document.getElementById('userAds'));
+    ReactDOM.render(React.createElement(ShowUniversal, { items: data, desc: 'User suggestion' }), document.getElementById('userAds'));
+  }
+}
+
+function ShowSubscribeContent(data) {
+
+  if (data.length > 0) {
+    ReactDOM.render(React.createElement(ShowUniversal, { items: data, desc: 'User subscribers' }), document.getElementById('reactSubscribe'));
   }
 }

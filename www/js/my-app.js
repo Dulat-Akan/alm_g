@@ -16,7 +16,7 @@
                   routes: [
                     {
                       path: '/about/',
-                      url: 'about.html',
+                      url: './pages/about.html',
                       name:'about'
                     },
                     {
@@ -26,22 +26,22 @@
                     },
                     {
                       path: '/registration/',
-                      url: 'registration.html',
+                      url: './pages/registration.html',
                       name:'registration'
                     },
                     {
                       path: '/add/',
-                      url: 'add.html',
+                      url: './pages/add.html',
                       name:'add'
                     },
                     {
                       path: '/login/',
-                      url: 'login.html',
+                      url: './pages/login.html',
                       name:'login'
                     },
                     {
                       path: '/cabinet/',
-                      url: 'cabinet.html',
+                      url: './pages/cabinet.html',
                       name:'cabinet'
 
                     },
@@ -51,18 +51,23 @@
                     },
                     {
                       path: '/n1/',
-                      url: 'n1.html',
+                      url: './pages/n1.html',
                       name:'n1',
                     },
                     {
                       path: '/comment/',
-                      url: 'comment.html',
+                      url: './pages/comment.html',
                       name:'comment'
                     },
                     {
                       path: '/message/',
-                      url: 'message.html',
+                      url: './pages/message.html',
                       name:'message'
+                    },
+                    {
+                      path: '/subscribe/',
+                      url: './pages/subscribe.html',
+                      name:'subscribe'
                     }
                   ],
 
@@ -82,7 +87,7 @@
 
           var mainView = myApp.views.create('.view-main',{
                                               url: '/',
-                                              stackPages: true 
+                                              stackPages: true
                                             });
 
           var router = mainView.router;
@@ -262,7 +267,7 @@
 
                           });
 
-
+//nv
                           $(".cabinetclick").click(function(){
 
                               var useridentificator = localStorage.getItem("useremail");
@@ -281,6 +286,19 @@
                                   //mainView.router.loadPage("cabinet.html");
                                   router.navigate({ name: 'cabinet' });
                               }
+
+                          });
+
+                          $(".subscribenavigate").click(function(){
+
+                              //console.log("navigate");
+                              router.navigate({ name: 'subscribe' });
+
+                          });
+
+                          $(".favoritenavigate").click(function(){
+
+                              router.navigate({ name: 'favorite' });
 
                           });
 

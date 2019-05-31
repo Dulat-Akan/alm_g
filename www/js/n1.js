@@ -446,7 +446,7 @@ var g = 0;
 
 if(senditem.photo_path != "n.jpg"){
 
-    console.log(senditem.photo_path.photo_path);
+    //console.log(senditem.photo_path.photo_path);
     photo = senditem.photo_path.photo_path;
 
 var insertimg = "";

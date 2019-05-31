@@ -587,6 +587,38 @@ socket.on('check_ob_action', function(data){
 
     }
 
+    function checkAuthorize(){
+      var myemail = localStorage.getItem("useremail");
+
+      if(myemail){
+        if(myemail == 0){
+           myemail = 0;
+        }
+      }
+
+      if(myemail == 0){
+        return false;
+      }else{
+        return true;
+      }
+    }
+
+    function getEmail(){
+      var myemail = localStorage.getItem("useremail");
+
+      if(myemail){
+        if(myemail == 0){
+           myemail = 0;
+        }
+      }
+
+      if(myemail == 0){
+        return false;
+      }else{
+        return myemail;
+      }
+    }
+
 
 
     // import store from './controllers/reducers.js'
