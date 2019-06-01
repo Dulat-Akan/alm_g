@@ -125,7 +125,7 @@
               </li>
               <li>
                 <div class="item-content hide_cabinet">
-                  <div class="item-media minw"><i class="f7-icons">person</i></div>
+                  <div class="item-media minw"><i class="f7-icons">home</i></div>
                   <div class="item-inner left-right-padding">
                     <div class="item-title">
                       <button  style="color: black;font-size: 16px;" class="button panel-close subscribenavigate">Подписки</button>
@@ -137,7 +137,11 @@
               </li>
               <li>
                 <div class="item-content hide_cabinet">
-                  <div class="item-media minw"><i class="f7-icons">person</i></div>
+                  <div class="item-media minw">
+                    <i class="mysizeicons favorite material-icons"  style="color:#f44b42;">
+                      favorite_border
+                    </i>
+                  </div>
                   <div class="item-inner left-right-padding">
                     <div class="item-title">
                       <button  style="color: black;font-size: 16px;" class="button panel-close favoritenavigate">Любимые</button>
@@ -197,6 +201,9 @@
                             <a href="#" data-panel="left" class="tab-link panel-open">
                                 <i class="f7-icons mblackicons">menu</i>
                             </a>
+                            <a href="#" data-popup=".popup-filter"  class="tab-link goTohometab ">
+                                <i class="f7-icons mblackicons">home</i>
+                            </a>
                             <a href="#" data-popup=".popup-filter"  class="tab-link popup-open ">
                                 <i class="f7-icons mblackicons">search_strong</i>
                             </a>
@@ -210,7 +217,7 @@
                             </a>
 
                             <a href="#" class="tab-link cabinetclick">
-                                <i class="f7-icons mblackicons">person_fill</i>
+                              <i class="f7-icons mblackicons">person_round</i>
                             </a>
                       </div>
                   </div>
@@ -2716,6 +2723,7 @@
     <script type="text/javascript" src="js/pagesjs/comment.js"></script>
     <script type="text/javascript" src="js/pagesjs/message.js"></script>
     <script type="text/javascript" src="js/pagesjs/subscribe.js"></script>
+    <script type="text/javascript" src="js/pagesjs/favorite.js"></script>
     <script type="text/javascript" src="js/google_auth.js"></script>
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 

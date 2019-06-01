@@ -449,9 +449,22 @@ function ShowUserContent(data) {
   }
 }
 
+function ShowUniversalContent(data, id) {
+
+  if (data.length > 0) {
+    ReactDOM.render(React.createElement(ShowUniversal, { items: data, desc: 'User subscribers' }), document.getElementById(id));
+  }
+}
+
 function ShowSubscribeContent(data) {
 
   if (data.length > 0) {
-    ReactDOM.render(React.createElement(ShowUniversal, { items: data, desc: 'User subscribers' }), document.getElementById('reactSubscribe'));
+    ReactDOM.render(React.createElement(ShowData, { items: data }), document.getElementById('reactSubscribe'));
+  }
+}
+function ShowFavoriteContent(data) {
+
+  if (data.length > 0) {
+    ReactDOM.render(React.createElement(ShowData, { items: data }), document.getElementById('reactFavorite'));
   }
 }

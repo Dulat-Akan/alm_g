@@ -68,6 +68,11 @@
                       path: '/subscribe/',
                       url: './pages/subscribe.html',
                       name:'subscribe'
+                    },
+                    {
+                      path: '/favorite/',
+                      url: './pages/favorite.html',
+                      name:'favorite'
                     }
                   ],
 
@@ -286,6 +291,12 @@
                                   //mainView.router.loadPage("cabinet.html");
                                   router.navigate({ name: 'cabinet' });
                               }
+
+                          });
+
+                          $(".goTohometab").click(function(){
+
+                              router.navigate({ name: 'subscribe' });
 
                           });
 
@@ -1937,7 +1948,7 @@
 
               globaltime += 1;
 
-              changecolor();
+              // changecolor();
               //console.log(globaltime);
 
 
@@ -2812,16 +2823,6 @@
           var processSendCount = 0;
           var sendsearchstring = "";
 
-          // Loading flag
-            var allowInfinite = true;
-            // Last loaded index
-            var lastItemIndex = $$('.list li').length;
-
-            // Max items to load
-            var maxItems = 200;
-
-            // Append items per load
-            var itemsPerLoad = 20;
 
             // Attach 'infinite' event handler
             $$('.infinite-scroll-content').on('infinite', function () {

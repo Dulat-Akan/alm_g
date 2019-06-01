@@ -307,6 +307,29 @@ function getSearchData(){
         </div>
       );
   }
+  function ContactData(props) {
+
+      const items = props.items;
+
+      const baseUrl = localStorage.getItem("baseurlimg2");
+
+      const content = items.map((item) =>
+        <div key={item.id} className="threeview" onClick={(e) => this.navigateToDetail(item, e)} style={{ backgroundImage: "url("+ baseUrl + CheckPhoto(item) +")" }}></div>
+      );
+
+      return (
+
+        <div className="row">
+        <div col="100 ">
+            <div className="hot-listings">
+
+            </div>
+        </div>
+        <div className="mainrow">{content}</div>
+
+        </div>
+      );
+  }
 
 
 var latestid = 0;
@@ -398,15 +421,34 @@ function ShowUserContent(data){
 
 }
 
-function ShowSubscribeContent(data){
+function ShowUniversalContent(data,id){
 
   if(data.length > 0){
     ReactDOM.render(
       <ShowUniversal items={data} desc={'User subscribers'} />,
+      document.getElementById(id)
+    );
+  }
+
+}
+
+function ShowSubscribeContent(data){
+
+  if(data.length > 0){
+    ReactDOM.render(
+      <ShowData items={data} />,
       document.getElementById('reactSubscribe')
     );
   }
 
-  
+}
+function ShowFavoriteContent(data){
+
+  if(data.length > 0){
+    ReactDOM.render(
+      <ShowData items={data} />,
+      document.getElementById('reactFavorite')
+    );
+  }
 
 }

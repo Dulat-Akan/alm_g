@@ -385,6 +385,34 @@ function ShowData(props) {
     )
   );
 }
+function ContactData(props) {
+  var _this5 = this;
+
+  var items = props.items;
+
+  var baseUrl = localStorage.getItem("baseurlimg2");
+
+  var content = items.map(function (item) {
+    return React.createElement("div", { key: item.id, className: "threeview", onClick: function onClick(e) {
+        return _this5.navigateToDetail(item, e);
+      }, style: { backgroundImage: "url(" + baseUrl + CheckPhoto(item) + ")" } });
+  });
+
+  return React.createElement(
+    "div",
+    { className: "row" },
+    React.createElement(
+      "div",
+      { col: "100 " },
+      React.createElement("div", { className: "hot-listings" })
+    ),
+    React.createElement(
+      "div",
+      { className: "mainrow" },
+      content
+    )
+  );
+}
 
 var latestid = 0;
 
@@ -449,9 +477,22 @@ function ShowUserContent(data) {
   }
 }
 
+function ShowUniversalContent(data, id) {
+
+  if (data.length > 0) {
+    ReactDOM.render(React.createElement(ShowUniversal, { items: data, desc: 'User subscribers' }), document.getElementById(id));
+  }
+}
+
 function ShowSubscribeContent(data) {
 
   if (data.length > 0) {
-    ReactDOM.render(React.createElement(ShowUniversal, { items: data, desc: 'User subscribers' }), document.getElementById('reactSubscribe'));
+    ReactDOM.render(React.createElement(ShowData, { items: data }), document.getElementById('reactSubscribe'));
+  }
+}
+function ShowFavoriteContent(data) {
+
+  if (data.length > 0) {
+    ReactDOM.render(React.createElement(ShowData, { items: data }), document.getElementById('reactFavorite'));
   }
 }

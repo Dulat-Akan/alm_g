@@ -398,15 +398,34 @@ function ShowUserContent(data){
 
 }
 
-function ShowSubscribeContent(data){
+function ShowUniversalContent(data,id){
 
   if(data.length > 0){
     ReactDOM.render(
       <ShowUniversal items={data} desc={'User subscribers'} />,
+      document.getElementById(id)
+    );
+  }
+
+}
+
+function ShowSubscribeContent(data){
+
+  if(data.length > 0){
+    ReactDOM.render(
+      <ShowData items={data} />,
       document.getElementById('reactSubscribe')
     );
   }
 
-  
+}
+function ShowFavoriteContent(data){
+
+  if(data.length > 0){
+    ReactDOM.render(
+      <ShowData items={data} />,
+      document.getElementById('reactFavorite')
+    );
+  }
 
 }
