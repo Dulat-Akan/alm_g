@@ -15,8 +15,7 @@ function getSearchData() {
 
   var useremailsearch = localStorage.getItem("useremail");
 
-  if (useridentificatorsearch == 0) {
-    useridentificatorsearch = 0;
+  if (useremailsearch == 0) {
     useremailsearch = 0;
   }
 
@@ -386,6 +385,118 @@ function ShowData(props) {
   );
 }
 
+function CheckContactUser(item) {
+  var useremailsearch = localStorage.getItem("useremail");
+
+  if (useremailsearch == 0) {
+    useremailsearch = 0;
+  }
+
+  if (useremailsearch == item.toUser) {
+    return item.fromUser;
+  } else {
+    return item.toUser;
+  }
+}
+
+function getUserEmail() {
+  var useremailsearch = localStorage.getItem("useremail");
+
+  if (useremailsearch == 0) {
+    useremailsearch = 0;
+    return useremailsearch;
+  } else {
+    return useremailsearch;
+  }
+}
+
+function navigateToMessage(item, e) {
+
+  var check = checkAuthorize();
+
+  if (check == true) {
+
+    var useremailsearch = localStorage.getItem("useremail");
+
+    if (useremailsearch == item.toUser) {
+      localStorage.setItem("toEmail", item.fromUser);
+    } else {
+      localStorage.setItem("toEmail", item.toUser);
+    }
+
+    localStorage.setItem("toId", "20");
+
+    router.navigate({ name: 'message' });
+  } else {
+    router.navigate({ name: 'login' });
+  }
+}
+
+function ContactData(props) {
+  var _this5 = this;
+
+  var items = props.items;
+
+  var baseUrl = localStorage.getItem("baseurlimg2");
+
+  var content = items.map(function (item) {
+    return React.createElement(
+      "div",
+      { key: item.id, onClick: function onClick(e) {
+          return _this5.navigateToMessage(item, e);
+        }, className: "main_list" },
+      React.createElement(
+        "div",
+        { className: "pleft_block" },
+        React.createElement("div", { className: "pleft_block_1", style: { backgroundImage: "url(" + item.image_url + ")" } }),
+        React.createElement(
+          "div",
+          { className: "pleft_block_2" },
+          React.createElement(
+            "i",
+            { className: "mysize material-icons" },
+            "fiber_manual_record"
+          )
+        )
+      ),
+      React.createElement(
+        "div",
+        { className: "pright_block" },
+        React.createElement(
+          "div",
+          { className: "pright_block_1" },
+          React.createElement(
+            "div",
+            { className: "pright_block_1_2" },
+            CheckContactUser(item)
+          ),
+          React.createElement(
+            "div",
+            { className: "pright_block_1_3" },
+            item.date
+          )
+        ),
+        React.createElement(
+          "div",
+          { className: "pright_block_2" },
+          React.createElement(
+            "div",
+            { className: "pright_block_2_1" },
+            item.message
+          ),
+          item.fromUser != getUserEmail() && item.count != 0 && React.createElement(
+            "div",
+            { className: "pright_block_2_2" },
+            item.count
+          )
+        )
+      )
+    );
+  });
+
+  return content;
+}
+
 var latestid = 0;
 
 socket.on('homeStart', function (data) {
@@ -466,5 +577,11 @@ function ShowFavoriteContent(data) {
 
   if (data.length > 0) {
     ReactDOM.render(React.createElement(ShowData, { items: data }), document.getElementById('reactFavorite'));
+  }
+}
+
+function RenderContactList(data) {
+  if (data.length > 0) {
+    ReactDOM.render(React.createElement(ContactData, { items: data }), document.getElementById('contactData'));
   }
 }

@@ -2,7 +2,7 @@ var globalMessage;
 
 $$(document).on('page:beforein', '.page[data-name="message"]', function (e) {
 
-
+  page = 2;
 
   var messages = myApp.messages.create({
     el: '.messages',
@@ -178,6 +178,10 @@ socket.on('serviceMessages', function(data){
 
   var myemail = localStorage.getItem("useremail");
 
+  if(page == 1){
+    socket.emit('getContacts', {email:myemail});
+    return false;
+  }
 
   if(myemail == 0){
      myemail = 0;
@@ -224,6 +228,9 @@ socket.on('serviceMessages', function(data){
 
             var x = document.getElementById("voice");
             x.play();
+
+
+
 
           }
 

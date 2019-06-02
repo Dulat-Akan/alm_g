@@ -17,8 +17,7 @@ function getSearchData(){
 
   var useremailsearch = localStorage.getItem("useremail");
 
-  if(useridentificatorsearch == 0){
-     useridentificatorsearch = 0;
+  if(useremailsearch == 0){
      useremailsearch = 0;
   }
 
@@ -307,6 +306,57 @@ function getSearchData(){
         </div>
       );
   }
+
+  function CheckContactUser(item){
+    var useremailsearch = localStorage.getItem("useremail");
+
+    if(useremailsearch == 0){
+       useremailsearch = 0;
+    }
+
+    if(useremailsearch == item.toUser){
+      return item.fromUser;
+    }else{
+      return item.toUser;
+    }
+  }
+
+  function getUserEmail(){
+    var useremailsearch = localStorage.getItem("useremail");
+
+    if(useremailsearch == 0){
+      useremailsearch = 0;
+      return useremailsearch;
+    }else{
+      return useremailsearch;
+    }
+  }
+
+  function navigateToMessage(item,e){
+
+    var check = checkAuthorize();
+
+    if(check == true){
+
+      var useremailsearch = localStorage.getItem("useremail");
+
+      if(useremailsearch == item.toUser){
+        localStorage.setItem("toEmail",item.fromUser);
+      }else{
+        localStorage.setItem("toEmail",item.toUser);
+      }
+
+      localStorage.setItem("toId","20");
+
+      router.navigate({ name: 'message' });
+
+    }else{
+      router.navigate({ name: 'login' });
+    }
+
+  }
+
+
   function ContactData(props) {
 
       const items = props.items;
@@ -314,21 +364,41 @@ function getSearchData(){
       const baseUrl = localStorage.getItem("baseurlimg2");
 
       const content = items.map((item) =>
-        <div key={item.id} className="threeview" onClick={(e) => this.navigateToDetail(item, e)} style={{ backgroundImage: "url("+ baseUrl + CheckPhoto(item) +")" }}></div>
+            <div key={item.id} onClick={(e) => this.navigateToMessage(item, e)} className="main_list">
+              <div className="pleft_block">
+
+                <div className="pleft_block_1" style={{ backgroundImage: "url(" + item.image_url +")" }}>
+                </div>
+                <div className="pleft_block_2">
+                      <i  className="mysize material-icons">
+                      fiber_manual_record
+                      </i>
+                </div>
+              </div>
+              <div className="pright_block">
+
+                  <div className="pright_block_1">
+                    <div className="pright_block_1_2">
+                      { CheckContactUser(item) }
+                    </div>
+                    <div className="pright_block_1_3">{item.date}</div>
+                  </div>
+                  <div className="pright_block_2">
+                    <div className="pright_block_2_1">{item.message}</div>
+                    {
+                      item.fromUser != getUserEmail() && item.count != 0  &&
+                      <div className="pright_block_2_2">
+                        {item.count}
+                      </div>
+                    }
+
+                  </div>
+
+              </div>
+          </div>
       );
 
-      return (
-
-        <div className="row">
-        <div col="100 ">
-            <div className="hot-listings">
-
-            </div>
-        </div>
-        <div className="mainrow">{content}</div>
-
-        </div>
-      );
+      return content;
   }
 
 
@@ -451,4 +521,13 @@ function ShowFavoriteContent(data){
     );
   }
 
+}
+
+function RenderContactList(data){
+  if(data.length > 0){
+    ReactDOM.render(
+      <ContactData items={data} />,
+      document.getElementById('contactData')
+    );
+  }
 }

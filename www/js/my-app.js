@@ -73,6 +73,11 @@
                       path: '/favorite/',
                       url: './pages/favorite.html',
                       name:'favorite'
+                    },
+                    {
+                      path: '/contact/',
+                      url: './pages/contacts.html',
+                      name:'contact'
                     }
                   ],
 
@@ -272,7 +277,7 @@
 
                           });
 
-//nv
+
                           $(".cabinetclick").click(function(){
 
                               var useridentificator = localStorage.getItem("useremail");
@@ -306,10 +311,15 @@
                               router.navigate({ name: 'subscribe' });
 
                           });
-
+//nv
                           $(".favoritenavigate").click(function(){
 
                               router.navigate({ name: 'favorite' });
+
+                          });
+                          $(".contactnavigate").click(function(){
+
+                              router.navigate({ name: 'contact' });
 
                           });
 
