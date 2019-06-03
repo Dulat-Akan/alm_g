@@ -1693,18 +1693,18 @@
 
           //routing
 
-          localStorage.setItem("baseurl","http://ls2.kz/public_control/");
-          localStorage.setItem("baseurlimg","http://ls2_mobile.kz/assets/img/");
+          //localStorage.setItem("baseurl","http://ls2.kz/public_control/");
+          //localStorage.setItem("baseurlimg","http://ls2_mobile.kz/assets/img/");
           // localStorage.setItem("baseurlimg2","http://ls2_mobile.kz/assets/entry/uploads/");
-          localStorage.setItem("baseurlimg3","http://ls2_mobile.kz/assets/entry/uploadsv/");
-          localStorage.setItem("baseurlimg4","http://ls2.kz/assets/entry/uploads/");
+          //localStorage.setItem("baseurlimg3","http://ls2_mobile.kz/assets/entry/uploadsv/");
+          //localStorage.setItem("baseurlimg4","http://ls2.kz/assets/entry/uploads/");
 
 
-          // localStorage.setItem("baseurl","http://www.kazpoisk.kz/public_control/");
-          // localStorage.setItem("baseurlimg","http://www.kazpoisk.kz/assets/img/");
+           localStorage.setItem("baseurl","http://www.kazpoisk.kz/public_control/");
+           localStorage.setItem("baseurlimg","http://www.kazpoisk.kz/assets/img/");
            localStorage.setItem("baseurlimg2","http://www.kazpoisk.kz/assets/entry/uploads/");
-          // localStorage.setItem("baseurlimg3","http://www.kazpoisk.kz/assets/entry/uploadsv/");
-          // localStorage.setItem("baseurlimg4","http://www.kazpoisk.kz/assets/entry/uploads/");
+           localStorage.setItem("baseurlimg3","http://www.kazpoisk.kz/assets/entry/uploadsv/");
+           localStorage.setItem("baseurlimg4","http://www.kazpoisk.kz/assets/entry/uploads/");
 
 
           //opredelenie avtorizovan li polzovatel
