@@ -7,13 +7,27 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-browsersync": {
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "kz.kazpoisk.kz"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "kz.kazpoisk.kz"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "kz.kazpoisk.kz"
+    },
+    "cordova-plugin-googleplus": {
+      "PLAY_SERVICES_VERSION": "11.8.0",
       "PACKAGE_NAME": "kz.kazpoisk.kz"
     },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "kz.kazpoisk.kz"
     },
-    "cordova-plugin-contacts": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "kz.kazpoisk.kz"
+    },
+    "cordova-plugin-ionic-webview": {
+      "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+",
       "PACKAGE_NAME": "kz.kazpoisk.kz"
     }
   },

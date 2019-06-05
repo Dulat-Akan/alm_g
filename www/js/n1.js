@@ -1,3 +1,5 @@
+var myPhotoBrowserStandalone;
+
 $$(document).on('page:beforein', '.page[data-name="n1"]', function (e) {
 
 
@@ -441,6 +443,7 @@ var baseurlimg2 = localStorage.getItem("baseurlimg4");
 $(".insertimg").empty();
 
 var photoar = new Array();
+var Nar = new Array();
 
 var g = 0;
 
@@ -451,6 +454,8 @@ if(senditem.photo_path != "n.jpg"){
 
 var insertimg = "";
 
+var nn = 0;
+
     for (var k in photo){
         if (photo.hasOwnProperty(k)) {
 
@@ -460,9 +465,14 @@ var insertimg = "";
                   //var insertimg = '<div class="photobr imageheight" style="background: url(' + photourl + ') no-repeat center/cover;"></div>';
                   insertimg += '<div class="swiper-slide photobr imageheight" style="background: url(' + photourl + ') no-repeat center/cover;"></div>';
 
+                  var obj = new Object();
+
+                  obj.id = nn;
+                  obj.url = photo[k];
+                  nn++;
 
               //}
-
+              Nar.push(obj);
               photoar.push(photourl);
 
               g = 1;
@@ -470,9 +480,21 @@ var insertimg = "";
         }
     }
 
+    $(".demo-swiper").hide();
+
     if(g == 1){
-      $(".insertimg").append(insertimg);
+    if(Nar.length > 1){
+      RenderN1(Nar);
+    }else{
+        $(".insertimg").append(insertimg);
+        $(".demo-swiper").show();
     }
+
+    }
+
+    //
+
+
 
 
 
@@ -536,7 +558,7 @@ var insertimg = "";
 if(g == 1){
 
 
-var myPhotoBrowserStandalone = myApp.photoBrowser.create({
+myPhotoBrowserStandalone = myApp.photoBrowser.create({
     photos : photoar,
     type: 'popup',
     backLinkText: 'закрыть',
@@ -600,14 +622,13 @@ $(".backevent").click(function(){
 
 //slider
 var swiper = myApp.swiper.create('.swiper-container', {
-    speed: 400,
-    spaceBetween: 100,
-    setWrapperSize:true,
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      dynamicBullets:true
-    }
+    // speed: 300,
+    // spaceBetween: 10,
+    // setWrapperSize:true,
+    // pagination: {
+    //   el: '.swiper-pagination',
+    //
+    // }
 });
 
 // var mySwiper2 = myApp.swiper.create('.swiper-2', {

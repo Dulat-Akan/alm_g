@@ -17,10 +17,12 @@
     "babel-preset-react-app": "^3.1.2",
     "cordova-android": "^8.0.0",
     "cordova-browser": "^6.0.0",
-    "cordova-plugin-browsersync": "^1.1.0",
     "cordova-plugin-camera": "^4.0.3",
-    "cordova-plugin-contacts": "git+https://github.com/apache/cordova-plugin-contacts.git",
+    "cordova-plugin-contacts": "^3.0.1",
     "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-file": "^6.0.1",
+    "cordova-plugin-googleplus": "git+https://github.com/EddyVerbruggen/cordova-plugin-googleplus.git",
+    "cordova-plugin-ionic-webview": "^4.0.1",
     "cordova-plugin-splashscreen": "git+https://github.com/apache/cordova-plugin-splashscreen.git",
     "cordova-plugin-telerik-imagepicker": "git+https://github.com/Telerik-Verified-Plugins/ImagePicker.git",
     "cordova-plugin-whitelist": "^1.3.3",
@@ -32,18 +34,23 @@
     "plugins": {
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
-      "cordova-plugin-camera": {
-        "CAMERA_USAGE_DESCRIPTION": " App would like to access the camera.",
-        "PHOTOLIBRARY_USAGE_DESCRIPTION": " App would like to access the library."
-      },
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-contacts": {
-        "CONTACTS_USAGE_DESCRIPTION": " App would like to access the contacts."
-      },
       "cordova-plugin-telerik-imagepicker": {
         "PHOTO_LIBRARY_USAGE_DESCRIPTION": "App would like to access the photos"
       },
-      "cordova-plugin-browsersync": {}
+      "cordova-plugin-googleplus": {
+        "REVERSED_CLIENT_ID": "818015353741-3v0p5it328muf0irvemar57h40np461j.apps.googleusercontent.com",
+        "WEB_APPLICATION_CLIENT_ID": "818015353741-p44pj24kn0vs3qg30vapnm91utva0sl5.apps.googleusercontent.com",
+        "PLAY_SERVICES_VERSION": "11.8.0"
+      },
+      "cordova-plugin-contacts": {
+        "CONTACTS_USAGE_DESCRIPTION": " App would like to access the contacts."
+      },
+      "cordova-plugin-camera": {},
+      "cordova-plugin-file": {},
+      "cordova-plugin-ionic-webview": {
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      }
     },
     "platforms": [
       "browser"

@@ -232,7 +232,7 @@ function checkuserid(){
 
 function insertMoney(){
 
-    var iddd = localStorage.getItem("id");
+    var iddd = localStorage.getItem("useremail");
 
     if(iddd){
       $(".insuserid").val(iddd);
@@ -285,6 +285,7 @@ var premium_price = 200;
 var classic_price = 150;
 var quick_price = 100;
 var easy_price = 40;
+var priority = 0;
 
 
 var enable_money = 0;
@@ -295,7 +296,7 @@ var checklimit = 0;
 var valyuta = "KZT";
 
 var textpod = 'подано на проверку';
-var status_cash_text_status = 'no';
+var status_cash_text_status = 'cash';
 var temp_status_text = "temp";
 
 var automatic_publication_status = "send_automatic";
@@ -320,6 +321,9 @@ setInterval(function(){
       check_ob_count();
 
   }
+
+  
+
 },3000);
 
 
@@ -570,6 +574,55 @@ socket.on('check_ob_action', function(data){
 
 
     });
+
+    function sendNotification(message){
+
+      var notificationFull = myApp.notification.create({
+        icon: '<i class="material-icons">notification_important</i>',
+        title: 'Service',
+        titleRightText: 'new',
+        subtitle: 'message from service',
+        text: message,
+        closeTimeout: 3000,
+      });
+
+      notificationFull.open();
+
+    }
+
+    function checkAuthorize(){
+      var myemail = localStorage.getItem("useremail");
+
+      if(myemail){
+        if(myemail == 0){
+           myemail = 0;
+        }
+      }
+
+      if(myemail == 0){
+        return false;
+      }else{
+        return true;
+      }
+    }
+
+    function getEmail(){
+      var myemail = localStorage.getItem("useremail");
+
+      if(myemail){
+        if(myemail == 0){
+           myemail = 0;
+        }
+      }
+
+      if(myemail == 0){
+        return false;
+      }else{
+        return myemail;
+      }
+    }
+
+
 
     // import store from './controllers/reducers.js'
     //

@@ -16,7 +16,7 @@
                   routes: [
                     {
                       path: '/about/',
-                      url: 'about.html',
+                      url: './pages/about.html',
                       name:'about'
                     },
                     {
@@ -26,34 +26,58 @@
                     },
                     {
                       path: '/registration/',
-                      url: 'registration.html',
+                      url: './pages/registration.html',
                       name:'registration'
                     },
                     {
                       path: '/add/',
-                      url: 'add.html',
+                      url: './pages/add.html',
                       name:'add'
                     },
                     {
                       path: '/login/',
-                      url: 'login.html',
+                      url: './pages/login.html',
                       name:'login'
                     },
                     {
                       path: '/cabinet/',
-                      url: 'cabinet.html',
+                      url: './pages/cabinet.html',
                       name:'cabinet'
 
                     },
                     {
-                      path: '/home/',
-                      url: 'main.html',
+                      path: '/',
                       name:'home'
                     },
                     {
                       path: '/n1/',
-                      url: 'n1.html',
-                      name:'n1'
+                      url: './pages/n1.html',
+                      name:'n1',
+                    },
+                    {
+                      path: '/comment/',
+                      url: './pages/comment.html',
+                      name:'comment'
+                    },
+                    {
+                      path: '/message/',
+                      url: './pages/message.html',
+                      name:'message'
+                    },
+                    {
+                      path: '/subscribe/',
+                      url: './pages/subscribe.html',
+                      name:'subscribe'
+                    },
+                    {
+                      path: '/favorite/',
+                      url: './pages/favorite.html',
+                      name:'favorite'
+                    },
+                    {
+                      path: '/contact/',
+                      url: './pages/contacts.html',
+                      name:'contact'
                     }
                   ],
 
@@ -61,12 +85,19 @@
                     //iosOverlaysWebView: true,
                     enabled:false,
                   },
+                  panel: {
+                    swipe: 'left',
+                    leftBreakpoint: 768,
+                    rightBreakpoint: 1440,
+                    swipeOnlyClose:true
+                  }
             // ... other parameters
           });
 
 
           var mainView = myApp.views.create('.view-main',{
-                                              url: '/home'
+                                              url: '/',
+                                              stackPages: true
                                             });
 
           var router = mainView.router;
@@ -223,20 +254,72 @@
 
                           var role = localStorage.getItem("role");
 
+                          //.popup-addcategory
+                          $(".open_p").click(function(){
 
+                            var useridentificatort = localStorage.getItem("useremail");
+
+                            if(useridentificatort == 0){
+                              //  mainView.router.loadPage("login.html");
+                                //router.navigate({ name: 'login' });
+
+
+                                myApp.panel.open("left");
+                                //myApp.panel.open(".panel-left");
+                                // $$('.panel-left').on('panel:open', function () {
+                                //     console.log('Panel left: open');
+                                //   });
+                            }else{
+                                //mainView.router.loadPage("cabinet.html");
+                                //router.navigate({ name: 'cabinet' });
+                                myApp.popup.open('.popup-addcategory');
+                            }
+
+                          });
 
 
                           $(".cabinetclick").click(function(){
 
-                              var useridentificator = localStorage.getItem("useridentificator");
+                              var useridentificator = localStorage.getItem("useremail");
 
                               if(useridentificator == 0){
                                 //  mainView.router.loadPage("login.html");
-                                  router.navigate({ name: 'login' });
+                                  //router.navigate({ name: 'login' });
+
+
+                                  myApp.panel.open("left");
+                                  //myApp.panel.open(".panel-left");
+                                  // $$('.panel-left').on('panel:open', function () {
+                                  //     console.log('Panel left: open');
+                                  //   });
                               }else{
                                   //mainView.router.loadPage("cabinet.html");
                                   router.navigate({ name: 'cabinet' });
                               }
+
+                          });
+
+                          $(".goTohometab").click(function(){
+
+                              router.navigate({ name: 'subscribe' });
+
+                          });
+
+                          $(".subscribenavigate").click(function(){
+
+                              //console.log("navigate");
+                              router.navigate({ name: 'subscribe' });
+
+                          });
+//nv
+                          $(".favoritenavigate").click(function(){
+
+                              router.navigate({ name: 'favorite' });
+
+                          });
+                          $(".contactnavigate").click(function(){
+
+                              router.navigate({ name: 'contact' });
 
                           });
 
@@ -259,7 +342,9 @@
 
                                 //insertob
 
-                                firstviewob();
+                              //  firstviewob();
+
+                            //  getHomeData();
 
 
                                 setTimeout(function(){
@@ -277,12 +362,12 @@
 
 
 
-
-          $("#opensearch").click(function(){
-
-              $("#searchbutton").toggle(800);
-
-          });
+          //xxxx
+          // $("#opensearch").click(function(){
+          //
+          //     $("#searchbutton").toggle(800);
+          //
+          // });
 
           $(".top_input").focus(function(){
 
@@ -315,29 +400,40 @@
 
           });
 
+//google login
+          function login() {
+                window.plugins.googleplus.login(
+                    {
+                      'webClientId': '818015353741-m97ohmk6tpqf067gcgff0kb3i6t4k8go.apps.googleusercontent.com',
+                    },
+                    function (obj) {
+                      console.log(obj.imageUrl);
+                      console.log(obj.displayName);
+                      console.log(obj.email);
 
-          // document.addEventListener("deviceready", onDeviceReady, false);
-          //             function onDeviceReady() {
-
-
-
-
-          //             }//kones ondevice ready
+                    },
+                    function (msg) {
+                      console.log(msg);
+                    }
+                );
+              }
 
           function savefinding(){
 
               if(checkuserauth() == false){
-                  myApp.dialog.prompt('Для продолжения работы введите ваш "EMAIL" ','KAZPOISK', function (email) {
 
-                      if(checkemail(email) == true){
-                        myApp.dialog.alert('Большое спасибо ваш EMAIL ' + email + ' зарегистрирован в нашей системе и будет использоваться для оповещений о новых результатах по вашим запросам','KAZPOISK');
-                        auto_registration(email);
-                      }else{
-                        myApp.dialog.alert(' пожалуйста введите правильный EMAIL ','KAZPOISK');
-                        savefinding();
-                      }
-
-                  });
+                  router.navigate({ name: 'login' });
+                  // myApp.dialog.prompt('Для продолжения работы введите ваш "EMAIL" ','KAZPOISK', function (email) {
+                  //
+                  //     if(checkemail(email) == true){
+                  //       myApp.dialog.alert('Большое спасибо ваш EMAIL ' + email + ' зарегистрирован в нашей системе и будет использоваться для оповещений о новых результатах по вашим запросам','KAZPOISK');
+                  //       auto_registration(email);
+                  //     }else{
+                  //       myApp.dialog.alert(' пожалуйста введите правильный EMAIL ','KAZPOISK');
+                  //       savefinding();
+                  //     }
+                  //
+                  // });
                 }
 
           }
@@ -603,7 +699,7 @@
 
                                           //$('.loader-hide').css("display","none");
                                           $(".gifloader").hide();
-                                          insertviewob(result);
+                                          //insertviewob(result);
 
                                           pageindex = result[3];
                                           //pageindex = 40;
@@ -879,11 +975,11 @@
 
                 var role = localStorage.getItem("role");
 
-                if(result[0] != "false"){
+                if(result.data.length > 0){
 
                   $(".insertob").empty();
 //xxxx
-                                            var countfindobjects = result[0].length;
+                                            var countfindobjects = result.data.length;
 
                                             $(".searchkvbutton").text("найдено " + countfindobjects + " публикаций");
 
@@ -892,36 +988,38 @@
                                             }, 1000);
                                             //searchkvbutton
 
-                                            for(var i = 0;i < result[0].length;i++){
+                                            for(var i = 0;i < result.data.length;i++){
 
-                                              var statusid = result[0][i].id;
-                                              var status = result[0][i].status;
+                                              var statusid = result.data[i].id;
+                                              var status = result.data[i].status;
                                               //console.log(status);
-                                              var r_alm = result[0][i].r_alm;
-                                              var city_alm = result[0][i].city_alm;
-                                              var r_astana = result[0][i].r_astana;
-                                              var city_ast = result[0][i].city_ast;
-                                              var vremya_nachala_auxion = result[0][i].vremya_nachala_auxion;
-                                              var vremya_okonch_auxion = result[0][i].vremya_okonch_auxion;
+                                              var r_alm = result.data[i].r_alm;
+                                              var city_alm = result.data[i].city_alm;
+                                              var r_astana = result.data[i].r_astana;
+                                              var city_ast = result.data[i].city_ast;
+                                              var vremya_nachala_auxion = result.data[i].vremya_nachala_auxion;
+                                              var vremya_okonch_auxion = result.data[i].vremya_okonch_auxion;
 
-                                              var vremya_okonch_auxion = result[0][i].vremya_okonch_auxion;
+                                              var vremya_okonch_auxion = result.data[i].vremya_okonch_auxion;
 
                                               var photo = "n.jpg";
                                               var baseurlimg2 = localStorage.getItem("baseurlimg4");
 
-                                              var year_build_car = result[0][i].year_build_car;
-                                              var obem40x = result[0][i].obem40x;
+                                              var year_build_car = result.data[i].year_build_car;
+                                              var obem40x = result.data[i].obem40x;
 
-                                              var opisanie = result[0][i].opisanie;
+                                              var opisanie = result.data[i].opisanie;
 
                                               var array = [" ","ЖК: "," ","ЖК: ","время начала аукциона: ","время окончания аукциона: "];
                                               var array2 = [r_alm,city_alm,r_astana,city_ast,vremya_nachala_auxion,vremya_okonch_auxion];
 
 
-                                              if(result[1][i] != "n.jpg"){
+                                              if(result.data[i] != "n.jpg"){
 
-                                                  photo = result[1][i].photo_path[0];
+                                                  photo = result.data[i].photo_path[0];
 
+                                              }else{
+                                                result.data[i].photo_path = photo;
                                               }
 
                                               var photourl = baseurlimg2 + photo;
@@ -929,11 +1027,7 @@
 
                                               var op = "";
 
-
                                               for(var j = 0; j < array2.length; j++) {
-
-
-
 
                                                           if(array2[j] == "нет"){
 
@@ -976,8 +1070,6 @@
 
                                                                   fixz = 1;
 
-
-
                                                                   array2[0] = array4[0] + array3[0];
 
                                                                   if(array4[1] != "0"){
@@ -996,7 +1088,7 @@
 
                                               var cityview = "";
 
-                                              var city = result[0][i].city;
+                                              var city = result.data[i].city;
 
                                               if(city != "0"){
                                                 cityview = city;
@@ -1025,18 +1117,20 @@
           // ' <div class="item-after">'+ result[0][i].sena + 'тг.' +'</div> </div> <div class="item-subtitle">'+ cityview +'</div>'+
           // ' <div class="item-text">' + array[0] + array2[0]+' '+array[1]+array2[1]+array[2]+array2[2]+' '+array[3]+array2[3] + ' ' + op + '</div> </div> </a> </li>';
 
-          var obrsena = result[0][i].sena;
+          var obrsena = result.data[i].sena;
 
           if(obrsena == 777){
             obrsena = "договорная | ";
           }else if(obrsena == 999){
             obrsena = "отдам даром | ";
           }
+
+
 //llll
 
           var templateobyav = '<li status="'+ newstatus + '" listid="'+ newstatus + " | " + statusid
           +'" class="li_img_styling exmachange"> <div ident="'+ i +'" cashid="' + result[3] + '" class="viewob imgheight" style="background: url(' + photourl
-          + ') no-repeat center/cover;"> <div class="imgheight_div"> <div class="imgheight_title" >' + result[0][i].zagolovok
+          + ') no-repeat center/cover;"> <div class="imgheight_div"> <div class="imgheight_title" >' + result.data[i].zagolovok
           + '</div> <div class="imgheight_text" >'+ cityview +'</div> <div class="imgheight_text" >'
           + array[0] + array2[0]+' '+array[1]+array2[1]+array[2]+array2[2]+' '+array[3]+array2[3] + ' ' + op
           + '</div> <div class="imgheight_text" >'+ obrsena + 'тг.' +'</div> </div> </div> </li>';
@@ -1057,7 +1151,12 @@
           if(role == "1"){
             $(".insertob").append(admin_template);
           }else{
-            $(".insertob").append(templateobyav);
+            //$(".insertob").append(templateobyav);
+
+            //SendingData(result[0]);
+            //console.log(result[0]);
+
+            $(".hideHome").hide();
           }
 
 
@@ -1605,18 +1704,18 @@
 
           //routing
 
-          localStorage.setItem("baseurl","http://ls2.kz/public_control/");
-          localStorage.setItem("baseurlimg","http://ls2_mobile.kz/assets/img/");
-          localStorage.setItem("baseurlimg2","http://ls2_mobile.kz/assets/entry/uploads/");
-          localStorage.setItem("baseurlimg3","http://ls2_mobile.kz/assets/entry/uploadsv/");
-          localStorage.setItem("baseurlimg4","http://ls2.kz/assets/entry/uploads/");
+          //localStorage.setItem("baseurl","http://ls2.kz/public_control/");
+          //localStorage.setItem("baseurlimg","http://ls2_mobile.kz/assets/img/");
+          // localStorage.setItem("baseurlimg2","http://ls2_mobile.kz/assets/entry/uploads/");
+          //localStorage.setItem("baseurlimg3","http://ls2_mobile.kz/assets/entry/uploadsv/");
+          //localStorage.setItem("baseurlimg4","http://ls2.kz/assets/entry/uploads/");
 
 
-          // localStorage.setItem("baseurl","http://www.kazpoisk.kz/public_control/");
-          // localStorage.setItem("baseurlimg","http://www.kazpoisk.kz/assets/img/");
-          // localStorage.setItem("baseurlimg2","http://www.kazpoisk.kz/assets/entry/uploads/");
-          // localStorage.setItem("baseurlimg3","http://www.kazpoisk.kz/assets/entry/uploadsv/");
-          // localStorage.setItem("baseurlimg4","http://www.kazpoisk.kz/assets/entry/uploads/");
+           localStorage.setItem("baseurl","http://www.kazpoisk.kz/public_control/");
+           localStorage.setItem("baseurlimg","http://www.kazpoisk.kz/assets/img/");
+           localStorage.setItem("baseurlimg2","http://www.kazpoisk.kz/assets/entry/uploads/");
+           localStorage.setItem("baseurlimg3","http://www.kazpoisk.kz/assets/entry/uploadsv/");
+           localStorage.setItem("baseurlimg4","http://www.kazpoisk.kz/assets/entry/uploads/");
 
 
           //opredelenie avtorizovan li polzovatel
@@ -1870,7 +1969,7 @@
 
               globaltime += 1;
 
-              changecolor();
+              // changecolor();
               //console.log(globaltime);
 
 
@@ -2456,7 +2555,14 @@
 
 
           //module search input
-
+          var searchbar = myApp.searchbar.create({
+            el: '.searchbar-backdrop',
+            on: {
+              enable: function () {
+                console.log('Searchbar enabled')
+              }
+            }
+          })
 
           $("#musearchinput").keypress(function(){
 
@@ -2469,7 +2575,7 @@
 
 
 
-                    myApp.preloader.show('работаю..');
+                    //myApp.preloader.show('working..');
 
                     var useridentificatorsearch = localStorage.getItem("useridentificator");
 
@@ -2484,66 +2590,73 @@
 
                     var sendsearch = {
 
-                            "searchtext":searchstring,
+                            "searchstring":searchstring,
                             "useridentificatorsearch":useridentificatorsearch,
-                            "useremailsearch":useremailsearch,
+                            "email":useremailsearch,
                             "newphoneid":newphoneid,
 
                         }
 
-                        //console.log(useridentificator4);
+                        sendsearchstring = searchstring;
+
+                        fixedsearch = 4;
+                        searchType = "input";
+
+
+                        //getStringData
+                        socket.emit('getStringData', sendsearch);
 
                            var searchurl = localStorage.getItem("baseurl");
 
-                          $.ajax({
-                                "type":"GET",
-                                "url": searchurl + "searchinputapp/",    /*random restourants menu zakaZ*/
-
-                                dataType: "jsonp",
-                                crossDomain: true,
-                                "data": sendsearch,
-
-                                "success":kxsearch,
-                                "error":errorsearch
-
-                                });
-
-
-                          function kxsearch(result){
-
-                                  if(result[0].length != 0){
+                          // $.ajax({
+                          //       "type":"GET",
+                          //       "url": searchurl + "searchinputapp/",    /*random restourants menu zakaZ*/
+                          //
+                          //       dataType: "jsonp",
+                          //       crossDomain: true,
+                          //       "data": sendsearch,
+                          //
+                          //       "success":kxsearch,
+                          //       "error":errorsearch
+                          //
+                          //       });
 
 
-                                      $(".page-content").scrollTop(0);
-
-                                      pagescroll = 20;
-
-                                      pageindex = result[3];
-
-                                      //console.log(pageindex);
-
-                                      pagefixed = 0;
-
-                                      insertviewob(result);
-                                      myApp.preloader.hide();
-                                  }else{
-                                    myApp.preloader.hide();
-                                  }
-
-                                  myApp.preloader.hide();
-
-                          }
-
-                          function errorsearch(){
-
-                              myApp.preloader.hide();
-                          }
+                          // function kxsearch(result){
+                          //
+                          //         if(result[0].length != 0){
+                          //
+                          //
+                          //             $(".page-content").scrollTop(0);
+                          //
+                          //             pagescroll = 20;
+                          //
+                          //             pageindex = result[3];
+                          //
+                          //             //console.log(pageindex);
+                          //
+                          //             pagefixed = 0;
+                          //
+                          //             insertviewob(result);
+                          //             myApp.preloader.hide();
+                          //         }else{
+                          //           myApp.preloader.hide();
+                          //         }
+                          //
+                          //         myApp.preloader.hide();
+                          //
+                          // }
+                          //
+                          // function errorsearch(){
+                          //
+                          //     myApp.preloader.hide();
+                          // }
 
                       }
 
               }else{
 
-                    myApp.preloader.show('ip адрес сохранен, поиск вашего местоположения, определение номера телефона.. ваш номер определен.. ваш номер и положение занесены в базу данных :) !');
+                    //myApp.preloader.show('ip адрес сохранен, поиск вашего местоположения, определение номера телефона.. ваш номер определен.. ваш номер и положение занесены в базу данных :) !');
 
               }
 
@@ -2551,6 +2664,21 @@
 
 
 
+          });
+
+
+          socket.on('getStringData', function(data){
+
+            //console.log(data);
+            $(".hideHome").hide();
+            clearItems = 1;
+            startcount = data.latestid;
+            SendingData(data.data);
+
+            //$(".page-content").scrollTop(750);
+
+
+              //myApp.preloader.hide();
           });
 
 
@@ -2702,3 +2830,60 @@
 
 
           },5000);
+
+
+
+
+
+          ///------------ load content
+          var searchType = "usually";
+          var clearItems = 0;
+          var startcount = 0;
+          var pagesum = 40;
+          var searchSqlrequest = "";
+          var processSendCount = 0;
+          var sendsearchstring = "";
+
+
+            // Attach 'infinite' event handler
+            $$('.infinite-scroll-content').on('infinite', function () {
+              // Exit, if loading in progress
+
+              if(processSendCount == 1){
+                return false;
+              }
+
+              var em_search = localStorage.getItem("useremail");
+
+              if(em_search == 0){
+                 em_search = 0;
+              }
+
+              if(startcount < 1){
+                return false;
+              }
+
+              var sendData = {
+                email:em_search,
+                searchType: searchType,
+                startcount:startcount,
+                pagesum:pagesum,
+                searchSqlrequest:searchSqlrequest,
+                searchstring:sendsearchstring
+              };
+              //console.log(sendData);
+
+              socket.emit('getCountData', sendData);
+              processSendCount = 1;
+              fixedsearch = 2;
+              // Emulate 1s loading
+
+            });
+
+            socket.on('getCountData', function(data){
+              processSendCount = 0;
+              console.log(data.latestid);
+              startcount = data.latestid;
+              SendingData(data.data);
+                //console.log(data);
+            });

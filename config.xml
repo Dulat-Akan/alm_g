@@ -10,6 +10,8 @@
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -24,6 +26,15 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <platform name="android">
+        <access origin="*" />
+        <allow-navigation href="*" />
+        <allow-intent href="*" />
+        <allow-intent href="http://*/*" />
+        <allow-intent href="https://*/*" />
+        <allow-intent href="tel:*" />
+        <allow-intent href="sms:*" />
+        <allow-intent href="mailto:*" />
+        <allow-intent href="geo:*" />
         <splash density="ldpi" height="426" orientation="portrait" platform="android" src="res/screen/android/320.png" width="320" />
         <splash density="mdpi" height="470" orientation="portrait" platform="android" src="res/screen/android/320470.png" width="320" />
         <splash density="hdpi" height="640" orientation="portrait" platform="android" src="res/screen/android/480640.png" width="480" />
@@ -34,6 +45,15 @@
         <icon density="xhdpi" height="96" platform="android" src="res/icon/android/9696.png" width="96" />
     </platform>
     <platform name="ios">
+        <access origin="*" />
+        <allow-navigation href="*" />
+        <allow-intent href="*" />
+        <allow-intent href="http://*/*" />
+        <allow-intent href="https://*/*" />
+        <allow-intent href="tel:*" />
+        <allow-intent href="sms:*" />
+        <allow-intent href="mailto:*" />
+        <allow-intent href="geo:*" />
         <splash height="480" orientation="portrait" platform="ios" src="res/screen/ios/320480.png" width="320" />
         <splash height="960" orientation="portrait" platform="ios" src="res/screen/ios/640960.png" width="640" />
         <splash height="1136" orientation="portrait" platform="ios" src="res/screen/ios/6401136.png" width="640" />
@@ -66,14 +86,10 @@
     <preference name="FadeSplashScreenDuration" value="750" />
     <preference name="Fullscreen" value="false" />
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
-    <plugin name="cordova-plugin-camera" spec="^4.0.3">
-        <variable name="CAMERA_USAGE_DESCRIPTION" value=" App would like to access the camera." />
-        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" App would like to access the library." />
-    </plugin>
-    <plugin name="cordova-plugin-splashscreen" spec="https://github.com/apache/cordova-plugin-splashscreen.git" />
     <plugin name="cordova-plugin-contacts" spec="https://github.com/apache/cordova-plugin-contacts.git">
         <variable name="CONTACTS_USAGE_DESCRIPTION" value=" App would like to access the contacts." />
     </plugin>
+    <plugin name="cordova-plugin-splashscreen" spec="https://github.com/apache/cordova-plugin-splashscreen.git" />
     <plugin name="cordova-plugin-telerik-imagepicker" spec="https://github.com/Telerik-Verified-Plugins/ImagePicker.git">
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="App would like to access the photos" />
     </plugin>

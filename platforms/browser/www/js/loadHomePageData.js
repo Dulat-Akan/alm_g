@@ -333,6 +333,50 @@ function ShowGold(props) {
   );
 }
 
+function openPhotoBrowser(item, e) {
+  myPhotoBrowserStandalone.open();
+}
+
+function ShowN1(props) {
+  var _this4 = this;
+
+  var items = props.items;
+
+  var baseUrl = localStorage.getItem("baseurlimg2");
+
+  var content = items.map(function (item) {
+    return React.createElement(
+      "li",
+      { key: item.id },
+      React.createElement(
+        "a",
+        null,
+        React.createElement("div", { className: "aChild", onClick: function onClick(e) {
+            return _this4.openPhotoBrowser(item, e);
+          }, style: { backgroundImage: "url(" + baseUrl + item.url + ")" } })
+      )
+    );
+  });
+
+  return React.createElement(
+    "div",
+    { className: "row " },
+    React.createElement(
+      "div",
+      { className: "col-100" },
+      React.createElement(
+        "div",
+        { className: "globThree" },
+        React.createElement(
+          "ul",
+          { className: "myhidescrolledThreeN" },
+          content
+        )
+      )
+    )
+  );
+}
+
 var senditem = new Object();
 
 function navigateToDetail(item, e) {
@@ -357,7 +401,7 @@ function backAndnavigateToDetail(item, e) {
 }
 
 function ShowData(props) {
-  var _this4 = this;
+  var _this5 = this;
 
   var items = props.items;
 
@@ -365,7 +409,7 @@ function ShowData(props) {
 
   var content = items.map(function (item) {
     return React.createElement("div", { key: item.id, className: "threeview", onClick: function onClick(e) {
-        return _this4.navigateToDetail(item, e);
+        return _this5.navigateToDetail(item, e);
       }, style: { backgroundImage: "url(" + baseUrl + CheckPhoto(item) + ")" } });
   });
 
@@ -433,7 +477,7 @@ function navigateToMessage(item, e) {
 }
 
 function ContactData(props) {
-  var _this5 = this;
+  var _this6 = this;
 
   var items = props.items;
 
@@ -443,7 +487,7 @@ function ContactData(props) {
     return React.createElement(
       "div",
       { key: item.id, onClick: function onClick(e) {
-          return _this5.navigateToMessage(item, e);
+          return _this6.navigateToMessage(item, e);
         }, className: "main_list" },
       React.createElement(
         "div",
@@ -583,5 +627,11 @@ function ShowFavoriteContent(data) {
 function RenderContactList(data) {
   if (data.length > 0) {
     ReactDOM.render(React.createElement(ContactData, { items: data }), document.getElementById('contactData'));
+  }
+}
+
+function RenderN1(data) {
+  if (data.length > 0) {
+    ReactDOM.render(React.createElement(ShowN1, { items: data }), document.getElementById('showN1'));
   }
 }

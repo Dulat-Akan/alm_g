@@ -2002,3 +2002,39 @@ vh */
   color: white;
   display: none;
 }
+
+
+/* new line */
+
+.myhidescrolledThreeN {
+    list-style: none;
+    overflow-x: scroll;
+    width: 100%;
+    white-space: nowrap;
+    margin: 0px;
+    padding: 0px;
+}
+
+.myhidescrolledThreeN li:first-child {
+    margin-left: 7.5%;
+}
+.myhidescrolledThreeN li:last-child {
+    margin-right: 7.5%;
+}
+
+.myhidescrolledThreeN li {
+    margin-right: 3.5%;
+    width: 89%;
+    height: 30vh;
+    display: inline-block;
+    transition: width 1s height 1s;
+    overflow: hidden;
+    /* background-color: #f442ce; */
+}
+
+.myhidescrolledThreeN li a {
+    /* height: 68.5%; */
+    height: 100%;
+    width: 100%;
+
+}

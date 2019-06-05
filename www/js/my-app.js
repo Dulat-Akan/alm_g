@@ -400,29 +400,40 @@
 
           });
 
+//google login
+          function login() {
+                window.plugins.googleplus.login(
+                    {
+                      'webClientId': '818015353741-m97ohmk6tpqf067gcgff0kb3i6t4k8go.apps.googleusercontent.com',
+                    },
+                    function (obj) {
+                      console.log(obj.imageUrl);
+                      console.log(obj.displayName);
+                      console.log(obj.email);
 
-          // document.addEventListener("deviceready", onDeviceReady, false);
-          //             function onDeviceReady() {
-
-
-
-
-          //             }//kones ondevice ready
+                    },
+                    function (msg) {
+                      console.log(msg);
+                    }
+                );
+              }
 
           function savefinding(){
 
               if(checkuserauth() == false){
-                  myApp.dialog.prompt('Для продолжения работы введите ваш "EMAIL" ','KAZPOISK', function (email) {
 
-                      if(checkemail(email) == true){
-                        myApp.dialog.alert('Большое спасибо ваш EMAIL ' + email + ' зарегистрирован в нашей системе и будет использоваться для оповещений о новых результатах по вашим запросам','KAZPOISK');
-                        auto_registration(email);
-                      }else{
-                        myApp.dialog.alert(' пожалуйста введите правильный EMAIL ','KAZPOISK');
-                        savefinding();
-                      }
-
-                  });
+                  router.navigate({ name: 'login' });
+                  // myApp.dialog.prompt('Для продолжения работы введите ваш "EMAIL" ','KAZPOISK', function (email) {
+                  //
+                  //     if(checkemail(email) == true){
+                  //       myApp.dialog.alert('Большое спасибо ваш EMAIL ' + email + ' зарегистрирован в нашей системе и будет использоваться для оповещений о новых результатах по вашим запросам','KAZPOISK');
+                  //       auto_registration(email);
+                  //     }else{
+                  //       myApp.dialog.alert(' пожалуйста введите правильный EMAIL ','KAZPOISK');
+                  //       savefinding();
+                  //     }
+                  //
+                  // });
                 }
 
           }

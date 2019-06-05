@@ -1,0 +1,288 @@
+<div class="views">
+
+  <div class="page" data-name="cabinet">
+
+    <div class="navbar">
+        <div class="navbar-inner sliding">
+          <div class="left">
+            <a href="/home/" class="back link">
+              <i class="f7-icons">reply</i>
+              <span class="ios-only">Назад</span>
+            </a>
+          </div>
+          <div class="title" style="color:black;"></div>
+        </div>
+      </div>
+
+
+
+
+      <div class="page-content" style="background: white;">
+
+             <div class="gifloader2">
+
+               <div class='container'>
+                   <div class='loader-2'>
+                     <div class='loader--dot'></div>
+                     <div class='loader--dot'></div>
+                     <div class='loader--dot'></div>
+                     <div class='loader--dot'></div>
+                     <div class='loader--dot'></div>
+                     <div class='loader--dot'></div>
+                     <div class='loader--text'></div>
+                   </div>
+                 </div>
+
+             </div>
+
+
+              <div class="loader-hide2">
+
+                 <div id="loader-wrapper">
+                     <div id="loader"></div>
+                 </div>
+
+             </div>
+
+
+
+
+
+             <div class="tabs">
+               <div id="tab-1" class="tab tab-active" style="display: block;">
+
+
+
+                   <div class="list media-list">
+
+                       <ul class="insertobuser">
+
+
+
+
+                       </ul>
+                   </div>
+
+
+
+               </div>
+
+
+               <div id="tab-2" class="tab">
+
+
+                   <div class="list media-list ">
+                       <ul class="insertobuserdeleted">
+
+
+
+                       </ul>
+                   </div>
+
+
+               </div>
+
+
+               <div id="tab-3" class="tab">
+
+                   <div class="data-table">
+                       <table>
+                         <tbody>
+                           <tr>
+                             <td class="label-cell">Пользователь</td>
+                             <td class="numeric-cell useremail">--</td>
+                           </tr>
+                           <tr>
+                             <td class="label-cell">Баланс</td>
+                             <td class="numeric-cell userbalans">0</td>
+                           </tr>
+                         </tbody>
+                       </table>
+                     </div>
+
+                     <div class="card">
+                        <div class="card-header">Yandex money</div>
+                        <div class="card-content card-content-padding">
+
+
+
+                          <form class="sendyan_form" action="https://money.yandex.ru/eshop.xml" method="post">
+                              <input name="shopId" value="530496" type="hidden"/>
+                              <input name="scid" value="864356" type="hidden"/>
+                              <input name="sum" class="yan_sum" value="" required type="number" placeholder="сумма в рублях">
+                              <!-- userid -->
+                              <!-- shopSuccessURL -->
+                              <!-- shopDefaultUrl button back -->
+                              <input class="insuserid" name="customerNumber" value="abc000" type="hidden"/>
+                              <!-- <input name="paymentType" value="AC" type="hidden"/> -->
+                              <input name="paymentType" value="" type="hidden"/>
+                              <!-- unique number -->
+                              <input class="orderNumber_n" name="orderNumber" value="abc1111111" type="hidden"/>
+                              <input class="customer_number" name="cps_phone" value="+77083531200" type="hidden"/>
+
+                              <input type="hidden" name="shopDefaultUrl" value="http://mobile.kazpoisk.kz/main.html">
+                              <input type="hidden" name="nnn" value="kazpoiskwallet">
+                              <!-- sendmail -->
+                              <!-- cps_phone -->
+                              <!-- <input name="cps_email" value="user@domain.com" type="hidden"/> -->
+                              <!-- kuda posilat kvitansiyu -->
+                            <input class="col button color-blue " type="submit" value="Оплатить"/>
+                          </form>
+
+
+                        </div>
+
+                      </div>
+
+
+                      <div class="card" style="margin-bottom:100px;">
+                          <div class="card-header">Webmoney</div>
+                          <div class="card-content card-content-padding">
+
+                            <form  method="POST" action="https://merchant.webmoney.ru/lmi/payment_utf.asp" accept-charset="utf-8" class="list no-hairlines-md external">
+                              <ul>
+                                <li class="item-content item-input">
+                                  <div class="item-inner">
+                                    <div class="item-title item-label">Сумма</div>
+                                    <div class="item-input-wrap">
+                                      <input type="number" style="border-bottom:1px solid black;" required name="LMI_PAYMENT_AMOUNT" placeholder="валюта KZT">
+                                      <span class="input-clear-button"></span>
+                                    </div>
+                                  </div>
+                                </li>
+
+
+                                <input type="hidden" name="LMI_PAYMENT_DESC" value="платеж по счету">
+                                <input type="hidden" name="LMI_PAYMENT_NO" value="<?php echo rand(5, 50000000); ?>">
+                                <!-- nomer platezha -->
+                                <input type="hidden" name="LMI_PAYEE_PURSE" value="K362633572926">
+                                <input type="hidden" class="uswebm" name="userid" value="">
+
+                                      <button  type="submit" class="button external">Пополнить</button>
+                              </ul>
+                            </form>
+
+
+                          </div>
+
+                        </div>
+
+
+
+               </div>
+
+
+             </div>
+
+
+
+             <div class="popup popup-viewobup">
+
+
+                         <div class="page-content" style="">
+
+
+                               <h3 style="text-align: center;">Услуги Kazpoisk</h3>
+
+                               <div class="data-table card">
+
+
+                                   <table>
+
+                                     <tbody>
+                                       <tr>
+                                         <td class="label-cell"><button act="promo" class="button button-fill color-red infousl"><i class="material-icons">&#xE195;</i></button></td>
+                                         <td class="label-cell" style="font-size: 16px;">GOLD </td>
+                                         <td class="label-cell"><button n="promo" class="button color-red actionsheet">450тг.</button></td>
+
+                                       </tr>
+
+                                       <tr>
+                                         <td class="label-cell"><button act="top" class="button button-fill color-yellow infousl"><i class="material-icons">&#xE838;</i></button></td>
+                                         <td class="label-cell" style="font-size: 16px;">PREMIUM </td>
+                                         <td class="label-cell"><button n="top" class="button color-yellow actionsheet">350тг.</button></td>
+                                       </tr>
+
+                                       <tr>
+                                         <td class="label-cell"><button act="warm" class="button button-fill color-orange infousl"><i class="material-icons">&#xE80E;</i></button></td>
+                                         <td class="label-cell" style="font-size: 16px;">CLASSIC </td>
+                                         <td class="label-cell"><button n="g" class="button color-orange actionsheet">200тг.</button></td>
+                                       </tr>
+
+                                       <tr>
+                                         <td class="label-cell"><button act="time" class="button button-fill color-pink infousl"><i class="material-icons">&#xE192;</i></button></td>
+                                         <td class="label-cell" style="font-size: 16px;">QUICK </td>
+                                         <td class="label-cell"><button n="sr" class="button color-pink actionsheet">100тг.</button></td>
+                                       </tr>
+
+                                       <tr>
+                                         <td class="label-cell"><button act="up" class="button button-fill infousl" style="color:white; background:#2196f3; "><i class="material-icons">&#xE8E5;</i></button></td>
+                                         <td class="label-cell" style="font-size: 16px;">EASY </td>
+                                         <td class="label-cell"><button  n="pod" class="button actionsheet"  style="color:white; background:#2196f3; ">40тг.</button></td>
+                                       </tr>
+
+
+                                     </tbody>
+                                   </table>
+
+                                     <a href="#" style="margin-top: 10px;" class="button popup-close">закрыть</a>
+
+
+
+
+                                 </div>
+
+                         </div>
+
+             </div>
+
+
+
+       </div>
+
+
+   <div class="toolbar tabbar toolbar-bottom-md color-theme-black ">
+     <div class="toolbar-inner">
+       <a href="#tab-1" id="remact" class="tab-link tab-link-active changetabs">Актив.об</a>
+       <a href="#tab-2" class="tab-link changetabs">Архив</a>
+       <a href="#tab-3" id="addact" class="tab-link changetabs">Баланс</a>
+     </div>
+   </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div data-page="about" class="page no-toolbar">
+  <div class="page-content">
+    <div class="content-block">
+      <p><a href="#" class="back button">Go Back</a></p>
+      ...
+    </div>
+  </div>
+</div> -->

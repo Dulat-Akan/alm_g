@@ -48,9 +48,10 @@
 
       control.addEventListener("change", function(event) {
 
+          var uploademailtwo = localStorage.getItem("useremail");
           var fileEl = document.getElementById('filethree');
           var uploadIds = uploader.upload(fileEl, {
-              data: { email:uploademail },
+              data: { email:uploademailtwo },
               uploadTo: 'photo'
           });
 
@@ -62,9 +63,10 @@
 
       controlvideo.addEventListener("change", function(event) {
 
+          var uploademailthree = localStorage.getItem("useremail");
           var fileEl = document.getElementById('filefour');
           var uploadIds = uploader.upload(fileEl, {
-              data: { email:uploademail },
+              data: { email:uploademailthree },
               uploadTo: 'video'
           });
 

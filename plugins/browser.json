@@ -7,13 +7,26 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-browsersync": {
-      "PACKAGE_NAME": "kz.kazpoisk.kz"
-    },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "kz.kazpoisk.kz"
     },
+    "cordova-plugin-googleplus": {
+      "WEB_APPLICATION_CLIENT_ID": "818015353741-m97ohmk6tpqf067gcgff0kb3i6t4k8go.apps.googleusercontent.com",
+      "PACKAGE_NAME": "kz.kazpoisk.kz"
+    },
     "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "kz.kazpoisk.kz"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "kz.kazpoisk.kz"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "kz.kazpoisk.kz"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "kz.kazpoisk.kz"
+    },
+    "cordova-plugin-ionic-webview": {
       "PACKAGE_NAME": "kz.kazpoisk.kz"
     }
   },

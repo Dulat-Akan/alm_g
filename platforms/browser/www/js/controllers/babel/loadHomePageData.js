@@ -257,6 +257,44 @@ function getSearchData(){
       );
   }
 
+
+  function openPhotoBrowser(item,e){
+      myPhotoBrowserStandalone.open();
+  }
+
+  function ShowN1(props) {
+
+      const items = props.items;
+
+      const baseUrl = localStorage.getItem("baseurlimg2");
+
+      const content = items.map((item) =>
+                    <li key={item.id}>
+                      <a>
+                          <div className="aChild" onClick={(e) => this.openPhotoBrowser(item, e)} style={{ backgroundImage: "url("+ baseUrl + item.url +")" }}>
+
+                          </div>
+                      </a>
+                    </li>
+      );
+
+      return (
+
+        <div className="row ">
+
+          <div className="col-100">
+
+            <div className="globThree">
+                <ul className="myhidescrolledThreeN">
+                    {content}
+                </ul>
+            </div>
+
+          </div>
+          </div>
+      );
+  }
+
   var senditem = new Object();
 
   function navigateToDetail(item,e) {
@@ -528,6 +566,15 @@ function RenderContactList(data){
     ReactDOM.render(
       <ContactData items={data} />,
       document.getElementById('contactData')
+    );
+  }
+}
+
+function RenderN1(data){
+  if(data.length > 0){
+    ReactDOM.render(
+      <ShowN1 items={data} />,
+      document.getElementById('showN1')
     );
   }
 }

@@ -20,6 +20,16 @@ function checkElem(name,positionX,positionY,pointName,element){
         $(this).css('border-radius',"0px");
       });
 
+      var lin = $(".myhidescrolledThreeN > li");
+
+      lin.each(function( index ) {
+      //  console.log( index );
+        $(this).css("width","82%");
+        $(this).css("height","30vh");
+        $(this).css('margin-bottom',"0vh");
+        $(this).css('border-radius',"0px");
+      });
+
 
 
       element.parentElement.parentElement.style.width = "84%";
