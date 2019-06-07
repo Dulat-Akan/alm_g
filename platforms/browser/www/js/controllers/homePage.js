@@ -7,35 +7,42 @@ function checkElem(name,positionX,positionY,pointName,element){
   if(name == "aChild"){
 
       //console.log("a_child" + "|" + positionX + "|" + positionY + "|" + pointName);
-
-      //var li = $(".a_child").parent().parent();
       $(".bChild").css("margin-top","45%");
+      //var li = $(".a_child").parent().parent();
+
       var li = $(".myhidescrolledThree > li");
 
       li.each(function( index ) {
       //  console.log( index );
-        $(this).css("width","82%");
-        $(this).css("height","30vh");
-        $(this).css('margin-bottom',"0vh");
-        $(this).css('border-radius',"0px");
+
+
+            $(this).css("width","82%");
+            $(this).css("height","30vh");
+            $(this).css('margin-bottom',"0vh");
+            $(this).css('border-radius',"0px");
+
       });
 
       var lin = $(".myhidescrolledThreeN > li");
 
       lin.each(function( index ) {
       //  console.log( index );
-        $(this).css("width","82%");
-        $(this).css("height","30vh");
-        $(this).css('margin-bottom',"0vh");
-        $(this).css('border-radius',"0px");
+
+            $(this).css("width","82%");
+            $(this).css("height","30vh");
+            $(this).css('margin-bottom',"0vh");
+            $(this).css('border-radius',"0px");
+
       });
 
 
-
-      element.parentElement.parentElement.style.width = "84%";
-      element.parentElement.parentElement.style.height = "33vh";
-      element.parentElement.parentElement.style.marginBottom = "-1.4vh";
-      element.parentElement.parentElement.style.borderRadius = "5px";
+      var w = element.parentElement.parentElement.style.width;
+      if(w != "84%"){
+        element.parentElement.parentElement.style.width = "84%";
+        element.parentElement.parentElement.style.height = "33vh";
+        element.parentElement.parentElement.style.marginBottom = "-1.4vh";
+        element.parentElement.parentElement.style.borderRadius = "5px";
+      }
 
       var selec = element.children;
       //44%
@@ -46,6 +53,11 @@ function checkElem(name,positionX,positionY,pointName,element){
         }
 
       }
+
+
+
+
+
 
 
 

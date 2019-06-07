@@ -328,7 +328,9 @@ function getSearchData(){
       const baseUrl = localStorage.getItem("baseurlimg2");
 
       const content = items.map((item) =>
-        <div key={item.id} className="threeview" onClick={(e) => this.navigateToDetail(item, e)} style={{ backgroundImage: "url("+ baseUrl + CheckPhoto(item) +")" }}></div>
+        <div key={item.id} className="threeview" onClick={(e) => this.navigateToDetail(item, e)} style={{ backgroundImage: "url("+ baseUrl + CheckPhoto(item) +")" }}>
+
+        </div>
       );
 
       return (
@@ -339,7 +341,7 @@ function getSearchData(){
 
             </div>
         </div>
-        <div className="mainrow">{content}</div>
+        <div className="mainrow greyLights">{content}</div>
 
         </div>
       );

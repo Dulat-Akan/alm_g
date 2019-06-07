@@ -2839,7 +2839,7 @@
           var searchType = "usually";
           var clearItems = 0;
           var startcount = 0;
-          var pagesum = 40;
+          var pagesum = 30;
           var searchSqlrequest = "";
           var processSendCount = 0;
           var sendsearchstring = "";

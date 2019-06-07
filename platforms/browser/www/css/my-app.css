@@ -1668,8 +1668,11 @@ vh */
     display: inline-block;
     transition: width 1s height 1s;
     overflow: hidden;
+    margin-bottom:0vh;
+    border-radius:0px;
     /* background-color: #f442ce; */
 }
+
 
 .myhidescrolledThree li a {
     /* height: 68.5%; */
@@ -2037,4 +2040,10 @@ vh */
     height: 100%;
     width: 100%;
 
+}
+
+.greyLights{
+  width: 100%;
+  height: 100%;
+  background-color: grey;
 }

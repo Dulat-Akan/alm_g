@@ -423,7 +423,7 @@ function ShowData(props) {
     ),
     React.createElement(
       "div",
-      { className: "mainrow" },
+      { className: "mainrow greyLights" },
       content
     )
   );
