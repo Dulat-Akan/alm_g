@@ -14,6 +14,11 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
     <meta name="google-signin-client_id" content="791144738416-atva1aq90r1qb0l7opn56d0tm85otc6j.apps.googleusercontent.com">
+    <!-- google auth new -->
+
+    <!-- google auth new -->
+
+    <!-- <meta name="google-signin-client_id" content="818015353741-m97ohmk6tpqf067gcgff0kb3i6t4k8go.apps.googleusercontent.com"> -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"> -->
 
@@ -45,10 +50,13 @@
     </script>
 
 
+
+
   </head>
   <body class="theme-black">
 
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
 
 
 
@@ -103,12 +111,55 @@
                   <div class="item-inner left-right-padding">
                     <div class="item-title">
 
-                      <div id="my-signin2" class="panel-close" ></div>
+                      <div id="customBtn" class="panel-close" ></div>
                       <!-- <a href="#"  style="color: black;font-size: 14px;" onclick="signOut();" class="panel-close button">выход</a> -->
 
                     </div>
                     </div>
                   </div>
+
+                  <script src="https://apis.google.com/js/api:client.js"></script>
+
+                  <script>
+                  var googleUser = {};
+                  var startApp = function() {
+                    gapi.load('auth2', function(){
+                      // Retrieve the singleton for the GoogleAuth library and set up the client.
+                      auth2 = gapi.auth2.init({
+
+                         // client_id: '818015353741-m97ohmk6tpqf067gcgff0kb3i6t4k8go.apps.googleusercontent.com',
+                         client_id: '791144738416-atva1aq90r1qb0l7opn56d0tm85otc6j.apps.googleusercontent.com',
+
+                        cookiepolicy: 'single_host_origin',
+                        // Request scopes in addition to 'profile' and 'email'
+                        //scope: 'additional_scope'
+                      });
+                      attachSignin(document.getElementById('customBtn'));
+                    });
+                  };
+
+                  function attachSignin(element) {
+                    //console.log(element.id);
+                    auth2.attachClickHandler(element, {},
+                        function(googleUser) {
+
+                              var profile = googleUser.getBasicProfile();
+
+                              //console.log(profile);
+
+                              localStorage.setItem("email",profile.getEmail());
+                              localStorage.setItem("name",profile.getName());
+                              localStorage.setItem("image_url",profile.getImageUrl());
+                              localStorage.setItem("status","enable");
+                              localStorage.setItem("login","enable");
+
+
+
+                        }, function(error) {
+                          //alert(JSON.stringify(error, undefined, 2));
+                        });
+                  }
+                  </script>
 
               </li>
 
@@ -2429,7 +2480,7 @@
                                          <input class="orderNumber_n" name="orderNumber" value="abc1111111" type="hidden"/>
                                          <input class="customer_number" name="cps_phone" value="+77083531200" type="hidden"/>
 
-                                         <input type="hidden" name="shopDefaultUrl" value="http://mobile.kazpoisk.kz/main.html">
+                                         <input type="hidden" name="shopDefaultUrl" value="https://mobile.kazpoisk.kz/main.html">
                                          <input type="hidden" name="nnn" value="kazpoisk">
                                          <!-- sendmail -->
                                          <!-- cps_phone -->
@@ -2701,7 +2752,7 @@
 
     <script>
        //const socket = io('http://localhost:3001', {
-      const socket = io('http://kazpoisk.kz:3001', {
+      const socket = io('145.249.246.93:3001', {
         reconnection: true,
         reconnectionDelay: 1000,
         reconnectionDelayMax : 5000,
@@ -2711,8 +2762,6 @@
 
 
     <script src="js/modules/socket_file.js"></script>
-
-
 
     <script type="text/javascript" src="js/framework7.min.js"></script>
 
@@ -2726,11 +2775,10 @@
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
   <!-- <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-   <script type="text/javascript" src="js/rxjslib/rxmin.js"></script>
+
   <!-- react -->
 
             <!-- phantom library, needed for Cordova api calls, added during build -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
   <script src="js/modules/photo_video_upload.js"></script>
 
    <script type="text/javascript" src="js/validation.js"></script>
@@ -2756,7 +2804,7 @@
     <script type="text/javascript" src="js/pagesjs/contact.js"></script>
     <script type="text/javascript" src="js/pagesjs/notification.js"></script>
     <script type="text/javascript" src="js/google_auth.js"></script>
-    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
 
 
     <script type="text/javascript" src="js/search_category.js"></script>
@@ -2776,6 +2824,8 @@
 
     <script type="text/javascript">
         app.initialize();
+
+        startApp();
     </script>
 
 

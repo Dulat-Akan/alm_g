@@ -28,6 +28,9 @@
     },
     "cordova-plugin-ionic-webview": {
       "PACKAGE_NAME": "kz.kazpoisk.kz"
+    },
+    "cordova-sms-plugin": {
+      "PACKAGE_NAME": "kz.kazpoisk.kz"
     }
   },
   "dependent_plugins": {}

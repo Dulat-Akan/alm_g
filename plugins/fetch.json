@@ -40,8 +40,8 @@
     },
     "is_top_level": true,
     "variables": {
-      "REVERSED_CLIENT_ID": "818015353741-3v0p5it328muf0irvemar57h40np461j.apps.googleusercontent.com",
-      "WEB_APPLICATION_CLIENT_ID": "818015353741-p44pj24kn0vs3qg30vapnm91utva0sl5.apps.googleusercontent.com"
+      "REVERSED_CLIENT_ID": "818015353741-bclulu5of2i3205hoq93c39tvnjvic1t.apps.googleusercontent.com",
+      "WEB_APPLICATION_CLIENT_ID": "818015353741-a83shr3mu5vq2k6i38fobe9gvu66v68l.apps.googleusercontent.com"
     }
   },
   "cordova-plugin-contacts": {
@@ -72,6 +72,14 @@
     "source": {
       "type": "registry",
       "id": "cordova-plugin-ionic-webview@latest"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-sms-plugin": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/cordova-sms/cordova-sms-plugin.git"
     },
     "is_top_level": true,
     "variables": {}

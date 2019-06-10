@@ -3046,7 +3046,7 @@ var img = localStorage.getItem("baseurlimg");
 
                  setTimeout(function(){
                    myApp.dialog.close();
-                  // $(".page-content").scrollTop(30);
+                   $(".page-content").scrollTop(10);
                    if(fixhidepanel == 1){
                      myApp.popup.close(".popup-filter");
                      fixhidepanel = 0;

@@ -1427,13 +1427,14 @@ background-image: linear-gradient(-225deg, #DFFFCD 0%, #90F9C4 48%, #39F3BB 100%
   height: 68.5%;
   background-position: center center;
   background-size: cover;
+  image-rendering: optimizeSpeed;
 
 }
 
 .photo-description{
   width:100%;
   height: 31.5%;
-
+  background-color: #f2f2f2;
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -1663,13 +1664,20 @@ vh */
 
 .myhidescrolledThree li {
     margin-right: 3.5%;
-    width: 82%;
-    height: 30vh;
+    /* width: 82%;
+    height: 30vh; */
+    width: 84%;
+    height: 33vh;
     display: inline-block;
     transition: width 1s height 1s;
     overflow: hidden;
+    /* margin-bottom:0vh; */
+    margin-bottom:-1.4vh;
+    /* border-radius:0px; */
+    border-radius:5px;
     /* background-color: #f442ce; */
 }
+
 
 .myhidescrolledThree li a {
     /* height: 68.5%; */
@@ -1686,7 +1694,7 @@ vh */
   background-position: center center;
   background-size: cover;
   overflow: hidden;
-
+  image-rendering: optimizeSpeed;
 }
 
 .Mn{
@@ -1744,7 +1752,15 @@ vh */
 
 }
 
+img {
+  /* display: block; */
+  /* object-fit: cover; */
+  image-rendering: optimizeSpeed;
+
+}
+
 .threeview{
+  image-rendering: optimizeSpeed;
   background-position: center center;
   background-size: cover;
   height: 15vh;
@@ -2016,7 +2032,7 @@ vh */
 }
 
 .myhidescrolledThreeN li:first-child {
-    margin-left: 7.5%;
+    margin-left: 5.0%;
 }
 .myhidescrolledThreeN li:last-child {
     margin-right: 7.5%;
@@ -2025,10 +2041,12 @@ vh */
 .myhidescrolledThreeN li {
     margin-right: 3.5%;
     width: 89%;
-    height: 30vh;
+    height: 33vh;
     display: inline-block;
     transition: width 1s height 1s;
     overflow: hidden;
+    margin-bottom: -1.4vh;
+    border-radius: 5px;
     /* background-color: #f442ce; */
 }
 
@@ -2037,4 +2055,35 @@ vh */
     height: 100%;
     width: 100%;
 
+}
+
+.greyLights{
+  background-color: #d9d9d9;
+}
+.greyLightsdefault{
+  background-color: #d9d9d9;
+}
+
+.greyLights2{
+  background-color: #d9d9d9;
+}
+
+.greyLights3{
+  background-color: #d9d9d9;
+}
+
+
+.greyLights4{
+  background: rgb(200,200,200);
+background: -webkit-linear-gradient(left, rgba(200,200,200,1) 40%, rgba(218,222,226,1) 49%, rgba(239,241,241,1) 56%);
+background: -o-linear-gradient(left, rgba(200,200,200,1) 40%, rgba(218,222,226,1) 49%, rgba(239,241,241,1) 56%);
+background: linear-gradient(to right, rgba(200,200,200,1) 40%, rgba(218,222,226,1) 49%, rgba(239,241,241,1) 56%);
+}
+
+.greyLights5{
+  background-color: #d9d9d9;
+}
+
+.greyLights6{
+  background-color: #d9d9d9;
 }

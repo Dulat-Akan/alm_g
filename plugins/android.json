@@ -29,6 +29,9 @@
     "cordova-plugin-ionic-webview": {
       "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+",
       "PACKAGE_NAME": "kz.kazpoisk.kz"
+    },
+    "cordova-sms-plugin": {
+      "PACKAGE_NAME": "kz.kazpoisk.kz"
     }
   },
   "dependent_plugins": {}

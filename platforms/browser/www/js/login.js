@@ -36,7 +36,7 @@ $$(document).on('page:init', '.page[data-name="login"]', function (e) {
                                   validation = 1;
 
                                   $(this).css("border-bottom","1px solid red");
-                                  
+
 
                               }
 
@@ -170,6 +170,9 @@ $$(document).on('page:init', '.page[data-name="login"]', function (e) {
 
   //login
 
+    $(".loggoogle").click(function(){
+      Googlelogin();
+    });
 
 
 

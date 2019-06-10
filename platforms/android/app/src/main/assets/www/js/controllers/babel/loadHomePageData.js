@@ -45,23 +45,38 @@ function getSearchData(){
   },60000);
 
 
-
-
-
+var number = 0;
+var arrayofImage = ["n.png","n2.png","n3.jpg","n4.jpg","n5.jpg","n6.png","n7.jpg","n8.jpg","n9.jpg","n10.png"];
 
   function CheckPhoto(item){
 
-      var path = 'n.jpg';
+      var path = "n.png";
 
-      //console.log(item.id);
-
-      if(item.photo_path){
-        if(item.photo_path != path){
-
-                  path = item.photo_path.photo_path[0];
-
-        }
+      if(number){
+          path = arrayofImage[number];
       }
+
+      number++;
+
+      if(number == 10){
+        number = 0;
+      }
+
+      try{
+        if(item.photo_path){
+          if(item.photo_path != path){
+
+                    if(item.photo_path.photo_path[0]){
+                      path = item.photo_path.photo_path[0];
+                    }
+
+
+          }
+        }
+      }catch(e){
+
+      }
+
 
 
       return path;
@@ -85,10 +100,12 @@ function getSearchData(){
       const baseUrl = localStorage.getItem("baseurlimg2");
 
       const content = items.map((item) =>
-          <li key={item.id}>
+          <li key={item.id}  className="greyLightsdefault">
 
             <a>
-                <div className="header-photo" onClick={(e) => this.navigateToDetail(item, e)} style={{ backgroundImage: "url("+ baseUrl + CheckPhoto(item) +")" }}></div>
+                <div className="header-photo" onClick={(e) => this.navigateToDetail(item, e)}>
+                  <img  src={baseUrl + CheckPhoto(item)} height="100%" width="100%"></img>
+                </div>
                 <div className="photo-description">
                     <div className="header-text">{item.zagolovok}</div>
                     <div className="small-text">{item.opisanie}</div>
@@ -125,7 +142,7 @@ function getSearchData(){
 
             <div col="100">
                 <div className="hot-listings">
-                  Premium listings
+                  Премиум публикации
                 </div>
             </div>
 
@@ -155,7 +172,9 @@ function getSearchData(){
           <li key={item.id}>
 
             <a>
-                <div className="header-photo" onClick={(e) => this.backAndnavigateToDetail(item, e)} style={{ backgroundImage: "url("+ baseUrl + CheckPhoto(item) +")" }}></div>
+                <div className="header-photo" onClick={(e) => this.backAndnavigateToDetail(item, e)}>
+                  <img  src={baseUrl + CheckPhoto(item)} height="100%" width="100%"></img>
+                </div>
                 <div className="photo-description">
                     <div className="header-text">{item.zagolovok}</div>
                     <div className="small-text">{item.opisanie}</div>
@@ -216,9 +235,10 @@ function getSearchData(){
       const baseUrl = localStorage.getItem("baseurlimg2");
 
       const content = items.map((item) =>
-                    <li key={item.id}>
+                    <li key={item.id}  className="greyLightsdefault">
                       <a>
-                          <div className="aChild" onClick={(e) => this.navigateToDetail(item, e)} style={{ backgroundImage: "url("+ baseUrl + CheckPhoto(item) +")" }}>
+                          <div className="aChild" onClick={(e) => this.navigateToDetail(item, e)}>
+                          <img  src={baseUrl + CheckPhoto(item)} height="100%" width="100%"></img>
                                 <div className="bChild">
                                     <div className="headT">
                                           {item.zagolovok}
@@ -240,7 +260,7 @@ function getSearchData(){
 
         <div col="100">
             <div className="hot-listings">
-              Gold listings
+              Голд публикации
             </div>
         </div>
 
@@ -269,10 +289,10 @@ function getSearchData(){
       const baseUrl = localStorage.getItem("baseurlimg2");
 
       const content = items.map((item) =>
-                    <li key={item.id}>
+                    <li key={item.id}  className="greyLightsdefault">
                       <a>
-                          <div className="aChild" onClick={(e) => this.openPhotoBrowser(item, e)} style={{ backgroundImage: "url("+ baseUrl + item.url +")" }}>
-
+                          <div className="aChild" onClick={(e) => this.openPhotoBrowser(item, e)} >
+                                <img  src={baseUrl + item.url} height="100%" width="100%"></img>
                           </div>
                       </a>
                     </li>
@@ -320,7 +340,7 @@ function getSearchData(){
     },1500);
 
   }
-
+//xx
   function ShowData(props) {
 
       const items = props.items;
@@ -328,7 +348,9 @@ function getSearchData(){
       const baseUrl = localStorage.getItem("baseurlimg2");
 
       const content = items.map((item) =>
-        <div key={item.id} className="threeview" onClick={(e) => this.navigateToDetail(item, e)} style={{ backgroundImage: "url("+ baseUrl + CheckPhoto(item) +")" }}></div>
+        <div key={item.id} className="threeview" onClick={(e) => this.navigateToDetail(item, e)} >
+            <img  src={baseUrl + CheckPhoto(item)} height="100%" width="100%"></img>
+        </div>
       );
 
       return (
@@ -339,7 +361,7 @@ function getSearchData(){
 
             </div>
         </div>
-        <div className="mainrow">{content}</div>
+        <div className="mainrow greyLights">{content}</div>
 
         </div>
       );
@@ -445,7 +467,7 @@ var latestid = 0;
 
 socket.on('homeStart', function(data){
 
-        console.log(data);
+        //console.log(data);
 
         ReactDOM.render(
           <ShowGold items={data.gold} />,
@@ -458,22 +480,27 @@ socket.on('homeStart', function(data){
         );
 
 
-        ReactDOM.render(
-          <ShowData items={data.latest} />,
-          document.getElementById('reactOb')
-        );
+        setTimeout(function(){
 
-        tempmassivdata = data.latest;
-        startcount = data.latestid;
-        searchType = "usually";
+          homestarted = 1;
+          ReactDOM.render(
+            <ShowData items={data.latest} />,
+            document.getElementById('reactOb')
+          );
 
-        console.log(startcount);
+          tempmassivdata = data.latest;
+          startcount = data.latestid;
+          searchType = "usually";
+        },4000);
+
+
+        //console.log(startcount);
 
         // ReactDOM.render(
         //   <ShowDataUpdateClass items={data.latest} />,
         //   document.getElementById('reactOb')
         // );
-
+        $(".gifloader").hide();
 
 });
 
@@ -500,6 +527,10 @@ function SendingData(data){
       }
 
       if(fixfound == 0){
+
+        if(tempmassivdata.length > 250){
+          tempmassivdata = tempmassivdata.splice(0,pagesum);
+        }
         tempmassivdata.push(data[i]);
       }
     }else{
@@ -508,6 +539,8 @@ function SendingData(data){
 
   }
 
+
+
 //  setTimeout(function(){
     ReactDOM.render(
       <ShowData items={tempmassivdata} />,
@@ -515,7 +548,7 @@ function SendingData(data){
     );
 //  },500);
 
-
+  $(".gifloader").hide();
 }
 
 function ShowUserContent(data){
@@ -526,7 +559,7 @@ function ShowUserContent(data){
       document.getElementById('userAds')
     );
   }
-
+  $(".gifloader").hide();
 }
 
 function ShowUniversalContent(data,id){
@@ -537,7 +570,7 @@ function ShowUniversalContent(data,id){
       document.getElementById(id)
     );
   }
-
+  $(".gifloader").hide();
 }
 
 function ShowSubscribeContent(data){
@@ -548,7 +581,7 @@ function ShowSubscribeContent(data){
       document.getElementById('reactSubscribe')
     );
   }
-
+  $(".gifloader").hide();
 }
 function ShowFavoriteContent(data){
 
@@ -558,7 +591,7 @@ function ShowFavoriteContent(data){
       document.getElementById('reactFavorite')
     );
   }
-
+  $(".gifloader").hide();
 }
 
 function RenderContactList(data){
@@ -568,6 +601,7 @@ function RenderContactList(data){
       document.getElementById('contactData')
     );
   }
+  $(".gifloader").hide();
 }
 
 function RenderN1(data){
@@ -577,4 +611,6 @@ function RenderN1(data){
       document.getElementById('showN1')
     );
   }
+
+  $(".gifloader").hide();
 }

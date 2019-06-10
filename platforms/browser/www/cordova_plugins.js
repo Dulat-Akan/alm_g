@@ -331,6 +331,14 @@ module.exports = [
         "clobbers": [
             "Ionic.WebView"
         ]
+    },
+    {
+        "file": "plugins/cordova-sms-plugin/www/sms.js",
+        "id": "cordova-sms-plugin.Sms",
+        "pluginId": "cordova-sms-plugin",
+        "clobbers": [
+            "window.sms"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -342,7 +350,8 @@ module.exports.metadata =
     "cordova-plugin-camera": "4.0.3",
     "cordova-plugin-file": "6.0.1",
     "cordova-plugin-whitelist": "1.3.3",
-    "cordova-plugin-ionic-webview": "4.0.1"
+    "cordova-plugin-ionic-webview": "4.0.1",
+    "cordova-sms-plugin": "1.0.0"
 }
 // BOTTOM OF METADATA
 });

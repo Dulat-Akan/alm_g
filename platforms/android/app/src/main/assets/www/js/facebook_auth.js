@@ -45,7 +45,7 @@ function sendRegistration(name,email){
                               localStorage.setItem("useridentificator","0(000)0000000");//phone
                               localStorage.setItem("useremail",result[1]);
 
-                              console.log(result[1]);
+                              //console.log(result[1]);
 
                             }
 

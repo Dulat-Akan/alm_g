@@ -2,6 +2,8 @@ var myPhotoBrowserStandalone;
 
 $$(document).on('page:beforein', '.page[data-name="n1"]', function (e) {
 
+  n1fix = 1;
+
 
 setTimeout(function(){
 
@@ -436,7 +438,7 @@ $(".insertobvn").append(templateob);
 
 //text
 
-var photo = "n.jpg";
+var photo = arrayofImage[number];
 
 var baseurlimg2 = localStorage.getItem("baseurlimg4");
 
@@ -603,7 +605,7 @@ $(".backevent").click(function(){
              this.pause();
       });
 
-
+      n1fix = 0;
 
       //mainView.router.back();
       router.back();

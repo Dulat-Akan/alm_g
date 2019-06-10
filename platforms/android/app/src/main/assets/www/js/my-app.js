@@ -152,6 +152,7 @@
               //
               // The scope of 'this' is the event. In order to call the 'receivedEvent'
               // function, we must explicitly call 'app.receivedEvent(...);'
+
               onDeviceReady: function() {
                   app.receivedEvent('deviceready');
 
@@ -159,7 +160,8 @@
 
 
 
-                  searchContacts();
+                  checkContactinDb();
+
 
                 //  myApp.popup.open('.popup-tirif');
 
@@ -178,9 +180,13 @@
               // Update DOM on a Received Event
               receivedEvent: function(id) {
                   console.log("ready_app");
+
+
+
                   //setdeviceinfo
                           //console.log(window.location.href);
                           phoneid = window.device.uuid;
+
 
                           //console.log(phoneid);
 
@@ -222,6 +228,7 @@
                           //var newval = localStorage.getItem("deviceid");
 
 
+
                           //console.log(newval);
 
                           //setdeviceinfo
@@ -257,14 +264,14 @@
                           //.popup-addcategory
                           $(".open_p").click(function(){
 
-                            var useridentificatort = localStorage.getItem("useremail");
+                            var useridentificatort = getEmail();
 
-                            if(useridentificatort == 0){
+                            if(useridentificatort == false){
                               //  mainView.router.loadPage("login.html");
                                 //router.navigate({ name: 'login' });
 
 
-                                myApp.panel.open("left");
+                                router.navigate({ name: 'login' });
                                 //myApp.panel.open(".panel-left");
                                 // $$('.panel-left').on('panel:open', function () {
                                 //     console.log('Panel left: open');
@@ -280,14 +287,14 @@
 
                           $(".cabinetclick").click(function(){
 
-                              var useridentificator = localStorage.getItem("useremail");
+                              var useridentificator = getEmail();
 
-                              if(useridentificator == 0){
+                              if(useridentificator == false){
                                 //  mainView.router.loadPage("login.html");
                                   //router.navigate({ name: 'login' });
 
 
-                                  myApp.panel.open("left");
+                                  router.navigate({ name: 'login' });
                                   //myApp.panel.open(".panel-left");
                                   // $$('.panel-left').on('panel:open', function () {
                                   //     console.log('Panel left: open');
@@ -301,12 +308,18 @@
 
                           $(".goTohometab").click(function(){
 
-                              router.navigate({ name: 'subscribe' });
+                              var mm = getEmail();
+
+                              if(mm == false){
+                                router.navigate({ name: 'login' });
+                              }else{
+                                router.navigate({ name: 'subscribe' });
+                              }
+
 
                           });
 
                           $(".subscribenavigate").click(function(){
-
                               //console.log("navigate");
                               router.navigate({ name: 'subscribe' });
 
@@ -323,6 +336,12 @@
 
                           });
 
+                          document.addEventListener("backbutton", backbutton, false);
+
+                          function backbutton(){
+                              router.back();
+                          }
+
 
 
                           $(".vhod").click(function(){
@@ -337,21 +356,20 @@
                           });
 
 
-
-
-
                                 //insertob
 
-                              //  firstviewob();
 
                             //  getHomeData();
 
-
                                 setTimeout(function(){
                                     ////vstavka platezhnoi informasii proverka
+
                                     checkuserid();
                                     load_all_info();
                                 },3000);
+
+
+
 
 
 
@@ -400,260 +418,11 @@
 
           });
 
-//google login
-          function login() {
-                window.plugins.googleplus.login(
-                    {
-                      'webClientId': '818015353741-m97ohmk6tpqf067gcgff0kb3i6t4k8go.apps.googleusercontent.com',
-                    },
-                    function (obj) {
-                      console.log(obj.imageUrl);
-                      console.log(obj.displayName);
-                      console.log(obj.email);
-
-                    },
-                    function (msg) {
-                      console.log(msg);
-                    }
-                );
-              }
-
-          function savefinding(){
-
-              if(checkuserauth() == false){
-
-                  router.navigate({ name: 'login' });
-                  // myApp.dialog.prompt('Для продолжения работы введите ваш "EMAIL" ','KAZPOISK', function (email) {
-                  //
-                  //     if(checkemail(email) == true){
-                  //       myApp.dialog.alert('Большое спасибо ваш EMAIL ' + email + ' зарегистрирован в нашей системе и будет использоваться для оповещений о новых результатах по вашим запросам','KAZPOISK');
-                  //       auto_registration(email);
-                  //     }else{
-                  //       myApp.dialog.alert(' пожалуйста введите правильный EMAIL ','KAZPOISK');
-                  //       savefinding();
-                  //     }
-                  //
-                  // });
-                }
-
-          }
-
-          function auto_registration(email){
-
-
-                        var newdeviceid = localStorage.getItem("deviceid");
-
-
-                                if(newdeviceid == "null"){
-                                  return false;
-                                }
-
-                                if(!newdeviceid){
-                                  return false;
-                                }
-
-                                if(newdeviceid == null){
-                                  return false;
-                                }
-
-                                var sendnewregistration = {
-
-                                          "deviceid":newdeviceid,
-                                          "email":email
-
-                                      }
-
-                                    //  console.log(userid);
-
-
-                                         var burl = localStorage.getItem("baseurl");
-
-                                        $.ajax({
-
-                                              "type":"GET",
-                                              "url": burl + "auto_auth_deviceid/",    /*random obyav*/
-
-                                              dataType: "jsonp",
-                                              crossDomain: true,
-                                              "data": sendnewregistration,
-
-                                              "success":successautoreg,
-                                              "error":errorregistration
-
-                                              });
-
-
-                                        function successautoreg(result){
-
-
-                                          //console.log(result);
-                                          auto_auth(result);
-
-
-
-
-                                        }
-
-                                        function errorregistration(){
-
-
-                                        }
-
-          }
-
-
-          function auto_auth(result){
-
-              console.log(result);
-              if(result[0] == false){
-
-                  //zapis v telefon
-                  //new registration
-                  savefinding();
-
-              }else if(result[0] == true){
-
-
-                  $(".hide_reg").hide();
-                  $(".hide_login").hide();
-                  $(".show_vihod").show();
-                  $(".hide_cabinet").show();
-
-                  localStorage.setItem("role",result[3]);
-                  localStorage.setItem("useridentificator",result[2]);//phone
-                  localStorage.setItem("useremail",result[1]);
-
-              }else if(result[1] == "successupdate"){
-
-                  $(".hide_reg").hide();
-                  $(".hide_login").hide();
-                  $(".show_vihod").show();
-                  $(".hide_cabinet").show();
-
-                  localStorage.setItem("role",result[3]);
-                  localStorage.setItem("useridentificator",result[3]);//phone
-                  localStorage.setItem("useremail",result[2]);
-
-              }else if(result[1] == "complit_registration"){
-
-                  $(".hide_reg").hide();
-                  $(".hide_login").hide();
-                  $(".show_vihod").show();
-                  $(".hide_cabinet").show();
-
-                  localStorage.setItem("role",result[3]);
-                  localStorage.setItem("useridentificator",result[3]);//phone
-                  localStorage.setItem("useremail",result[2]);
-
-              }else if(result[1] == "deviceid_not_inserted"){
-
-                  //zaprosit parol
-                  autocheckpassword(result[2]);
-
-              }else if(result[0] == "checking_email"){
-
-                  $(".hide_reg").hide();
-                  $(".hide_login").hide();
-                  $(".show_vihod").show();
-                  $(".hide_cabinet").show();
-
-                  localStorage.setItem("role",result[3]);
-                  localStorage.setItem("useridentificator",result[3]);//phone
-                  localStorage.setItem("useremail",result[2]);
-
-              }
-
-          }
-
-          function newrequest(array,path){
-
-                var burl = localStorage.getItem("baseurl");
-
-                    $.ajax({
-
-                          "type":"GET",
-                          "url": burl + path + "/",    /*random obyav*/
-
-                          dataType: "jsonp",
-                          crossDomain: true,
-                          "data": array,
-
-                          "success":success,
-                          "error":errorreg
-
-                          });
-
-
-                    function success(result){
-
-                      //console.log(result);
-                      if(result[0] == "checking_email"){
-                          if(result[1] == 5){
-
-                              //console.log(result);
-                              //vse ok
-                              auto_auth(result);
-                              myApp.dialog.alert('Благодарю за авторизацию )) .. теперь вы можете продолжить работу ','Kazpoisk');
-                          }else{
-
-                              myApp.dialog.alert('введенный пароль неправильный .. повторите пожалуйста ввод ','Kazpoisk');
-                              autocheckpassword(result[2]);
-                          }
-                      }
-
-                    }
-
-                    function errorreg(){
-
-                        return false;
-
-                    }
-
-          }
-
-          function autocheckpassword(email){
-
-                var ndeviceid = localStorage.getItem("deviceid");
-
-                if(!ndeviceid){
-                  return false;
-                }
-
-                if(ndeviceid == null){
-                  return false;
-                }
-
-                if(ndeviceid == "null"){
-                  return false;
-                }
-
-                if(checkuserauth() == false){
-                  myApp.dialog.prompt('Введите пароль от вашей почты ' + email + ' ( проверка подлинности владельца почтового ящика)','KAZPOISK', function (password) {
-
-                      var sendrequest = {
-                          "email":email,
-                          "password":password,
-                          "deviceid":ndeviceid,
-                      }
-
-                      console.log(sendrequest);
-                      var result = newrequest(sendrequest,"autocheckpasswordapp");
-
-
-
-
-
-                  });
-                }
-
-          }
 
 
           var checkautoauth = 0;
 
-          function firstviewob(){
-
-            //console.log("firstviewob");
+          function checkAuthorize(){
 
                         var userid = localStorage.getItem("useridentificator");
                         var phid = localStorage.getItem("deviceid");
@@ -690,28 +459,18 @@
 
                                         function kxg(result){
 
-                                          //console.log(result[3]); //auth data
+                                        //  console.log(result); //auth data
 
                                           if(checkautoauth == 0){
-                                            auto_auth(result[4]);
+
                                             checkautoauth = 1;
                                           }
 
                                           //$('.loader-hide').css("display","none");
                                           $(".gifloader").hide();
-                                          //insertviewob(result);
-
-                                          pageindex = result[3];
-                                          //pageindex = 40;
-
-                                          //xx
-                                          console.log(pageindex);
-
-                                          console.log(result[5]['appversion']);
 
                                           var dbappversion = result[5]['appversion'];
 
-                                          console.log(navigator.userAgent);
                                           if(appversion != dbappversion){
                                               myApp.dialog.alert('приложение нуждается в обновлении! Пожалуйста обновите приложение. после перенаправления нажмите обновить(UPDATE)','Kazpoisk');
 
@@ -738,11 +497,41 @@
                                         function errorfuncg(){
 
                                           $('.loader-hide').css("display","none");
-                                          firstviewob();
+
+
                                         }
 
 
           }
+
+
+          checkAuthorize();
+
+          const config = {
+              rootMargin: '0px 0px 50px 0px',
+              threshold: 0
+            };
+
+            // register the config object with an instance
+            // of intersectionObserver
+            let observer = new IntersectionObserver(function(entries, self) {
+              // iterate over each entry
+              entries.forEach(entry => {
+                // process just the images that are intersecting.
+                // isIntersecting is a property exposed by the interface
+                if(entry.isIntersecting) {
+                  // custom function that copies the path to the img
+                  // from data-src to src
+                  var datasrc = entry.target.getAttribute("data-src");
+                  entry.target.setAttribute("src", datasrc);
+                  entry.target.removeAttribute("data-src");
+                  // console.log(entry.target);
+                  // preloadImage();
+                  // the image is now in place, stop watching
+                  self.unobserve(entry.target);
+                }
+              });
+            }, config);
 
 
           //check user
@@ -1711,11 +1500,11 @@
           //localStorage.setItem("baseurlimg4","http://ls2.kz/assets/entry/uploads/");
 
 
-           localStorage.setItem("baseurl","http://www.kazpoisk.kz/public_control/");
-           localStorage.setItem("baseurlimg","http://www.kazpoisk.kz/assets/img/");
-           localStorage.setItem("baseurlimg2","http://www.kazpoisk.kz/assets/entry/uploads/");
-           localStorage.setItem("baseurlimg3","http://www.kazpoisk.kz/assets/entry/uploadsv/");
-           localStorage.setItem("baseurlimg4","http://www.kazpoisk.kz/assets/entry/uploads/");
+           localStorage.setItem("baseurl","https://kazpoisk.kz/public_control/");
+           localStorage.setItem("baseurlimg","https://kazpoisk.kz/assets/img/");
+           localStorage.setItem("baseurlimg2","https://kazpoisk.kz/assets/entry/uploads/");
+           localStorage.setItem("baseurlimg3","https://kazpoisk.kz/assets/entry/uploadsv/");
+           localStorage.setItem("baseurlimg4","https://kazpoisk.kz/assets/entry/uploads/");
 
 
           //opredelenie avtorizovan li polzovatel
@@ -2839,17 +2628,25 @@
           var searchType = "usually";
           var clearItems = 0;
           var startcount = 0;
-          var pagesum = 40;
+          var pagesum = 36;
           var searchSqlrequest = "";
           var processSendCount = 0;
           var sendsearchstring = "";
-
+          var homestarted = 0;
 
             // Attach 'infinite' event handler
             $$('.infinite-scroll-content').on('infinite', function () {
               // Exit, if loading in progress
 
+              $(".gifloader").show();
               if(processSendCount == 1){
+
+                $(".gifloader").hide();
+                return false;
+              }
+
+              if(homestarted == 0){
+                $(".gifloader").hide();
                 return false;
               }
 
@@ -2877,13 +2674,26 @@
               processSendCount = 1;
               fixedsearch = 2;
               // Emulate 1s loading
+              offLoader();
+
+
 
             });
 
+            function offLoader(){
+
+              setTimeout(function(){
+                  $(".gifloader").hide();
+              },7000);
+
+            }
+
             socket.on('getCountData', function(data){
               processSendCount = 0;
-              console.log(data.latestid);
+              //console.log(data.latestid);
+              $(".gifloader").hide();
               startcount = data.latestid;
               SendingData(data.data);
+
                 //console.log(data);
             });

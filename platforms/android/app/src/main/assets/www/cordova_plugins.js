@@ -305,6 +305,22 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "Ionic.WebView"
       ]
+    },
+    {
+      "id": "cordova-sms-plugin.Sms",
+      "file": "plugins/cordova-sms-plugin/www/sms.js",
+      "pluginId": "cordova-sms-plugin",
+      "clobbers": [
+        "window.sms"
+      ]
+    },
+    {
+      "id": "cordova-plugin-android-permissions.Permissions",
+      "file": "plugins/cordova-plugin-android-permissions/www/permissions.js",
+      "pluginId": "cordova-plugin-android-permissions",
+      "clobbers": [
+        "cordova.plugins.permissions"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -314,6 +330,8 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-googleplus": "7.0.2",
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-whitelist": "1.3.3",
-    "cordova-plugin-ionic-webview": "4.0.1"
+    "cordova-plugin-ionic-webview": "4.0.1",
+    "cordova-sms-plugin": "1.0.0",
+    "cordova-plugin-android-permissions": "1.0.0"
   };
 });

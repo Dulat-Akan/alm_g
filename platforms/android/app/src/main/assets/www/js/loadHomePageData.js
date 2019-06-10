@@ -37,18 +37,33 @@ setInterval(function () {
   //  },10000);
 }, 60000);
 
+var number = 0;
+var arrayofImage = ["n.png", "n2.png", "n3.jpg", "n4.jpg", "n5.jpg", "n6.png", "n7.jpg", "n8.jpg", "n9.jpg", "n10.png"];
+
 function CheckPhoto(item) {
 
-  var path = 'n.jpg';
+  var path = "n.png";
 
-  //console.log(item.id);
-
-  if (item.photo_path) {
-    if (item.photo_path != path) {
-
-      path = item.photo_path.photo_path[0];
-    }
+  if (number) {
+    path = arrayofImage[number];
   }
+
+  number++;
+
+  if (number == 10) {
+    number = 0;
+  }
+
+  try {
+    if (item.photo_path) {
+      if (item.photo_path != path) {
+
+        if (item.photo_path.photo_path[0]) {
+          path = item.photo_path.photo_path[0];
+        }
+      }
+    }
+  } catch (e) {}
 
   return path;
 }
@@ -71,13 +86,17 @@ function ShowPremium(props) {
   var content = items.map(function (item) {
     return React.createElement(
       "li",
-      { key: item.id },
+      { key: item.id, className: "greyLightsdefault" },
       React.createElement(
         "a",
         null,
-        React.createElement("div", { className: "header-photo", onClick: function onClick(e) {
-            return _this.navigateToDetail(item, e);
-          }, style: { backgroundImage: "url(" + baseUrl + CheckPhoto(item) + ")" } }),
+        React.createElement(
+          "div",
+          { className: "header-photo", onClick: function onClick(e) {
+              return _this.navigateToDetail(item, e);
+            } },
+          React.createElement("img", { src: baseUrl + CheckPhoto(item), height: "100%", width: "100%" })
+        ),
         React.createElement(
           "div",
           { className: "photo-description" },
@@ -144,7 +163,7 @@ function ShowPremium(props) {
       React.createElement(
         "div",
         { className: "hot-listings" },
-        "Premium listings"
+        "\u041F\u0440\u0435\u043C\u0438\u0443\u043C \u043F\u0443\u0431\u043B\u0438\u043A\u0430\u0446\u0438\u0438"
       )
     ),
     React.createElement(
@@ -179,9 +198,13 @@ function ShowUniversal(props) {
       React.createElement(
         "a",
         null,
-        React.createElement("div", { className: "header-photo", onClick: function onClick(e) {
-            return _this2.backAndnavigateToDetail(item, e);
-          }, style: { backgroundImage: "url(" + baseUrl + CheckPhoto(item) + ")" } }),
+        React.createElement(
+          "div",
+          { className: "header-photo", onClick: function onClick(e) {
+              return _this2.backAndnavigateToDetail(item, e);
+            } },
+          React.createElement("img", { src: baseUrl + CheckPhoto(item), height: "100%", width: "100%" })
+        ),
         React.createElement(
           "div",
           { className: "photo-description" },
@@ -277,7 +300,7 @@ function ShowGold(props) {
   var content = items.map(function (item) {
     return React.createElement(
       "li",
-      { key: item.id },
+      { key: item.id, className: "greyLightsdefault" },
       React.createElement(
         "a",
         null,
@@ -285,7 +308,8 @@ function ShowGold(props) {
           "div",
           { className: "aChild", onClick: function onClick(e) {
               return _this3.navigateToDetail(item, e);
-            }, style: { backgroundImage: "url(" + baseUrl + CheckPhoto(item) + ")" } },
+            } },
+          React.createElement("img", { src: baseUrl + CheckPhoto(item), height: "100%", width: "100%" }),
           React.createElement(
             "div",
             { className: "bChild" },
@@ -314,7 +338,7 @@ function ShowGold(props) {
       React.createElement(
         "div",
         { className: "hot-listings" },
-        "Gold listings"
+        "\u0413\u043E\u043B\u0434 \u043F\u0443\u0431\u043B\u0438\u043A\u0430\u0446\u0438\u0438"
       )
     ),
     React.createElement(
@@ -347,13 +371,17 @@ function ShowN1(props) {
   var content = items.map(function (item) {
     return React.createElement(
       "li",
-      { key: item.id },
+      { key: item.id, className: "greyLightsdefault" },
       React.createElement(
         "a",
         null,
-        React.createElement("div", { className: "aChild", onClick: function onClick(e) {
-            return _this4.openPhotoBrowser(item, e);
-          }, style: { backgroundImage: "url(" + baseUrl + item.url + ")" } })
+        React.createElement(
+          "div",
+          { className: "aChild", onClick: function onClick(e) {
+              return _this4.openPhotoBrowser(item, e);
+            } },
+          React.createElement("img", { src: baseUrl + item.url, height: "100%", width: "100%" })
+        )
       )
     );
   });
@@ -399,7 +427,7 @@ function backAndnavigateToDetail(item, e) {
     router.navigate({ name: 'n1' });
   }, 1500);
 }
-
+//xx
 function ShowData(props) {
   var _this5 = this;
 
@@ -408,9 +436,13 @@ function ShowData(props) {
   var baseUrl = localStorage.getItem("baseurlimg2");
 
   var content = items.map(function (item) {
-    return React.createElement("div", { key: item.id, className: "threeview", onClick: function onClick(e) {
-        return _this5.navigateToDetail(item, e);
-      }, style: { backgroundImage: "url(" + baseUrl + CheckPhoto(item) + ")" } });
+    return React.createElement(
+      "div",
+      { key: item.id, className: "threeview", onClick: function onClick(e) {
+          return _this5.navigateToDetail(item, e);
+        } },
+      React.createElement("img", { src: baseUrl + CheckPhoto(item), height: "100%", width: "100%" })
+    );
   });
 
   return React.createElement(
@@ -423,7 +455,7 @@ function ShowData(props) {
     ),
     React.createElement(
       "div",
-      { className: "mainrow" },
+      { className: "mainrow greyLights" },
       content
     )
   );
@@ -545,25 +577,29 @@ var latestid = 0;
 
 socket.on('homeStart', function (data) {
 
-  console.log(data);
+  //console.log(data);
 
   ReactDOM.render(React.createElement(ShowGold, { items: data.gold }), document.getElementById('reactGold'));
 
   ReactDOM.render(React.createElement(ShowPremium, { items: data.premium }), document.getElementById('reactPremium'));
 
-  ReactDOM.render(React.createElement(ShowData, { items: data.latest }), document.getElementById('reactOb'));
+  setTimeout(function () {
 
-  tempmassivdata = data.latest;
-  startcount = data.latestid;
-  searchType = "usually";
+    homestarted = 1;
+    ReactDOM.render(React.createElement(ShowData, { items: data.latest }), document.getElementById('reactOb'));
 
-  console.log(startcount);
+    tempmassivdata = data.latest;
+    startcount = data.latestid;
+    searchType = "usually";
+  }, 4000);
+
+  //console.log(startcount);
 
   // ReactDOM.render(
   //   <ShowDataUpdateClass items={data.latest} />,
   //   document.getElementById('reactOb')
   // );
-
+  $(".gifloader").hide();
 });
 
 function SendingData(data) {
@@ -584,6 +620,10 @@ function SendingData(data) {
       }
 
       if (fixfound == 0) {
+
+        if (tempmassivdata.length > 250) {
+          tempmassivdata = tempmassivdata.splice(0, pagesum);
+        }
         tempmassivdata.push(data[i]);
       }
     } else {
@@ -595,6 +635,7 @@ function SendingData(data) {
   ReactDOM.render(React.createElement(ShowData, { items: tempmassivdata }), document.getElementById('reactOb'));
   //  },500);
 
+  $(".gifloader").hide();
 }
 
 function ShowUserContent(data) {
@@ -602,6 +643,7 @@ function ShowUserContent(data) {
   if (data.length > 0) {
     ReactDOM.render(React.createElement(ShowUniversal, { items: data, desc: 'User suggestion' }), document.getElementById('userAds'));
   }
+  $(".gifloader").hide();
 }
 
 function ShowUniversalContent(data, id) {
@@ -609,6 +651,7 @@ function ShowUniversalContent(data, id) {
   if (data.length > 0) {
     ReactDOM.render(React.createElement(ShowUniversal, { items: data, desc: 'User subscribers' }), document.getElementById(id));
   }
+  $(".gifloader").hide();
 }
 
 function ShowSubscribeContent(data) {
@@ -616,22 +659,27 @@ function ShowSubscribeContent(data) {
   if (data.length > 0) {
     ReactDOM.render(React.createElement(ShowData, { items: data }), document.getElementById('reactSubscribe'));
   }
+  $(".gifloader").hide();
 }
 function ShowFavoriteContent(data) {
 
   if (data.length > 0) {
     ReactDOM.render(React.createElement(ShowData, { items: data }), document.getElementById('reactFavorite'));
   }
+  $(".gifloader").hide();
 }
 
 function RenderContactList(data) {
   if (data.length > 0) {
     ReactDOM.render(React.createElement(ContactData, { items: data }), document.getElementById('contactData'));
   }
+  $(".gifloader").hide();
 }
 
 function RenderN1(data) {
   if (data.length > 0) {
     ReactDOM.render(React.createElement(ShowN1, { items: data }), document.getElementById('showN1'));
   }
+
+  $(".gifloader").hide();
 }

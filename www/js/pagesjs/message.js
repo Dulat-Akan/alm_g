@@ -74,7 +74,9 @@ $$(document).on('page:beforein', '.page[data-name="message"]', function (e) {
     // Return focus to area
     messagebar.focus();
 
-    var avatar = "https://www.w3schools.com/howto/img_avatar.png";
+
+
+    var avatar = getImage();
     var name = myemail;
 
     if(myemail == toEmail){

@@ -1,6 +1,46 @@
-setInterval(function(){
-  checkDiv_elem();
-},1000);
+// setInterval(function(){
+//   checkDiv_elem();
+//   changeEffects();
+// },1000);
+
+// setInterval(function(){
+//
+//   const imgs = document.querySelectorAll('[data-src]');
+//   imgs.forEach(img => {
+//     observer.observe(img);
+//   });
+//
+// },2000);
+
+
+var startClass = 0;
+var n1fix = 0;
+function changeEffects(){
+
+  var arClass = ["greyLights","greyLights2","greyLights3","greyLights4","greyLights5","greyLights6"]
+  var elm = $(".mainrow");
+  var elm2 = $(".greyLightsdefault");
+
+  if(startClass > 0){
+    elm.removeClass(arClass[startClass - 1]);
+    if(n1fix == 1){
+      elm2.removeClass(arClass[startClass - 1]);
+    }
+
+  }
+  elm.addClass(arClass[startClass]);
+  if(n1fix == 1){
+    elm2.addClass(arClass[startClass]);
+  }
+
+
+  startClass++;
+
+  if(startClass == 7){
+    startClass = 0;
+  }
+
+}
 
 function checkElem(name,positionX,positionY,pointName,element){
 
