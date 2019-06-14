@@ -174,6 +174,9 @@ $$(document).on('page:init', '.page[data-name="login"]', function (e) {
       Googlelogin();
     });
 
+    if(platformName == "browser"){
+      $(".customBtn").hide();
+    }
 
 
   });

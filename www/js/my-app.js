@@ -128,7 +128,7 @@
 
 
 
-        
+
 
 
           function onAppReady() {
@@ -276,9 +276,12 @@
                                 //router.navigate({ name: 'login' });
 
                                 if(platformName == "browser"){
-                                  router.navigate({ name: 'login' });
+
+                                  myApp.panel.open("left",true);
+
                                 }else{
-                                  myApp.panel.open(".panel-left");
+
+                                  router.navigate({ name: 'login' });
                                 }
 
                                 //
@@ -296,17 +299,17 @@
 
                           $(".cabinetclick").click(function(){
 
-                              var useridentificator = getEmail();
+                              var useridentificatort = getEmail();
 
-                              if(useridentificator == false){
+                              if(useridentificatort == false){
                                 //  mainView.router.loadPage("login.html");
                                   //router.navigate({ name: 'login' });
                                   if(platformName == "browser"){
-                                    myApp.panel.open(".panel-left");
+                                    myApp.panel.open("left",true);
                                   }else{
                                     router.navigate({ name: 'login' });
                                   }
-                                  //myApp.panel.open(".panel-left");
+                                  //myApp.panel.open("left",true);
                                   // $$('.panel-left').on('panel:open', function () {
                                   //     console.log('Panel left: open');
                                   //   });
@@ -324,7 +327,7 @@
                               if(mm == false){
 
                                 if(platformName == "browser"){
-                                  myApp.panel.open(".panel-left");
+                                  myApp.panel.open("left",true);
                                 }else{
                                   router.navigate({ name: 'login' });
                                 }

@@ -15,23 +15,31 @@
 
 
 
+
                function Googlelogin() {
-                     window.plugins.googleplus.login(
-                         {
-                           'webClientId': '818015353741-m97ohmk6tpqf067gcgff0kb3i6t4k8go.apps.googleusercontent.com',
-                         },
-                         function (obj) {
-                           console.log(obj.imageUrl);
-                           console.log(obj.displayName);
-                           console.log(obj.email);
 
-                           sendTogoogleAuth(obj.displayName,obj.email,obj.imageUrl);
+                 console.log(platformName);
 
-                         },
-                         function (msg) {
-                           console.log(msg);
-                         }
-                     );
+                    if(platformName != "browser"){
+
+                         window.plugins.googleplus.login(
+                             {
+                               'webClientId': '818015353741-m97ohmk6tpqf067gcgff0kb3i6t4k8go.apps.googleusercontent.com',
+                             },
+                             function (obj) {
+                               console.log(obj.imageUrl);
+                               console.log(obj.displayName);
+                               console.log(obj.email);
+
+                               sendTogoogleAuth(obj.displayName,obj.email,obj.imageUrl);
+
+                             },
+                             function (msg) {
+                               console.log(msg);
+                             }
+                         );
+
+                     }
                    }
 
 
@@ -49,7 +57,7 @@
 
                    socket.on('googleAuth', function(data){
 
-                          console.log(data);
+                          //console.log(data);
                           if((data.user == "olduser") || (data.user == "newuser")){
 
                                 $(".hide_reg").hide();
@@ -66,6 +74,8 @@
                                   localStorage.setItem("useremail",data.email);
                                   localStorage.setItem("image_url",data.image_url);
 
+                                  sendNotification("Вы вошли как " + data.email + " Большое спасибо!");
+
                                   router.back();
 
                                 }
@@ -76,10 +86,6 @@
 
                            });
 
-                           $(".browserlogin").click(function(){
 
-                             $("#my-signin2").trigger('click');
-
-                           });
 
                            //

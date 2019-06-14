@@ -17,6 +17,42 @@
     <!-- google auth new -->
 
     <!-- google auth new -->
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    <script>
+  var googleUser = {};
+  var startApp = function() {
+    gapi.load('auth2', function(){
+      // Retrieve the singleton for the GoogleAuth library and set up the client.
+      auth2 = gapi.auth2.init({
+        client_id: '791144738416-atva1aq90r1qb0l7opn56d0tm85otc6j.apps.googleusercontent.com',
+        cookiepolicy: 'single_host_origin',
+        // Request scopes in addition to 'profile' and 'email'
+        //scope: 'additional_scope'
+      });
+
+
+        attachSignin(document.getElementById('customBtn'));
+
+
+    });
+  };
+
+  function attachSignin(element) {
+
+    console.log(element.id);
+    auth2.attachClickHandler(element, {},
+        function(googleUser) {
+
+
+          var profile = googleUser.getBasicProfile();
+
+          sendTogoogleAuth(profile.getName(),profile.getEmail(),profile.getImageUrl());
+
+        }, function(error) {
+          //console.log(JSON.stringify(error, undefined, 2));
+        });
+  }
+  </script>
 
     <!-- <meta name="google-signin-client_id" content="818015353741-m97ohmk6tpqf067gcgff0kb3i6t4k8go.apps.googleusercontent.com"> -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -39,6 +75,7 @@
     <link rel="stylesheet" href="css/my-app.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130878784-1"></script>
     <script>
@@ -111,55 +148,12 @@
                   <div class="item-inner left-right-padding">
                     <div class="item-title">
 
-                      <div id="customBtn" class="panel-close" ></div>
+                      <button id="customBtn" class="button button-small color-red panel-close">вход через Google</button>
                       <!-- <a href="#"  style="color: black;font-size: 14px;" onclick="signOut();" class="panel-close button">выход</a> -->
 
                     </div>
                     </div>
                   </div>
-
-                  <script src="https://apis.google.com/js/api:client.js"></script>
-
-                  <script>
-                  var googleUser = {};
-                  var startApp = function() {
-                    gapi.load('auth2', function(){
-                      // Retrieve the singleton for the GoogleAuth library and set up the client.
-                      auth2 = gapi.auth2.init({
-
-                         // client_id: '818015353741-m97ohmk6tpqf067gcgff0kb3i6t4k8go.apps.googleusercontent.com',
-                         client_id: '791144738416-atva1aq90r1qb0l7opn56d0tm85otc6j.apps.googleusercontent.com',
-
-                        cookiepolicy: 'single_host_origin',
-                        // Request scopes in addition to 'profile' and 'email'
-                        //scope: 'additional_scope'
-                      });
-                      attachSignin(document.getElementById('customBtn'));
-                    });
-                  };
-
-                  function attachSignin(element) {
-                    //console.log(element.id);
-                    auth2.attachClickHandler(element, {},
-                        function(googleUser) {
-
-                              var profile = googleUser.getBasicProfile();
-
-                              //console.log(profile);
-
-                              localStorage.setItem("email",profile.getEmail());
-                              localStorage.setItem("name",profile.getName());
-                              localStorage.setItem("image_url",profile.getImageUrl());
-                              localStorage.setItem("status","enable");
-                              localStorage.setItem("login","enable");
-
-
-
-                        }, function(error) {
-                          //alert(JSON.stringify(error, undefined, 2));
-                        });
-                  }
-                  </script>
 
               </li>
 

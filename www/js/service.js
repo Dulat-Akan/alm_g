@@ -786,20 +786,29 @@ socket.on('check_ob_action', function(data){
       }
     }
 
-    var checkauth = getEmail();
+
 
     //console.log(checkauth);
-    if(checkauth == false){
+
 
       setTimeout(function(){
+
+        var checkauth = getEmail();
+
+        if(checkauth == false){
+
         if(platformName == "browser"){
-          myApp.panel.open(".panel-left");
+
+          myApp.panel.open("left",true);
+
         }else{
           router.navigate({ name: 'login' });
         }
+
+        }
       },2000);
 
-    }
+
 
 
     function getImage(){

@@ -150,4 +150,13 @@ $$(document).on('page:init', '.page[data-name="registration"]', function (e) {
 
                   });
 
+
+                  $(".loggoogle").click(function(){
+                    Googlelogin();
+                  });
+
+                  if(platformName == "browser"){
+                    $(".customBtn").hide();
+                  }
+
 });
