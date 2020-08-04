@@ -1,0 +1,187 @@
+
+    <div class="views">
+      <!-- Your main view, should have "view-main" class-->
+      <div class="view view-main">
+        <!-- Top Navbar-->
+         <!--  <div class="pages"> -->
+        <div data-page="registration" class="page toolbar-fixed navbar-fixed">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="left">
+                <a href="#" class="back link">
+                  <i class="icon icon-back"></i>
+                  <span>back</span>
+                 </a>
+              </div>
+              <div class="center sliding">Signing in</div>
+              <div class="right">
+                <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="page-content login-screen-content mbg" style="overflow-x:hidden;height:100%;margin:0px;padding:0px; overflow-y: scroll;" id="regr">
+            <a href="#" style="color:white" class="back link"><i class="icon f7-icons size-22" style="position:absolute;left:5px; margin: 10px">chevron_left</i></a>
+            <div class="content-block-title">
+              <div style="width: 36%; margin-left: 29%; padding: 0px;position: relative;padding-bottom: 36% ">
+                <div style="width:100%;padding-left:11%;padding-top:11%; border-radius: 100%; height: 100%; position:absolute; text-align: center; background: #46887c;  /* fallback for old browsers */background: -webkit-linear-gradient(to right, #47897d, #408076);">
+                    <div style="width:80%; border-radius: 80%; height: 80%; text-align: center; background: #232526;  /* fallback for old browsers */ background: #1c1b17; position: absolute; ">
+                      <img style="height: 60%; margin-top: 20%" src="img/mlogo.png">
+                    </div>
+                </div>
+              </div>
+
+              <div style="text-align: center; margin-top: 40px">
+                <p style="display:inline;color: #5ca595;font-size: 20px;font-weight: bold; "> REGISTRATION</p>
+                <div style="display: none;" class="progressbar-infinite color-multi"></div>
+                <div class="login-screen-title"></div>
+                <form id="form-registration">
+                  <div class="list-block">
+                    <ul>
+                    <li>
+                        <div style="width: 100%">
+                            <div style="width: 22%; height:40px; padding-left:15px;position:absolute; left:0px; border:1px; line-height:40px;" class="loginf">
+
+                              <a href="#" class="item-link smart-select loginf" data-open-in="picker" data-picker-height="200px">
+                                <i class="icon f7-icons size-22"  style="font-size: 22px;float:left;top:9px; ">phone_fill</i>
+                                <select name="phonec" id="phonecr">
+                                  <option value="+7" selected class="loginf">+7 Kazakhstan</option>
+                                  <option value="+7" class="loginf">+7 Russia</option>
+                                  <option value="+90" class="loginf">+90 Turkey</option>
+                                  <option value="+91" class="loginf">+91 Indiya</option>
+                                  <option value="+996" class="loginf">+996 Kyrgyzstan</option>
+                                  <option value="+998" class="loginf">+998 Uzbekistan</option>
+                                </select>
+                                <div class="item-content" style="padding-left: 0px !important; padding-right: 0px !important; max-width: 2em !important">
+                                    <div  id="pcsr" style="position: absolute; top:0px; left:40px">+7</div>
+                                </div>
+                              </a>
+                            </div>
+                            <div  style="width: 67%; height:40px; padding-left:15px; position:absolute;margin-left: 29%;" class="loginf"><input type="text" required  name="phone" id ="phoner" placeholder="phone number" class="loginf"></div>
+                      <!-- <div class="item-content loginf" style="height: 20px !important;">
+                      <div class="item-media"><i class="icon f7-icons size-22"  style="font-size: 22px">world_fill</i></div>
+                            <select name="phonec" id="phonec" style="color: white; padding-left: 10px; font-size: 18px " class="loginf">
+                              <option value="+7" class="loginf">+7 Kazakhstan</option>
+                              <option value="+7" class="loginf">+7 Russia</option>
+                              <option value="+90" class="loginf">+90 Turkey</option>
+                              <option value="+91" class="loginf">+91 Indiya</option>
+                            </select>
+                      </div> -->
+                    </li>
+                  </ul>
+                  <br>
+                  <br>
+                    <!-- <ul>
+                      <li class="item-content loginf" style="height: 20px !important;">
+                        <div class="item-media"><i class="icon f7-icons size-22" style="font-size: 22px">phone_round_fill</i></div>
+                        <div class="item-inner">
+                          <div class="item-input">
+                            <input type="text" required pattern="\+[0-9]{11}" id="phonen" name="phone" autocomplete="on" placeholder="phone number">
+                          </div>
+                        </div>
+                      </li>
+                    </ul> -->
+                    <hr style="background-color: #387a71;
+                    color: #387a71;
+                    border: none;
+                    height: 1px;margin-top: 10px">
+                    <ul>
+                      <li class="item-content loginf" style="height: 20px !important;">
+                        <div class="item-media"><i class="icon f7-icons size-22" style="font-size: 22px">email_fill</i></div>
+                        <div class="item-inner">
+                          <div class="item-input">
+                            <input type="email" name="email" autocomplete="off" required placeholder="email" id="emailr">
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                    <hr style="background-color: #387a71;
+                    color: #387a71;
+                    border: none;
+                    height: 1px;margin-top: 5px">
+                    <ul>
+                      <li class="item-content loginf" style="height: 20px !important;">
+                        <div class="item-media"><i class="icon f7-icons size-22" style="font-size: 22px">lock_fill</i></div>
+                        <div class="item-inner">
+                          <div class="item-input">
+                            <input type="password" id="password1" required name="password" placeholder="password" >
+                          </div><i  class="icon f7-icons" id = "eye1" style="color: black">eye_fill</i>
+                        </div>
+                      </li>
+                    </ul>
+                    <hr style="background-color: #387a71;
+                    color: #387a71;
+                    border: none;
+                    height: 1px;margin-top: 5px">
+                    <ul>
+                      <li class="item-content loginf" style="height: 20px !important;">
+                        <div class="item-media"><i class="icon f7-icons size-22" style="font-size: 22px">lock_fill</i></div>
+                        <div class="item-inner">
+                          <div class="item-input">
+                            <input type="password" id="password2" required name="password2" placeholder="repeat password">
+                          </div><i  class="icon f7-icons" id = "eye2" style="color: black">eye_fill</i>
+                        </div>
+                      </li>
+                    </ul>
+                    <ul>
+                    <li>
+                    <hr style="background-color: #387a71; color: #387a71; border: none; height: 1px;margin-top: 5px">                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label" style="color: white; font-size:14px; width: 180px"><a  href="http://almagames.kz/license/users" class="external" style="color:white;">Accept license</a></div>
+                    <div class="item-input" style="text-align: right">
+                      <label class="label-switch"  >
+                        <input  id="license" type="checkbox">
+                        <div style="margin-top: 2px" class="checkbox"></div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              </ul>
+
+                  </div>
+
+                </form>
+                <p><a href="#" class="form-to-register" style="display: block; width: 100%; height: 25px; background-image: linear-gradient(to top, #44776d 10%, #2e514c); padding: 14px 0px 4px 0px; text-align:center; border-radius: 0px; color: white; font-weight: bold;" >REGISTRATION</a></p>
+              </div>
+
+
+            </div>
+
+            <div style="width:100%; margin-bottom:80px" >
+                <p style="text-align: center;"><a class="changepage" style="color: #5ca595; font-size: 18px" >Sign in </a><a href="#" style="color: #5ca595; font-size: 18px"  data-popup=".popup-forgot" class="open-popup" >| Forgot password</a></p>
+              </div>
+              <div style="height:40px; width:100%; background: #e70012; position: fixed; bottom: -1px;left:-1px">&nbsp</div>
+
+              <!-- popup recovery password -->
+                <div class="popup popup-forgot mbg">
+                  <div class="content-block ">
+                    <h1 style="text-align: center; color: white">Forgot password?</h1>
+
+                    <div class="list-block" style="margin-top: 40px;">
+                    <form id="form-forgotp">
+                    <ul>
+                      <li>
+                        <div style="width: 100%">
+                            <div style="width: 22%; height:40px; padding-left:15px;position:absolute; left:0px; border:1px; line-height:40px;" class="loginf">
+                                <input type="text" placeholder="+7" readonly id="country2">
+                            </div>
+                            <div  style="width: 66%; height:40px; padding-left:15px; position:absolute;margin-left: 29%;" class="loginf"><input type="text" name="phone" id ="phonef" placeholder="phone number" class="loginf"></div>
+                      </li>
+                    </ul>
+                    <br><br>
+                    <hr style="background-color: #387a71;color: #387a71;border: none;height: 1px;margin-top: 10px">
+                    </form>
+                    <br>
+                        <a href="#"  style="display: block; width: 100%; height: 22px; background-image: linear-gradient(to top, #44776d 10%, #2e514c); padding: 9px 0px 9px 0px; text-align:center; border-radius: 0px; color: white; font-weight: bold;" class="forgotp hideforgot">Send new password</a>
+                        <br>
+                        <a href="#"  style="display: block; width: 100%; height: 22px; background-image: linear-gradient(to top, #44776d 10%, #2e514c); padding: 9px 0px 9px 0px; text-align:center; border-radius: 0px; color: white; font-weight: bold;" class="close-popup ">Cancel</a>
+                    </div>
+                  </div>
+                </div>
+                 <!-- popup recovery password -->
+          </div>
+        </div>
+      </div>
+    </div>

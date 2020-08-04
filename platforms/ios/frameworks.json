@@ -1,0 +1,18 @@
+{
+    "ImageIO.framework": 1,
+    "CoreLocation.framework": 1,
+    "AVFoundation.framework": 1,
+    "AddressBook.framework": 2,
+    "AddressBookUI.framework": 1,
+    "CoreText.framework": 1,
+    "SafariServices.framework": 1,
+    "Security.framework": 2,
+    "SystemConfiguration.framework": 2,
+    "libz.tbd": 1,
+    "libz.dylib": 1,
+    "WebKit.framework": 1,
+    "Accelerate.framework": 1,
+    "Photos.framework": 1,
+    "QuartzCore.framework": 1,
+    "MessageUI.framework": 1
+}

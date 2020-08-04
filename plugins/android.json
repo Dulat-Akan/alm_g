@@ -7,31 +7,37 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-contacts": {
-      "PACKAGE_NAME": "kz.kazpoisk.kz"
-    },
     "cordova-plugin-camera": {
-      "PACKAGE_NAME": "kz.kazpoisk.kz"
+      "PACKAGE_NAME": "kz.almabet.www"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "kz.almabet.www"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "kz.almabet.www"
     },
     "cordova-plugin-file": {
-      "PACKAGE_NAME": "kz.kazpoisk.kz"
+      "PACKAGE_NAME": "kz.almabet.www"
     },
     "cordova-plugin-googleplus": {
       "PLAY_SERVICES_VERSION": "11.8.0",
-      "PACKAGE_NAME": "kz.kazpoisk.kz"
-    },
-    "cordova-plugin-device": {
-      "PACKAGE_NAME": "kz.kazpoisk.kz"
-    },
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "kz.kazpoisk.kz"
+      "PACKAGE_NAME": "kz.almabet.www"
     },
     "cordova-plugin-ionic-webview": {
       "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+",
-      "PACKAGE_NAME": "kz.kazpoisk.kz"
+      "PACKAGE_NAME": "kz.almabet.www"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "kz.almabet.www"
+    },
+    "cordova-plugin-telerik-imagepicker": {
+      "PACKAGE_NAME": "kz.almabet.www"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "kz.almabet.www"
     },
     "cordova-sms-plugin": {
-      "PACKAGE_NAME": "kz.kazpoisk.kz"
+      "PACKAGE_NAME": "kz.almabet.www"
     }
   },
   "dependent_plugins": {}

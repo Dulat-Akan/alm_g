@@ -1,4 +1,4 @@
 sudo rm -r app-release.apk
 cordova build --release android
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore /Users/apple/myproject/kazpoisk_new_f7/to_build/android.keystore /Users/apple/myproject/kazpoisk_new_f7/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk android
-/Volumes/HDD/sdk/build-tools/28.0.3/zipalign -v 4 /Users/apple/myproject/kazpoisk_new_f7/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk ./app-release.apk
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore /Users/apple/myproject/casino/newroulette/almagames.jks /Users/apple/myproject/casino/newroulette/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk almagames
+/Volumes/HDD/sdk/build-tools/28.0.3/zipalign -v 4 /Users/apple/myproject/casino/newroulette/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk ./app-release.apk

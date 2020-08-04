@@ -1,8 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="kz.kazpoisk.kz" version="2.5.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0.1">
-    <name>kazpoisk</name>
+<!-- <widget id="net.almagames.www" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0.1"> -->
+<widget id="kz.almabet.www" version="0.2.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0.1">
+    <name>almagames</name>
     <description>
-        Ads of Kazakhstan and World.
+        almagames
     </description>
     <author email="astana7777777@gmail.com" href="http://kazpoisk.kz">
         Akan Dulat Software Developer
@@ -26,11 +27,17 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <platform name="android">
-      <preference name="AutoHideSplashScreen" value="false" />
+
+      <preference name="SplashScreen" value="screen"/>
+      <preference name="AutoHideSplashScreen" value="true"/>
       <preference name="SplashScreenDelay" value="5000" />
-      <preference name="FadeSplashScreen" value="false" />
-      <preference name="FadeSplashScreenDuration" value="750" />
-      <preference name="Fullscreen" value="false" />
+      <preference name="FadeSplashScreen" value="false"/>
+      <!-- <preference name="FadeSplashScreenDuration" value="3000"/> -->
+      <preference name="ShowSplashScreenSpinner" value="false"/>
+      <preference name="SplashMaintainAspectRatio" value="false"/>
+      <preference name="SplashShowOnlyFirstTime" value="false"/>
+
+
         <access origin="*" />
         <allow-navigation href="*" />
         <allow-intent href="*" />
@@ -40,6 +47,7 @@
         <allow-intent href="sms:*" />
         <allow-intent href="mailto:*" />
         <allow-intent href="geo:*" />
+
         <splash density="ldpi" height="426" orientation="portrait" platform="android" src="res/screen/android/320.png" width="320" />
         <splash density="mdpi" height="470" orientation="portrait" platform="android" src="res/screen/android/320470.png" width="320" />
         <splash density="hdpi" height="640" orientation="portrait" platform="android" src="res/screen/android/480640.png" width="480" />
@@ -48,6 +56,7 @@
         <icon density="mdpi" height="48" platform="android" src="res/icon/android/4848.png" width="48" />
         <icon density="hdpi" height="72" platform="android" src="res/icon/android/7272.png" width="72" />
         <icon density="xhdpi" height="96" platform="android" src="res/icon/android/9696.png" width="96" />
+
     </platform>
     <platform name="ios">
         <access origin="*" />
@@ -59,6 +68,7 @@
         <allow-intent href="sms:*" />
         <allow-intent href="mailto:*" />
         <allow-intent href="geo:*" />
+
         <splash height="480" orientation="portrait" platform="ios" src="res/screen/ios/320480.png" width="320" />
         <splash height="960" orientation="portrait" platform="ios" src="res/screen/ios/640960.png" width="640" />
         <splash height="1136" orientation="portrait" platform="ios" src="res/screen/ios/6401136.png" width="640" />
@@ -84,12 +94,13 @@
         <icon height="100" platform="ios" src="res/screen/ios/ios/100100.png" width="100" />
         <icon height="167" platform="ios" src="res/screen/ios/ios/167167.png" width="167" />
         <icon height="144" platform="ios" src="res/screen/ios/ios/144144.png" width="144" />
+
     </platform>
     <preference name="AutoHideSplashScreen" value="true" />
-    <preference name="SplashScreenDelay" value="5000" />
+    <preference name="SplashScreenDelay" value="3000" />
     <preference name="FadeSplashScreen" value="false" />
     <preference name="FadeSplashScreenDuration" value="750" />
-    <preference name="Fullscreen" value="false" />
+    <preference name="Fullscreen" value="true" />
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-plugin-contacts" spec="https://github.com/apache/cordova-plugin-contacts.git">
         <variable name="CONTACTS_USAGE_DESCRIPTION" value=" App would like to access the contacts." />

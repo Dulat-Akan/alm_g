@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="kz.kazpoisk.kz" version="2.5.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0.1">
-    <name>kazpoisk</name>
+<widget id="kz.almabet.www" version="0.2.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0.1">
+    <name>almagames</name>
     <description>
-        Ads of Kazakhstan and World.
+        almagames
     </description>
     <author email="astana7777777@gmail.com" href="http://kazpoisk.kz">
         Akan Dulat Software Developer
@@ -18,8 +18,8 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <preference name="AutoHideSplashScreen" value="true" />
-    <preference name="SplashScreenDelay" value="5000" />
+    <preference name="SplashScreenDelay" value="3000" />
     <preference name="FadeSplashScreen" value="false" />
     <preference name="FadeSplashScreenDuration" value="750" />
-    <preference name="Fullscreen" value="false" />
+    <preference name="Fullscreen" value="true" />
 </widget>

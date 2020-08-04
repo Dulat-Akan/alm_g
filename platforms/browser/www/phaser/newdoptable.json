@@ -1,0 +1,12 @@
+{ "columns":424,
+ "image":"newdoptable.png",
+ "imageheight":726,
+ "imagewidth":424,
+ "margin":0,
+ "name":"doptable",
+ "spacing":0,
+ "tilecount":307824,
+ "tileheight":1,
+ "tilewidth":1,
+ "type":"tileset"
+}

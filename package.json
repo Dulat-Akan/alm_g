@@ -17,6 +17,7 @@
     "babel-preset-react-app": "^3.1.2",
     "cordova-android": "^8.0.0",
     "cordova-browser": "^6.0.0",
+    "cordova-ios": "^5.1.1",
     "cordova-plugin-camera": "^4.0.3",
     "cordova-plugin-contacts": "^3.0.1",
     "cordova-plugin-device": "^2.0.2",
@@ -54,7 +55,9 @@
       "cordova-sms-plugin": {}
     },
     "platforms": [
-      "browser"
+      "browser",
+      "android",
+      "ios"
     ]
   },
   "devDependencies": {},

@@ -1,2874 +1,810 @@
 <!DOCTYPE html>
-<html  ng-app="angularApp">
+<html lang="en">
   <head>
     <!-- Required meta tags-->
-
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MV6PPHG');</script>
-
-
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' data: gap: file: https://ssl.gstatic.com *  "> -->
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
-    <meta name="google-signin-client_id" content="791144738416-atva1aq90r1qb0l7opn56d0tm85otc6j.apps.googleusercontent.com">
-    <!-- google auth new -->
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="expires" content="0" />
 
-    <!-- google auth new -->
-    <script src="https://apis.google.com/js/api:client.js"></script>
-    <script>
-  var googleUser = {};
-  var startApp = function() {
-    gapi.load('auth2', function(){
-      // Retrieve the singleton for the GoogleAuth library and set up the client.
-      auth2 = gapi.auth2.init({
-        client_id: '791144738416-atva1aq90r1qb0l7opn56d0tm85otc6j.apps.googleusercontent.com',
-        cookiepolicy: 'single_host_origin',
-        // Request scopes in addition to 'profile' and 'email'
-        //scope: 'additional_scope'
-      });
+    <meta http-equiv="pragma" content="no-cache" />
 
-
-        attachSignin(document.getElementById('customBtn'));
-
-
-    });
-  };
-
-  function attachSignin(element) {
-
-    console.log(element.id);
-    auth2.attachClickHandler(element, {},
-        function(googleUser) {
-
-
-          var profile = googleUser.getBasicProfile();
-
-          sendTogoogleAuth(profile.getName(),profile.getEmail(),profile.getImageUrl());
-
-        }, function(error) {
-          //console.log(JSON.stringify(error, undefined, 2));
-        });
-  }
-  </script>
-
-    <!-- <meta name="google-signin-client_id" content="818015353741-m97ohmk6tpqf067gcgff0kb3i6t4k8go.apps.googleusercontent.com"> -->
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"> -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
 
-    <!-- Color theme for statusbar -->
-    <meta name="theme-color" content="#2196f3">
+
     <!-- Your app title -->
-    <title>kazpoisk</title>
-    <!-- Path to Framework7 Library CSS -->
+    <title>Almagames</title>
 
+
+    <!-- Path to Framework7 iOS CSS theme styles-->
+
+    <link rel="stylesheet" href="css/framework7.ios.min.css?v=0.0.0.3">
+    <!-- Path to Framework7 iOS related color styles -->
+    <link rel="stylesheet" href="css/framework7.ios.colors.min.css?v=0.0.1.2">
+    <link rel="stylesheet" href="css/framework7.3dpanels.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css?v=0.0.1.3">
+
+    <!-- <script src="js/jquery.keyboard.js"></script> -->
+    <link rel="stylesheet" href="css/crossplatform_roulette.css?v=0.0.1.0">
+    <link rel="stylesheet" href="css/table.css?v=0.0.1.8">
+<!--     <link rel="stylesheet" href="css//bootstrap.css"> -->
+
+
+
+    <!-- icons -->
     <link rel="stylesheet" href="css/framework7-icons.css">
 
-    <link rel="stylesheet" href="css/framework7.min.css">
-      <link rel="stylesheet" href="js/gauge/gauge.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- icons -->
+<!--     <script src="xdk/xdk-win8x-compat.js"></script>
+    <script src="lib/ua-parser.js"></script>
+    <script src="lib/moment.js"></script>
+ -->
+
+
+ <style>
+
+      .panel .page, .panel .pages, .panel {
+        background: none;
+      }
+      .panel .list-block ul {
+        background: none;
+        border:none;
+      }
+      .panel .list-block .item-link {
+        color:#fff;
+      }
+      .panel .list-block .item-link:active {
+        background: rgba(255,255,255,0.2);
+      }
+      .panel .list-block .item-inner {
+        border-bottom-color:rgba(255,255,255,0.2);
+      }
+      .panel .content-block, .panel .content-block-title {
+        color:#fff;
+      }
+
+      /* following two viewport lines are equivalent to meta viewport statement above, and is needed for Windows */
+        /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and http://dev.w3.org/csswg/css-device-adapt/ */
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+        /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+    </style>
 
 
 
-    <!-- Path to your custom app styles-->
-    <link rel="stylesheet" href="css/my-app.css">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130878784-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-130878784-1');
-    </script>
-
-
-
+<link rel="manifest" href="manifest.json">
 
   </head>
-  <body class="theme-black">
+  <body id="fullscreenpage">
+
+
+ <!-- popup recovery password -->
+
+                 <!-- popup recovery password -->
+
+
+
+   <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal theme-white" >
+
+    <div class="content-block-title">
+        <div style="width:146px; margin-left:27%; padding-left:15px;padding-top:15px; border-radius: 146px; height: 146px; text-align: center; background: #373b44;  /* fallback for old browsers */
+    background: -webkit-radial-gradient(#73c8a9, #373b44);  /* Chrome 10-25, Safari 5.1-6 */
+    background: radial-gradient(#73c8a9, #373b44); ">
+          <div style="width:131px; border-radius: 131px; height: 131px; text-align: center; background: #232526;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #414345, #232526); "><img style="height: 60%; margin-top: 20%" src="img/mlogo.png"></div>
+
+        </div>
+    </div>
+    <p style="color:white;text-align: center; margin-top: 40px;margin-left: 20%;font-size: 26px;">Menu</p>
+          <div class="list-block">
+           <ul>
+              <li class="hide_reg item-content" >
+                <div class="item-media icon-bg"><img style="margin-left:9px; width: 22px" src="img/registri.png"></div>
+                <div class="item-inner">
+                <div class="lafter"></div>
+                    <div class="item-title"><a href="registration.html"  style="font-size: 20px" class="close-panel localise" translate="regist">Registration</a></div>
+                 <!--  <div class="item-after">Label</div> -->
+                </div>
+              </li>
+              <li class="hide_login item-content">
+                <div class="item-media icon-bg"><img style="margin-left:8px; width: 25px" src="img/logini.png"></div>
+                <div class="item-inner">
+                  <div class="item-title"><a href="login.html"  style="font-size: 20px"  class="close-panel localise" translate="sign">Signing in</a></div>
+                  <!-- <div class="item-after"><span class="badge">5</span></div> -->
+                </div>
+              </li>
+            <!--   <li class="show_vihod item-content">
+              <div class="item-media icon-bg"><img style="margin-left:5px; width: 30px" src="img/homei.png"></div>
+              <div class="item-inner">
+                <div class="lafter"></div>
+                <div class="item-title"><a href="#" style="font-size: 22px" class="close-panel cabinetclick notbakkara">Main page</a></div>
+               <div class="item-after">Another label</div>
+              </div>
+            </li> -->
+              <li class="show_vihod item-content">
+                <div class="item-media  icon-bg"> <img style="margin-left:5px; width: 29px" src="img/useri.png"></div>
+                <div class="item-inner">
+                  <div class="item-title"><a href="cabinet.html"  style="font-size: 22px" class="close-panel cabinetclick notbakkara">Profile</a></div>
+                 <!--  <div class="item-after">Another label</div> -->
+                </div>
+              </li>
 
 
 
 
+              <li class="show_vihod item-content" >
+                <div class="item-media icon-bg"><img style="margin-left:5px; width: 29px" src="img/exiti.png"></div>
+                <div class="item-inner">
+                  <div class="item-title"><a href="#" style="font-size: 22px;color: white" class="close-panel funcvihod">Exit account</a></div>
+                 <!--  <div class="item-after">Another label</div> -->
+                </div>
+              </li>
+              <li></li>
+            </ul>
 
 
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MV6PPHG"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-
-    <div class="panel panel-left panel-reveal">
-      <div class="block">
-
-
-        <h2 style="text-align: center;">меню</h2>
-
-
-        <div class="list">
-            <ul>
               <li>
-                <div class="item-content hide_reg">
-                  <div class="item-media minw"><i class="f7-icons">compose</i></div>
-                  <div class="item-inner left-right-padding">
-                    <div class="item-title"><button style="color: black;font-size: 16px;"  class="registration button panel-close">Регистрация</button></div>
-                    <div class="item-after"></div>
+                <div class="item-content" >
+                  <div style="margin-left: 55px" class="item-inner">
+                    <div class="item-title label" style="color: white; font-size:22px;overflow:visible ; ">Sound</div>
+                    <div class="item-input" style="text-align: right;width: ">
+                      <label class="label-switch"  >
+                        <input id="sound" type="checkbox" checked>
+                        <div class="checkbox"></div>
+                      </label>
+                    </div>
                   </div>
                 </div>
               </li>
-              <li>
-                <div class="item-content hide_login">
-                  <div class="item-media minw" ><i class="f7-icons">forward</i></div>
-                  <div class="item-inner left-right-padding" style="">
-                    <div class="item-title"><button  style="color: black;font-size: 16px;" class="vhod button panel-close">Вход</button></div>
-                    <div class="item-after"></div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="item-content hide_login">
-                  <div class="item-media minw"><i class="f7-icons">forward</i></div>
-                  <div class="item-inner left-right-padding">
-                    <div class="item-title">
-                      <fb:login-button
-                        scope="public_profile,email"
-                        onlogin="checkLoginState();">
-                      </fb:login-button>
+
+      </div>
+
+      <!-- <button  class="button mycheck">test</button> -->
+
+
+    </div>
+    <!-- Right panel with cover effect-->
+
+
+    <!-- Views-->
+    <div class="views">
+
+      <!-- Your main view, should have "view-main" class-->
+      <div class="view view-main">
+        <!-- Top Navbar-->
+
+        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages  navbar-through">
+          <!-- Page, data-page contains page name-->
+          <div data-page="index" class="page navbar-fixed toolbar-fixed">
+
+
+
+            <div  class="page background_dealer">
+              <div class="page-content" >
+                  <div class="content-block">
+
+
+
+                    <div class="back_button"><img class="" style="z-index: 50;" width="40%" src="image/exit_button.png" alt=""></div>
+
+                    <div class="main_enter" >
+                      <a n1="n1"   class="testautentificate mainpagetext cabinetclick localise" translate="gamename"></a><br><br>
                     </div>
-                    </div>
-                  </div>
 
-              </li>
-              <li>
-                <div class="item-content hide_login">
-                  <div class="item-media minw"><i class="f7-icons">forward</i></div>
-                  <div class="item-inner left-right-padding">
-                    <div class="item-title">
 
-                      <button id="customBtn" class="button button-small color-red panel-close">вход через Google</button>
-                      <!-- <a href="#"  style="color: black;font-size: 14px;" onclick="signOut();" class="panel-close button">выход</a> -->
+                    <div class="main_button_container">
 
-                    </div>
-                    </div>
-                  </div>
-
-              </li>
-
-              <li>
-                <div class="item-content hide_cabinet">
-                  <div class="item-media minw"><i class="f7-icons">person</i></div>
-                  <div class="item-inner left-right-padding">
-                    <div class="item-title">
-                      <button  style="color: black;font-size: 16px;" class="button panel-close cabinetclick">Личный кабинет</button>
-
-                    </div>
-                    </div>
-                  </div>
-
-              </li>
-              <li>
-                <div class="item-content hide_cabinet">
-                  <div class="item-media minw"><i class="f7-icons">home</i></div>
-                  <div class="item-inner left-right-padding">
-                    <div class="item-title">
-                      <button  style="color: black;font-size: 16px;" class="button panel-close subscribenavigate">Подписки</button>
+                      <div class="d_button_name"><img class="hidecoef" style="z-index: 50;" width="100%" src="image/Bet_Limits.png" alt=""></div>
+                      <div class="d_button_one"><img class="chose_coef hidecoef b_b_one" v="1-100" style="z-index: 50;" width="100%" src="image/1-100.png" alt=""></div>
+                      <div class="d_button_two"><img class="chose_coef hidecoef b_b_two"  v="25-500" style="z-index: 50;" width="100%" src="image/25-500.png" alt=""></div>
+                      <div class="d_button_three"><img class="chose_coef hidecoef b_b_three"  v="100-1000" style="z-index: 50;" width="100%" src="image/100-1000.png" alt=""></div>
+                      <div class="d_button_premium"><img class="chose_coef hidecoef b_b_premium"  v="premium" style="z-index: 50;" width="100%" src="image/PREMIUM.png" alt=""></div>
+                      <div class="d_button_four"><img class="chose_coef"  v="menu" style="z-index: 50;" width="100%" src="image/menu_button.png" alt=""></div>
 
                     </div>
-                    </div>
-                  </div>
 
-              </li>
-              <li>
-                <div class="item-content hide_cabinet">
-                  <div class="item-media minw">
-                    <i class="mysizeicons favorite material-icons"  style="color:#f44b42;">
-                      favorite_border
-                    </i>
-                  </div>
-                  <div class="item-inner left-right-padding">
-                    <div class="item-title">
-                      <button  style="color: black;font-size: 16px;" class="button panel-close favoritenavigate">Любимые</button>
+                    <div  style="position: absolute; bottom: 17%; width:100%; padding-top: 20px; left:-1px">
+                      <p style="position: absolute;left: 20px;"><a style="color: #5ca595; font-size: 18px" href="registration.html"  style="font-size: 20px" class="close-panel hidecontent localise" translate="regist">Registration</a></p>
+                      <p style="position: absolute;right: 20px;"><a style="color: #5ca595; font-size: 18px" href="login.html"  style="font-size: 20px"  class="close-panel hidecontent localise" translate="sign">Sign in</a></p>
+                    </div>
+
+
+                    <div class="tablemenuD">
+     <!-- vrab -->
+                        <div><a   class="menu_actions localise" translate="deposit" v="deposit">DEPOSIT</a></div>
+                        <div ><a class="menu_actions localise"  translate="profile" v="profile" ><span>PROFILE</span></a></div>
+                        <div><a class="menu_actions localise"  translate="transfer" v="transfer" >TRANSFERS</a></div>
+                        <div><a class="menu_actions localise"  translate="gamesetting" v="gamesetting">SETTINGS</a></div>
+                        <div><a class="menu_actions localise"  translate="help" v="help" ><img class="whatsb"  width="10.5%" src="image/whatsapp_icon.png" alt=""> HELP</a></div>
+                        <div><a class="menu_actions localise"  translate="rules" v="rules">GAME RULES</a></div>
+                        <!-- <div class="menu_actions" v="changeCoef"><span>CHANGE COEFFICIENTS</span></div> -->
+                        <div><a  href="http://almagames.mypsx.net/support" class="external localise"  translate="aboutus">ABOUT US</a></div>
+
+
 
                     </div>
-                    </div>
-                  </div>
 
-              </li>
-              <li>
-                <div class="item-content hide_cabinet">
-                  <div class="item-media minw">
-                    <i class="mysizeicons favorite material-icons hidecontactsIcon"  style="color:#f44b42;">
-                      import_contacts
-                    </i>
-                    <div class="notifIcon">
-                      5
+
+                    <div class="tablemenuDV">
+
+                        <div><a class="" >Please select language</a></div>
+                        <div><a class="selectLang" lang="eng">English</a></div>
+                        <div ><a class="selectLang" lang="ru"><span>Russian</span></a></div>
+
                     </div>
-                  </div>
-                  <div class="item-inner left-right-padding">
-                    <div class="item-title">
-                      <button  style="color: black;font-size: 16px;" class="button panel-close contactnavigate">
-                        <div class="notifTitle">
-                            Контакты
+
+                    <div class="gameRules">
+
+                      <div class="childRules">
+
+                        <div class="rules_name localise" translate="g_r">Game rules</div>
+                        <div class="rules_devide"><img width="100%" src="image/rules_devide.png" alt=""></div>
+                        <div class="page_rules"><p>
+
+
+
+                             <h3  style="text-align: center;" class="localise" translate="r_name">ROULETTE</h3>
+
+                               The objective is to predict the number on which the ball will land by placing one or more bets that cover that particular number. The wheel in European Roulette includes the numbers 1-36 plus a single 0 (zero).
+                               After betting time has expired, the ball is spun within the Roulette wheel. The ball will eventually come to rest in one of the numbered pockets within the wheel. You win if you have placed a bet that covers that particular number.
+
+                               Bet Types
+                               You can place many different kinds of bets on the Roulette table. Bets can cover a single number or a certain range of numbers, and each type of bet has its own payout rate.
+                               Bets made on the numbered spaces on the betting area, or on the lines between them, are called Inside Bets, while bets made on the special boxes below and to the side of the main grid of numbers are called Outside Bets.
+
+
+                               <h3  style="text-align: center;">INSIDE BETS:</h3>
+
+                                   Straight Up - place your chip directly on any single number (including zero).
+                                   Split Bet - place your chip on the line between any two numbers, either on the vertical or horizontal.
+                                   Street Bet - place your chip at the end of any row of numbers. A Street Bet covers three numbers.
+                                   Corner Bet - place your chip at the corner (central intersection) where four numbers meet. All four numbers are covered.
+                               Five Bet - place your chip on the outer boundary line of the betting grid between 0 and 1 (at the point where the bottom-right corner of the number 0 meets the bottom-left corner of the number one). A Five Bet covers five numbers: 0, 00, 1, 2 and 3.
+                               Line Bet - place your chip at the end of two rows on the intersection between the two rows. A line bet covers all the numbers in both rows, a total of six numbers.
+
+
+                               <h3  style="text-align: center;">OUTSIDE BETS:</h3>
+
+                               Column Bet  - place your chip in one of the boxes marked "2 to 1" at the end of the column that covers all 12 numbers in that column. The zero is not covered by any column bet.
+                               Dozen Bet - place your chip in one of the three boxes marked "1st 12," "2nd 12" or "3rd 12" to cover the 12 numbers alongside the box.
+                               Red/Black - place your chip in the Red or Black box to cover the 18 red or 18 black numbers. The zero is not covered by these bets.
+                               Even/Odd - place your chip in one of these boxes to cover the 18 even or 18 odd numbers. The zero is not covered by these bets.
+                               1-18/19-36 - place your chip in either of these boxes to cover the first or second set of 18 numbers. The zero is not covered by these bets.
+
+
+                               <h3  style="text-align: center;">Neighbor Bets:</h3>
+
+                               Click/tap the NEIGHBOR BETS  button to view a special oval or racetrack-shaped betting area that allows you to more easily place neighbor bets and other special bets. Re-click/tap the button to close/re-open this feature.
+
+
+                               Each bet covers a different set of numbers and offers different payout odds. Bet spots will be highlighted.
+
+
+                                  <h3  style="text-align: center;">Tiers du Cylindre:</h3>
+                                  This bet covers a total of 12 numbers that include 27, 33 and the numbers that lie between them on the side of the Roulette wheel opposite to zero. 6 chips are placed as follows:
+
+                                    1 chip on the 5/8 split
+                                    1 chip on the 10/11 split
+                                    1 chip on the 13/16 split
+                                    1 chip on the 23/24 split
+                                    1 chip on the 27/30 split
+                                    1 chip on the 33/36 split
+
+
+
+                               <h3  style="text-align: center;">Voisins du Zero :</h3>
+                               This bet covers a total of 17 numbers that include 22, 25 and the numbers that lie between them on the side of the Roulette wheel that contains zero. 9 chips are placed as follows:
+
+                                   2 chips on the 0/2/3 street
+                                   1 chip on the 4/7 split
+                                   1 chip on the 12/15 split
+                                   1 chip on the 18/21 split
+                                   1 chip on the 19/22 split
+                                   2 chips on the 25/26/28/29 corner
+                                   1 chip on the 32/35 split
+
+
+                               <h3  style="text-align: center;"> Orphelins a Cheval </h3>
+                               This bet covers a total of 8 numbers on the two segments of the Roulette wheel not covered by the Voisins du Zero and Tiers du Cylinder bets above. 5 chips are placed as follows:
+
+                                    1&nbsp;chip on 1 (straight up)
+                                    1&nbsp;chip on the 6/9 split
+                                    1&nbsp;chip on the 14/17 split
+                                    1&nbsp;chip on the 17/20 split
+                                    1&nbsp;chip on the 31/34 split
+
+
+                                    <h3  style="text-align: center;">Jeu Zero </h3>
+                                 This bet covers zero and the 6 numbers in close proximity to zero on the Roulette wheel: 12, 35, 3, 26, 0, 32 and 15. 4 chips are placed as follows:
+
+                                   1 chip on the 0/3 split
+                                   1 chip on the 12/15 split
+                                   1 chip on 26 (straight up)
+                                   1 chip on the 32/35 split
+
+                                 A neighbor bet covers a particular number as well as other numbers that lie in close proximity to it on the Roulette wheel. To place a neighbor bet, click/tap a specific number on the racetrack. A chip will be placed on the chosen number and on numbers that neighbor it to the right and left. Click/tap on the circular "-"or "+" button to increase or decrease the set of neighbors to the right and left of the chosen number.
+
+
+                                <h3  style="text-align: center;">Favorite Special Bets </h3>
+
+
+                               <h3  style="text-align: center;">FAVORITE BETS </h3>
+                               The optional Favorite Bets feature allows you to save a preferred bet or combination of different types of bets for easier placement in future rounds at any Roulette table. You can save and edit a list of up to 15 of your favorite bets under different names.
+
+
+                               <h3  style="text-align: center;">SAVE A FAVORITE BET </h3>
+                               To open the Favorite Bets menu, click/tap the FAVORITE BETS button. Re-click/tap the button to close this feature.
+
+                               After you have placed a favorite bet or combination of bets on the Roulette table, click/tap the SAVE LAST BET link in the Favorite Bets menu. A default name for this bet will be suggested, but you are welcome to enter a more easily recognizable name. You can then save and add this bet to your list of favorite bets by clicking/tapping the SAVE button or by pressing “Enter” on your keyboard.
+
+
+                               <h3  style="text-align: center;">PLACE A FAVORITE BET </h3>
+                               When you wish to place a favorite bet during the betting phase of a Roulette round, open the Favorite Bets menu to view a list of all bets you previously saved. They will be listed in chronological order, with the favorite bet you saved earliest listed first. You can hover your cursor over the name of any listed bet to see how chips will be placed on the Roulette table accordingly. Click/tap the name of each desired bet to place it. You can also multiply (double, triple, quadruple...) the amount of any favorite bet you have placed by clicking/tapping its name more than once.
+
+
+                                <h3  style="text-align: center;">RENAME OR DELETE A FAVORITE BET </h3>
+                               When the Favorite Bets menu is open, you can click/tap the EDIT button to delete or rename any listed bet.
+                               Rename any listed bet by first clicking/tapping within the grey text box that surrounds its current name. You can then enter a new name and save it by clicking/tapping the SAVE button or by pressing “Enter” on your keyboard.
+                               Delete any bet you no longer wish to keep in your list of favorite bets by clicking/tapping its respective DELETE button.
+                               When you are finished editing your list of favorite bets, click/tap the  SAVE  button in the top right corner of the Favorite Bets menu or click/tap the  FAVOURITE BETS  button.
+
+
+                               <h3  style="text-align: center;">SPECIAL BETS  </h3>
+                               Under the second tab in Favorite Bets, you can more easily place
+
+                               Finale en Plein
+
+                               Finale en plein 0  – 4-chip bet covers 0+10+20+30, each with 1 chip
+                                 Finale en plein 0  – 5-chip bet covers 0+00+10+20+30, each with 1 chip
+
+                                   Finale en plein 1  – 4-chip bet covers 1+11+21+31, each with 1 chip
+                                   Finale en plein 2  – 4-chip bet covers 2+12+22+32, each with 1 chip
+                                   Finale en plein 3  – 4-chip bet covers 3+13+23+33, each with 1 chip
+                                   Finale en plein 4  – 4-chip bet covers 4+14+24+34, each with 1 chip
+                                   Finale en plein 5  – 4-chip bet covers 5+15+25+35, each with 1 chip
+                                   Finale en plein 6  – 4-chip bet covers 6+16+26+36, each with 1 chip
+                                   Finale en plein 7  – 3-chip bet covers 7+17+27, each with 1 chip
+                                   Finale en plein 8  – 3-chip bet covers 8+18+28, each with 1 chip
+                                   Finale en plein 9  – 3-chip bet covers 9+19+29, each with 1 chip
+
+                               Finale a Cheval
+
+                               Finale a cheval 0/3  – 4-chip bet covers 0/3+10/13+20/23+30/33, each with 1 chip
+
+                               Finale a cheval 0/3  – 5-chip bet covers 0+00/3+10/13+20/23+30/33, each with 1 chip
+
+                                   Finale a cheval 1/4  – 4-chip bet covers 1/4+11/14+21/24+31/34, each with 1 chip
+                                   Finale a cheval 2/5  – 4-chip bet covers 2/5+12/15+22/25+32/35, each with 1 chip
+                                   Finale a cheval 3/6  – 4-chip bet covers 3/6+13/16+23/26+33/36, each with 1 chip
+                                   Finale a cheval 4/7  – 4-chip bet covers 4/7+14/17+24/27+34, each with 1 chip
+                                   Finale a cheval 5/8  – 4-chip bet covers 5/8+15/18+25/28+35, each with 1 chip
+                                   Finale a cheval 6/9  – 4-chip bet covers 6/9+16/19+26/29+36, each with 1 chip
+                                   Finale a cheval 7/10  – 3-chip bet covers 7/10+17/20+27/30, each with 1 chip
+                                   Finale a cheval 8/11  – 3-chip bet covers 8/11+18/21+28/31, each with 1 chip
+                                   Finale a cheval 9/12  – 3-chip bet covers 9/12+19/22+29/32, each with 1 chip
+
+                                   Complete Bets
+                                  A Complete Bet places all of the inside bets on a specific number.
+                                 For example, a Complete Bet on number 36 will place 18 chips to completely cover it, as follows: 1 chip on Straight-up 36, 2 chips on each of Split bets 33/36 and 35/36, 3 chips on Street bet 34/35/36, 4 chips on 32/33/35/36 Corner bet and 6 chips on Line bet 31/32/33/34/35/36.
+
+
+
+
+
+                             </div>
+
+                      </div>
+
+
+                    </div>
+
+
+
+
+                    <div class="helpRules">
+
+                      <div class="childRules">
+
+                        <div class="rules_name localise" translate="helpn">Help</div>
+                        <div class="rules_devide"><img width="100%" src="image/rules_devide.png" alt=""></div>
+                        <div class="h_rules">
+                          <p class="localise"  translate="helpn_text">
+                            Hello! Dear client we are glad to help you with any questions.Please follow the whatsapp button.Thanks!
+                          </p>
+
+                        </div>
+
+                        <div class="w_button">
+                          <img width="100%" src="image/whatsapp_button.png" alt="">
+                        </div>
+                        <div class="inder_w_text localise" translate="helpn_link">
+                          go to WhatsApp
+                        </div>
+
+                      </div>
+
+
+                    </div>
+
+
+
+                    <div class="payments">
+
+                      <div class="childRules">
+
+                        <div class="rules_name localise" translate="Deposit">Deposit</div>
+                        <div class="rules_devide"><img width="100%" src="image/rules_devide.png" alt=""></div>
+                        <div class="b_rules_name localise" translate="bankcards">BANK CARDS</div>
+                        <div class="b_rules">
+                            <div class="b_cards"><img width="100%" src="image/viza.png" alt=""></div>
+                            <div class="b_cards b_right"><img width="100%" src="image/mastercard.png" alt=""></div>
+                        </div>
+
+                        <div class="b_wallet_name localise" translate="onlinewallet">ONLINE WALLET</div>
+
+                        <div>
+                          <div class="qiwi_cl">
+                            <div class="inside_qiwi">
+                                <a ><img class="goToqiqi" width="100%" src="image/qiwi.png" alt=""></a>
+                            </div>
+
+                          </div>
+                        </div>
+
+                        <div class="out_wallet_button">
+                          <div class="wallet_button">
+                            <img class="menu_actions" v="help" width="100%" src="image/help_button.png" alt="">
+                          </div>
                         </div>
 
 
-                      </button>
+
+                      </div>
+
 
                     </div>
+
+
+
+
+                    <div class="gamesettingD">
+
+
+
+                        <div style="margin-top: 10px;margin-left: 30px;width:400px;">
+
+
+
+                        <div style="float:left;width: 55%;">
+                           <p style="color: white;font-size: 14px;" class="localise" translate="automatic">AUTOMATIC VIDEO VIEW</p>
+                        </div>
+
+                        <div style="margin-left:0px;float:left;width: 70px;margin-top:10px;">
+
+                          <li>
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-input">
+                                  <label class="label-switch">
+                                    <input type="checkbox" id="automaticvideo" checked">
+                                    <div class="checkbox"></div>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </div>
+
+                        </div>
+
+
+                        <div style="margin-top: 5px;margin-left: 30px;width:400px;">
+
+
+
+                        <div style="float:left;width: 55%;">
+                           <p style="color: white;font-size: 14px;" class="localise" translate="screen">SCREEN SOUND</p>
+                        </div>
+
+                        <div style="margin-left:0px;float:left;width: 70px;margin-top:10px;">
+
+                          <li>
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-input">
+                                  <label class="label-switch">
+                                    <input type="checkbox" id="automaticsound" checked">
+                                    <div class="checkbox"></div>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </div>
+
+                        </div>
+
+
+                        <div style="margin-top: 5px;margin-left: 30px;width:400px;">
+
+
+
+                        <div style="float:left;width: 55%;">
+                           <p style="color: white;font-size: 14px;" class="localise" translate="video">VIDEO SOUND</p>
+                        </div>
+
+                        <div style="margin-left:0px;float:left;width: 70px;margin-top:10px;">
+
+                          <li>
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-input">
+                                  <label class="label-switch">
+                                    <input type="checkbox" id="automaticvsound" checked">
+                                    <div class="checkbox"></div>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </div>
+
+                        </div>
+
+
+                        <div style="margin-top: 5px;margin-left: 30px;width:400px;">
+
+
+
+                        <div  class="menu_actions" v="changeCoef" style="float:left;width: 55%;">
+                           <p style="color: white;font-size: 14px;" class="localise" translate="change">CHANGE COEFFICIENTS</p>
+                        </div>
+
+
+
+                        </div>
+
+
+
+
                     </div>
+
+
+
+
+
+
                   </div>
 
-              </li>
+              </div>
 
-              <li>
-                <div class="item-content show_vihod">
-                  <div class="item-media minw"><i class="f7-icons">logout</i></div>
-                  <div class="item-inner left-right-padding">
-                    <div class="item-title">
-                      <a href="#"  style="color: black;font-size: 14px;" class="panel-close button">выход</a>
-
-                    </div>
-                    </div>
-                  </div>
-
-              </li>
-
-            </ul>
-
+          </div>
 
 
           </div>
 
+
+        </div>
+
+
       </div>
-    </div>
-
-
-
-    <!-- App root element -->
-    <div id="app">
-      <!-- Statusbar overlay -->
-      <div class="statusbar"></div>
-
-      <!-- Your main view, should have "view-main" class -->
-      <div class="view view-main">
-        <!-- Initial Page, "data-name" contains page name -->
-                <div data-name="home" class="page no-navbar">
-
-                  <!-- Top Navbar -->
-
-
-                  <!-- <div class="navbar mnavbarstyle">
-                      <div class="navbar-inner sliding">
-                        <p class="kazpoiskcl"><img  class="kazpoiskcll" src="http://www.kazpoisk.kz/assets/img/kazpoisk.png" alt="kazpoisk" /></p>
-                      </div>
-                    </div> -->
-
-                  <!-- Toolbar -->
-                  <div class="toolbar toolbar-bottom-md  mtoolbarstyle">
-                      <div class="toolbar-inner " style="padding-left:5%;padding-right:5%;">
-                            <a href="#" data-panel="left" class="tab-link panel-open">
-                                <i class="f7-icons mblackicons">menu</i>
-                            </a>
-                            <a href="#" data-popup=".popup-filter"  class="tab-link goTohometab ">
-                                <i class="f7-icons mblackicons">home</i>
-                            </a>
-                            <a href="#" data-popup=".popup-filter"  class="tab-link popup-open ">
-                                <i class="f7-icons mblackicons">search_strong</i>
-                            </a>
-
-                            <!-- <a class="link addcategoryevent">
-                                <i class="f7-icons">add</i>
-                            </a> -->
-                            <!-- <a class="tab-link open_p popup-open" data-popup=".popup-addcategory"> -->
-                            <a class="tab-link open_p">
-                                <i class="f7-icons mblackicons">add</i>
-                            </a>
-
-                            <a href="#" class="tab-link cabinetclick">
-                              <i class="f7-icons mblackicons">person_round</i>
-                            </a>
-                      </div>
-                  </div>
-
-                  <!-- Scrollable page content -->
-                  <div class="page-content hide-toolbar-on-scroll hide-navbar-on-scroll infinite-scroll-content">
-
-
-
-                    <form class="searchbar">
-                        <div class="searchbar-inner">
-                          <div class="searchbar-input-wrap">
-                            <input type="search" id="musearchinput" placeholder="Search">
-                            <i class="searchbar-icon"></i>
-                            <span class="input-clear-button"></span>
-                          </div>
-                          <span class="searchbar-disable-button if-not-aurora">Cancel</span>
-                        </div>
-                      </form>
-
-
-
-                      <div class="row hideHome" style="display:none;">
-
-                        <div class="globtwo">
-                            <ul class="myhidescrolledtwo">
-                                <li>
-                                  <a>
-                                      <div class="header-photo-two">
-                                        <i class="material-icons icon-draw">
-                                            home
-                                        </i>
-                                      </div>
-                                      <div class="photo-description-two">
-                                          <div class="small-text-two">Apartment</div>
-                                      </div>
-                                  </a>
-                                </li>
-                                <li>
-                                  <a>
-                                      <div class="header-photo-cars">
-                                        <i class="material-icons icon-draw-car">
-                                            commute
-                                        </i>
-                                      </div>
-                                      <div class="photo-description-two">
-                                          <div class="small-text-two">Cars</div>
-                                      </div>
-                                  </a>
-                                </li>
-                                <li>
-                                  <a>
-                                      <div class="header-photo-work">
-                                        <i class="material-icons icon-draw-work">
-                                            work
-                                        </i>
-                                      </div>
-                                      <div class="photo-description-two">
-                                          <div class="small-text-two">Work</div>
-                                      </div>
-                                  </a>
-                                </li>
-                                <li>
-                                  <a>
-                                      <div class="header-photo-electronic">
-                                        <i class="material-icons icon-draw-electronic">
-                                            tv
-                                        </i>
-                                      </div>
-                                      <div class="photo-description-two">
-                                          <div class="small-text-two">Electronics</div>
-                                      </div>
-                                  </a>
-                                </li>
-
-                            </ul>
-                        </div>
-
-                      </div>
-
-                <div class="hideHome">
-
-                      <div id="reactPremium"></div>
-
-                      <!-- nizhnii block -->
-
-                      <div id="reactGold"></div>
-
-                </div>
-
-                      <!-- nizhnii block -->
-                      <!-- search block -->
-
-                      <div id="reactOb"></div>
-
-
-                      <div id="reactTest"></div>
-
-
-
-
-
-
-
-
-
-
-
-            <!-- <div class="main_row">
-              <div class="three_view" style="background-image: url(http://kazpoisk.kz/assets/entry/uploads/a6066c16344a53ebd37a05d4a6839497.jpg)"></div>
-            </div> -->
-
-
-                      <!-- search block -->
-
-
-
-
-
-
-                      <!-- <div id="opensearch" class="opensearch" >
-                          <img style="width:100%;" src="http://kazpoisk.kz/img/icons/magnifier.png" alt="">
-                      </div>
-
-                      <div id="searchbutton" class="searchbutton" >
-
-                        <input style="width:100%;height:100%;border-radius:10px;font-size:20px;padding-left:5px;background: rgba(0, 0, 0,0.5);color:white;-webkit-input-placeholder-color:white;" type="search" id="musearchinput" class="top_input" placeholder="Поиск">
-
-                      </div> -->
-
-
-
-                    <!-- <div class="list media-list" style="margin-top:0px;height: 100%;">
-
-                       <ul style="height: 100%;" class="insertob">
-
-
-                       </ul>
-                    </div> -->
-
-
-                    <div class="gifloader">
-
-
-                        <div class='container'>
-                            <div class='loader-2'>
-                              <div class='loader--dot'></div>
-                              <div class='loader--dot'></div>
-                              <div class='loader--dot'></div>
-                              <div class='loader--dot'></div>
-                              <div class='loader--dot'></div>
-                              <div class='loader--dot'></div>
-                              <div class='loader--text'></div>
-                            </div>
-                          </div>
-
-                    </div>
-
-
-                      <!-- filter popup -->
-
-                                  <div class="popup  popup-filter theme-blue " >
-
-                                    <div class="navbar">
-                                              <div class="navbar-inner ">
-                                                <div class="left">
-                                                  <a href="#" class="link returnsearch" style="display:none;">
-                                                    <i class="f7-icons">reply</i>
-                                                    <span>назад</span>
-                                                   </a>
-                                                </div>
-                                               <!--  <div class="center sliding"><i class="f7-icons">search_strong</i></div> -->
-                                                <div class="right">
-                                                  <a href="#" class="link icon-only popup-close"><i class="f7-icons">close_round_fill</i></a>
-                                                </div>
-                                              </div>
-                                      </div>
-
-
-
-                                    <div class="list no-hairlines-md" style="margin:0px 0;">
-                                          <ul>
-                                            <li>
-                                             <div class="item-content">
-                                               <div class="item-inner">
-                                                 <div class="item-input-wrap">
-                                                   <input type="text" name="citytwo" placeholder="выберите регион" class="searchregion"  readonly="readonly"  id="regionpickertwo">
-                                                 </div>
-                                               </div>
-                                             </div>
-                                          </li>
-                                          </ul>
-                                     </div>
-
-                                     <!-- <div class="list no-hairlines-md">
-                                        <ul>
-                                          <li>
-                                            <div class="item-content item-input">
-                                              <div class="item-inner">
-                                                <div class="item-input-wrap">
-                                                  <input type="text" placeholder="Your car" readonly="readonly" id="demo-picker-dependent"/>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </li>
-                                        </ul>
-                                      </div> -->
-
-
-
-
-                                  <div class="page-content" style="padding-top:0px;padding-bottom:150px;">
-
-                                    <p style="display: none;"><span class="progressbar-infinite color-multi"></span></p>
-
-                                   <search-category></search-category>
-
-                      <!-- rab -->
-                                    <form id="searchrabota" class="paddinglong list no-hairlines-md hideformsearch form_uslugirabota">  <!-- hideformsearch -->
-                                      <ul>
-
-
-
-                                        <!-- Text inputs -->
-                                        <!-- <li class="item-content item-input">
-                                            <div class="item-media">
-                                              <i class="material-icons">
-                                                attach_money
-                                                </i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title item-label">зарплата от/тг</div>
-                                              <div class="item-input-wrap">
-                                                <div class="range-slider range-slider-init" data-label="true">
-                                                  <input type="range" name="senaotav" value="200000" min="0" max="5000000" step="1">
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </li> -->
-
-
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">зарплата от/тг</div>
-                                              <div class="item-input">
-                                                <input type="number" name="senaotav" placeholder="цена от/тг">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">зарплата до/тг</div>
-                                              <div class="item-input">
-                                                <input type="number" name="senadoav" placeholder="цена до/тг">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-
-
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <!-- Checked by default -->
-                                            <input type="checkbox"  name="photo" value="фото">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">с фото</div>
-                                            </div>
-                                          </label>
-                                        </li>
-                                        <!-- Another chekbox item -->
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="video" value="video">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">с видео</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="aux" value="aux">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">аукционные</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-
-
-                                      </ul>
-
-
-
-                                    <div class="content-block">
-                                      <a href="#" b="uslugirabota" class="button button-fill button-big color-red close-popup searchkvbutton"></a>
-                                    </div>
-
-                                    </form>
-
-                                     <!-- rabota -->
-
-
-
-
-                                     <form id="searchuslugitransp" class="paddinglong list no-hairlines-md hideformsearch form_uslugitransp">  <!-- hideformsearch -->
-                                      <ul>
-
-
-
-
-
-                                        <!-- Text inputs -->
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">цена от/тг</div>
-                                              <div class="item-input">
-                                                <input type="number" name="senaotav" placeholder="цена от/тг">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">цена до/тг</div>
-                                              <div class="item-input">
-                                                <input type="number" name="senadoav" placeholder="цена до/тг">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-
-
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <!-- Checked by default -->
-                                            <input type="checkbox"  name="photo" value="фото">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">с фото</div>
-                                            </div>
-                                          </label>
-                                        </li>
-                                        <!-- Another chekbox item -->
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="video" value="video">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">с видео</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="aux" value="aux">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">аукционные</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-
-
-                                      </ul>
-
-
-
-                                    <div class="content-block">
-                                      <a href="#" b="uslugitransport" class="button button-fill button-big color-red close-popup searchkvbutton"></a>
-                                    </div>
-
-                                    </form>
-
-                                     <!-- uslugi -->
-
-
-
-
-
-                                     <form id="searchdiski" class="paddinglong list no-hairlines-md hideformsearch form_diski">  <!-- hideformsearch -->
-                                      <ul>
-
-
-                                        <li class="">
-                                           <div class="item-content">
-                                             <div class="item-inner">
-                                               <div class="item-input">
-                                                 <input type="text" required name="marka" placeholder="выберите марку" readonly id="picker-sdependentsearchdiski">
-                                               </div>
-                                             </div>
-                                           </div>
-                                         </li>
-
-                                         <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="typed">
-                                                  <option value="литые">литые</option>
-                                                  <option value="кованные">кованные</option>
-                                                  <option value="штампованные">штампованные</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="yearshina">
-                                                  <option value="0"></option>
-                                                  <option value="2017">2017</option>
-                                                  <option value="2016">2016</option>
-                                                  <option value="2015">2015</option>
-                                                  <option value="2014">2014</option>
-                                                  <option value="2013">2013</option>
-                                                  <option value="2012">2012</option>
-                                                  <option value="2010">2010</option>
-                                                  <option value="2009">2009</option>
-                                                  <option value="2008">2008</option>
-                                                  <option value="2007">2007</option>
-                                                  <option value="2006">2006</option>
-                                                  <option value="2005">2005</option>
-                                                  <option value="2004">2004</option>
-                                                  <option value="2003">2003</option>
-                                                  <option value="2002">2002</option>
-                                                  <option value="2001">2001</option>
-                                                  <option value="2000">2000</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="diamshina">
-                                                  <option value="0">диаметр</option>
-                                                  <option value="22">22</option>
-                                                  <option value="20">20</option>
-                                                  <option value="19">19</option>
-                                                  <option value="18">18</option>
-                                                  <option value="17">17</option>
-                                                  <option value="16">16</option>
-                                                  <option value="15">15</option>
-                                                  <option value="14">14</option>
-                                                  <option value="13">13</option>
-                                                  <option value="70">70</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="iznosshina">
-                                                  <option value="0">износ</option>
-                                                  <option value="110">износа нет</option>
-                                                  <option value="10">10</option>
-                                                  <option value="20">20</option>
-                                                  <option value="30">30</option>
-                                                  <option value="40">40</option>
-                                                  <option value="50">50</option>
-                                                  <option value="60">60</option>
-                                                  <option value="70">70</option>
-                                                  <option value="80">80</option>
-                                                  <option value="90">90</option>
-                                                  <option value="100">100</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="countshina">
-                                                  <option value="0">колитчество</option>
-                                                  <option value="50">неограниченное</option>
-                                                  <option value="1">1</option>
-                                                  <option value="2">2</option>
-                                                  <option value="3">3</option>
-                                                  <option value="4">4 комплект</option>
-                                                  <option value="5">5</option>
-                                                  <option value="6">6</option>
-                                                  <option value="7">7</option>
-                                                  <option value="8">8</option>
-                                                  <option value="9">9</option>
-                                                  <option value="10">10</option>
-                                                  <option value="11">11</option>
-                                                  <option value="12">12</option>
-                                                  <option value="13">13</option>
-                                                  <option value="14">14</option>
-                                                  <option value="15">15</option>
-                                                  <option value="16">16</option>
-                                                  <option value="17">17</option>
-                                                  <option value="18">18</option>
-                                                  <option value="19">19</option>
-                                                  <option value="20">20</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="classification">
-                                                  <option value="для легковых">для легковых</option>
-                                                  <option value="для грузовых">для грузовых</option>
-                                                  <option value="для мотоциклов">для мотоциклов</option>
-                                                  <option value="для велосипедов">для велосипедов</option>
-
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-
-                                        <!-- Text inputs -->
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">цена от/тг</div>
-                                              <div class="item-input">
-                                                <input type="number" name="senaotav" placeholder="цена от/тг">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">цена до/тг</div>
-                                              <div class="item-input">
-                                                <input type="number" name="senadoav" placeholder="цена до/тг">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-
-
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <!-- Checked by default -->
-                                            <input type="checkbox"  name="photo" value="фото">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">с фото</div>
-                                            </div>
-                                          </label>
-                                        </li>
-                                        <!-- Another chekbox item -->
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="video" value="video">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">с видео</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="aux" value="aux">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">аукционные</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-
-
-                                      </ul>
-
-
-
-                                    <div class="content-block">
-                                      <a href="#" b="diski" class="button button-fill button-big color-red close-popup searchkvbutton"></a>
-                                    </div>
-
-                                    </form>
-
-                                     <!-- diski -->
-
-
-
-                                     <form id="searchshina" class="paddinglong list no-hairlines-md hideformsearch form_shina">  <!-- hideformsearch -->
-                                      <ul>
-
-
-                                        <li class="">
-                                           <div class="item-content">
-                                             <div class="item-inner">
-                                               <div class="item-input">
-                                                 <input type="text" required name="marka" placeholder="выберите марку" readonly id="picker-sdependentsearchshina">
-                                               </div>
-                                             </div>
-                                           </div>
-                                         </li>
-
-                                         <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="protector">
-                                                  <option value="нет">протекторы</option>
-                                                  <option value="летние">летние</option>
-                                                  <option value="зимние">зимние</option>
-                                                  <option value="всесезонные">всесезонные</option>
-                                                  <option value="Грязь механика">Грязь механика</option>
-                                                  <option value="Грязь автомат">Грязь автомат</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="yearshina">
-                                                  <option value="0"></option>
-                                                  <option value="2017">2017</option>
-                                                  <option value="2016">2016</option>
-                                                  <option value="2015">2015</option>
-                                                  <option value="2014">2014</option>
-                                                  <option value="2013">2013</option>
-                                                  <option value="2012">2012</option>
-                                                  <option value="2010">2010</option>
-                                                  <option value="2009">2009</option>
-                                                  <option value="2008">2008</option>
-                                                  <option value="2007">2007</option>
-                                                  <option value="2006">2006</option>
-                                                  <option value="2005">2005</option>
-                                                  <option value="2004">2004</option>
-                                                  <option value="2003">2003</option>
-                                                  <option value="2002">2002</option>
-                                                  <option value="2001">2001</option>
-                                                  <option value="2000">2000</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="diamshina">
-                                                  <option value="0">диаметр</option>
-                                                  <option value="22">22</option>
-                                                  <option value="20">20</option>
-                                                  <option value="19">19</option>
-                                                  <option value="18">18</option>
-                                                  <option value="17">17</option>
-                                                  <option value="16">16</option>
-                                                  <option value="15">15</option>
-                                                  <option value="14">14</option>
-                                                  <option value="13">13</option>
-                                                  <option value="70">70</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="iznosshina">
-                                                  <option value="0">износ</option>
-                                                  <option value="110">износа нет</option>
-                                                  <option value="10">10</option>
-                                                  <option value="20">20</option>
-                                                  <option value="30">30</option>
-                                                  <option value="40">40</option>
-                                                  <option value="50">50</option>
-                                                  <option value="60">60</option>
-                                                  <option value="70">70</option>
-                                                  <option value="80">80</option>
-                                                  <option value="90">90</option>
-                                                  <option value="100">100</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="countshina">
-                                                  <option value="0">колитчество</option>
-                                                  <option value="50">неограниченное</option>
-                                                  <option value="1">1</option>
-                                                  <option value="2">2</option>
-                                                  <option value="3">3</option>
-                                                  <option value="4">4 комплект</option>
-                                                  <option value="5">5</option>
-                                                  <option value="6">6</option>
-                                                  <option value="7">7</option>
-                                                  <option value="8">8</option>
-                                                  <option value="9">9</option>
-                                                  <option value="10">10</option>
-                                                  <option value="11">11</option>
-                                                  <option value="12">12</option>
-                                                  <option value="13">13</option>
-                                                  <option value="14">14</option>
-                                                  <option value="15">15</option>
-                                                  <option value="16">16</option>
-                                                  <option value="17">17</option>
-                                                  <option value="18">18</option>
-                                                  <option value="19">19</option>
-                                                  <option value="20">20</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="classification">
-                                                  <option value="для легковых">для легковых</option>
-                                                  <option value="для грузовых">для грузовых</option>
-                                                  <option value="для мотоциклов">для мотоциклов</option>
-                                                  <option value="для велосипедов">для велосипедов</option>
-
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-
-                                        <!-- Text inputs -->
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">цена от/тг</div>
-                                              <div class="item-input">
-                                                <input type="number" name="senaotav" placeholder="цена от/тг">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">цена до/тг</div>
-                                              <div class="item-input">
-                                                <input type="number" name="senadoav" placeholder="цена до/тг">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-
-
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <!-- Checked by default -->
-                                            <input type="checkbox"  name="photo" value="фото">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">с фото</div>
-                                            </div>
-                                          </label>
-                                        </li>
-                                        <!-- Another chekbox item -->
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="video" value="video">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">с видео</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="aux" value="aux">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">аукционные</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-
-
-                                      </ul>
-
-
-
-                                    <div class="content-block">
-                                      <a href="#" b="shini" class="button button-fill button-big color-red close-popup searchkvbutton"></a>
-                                    </div>
-
-                                    </form>
-
-                                     <!-- shini -->
-
-
-
-                                    <form id="searchzapchspest" class="paddinglong list no-hairlines-md hideformsearch form_zapchspest">  <!-- hideformsearch -->
-                                      <ul>
-
-
-                                        <li class="">
-                                           <div class="item-content">
-                                             <div class="item-inner">
-                                               <div class="item-input">
-                                                 <input type="text" required name="marka" placeholder="выберите марку" readonly id="picker-sdependentsearch">
-                                               </div>
-                                             </div>
-                                           </div>
-                                         </li>
-
-                                         <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="sostoyanie">
-                                                  <option value="all">все</option>
-                                                  <option value="новое">новое</option>
-                                                  <option value="б.у в отличном состоянии">б.у в отличном состоянии</option>
-                                                  <option value="б.у в среднее">б.у в среднее</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="whereis">
-                                                  <option value="all">общий поиск(везде)</option>
-                                                  <option value="авторазборы">авторазборы</option>
-                                                  <option value="magav">магазины автозапчастей</option>
-                                                  <option value="avnaz">Авто на запчасти</option>
-                                                  <option value="ax">Аксессуары,Мультимедиа,Расходники</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-
-                                        <!-- Text inputs -->
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">цена от/тг</div>
-                                              <div class="item-input">
-                                                <input type="number" name="senaotav" placeholder="цена от/тг">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">цена до/тг</div>
-                                              <div class="item-input">
-                                                <input type="number" name="senadoav" placeholder="цена до/тг">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-
-
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <!-- Checked by default -->
-                                            <input type="checkbox"  name="photo" value="фото">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">с фото</div>
-                                            </div>
-                                          </label>
-                                        </li>
-                                        <!-- Another chekbox item -->
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="video" value="video">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">с видео</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="aux" value="aux">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">аукционные</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-
-
-                                      </ul>
-
-
-
-                                    <div class="content-block">
-                                      <a href="#" b="zapchspest" class="button button-fill button-big color-red close-popup searchkvbutton"></a>
-                                    </div>
-
-                                    </form>
-
-                                    <!-- zapchasti spestehnika -->
-
-
-
-
-                                    <form id="searchzapchlegk" class="paddinglong list no-hairlines-md hideformsearch form_zapchlegk">  <!-- hideformsearch -->
-                                      <ul>
-
-
-                                        <li class="">
-                                           <div class="item-content">
-                                             <div class="item-inner">
-                                               <div class="item-input">
-                                                 <input type="text" required name="markasearch" placeholder="выберите марку" readonly id="picker-dependentsearchzapch">
-                                               </div>
-                                             </div>
-                                           </div>
-                                         </li>
-
-                                         <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="sostoyanie">
-                                                  <option value="all">все</option>
-                                                  <option value="новое">новое</option>
-                                                  <option value="б.у в отличном состоянии">б.у в отличном состоянии</option>
-                                                  <option value="б.у в среднее">б.у в среднее</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="whereis">
-                                                  <option value="all">общий поиск(везде)</option>
-                                                  <option value="авторазборы">авторазборы</option>
-                                                  <option value="magav">магазины автозапчастей</option>
-                                                  <option value="avnaz">Авто на запчасти</option>
-                                                  <option value="ax">Аксессуары,Мультимедиа,Расходники</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-
-                                        <!-- Text inputs -->
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">цена от/тг</div>
-                                              <div class="item-input">
-                                                <input type="number" name="senaotav" placeholder="цена от/тг">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">цена до/тг</div>
-                                              <div class="item-input">
-                                                <input type="number" name="senadoav" placeholder="цена до/тг">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-
-
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <!-- Checked by default -->
-                                            <input type="checkbox"  name="photo" value="фото">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">с фото</div>
-                                            </div>
-                                          </label>
-                                        </li>
-                                        <!-- Another chekbox item -->
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="video" value="video">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">с видео</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="aux" value="aux">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">аукционные</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-
-
-                                      </ul>
-
-
-
-                                    <div class="content-block">
-                                      <a href="#" b="zapchlegk" class="button button-fill button-big color-red close-popup searchkvbutton"></a>
-                                    </div>
-
-                                    </form>
-
-                      <!-- kones zapchasti dlya legkovih -->
-
-
-                                    <form id="searchspest" class="paddinglong list no-hairlines-md hideformsearch form_spes">  <!-- hideformsearch -->
-                                      <ul>
-
-
-                                        <li class="">
-                                           <div class="item-content">
-                                             <div class="item-inner">
-                                               <div class="item-input">
-                                                 <input type="text" required name="marka" placeholder="выберите марку" readonly id="picker-sdependentsearch">
-                                               </div>
-                                             </div>
-                                           </div>
-                                         </li>
-
-
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="rul">
-                                                  <option value="левый">левый</option>
-                                                  <option value="правый руль">правый</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="toplivo">
-                                                  <option value="бензин">бензин</option>
-                                                  <option value="дизель">дизель</option>
-                                                  <option value="газ">газ</option>
-                                                  <option value="электричество">электричество</option>
-                                                  <option value="гибрид">гибрид</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="privod">
-                                                  <option value="передний">передний привод</option>
-                                                  <option value="4WD(полный привод)">4WD(полный привод)</option>
-                                                  <option value="задний">задний</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="korobka">
-                                                  <option value="автомат">коробка автомат</option>
-                                                  <option value="механика">механика</option>
-                                                  <option value="прямой привод без кпп(для электротяги)">прямой привод без кпп</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li class="">
-                                              <div class="item-content">
-                                                <div class="item-inner">
-                                                <div class="item-title label">цвет</div>
-                                                  <div class="item-input">
-                                                    <input type="text" required name="svetavto" placeholder="цвет" readonly id="picker-type888">
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </li>
-
-
-
-                                         <li>
-                                            <div class="item-content">
-                                              <div class="item-inner">
-                                                <div class="item-title label">год от</div>
-                                                <div class="item-input">
-                                                  <input type="number" name="yearot" placeholder="год выпуска от">
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </li>
-
-                                          <li>
-                                            <div class="item-content">
-                                              <div class="item-inner">
-                                                <div class="item-title label">год до</div>
-                                                <div class="item-input">
-                                                  <input type="number" name="yeardo" placeholder="год выпуска до">
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </li>
-
-
-
-                                        <!-- Text inputs -->
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">цена от/тг</div>
-                                              <div class="item-input">
-                                                <input type="number" name="senaotav" placeholder="цена от/тг">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">цена до/тг</div>
-                                              <div class="item-input">
-                                                <input type="number" name="senadoav" placeholder="цена до/тг">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-
-
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <!-- Checked by default -->
-                                            <input type="checkbox"  name="photo" value="фото">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">с фото</div>
-                                            </div>
-                                          </label>
-                                        </li>
-                                        <!-- Another chekbox item -->
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="video" value="video">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">с видео</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="aux" value="aux">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">аукционные</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="srochno" value="srochno">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">срочно</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-                                      </ul>
-
-
-
-                                    <div class="content-block">
-                                      <a href="#" b="spest" class="button button-fill button-big color-red close-popup searchkvbutton"></a>
-                                    </div>
-
-                                    </form>
-
-
-                      <!-- kones spestehn -->
-
-
-
-                                    <form id="searchavto"  class="paddinglong list no-hairlines-md hideformsearch  form_avto">  <!--  -->
-                                      <ul>
-
-
-                                        <li class="">
-                                           <div class="item-content">
-                                             <div class="item-inner">
-                                               <div class="item-input">
-                                                 <input type="text" required name="markasearch" placeholder="выберите марку" readonly id="picker-dependentsearch">
-                                               </div>
-                                             </div>
-                                           </div>
-                                         </li>
-
-
-
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="rul">
-                                                  <option value="левый">левый</option>
-                                                  <option value="правый">правый</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="toplivo">
-                                                  <option value="бензин">бензин</option>
-                                                  <option value="дизель">дизель</option>
-                                                  <option value="газ">газ</option>
-                                                  <option value="электричество">электричество</option>
-                                                  <option value="гибрид">гибрид</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="privod">
-                                                  <option value="передний">передний привод</option>
-                                                  <option value="4WD(полный привод)">4WD(полный привод)</option>
-                                                  <option value="задний">задний</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="korobka">
-                                                  <option value="автомат">коробка автомат</option>
-                                                  <option value="механика">механика</option>
-                                                  <option value="прямой привод без кпп(для электротяги)">прямой привод без кпп</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li class="">
-                                              <div class="item-content">
-                                                <div class="item-inner">
-                                                <div class="item-title label">цвет</div>
-                                                  <div class="item-input">
-                                                    <input type="text" required name="svetavto" placeholder="цвет" readonly id="picker-type88">
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </li>
-
-
-
-                                         <li>
-                                            <div class="item-content">
-                                              <div class="item-inner">
-                                                <div class="item-title label">год от</div>
-                                                <div class="item-input">
-                                                  <input type="number" name="yearot" placeholder="год выпуска от">
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </li>
-
-                                          <li>
-                                            <div class="item-content">
-                                              <div class="item-inner">
-                                                <div class="item-title label">год до</div>
-                                                <div class="item-input">
-                                                  <input type="number" name="yeardo" placeholder="год выпуска до">
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </li>
-
-
-
-                                        <!-- Text inputs -->
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">цена от/тг</div>
-                                              <div class="item-input">
-                                                <input type="number" name="senaotav" placeholder="цена от/тг">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">цена до/тг</div>
-                                              <div class="item-input">
-                                                <input type="number" name="senadoav" placeholder="цена до/тг">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                      <!-- rab -->
-
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <!-- Checked by default -->
-                                            <input type="checkbox"  name="photo" value="фото">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">с фото</div>
-                                            </div>
-                                          </label>
-                                        </li>
-                                        <!-- Another chekbox item -->
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="video" value="video">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">с видео</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="aux" value="aux">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">аукционные</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="srochno" value="srochno">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">срочно</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-                                      </ul>
-
-
-
-                                    <div class="content-block">
-                                      <a href="#" b="avto" class="button button-fill button-big color-red close-popup searchkvbutton"></a>
-                                    </div>
-
-                                    </form>
-
-                      <!-- kones avto search -->
-
-
-
-
-                                    <form id="searchkv" class="paddinglong list no-hairlines-md  hideformsearch form_kv">
-                                      <ul>
-
-
-                                         <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style=""  name="kv">
-                                                  <option>купить</option>
-                                                  <option>снять</option>
-                                                  <option>обменять</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-
-                                          <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="kv2">
-                                                  <option value="квартиру">квартиру</option>
-                                                  <option value="общежитие">общежитие</option>
-                                                  <option value="комнату">комнату</option>
-                                                  <option value="времянку">времянку</option>
-                                                  <option value="дом">дом</option>
-                                                  <option value="участок">участок</option>
-                                                  <option value="офис">офис</option>
-                                                  <option value="помещение">помещение</option>
-                                                  <option value="здание">здание</option>
-                                                  <option value="магазин">магазин</option>
-                                                  <option value="бутик">бутик</option>
-                                                  <option value="промбазу">промбазу</option>
-                                                  <option value="склад">склад</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-input">
-                                                <select style="" name="komn">
-                                                  <option value="0">любой комнатности</option>
-                                                  <option value="1">1</option>
-                                                  <option value="1-2">1-2</option>
-                                                  <option value="2">2</option>
-                                                  <option value="2-3">2-3</option>
-                                                  <option value="3">3</option>
-                                                  <option value="3-4">3-4</option>
-                                                  <option value="4">4</option>
-                                                  <option value="5">5</option>
-                                                  <option value="6">6 и более</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-
-
-                                        <!-- Text inputs -->
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">цена от/тг</div>
-                                              <div class="item-input">
-                                                <input type="number" name="senaotkv" placeholder="цена от/тг">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">цена до/тг</div>
-                                              <div class="item-input">
-                                                <input type="number" name="senadokv" placeholder="цена до/тг">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                      <!-- rab -->
-                                          <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">этаж от</div>
-                                              <div class="item-input">
-                                                <input type="number" name="etazhotkv" placeholder="этаж от">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">этаж до</div>
-                                              <div class="item-input">
-                                                <input type="number" name="etazhdokv" placeholder="этаж до">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-
-                                          <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">площадь от/м2</div>
-                                              <div class="item-input">
-                                                <input type="number" name="ploshadotkv" placeholder="площадь от/м2">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="item-content">
-                                            <div class="item-inner">
-                                              <div class="item-title label">площадь до/м2</div>
-                                              <div class="item-input">
-                                                <input type="number" name="ploshaddokv" placeholder="площадь до/м2">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <!-- Checked by default -->
-                                            <input type="checkbox"  name="photo" value="фото">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">с фото</div>
-                                            </div>
-                                          </label>
-                                        </li>
-                                        <!-- Another chekbox item -->
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="video" value="video">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">с видео</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="aux" value="aux">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">аукционные</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"   name="bezposr" value="bezposr">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">без посредников</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"   name="novostr" value="new">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">новостройки</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-                                        <li>
-                                          <label class="label-checkbox item-content">
-                                            <input type="checkbox"  name="srochno" value="srochno">
-                                            <div class="item-media">
-                                              <i class="icon icon-form-checkbox"></i>
-                                            </div>
-                                            <div class="item-inner">
-                                              <div class="item-title">срочно</div>
-                                            </div>
-                                          </label>
-                                        </li>
-
-                                      </ul>
-
-
-
-                                    <div class="content-block">
-                                      <a href="#" b="kv" class="button button-fill button-big color-red close-popup searchkvbutton"></a>
-                                    </div>
-
-                                    </form>
-
-                          </div>
-
-
-                      <!-- rabb -->
-
-                      <!--   <p><a href="#" class="close-popup button">закрыть фильтр</a></p> -->
-
-
-                      </div>
-
-                      <!-- filter popup -->
-
-
-                      <div class="popup popup-addcategory theme-blue " >
-
-
-                        <div class="navbar">
-                                  <div class="navbar-inner ">
-                                    <div class="left">
-                                      <a href="#" class="link popup-close">
-                                        <i class="f7-icons">reply</i>
-                                        <span>назад</span>
-                                       </a>
-                                    </div>
-                                   <!--  <div class="center sliding"><i class="f7-icons">search_strong</i></div> -->
-                                    <!-- <div class="right">
-                                      <a href="#" class="link icon-only popup-close"><i class="f7-icons">close_round_fill</i></a>
-                                    </div> -->
-                                  </div>
-                          </div>
-
-
-                        <div class="page" data-name="addcategory">
-
-                              <div class="page-content whitecolor"  ng-app="angularApp">
-
-
-
-                                    <add-category></add-category>
-
-
-
-                              </div>
-
-                          </div>
-
-
-
-
-
-                      </div>
-
-
-
-
-                      <div class="gifloader">
-
-                              <div class='container'>
-                                  <div class='loader-2'>
-                                    <div class='loader--dot'></div>
-                                    <div class='loader--dot'></div>
-                                    <div class='loader--dot'></div>
-                                    <div class='loader--dot'></div>
-                                    <div class='loader--dot'></div>
-                                    <div class='loader--dot'></div>
-                                    <div class='loader--text'></div>
-                                  </div>
-                                </div>
-
-                          </div>
-
-                      <!-- popup photo download -->
-
-                      <div class="popup popup-download">
-
-
-                                <div  class="page-content" style="background: white;">
-
-                                <div class="gifloader loader-hide">
-
-                                    <div class='container'>
-                                        <div class='loader-2'>
-                                          <div class='loader--dot'></div>
-                                          <div class='loader--dot'></div>
-                                          <div class='loader--dot'></div>
-                                          <div class='loader--dot'></div>
-                                          <div class='loader--dot'></div>
-                                          <div class='loader--dot'></div>
-                                          <div class='loader--text'></div>
-                                        </div>
-                                      </div>
-
-                                </div>
-
-
-                                <div class="content-block-title" style="text-align: center;">фотографии и видео</div>
-                                    <div class="list media-list">
-                                      <ul class="appendphoto">
-
-                                        <!-- <li> <a href="#" class="item-link item-content"> <div class="item-media">
-                                        <img photoids="" src="https://user-images.githubusercontent.com/5364763/32707070-4c29c1a6-c85c-11e7-8bae-4189b63312d3.png" width="80"></div> <div class="item-inner">
-                                        <div class="item-title-row"> <div class="item-title">
-                                        <button rmid=" " rmcount=" g " class="col button button-small button-fill rotatephtwo">перевернуть</button>
-                                        </div> <div class="item-after">
-                                        <button phid=" " class="button color-red button-small button-fill delete_photo">удалить</button>
-                                        </div> </div>
-                                        <div class="item-subtitle"></div> <div class="item-text"></div> </div> </a> </li> -->
-
-
-                                      </ul>
-                                    </div>
-
-
-                                  <div class="list">
-                                    <ul class="appendvideo">
-
-                                    </ul>
-                                  </div>
-
-
-                                  <div class="row">
-                                      <!-- Each "cell" has col-[width in percents] class -->
-                                      <div class="col-50">
-                                        <i class="material-icons photo_upload" style="color:#2196f3; margin-left:40%; font-size:50px;">
-                                          add_a_photo
-                                        </i>
-                                      </div>
-                                      <div class="col-50">
-                                        <i class="material-icons video_upload" style="color:#2196f3;margin-left:30%; font-size:55px;">
-                                          videocam
-                                        </i>
-
-                                      </div>
-                                  </div>
-
-
-
-                                  <input type="file" id="filethree" style="display:none;" multiple accept="image/*;video/*;capture=camera" />
-                                  <input type="file" id="filefour" style="display:none;" multiple accept="image/*;video/*;capture=camera" />
-
-                                  <p><span data-progress="10" class="progressbar" id="download_progressbar"></span></p>
-
-
-
-
-                                <!-- <div class="list">
-                                  <ul>
-                                    <li>
-                                      <div class="item-content">
-                                        <div class="item-media"><i class="f7-icons">cloud_upload</i></div>
-                                        <div class="item-inner">
-                                          <div class="item-title label">select photos</div>
-                                          <div class="item-input">
-                                              <button class="button openphotos">open photo</button>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </li>
-                                  </ul>
-                                </div> -->
-
-
-
-
-
-
-                                <p><a href="#" class="button button-small button-fill popup-close" style="">закрыть</a></p>
-
-
-
-
-
-                      </div>
-
-                    </div>
-
-
-                    <div class="popup popup-tirif">
-                          <div class="navbar" >
-                              <div class="navbar-inner sliding">
-                                <div class="left">
-                                  <!-- <a href="/cabinet/" class="link back"> -->
-                                  <a  class="link popup-close">
-                                    <i class="f7-icons">reply</i>
-                                    <span class="ios-only">назад</span>
-                                  </a>
-                                </div>
-                                <div class="title" style="color:black;"></div>
-                              </div>
-                            </div>
-
-
-
-
-                            <div  class="page-content" style="background: white;padding-top:0px;">
-
-                              <div class="gifloader loader-hide">
-
-
-                                    <div class='container'>
-                                        <div class='loader-2'>
-                                          <div class='loader--dot'></div>
-                                          <div class='loader--dot'></div>
-                                          <div class='loader--dot'></div>
-                                          <div class='loader--dot'></div>
-                                          <div class='loader--dot'></div>
-                                          <div class='loader--dot'></div>
-                                          <div class='loader--text'></div>
-                                        </div>
-                                      </div>
-
-                                </div>
-
-
-
-                              <div class="list" style="margin-bottom:100px;">
-
-                            <div class="data-table " >
-                                    <table>
-                                      <thead>
-                                        <tr>
-                                          <th class="label-cell"></th>
-                                          <th class="label-cell" >Бесплатно</th>
-                                          <th class="label-cell" >GOLD</th>
-                                          <th class="label-cell">PREMIUM</th>
-                                          <th class="label-cell">CLASSIC</th>
-                                          <th class="label-cell">QUICK</th>
-                                          <th class="label-cell">EASY</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <tr>
-                                          <td class="label-cell">Бесплатное использование программы</td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                        </tr>
-
-
-                                        <tr>
-                                          <td class="label-cell">Приоритетная поддержка</td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                        </tr>
-
-
-
-                                        <tr>
-                                          <td class="label-cell">Горячие звонки</td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                        </tr>
-
-                                        <tr>
-                                          <td class="label-cell">В приоритете просмотров</td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                        </tr>
-                                        <tr>
-                                          <td class="label-cell">Лучший пользователь</td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                        </tr>
-                                        <tr>
-                                          <td class="label-cell">Лучшие продажи</td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                        </tr>
-                                        <tr>
-                                          <td class="label-cell">Приоритет позиции 1</td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                        </tr>
-                                        <tr>
-                                          <td class="label-cell">Приоритет позиции 2</td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                        </tr>
-                                        <tr>
-                                          <td class="label-cell">Приоритет позиции 3</td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                        </tr>
-                                        <tr>
-                                          <td class="label-cell">Приоритет позиции 4</td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                        </tr>
-                                        <tr>
-                                          <td class="label-cell">Приоритет позиции 5</td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons red_icon">close</i></td>
-                                          <td class="label-cell"><i class="material-icons green_icon">check</i></td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
-                                    </div>
-
-
-                                    <div class="block block-strong">
-
-                                      <p class="row">
-                                          <button sum="0" status="gold" priority="5"  class="gold_button sendpay col button button-big button-outline">GOLD</button>
-                                      </p>
-                                      <p class="row">
-                                          <button sum="0" status="premium" priority="4" class="premium_button sendpay col button button-big button-outline">Premium</button>
-                                      </p>
-                                      <p class="row">
-                                          <button sum="0" status="classic" priority="3" class="classic_button sendpay col button button-big button-outline">Classic</button>
-                                      </p>
-                                      <p class="row">
-                                          <button sum="0" status="quick" priority="2" class="Quick_button sendpay col button button-big button-outline">Quick</button>
-                                      </p>
-                                      <p class="row">
-                                          <button sum="0" status="easy" priority="1" class="Easy_button sendpay col button button-big button-outline">Easy</button>
-                                      </p>
-                                      <p class="row">
-                                          <button sum="0" status="empty" priority="0" class="sendob col button button-big button-outline">опубликовать</button>
-                                      </p>
-                                    </div>
-
-
-
-
-
-
-
-
-                                    <!-- <div class="card" style="border:2px solid #33DFFA;">
-                                      <div class="card-content card-content-padding">
-                                          Приобретая пакеты вы инвестируете в нашу компанию, тем самым приобретаете акции нашей компании, имея акции нашей компании вы заботитесь
-                                          о своем будущем и о будущем своих близких. После приобретения пакетов вы можете отслеживать график и данные в личном кабинете.
-                                      </div>
-                                    </div> -->
-
-
-
-
-
-                          </div>
-                          </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                      </div>
-
-                    <div class="popup popup-send_money">
-
-
-                      <div class="navbar" >
-                          <div class="navbar-inner sliding">
-                            <div class="left">
-                              <!-- <a href="/cabinet/" class="link back"> -->
-                              <a  class="link popup-close">
-                                <i class="f7-icons">reply</i>
-                                <span class="ios-only">назад</span>
-                              </a>
-                            </div>
-                            <div class="title" style="color:black;"></div>
-                          </div>
-                        </div>
-
-
-                          <div  class="page-content" style="background: white;padding-top:0px;">
-
-                                <div class="card">
-                                   <div class="card-header">Yandex payment</div>
-                                   <div class="card-content card-content-padding">
-
-
-                                     <form class="sendyan_form" action="https://money.yandex.ru/eshop.xml" method="post">
-                                         <input name="shopId" value="530496" type="hidden"/>
-                                         <input name="scid" value="864356" type="hidden"/>
-                                         <input name="sum" class="yan_sum" value="2" type="hidden">
-                                         <!-- userid -->
-                                         <!-- shopSuccessURL -->
-                                         <!-- shopDefaultUrl button back -->
-                                         <input class="customer_number" name="customerNumber" value="abc000" type="hidden"/>
-                                         <!-- <input name="paymentType" value="AC" type="hidden"/> -->
-                                         <input name="paymentType" value="" type="hidden"/>
-                                         <!-- unique number -->
-                                         <input class="orderNumber_n" name="orderNumber" value="abc1111111" type="hidden"/>
-                                         <input class="customer_number" name="cps_phone" value="+77083531200" type="hidden"/>
-
-                                         <input type="hidden" name="shopDefaultUrl" value="https://mobile.kazpoisk.kz/main.html">
-                                         <input type="hidden" name="nnn" value="kazpoisk">
-                                         <!-- sendmail -->
-                                         <!-- cps_phone -->
-                                         <!-- <input name="cps_email" value="user@domain.com" type="hidden"/> -->
-                                         <!-- kuda posilat kvitansiyu -->
-                                       <input class="col button color-blue " type="submit" value="Оплатить"/>
-                                     </form>
-
-
-
-
-                                   </div>
-
-                                 </div>
-
-
-                                 <div class="card" style="margin-bottom:100px;">
-                                     <div class="card-header">Webmoney</div>
-                                     <div class="card-content card-content-padding">
-
-                                       <form  method="POST" action="https://merchant.webmoney.ru/lmi/payment_utf.asp" accept-charset="utf-8" class="list no-hairlines-md external">
-                                         <ul>
-                                           <!-- <li class="item-content item-input">
-                                             <div class="item-inner">
-                                               <div class="item-title item-label">Сумма</div>
-                                               <div class="item-input-wrap">
-                                                 <input type="number" style="border-bottom:1px solid black;" required name="LMI_PAYMENT_AMOUNT" placeholder="валюта KZT">
-                                                 <span class="input-clear-button"></span>
-                                               </div>
-                                             </div>
-                                           </li> -->
-
-                                          <input type="hidden" class="webmoney_sum" name="LMI_PAYMENT_AMOUNT" placeholder="валюта KZT">
-                                           <input type="hidden" name="LMI_PAYMENT_DESC" value="платеж по счету">
-                                           <input type="hidden" class="webmoney_payment_number" name="LMI_PAYMENT_NO" >
-                                           <!-- nomer platezha -->
-                                           <input type="hidden" name="LMI_PAYEE_PURSE" value="K362633572926">
-                                           <input type="hidden" class="uswebm" name="userid" value="">
-
-                                                 <button  type="submit" class="button external">Оплатить</button>
-                                         </ul>
-                                       </form>
-
-
-                                     </div>
-
-                                   </div>
-
-                          </div>
-
-
-                      </div>
-
-                      <div class="popup popup-n1user">
-
-
-                                      <div class="navbar" >
-                                          <div class="navbar-inner sliding">
-                                            <div class="left">
-                                              <!-- <a href="/cabinet/" class="link back"> -->
-                                              <a  class="link popup-close-event">
-                                                <i class="f7-icons">reply</i>
-                                                <span class="ios-only">назад</span>
-                                              </a>
-                                            </div>
-                                            <div class="title" style="color:black;">Редактирование</div>
-                                          </div>
-                                        </div>
-
-
-                                        <div class="toolbar tabbar" style="top:0px;" >
-                                          <div class="toolbar-inner">
-                                            <a href="#tab-6" class="tab-link tab-link-active changetabsuser" >основная</a>
-                                            <a href="#tab-7" class="tab-link changetabsuser" >статистика</a>
-                                          </div>
-                                        </div>
-
-
-
-
-
-
-                                        <div  class="page-content" style="background: white;padding-top:0px;">
-
-
-                                              <div class="tabs">
-
-                                                <div id="tab-6" class="tab tab-active" style="display: block;">
-
-                                                        <form id="edituserob" class="list no-hairlines-md  form_edituser" >
-
-                                                        <ul class="inserth1us">
-
-
-
-
-
-                                                        </ul>
-
-                                                            <button class="button col button-fill updateevent">обновить</button>
-
-
-
-                                                        </form>
-
-                                                        <div class="list">
-
-                                                            <ul class="insertimgus" >
-
-                                                            </ul>
-
-
-                                                        </div>
-                                                 <!-- x3 -->
-                                                         <div class="block" style="text-align: center;">фотографии и видео</div>
-
-                                                         <div class="demo-progressbar-inline">
-                                                                      <p><span data-progress="10"  style="border:2px solid white;color:red;" class="progressbar color-red"></span></p>
-                                                                      <p><span data-progress="10"  style="border:2px solid white;color:red;" class="progressbar color-green"></span></p>
-                                                                      <p><span data-progress="10"  style="border:2px solid white;color:red;" class="progressbar color-yellow"></span></p>
-                                                                    </div>
-
-
-                                                                    <div class="gifloader loader-hide">
-
-
-                                                                          <div class='container'>
-                                                                              <div class='loader-2'>
-                                                                                <div class='loader--dot'></div>
-                                                                                <div class='loader--dot'></div>
-                                                                                <div class='loader--dot'></div>
-                                                                                <div class='loader--dot'></div>
-                                                                                <div class='loader--dot'></div>
-                                                                                <div class='loader--dot'></div>
-                                                                                <div class='loader--text'></div>
-                                                                              </div>
-                                                                            </div>
-
-                                                                      </div>
-
-
-
-
-
-                                                         <div class="list">
-                                                                        <ul>
-                                                                          <li>
-                                                                            <div class="item-content">
-                                                                              <div class="item-media"><i class="f7-icons">cloud_upload</i></div>
-                                                                              <div class="item-inner">
-                                                                                <div class="item-title label">загрузка</div>
-                                                                                <div class="item-input">
-                                                                                    <input type="file" name="myfile" multiple id="myfile5" accept="image/*;video/*;capture=camera">
-                                                                                </div>
-                                                                              </div>
-                                                                            </div>
-                                                                          </li>
-                                                                        </ul>
-                                                                      </div>
-
-
-                                                                          <div class="list media-list" style="height:10em;">
-                                                                            <ul class="appendphototwo" style="">
-
-
-                                                                            </ul>
-                                                                          </div>
-
-
-                                                                        <div class="list" style="height:10em;">
-                                                                          <ul class="appendvideotwo">
-
-                                                                          </ul>
-                                                                        </div>
-
-                                                                        <div class="progressbar progressbar-infinite color-multi "></div>
-
-
-
-
-
-                                                        <div class="swiper-container swiper-2">
-
-                                                         <!--  <div class="insertimgus">
-
-
-                                                          </div> -->
-                                                        </div>
-
-                                                        <div class="insertvideous">
-
-
-                                                        </div>
-
-
-
-                                                        <div class="data-table card">
-
-
-                                                          <!-- <table >
-
-                                                            <tbody class="insertobvnus">
-
-                                                            </tbody>
-
-                                                          </table> -->
-
-
-                                                        </div>
-
-
-                                                </div>
-
-                                                <div id="tab-7" class="tab">
-
-                                                  <div class="block block-strong text-align-center">
-
-                                                          <div class="gauge ob-gaugetwo "></div>
-
-                                                    </div>
-
-
-                                                </div>
-                                              </div>
-
-
-
-                                          <!-- <video width="100%" src="http://www.kazpoisk.kz/assets/entry/uploadsv/0ff9f07e2906a89923669189928a87ce.mp4"></video> -->
-
-
-                                          <!-- <iframe src="http://www.kazpoisk.kz/assets/entry/uploadsv/0ff9f07e2906a89923669189928a87ce.mp4" frameborder="0" allowfullscreen></iframe> -->
-
-
-                                        </div>
-
-
-
-
-
-
-
-
-                      </div>
-
-                    <!-- popup photo download -->
-
-
-
-
-
-
-
-                  <!-- </div> -->
-                </div>
-      </div>
-
-
-
-
-
-
+      <!-- main view -->
 
     </div>
+    <!-- Views-->
+
+
+
+<script type="text/javascript" src="js/socket.io.js"></script>
+
+<script>
+   var fixconnect = 0;
+
+  // const socket = io('https://localhost:3005', {
+  const socket = io('https://almagames.mypsx.net:3005', {
+    reconnection: true,
+    reconnectionDelay: 1000,
+    reconnectionDelayMax : 5000,
+    reconnectionAttempts: Infinity
+    });
+
+    socket.on('connect', () => {
+
+      fixconnect = 0;
+
+    });
+
+    socket.on('disconnect', () => {
+
+      fixconnect = 1;
+      //socket.open();
+    });
+
+
+    socket.on('error', function(){
+      fixconnect = 1;
+
+      console.log("reconnect..");
+    });
+
+
+      //reconnect
+
+    setInterval(function(){
+        if(fixconnect == 1){
+          socket.open();
+        }
+
+
+      },5000);
+
+
+      //reconnect
+
+</script>
+
+
+
+    <script type="text/javascript" src="js/framework7.min.js?v=0.0.1.3"></script>
+    <script type="text/javascript" src="js/framework7.3dpanels.js"></script>
 
     <script src="cordova.js"></script>
-    <!-- Path to Framework7 Library JS-->
-
-        <script type="text/javascript" src="js/socket.io.js"></script>
-
-    <script>
-       //const socket = io('http://localhost:3001', {
-      const socket = io('145.249.246.93:3001', {
-        reconnection: true,
-        reconnectionDelay: 1000,
-        reconnectionDelayMax : 5000,
-        reconnectionAttempts: Infinity
-        });
-    </script>
-
-
-    <script src="js/modules/socket_file.js"></script>
-
-    <script type="text/javascript" src="js/framework7.min.js"></script>
-
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-   <!-- Path to Framework7 Library JS-->
-    <script type="text/javascript" src="js/angular.min.js"></script>
-  <!-- react -->
-  <!-- <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script> -->
-  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-  <!-- <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <!-- react -->
-
-            <!-- phantom library, needed for Cordova api calls, added during build -->
-  <script src="js/modules/photo_video_upload.js"></script>
-
-   <script type="text/javascript" src="js/validation.js"></script>
-    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/validation.js"></script>
 
 
-    <script type="text/javascript" src="js/gauge/gauge.js"></script>
-    <script type="text/javascript" src="js/my-app.js"></script>
+    <script type="text/javascript" src="js/phaser.min.js"></script>
 
-    <script type="text/javascript" src="js/addcategory.js"></script>
-    <script type="text/javascript" src="js/upload_photo.js"></script>
-    <script type="text/javascript" src="js/cabinet.js"></script>
-    <script type="text/javascript" src="js/add.js"></script>
-    <script type="text/javascript" src="js/service.js"></script>
-    <script type="text/javascript" src="js/login.js"></script>
-    <script type="text/javascript" src="js/registration.js"></script>
-    <script type="text/javascript" src="js/n1.js"></script>
-    <script type="text/javascript" src="js/n1user.js"></script>
-    <script type="text/javascript" src="js/pagesjs/comment.js"></script>
-    <script type="text/javascript" src="js/pagesjs/message.js"></script>
-    <script type="text/javascript" src="js/pagesjs/subscribe.js"></script>
-    <script type="text/javascript" src="js/pagesjs/favorite.js"></script>
-    <script type="text/javascript" src="js/pagesjs/contact.js"></script>
-    <script type="text/javascript" src="js/pagesjs/notification.js"></script>
-    <script type="text/javascript" src="js/google_auth.js"></script>
+    <script type="text/javascript" src="js/my-app.js?v=0.0.2.4"></script>
+    <script type="text/javascript" src="js/roulette.js?v=0.0.2.2"></script>
 
-
-
-    <script type="text/javascript" src="js/search_category.js"></script>
-    <script type="text/javascript" src="js/facebook_auth.js"></script>
-    <script type="text/javascript" src="js/controllers/homePage.js"></script>
-    <script type="text/javascript" src="js/loadHomePageData.js"></script>
+    <script type="text/javascript" src="js/controllers/service.js?v=0.0.0.3"></script>
+    <script type="text/javascript" src="js/controllers/chat.js?v=0.0.0.4"></script>
+    <script type="text/javascript" src="js/controllers/dealer.js?v=0.0.0.6"></script>
+    <script type="text/javascript" src="js/language/eng.js?v=0.0.0.1"></script>
+    <script type="text/javascript" src="js/language/ru.js?v=0.0.0.1"></script>
 
 
 
 
-
-
-
-
-
-
-
-    <script type="text/javascript">
-        app.initialize();
-
-        startApp();
-    </script>
 
 
   </body>
 
 
 
+  <script>
 
 
-  <!-- Yandex.Metrika informer -->
-  <!-- Yandex.Metrika informer -->
-  <a style="display:none;" href="https://metrika.yandex.kz/stat/?id=44628877&amp;from=informer" target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/44628877/3_1_202020FF_000000FF_1_pageviews" style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" /></a>
-  <!-- /Yandex.Metrika informer -->
+/* lang */
+  // var engdata = JSON.parse(engdata);
 
-  <!-- Yandex.Metrika counter -->
-  <script type="text/javascript" >
-      (function (d, w, c) {
-          (w[c] = w[c] || []).push(function() {
-              try {
-                  w.yaCounter44628877 = new Ya.Metrika({
-                      id:44628877,
-                      clickmap:true,
-                      trackLinks:true,
-                      accurateTrackBounce:true,
-                      webvisor:true,
-                      trackHash:true,
-                      ecommerce:"dataLayer"
-                  });
-              } catch(e) { }
+  $(".selectLang").click(function(){
+
+    var lang = $(this).attr("lang");
+    if(lang == "eng"){
+      localStorage.setItem("lang","eng");
+    }else if(lang == "ru"){
+      localStorage.setItem("lang","ru");
+    }
+
+    $(".tablemenuDV").hide();
+
+    setTimeout(function(){
+          translateApp();
+    },700);
+
+  });
+
+function translateApp(){
+
+  var memoryLang = localStorage.getItem("lang");
+
+  var langdata;
+  if(memoryLang){
+    if(memoryLang == "eng"){
+      langdata = engdata;
+    }else if(memoryLang == "ru"){
+      langdata = engdata_ru;
+    }
+  }
+
+
+  $(".localise").each(function() {
+      var attr = $(this).attr("translate");
+
+      Object.entries(langdata).forEach(entry => {
+        const [key, value] = entry;
+        if(key == attr){
+          $(this).text(value);
+        }
+        //console.log(key, value);
+      });
+
+  });
+
+}
+
+
+
+
+
+
+function checkLang(){
+  var memoryLang = localStorage.getItem("lang");
+  if(!memoryLang){
+    $(".tablemenuDV").show();
+  }else{
+    translateApp();
+  }
+}
+
+checkLang();
+
+
+
+
+
+      if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('service-worker.js', {
+              scope: '.' // <--- THIS BIT IS REQUIRED
+          }).then(function(registration) {
+              // Registration was successful
+              console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }, function(err) {
+              // registration failed :(
+              console.log('ServiceWorker registration failed: ', err);
           });
+      }
 
-          var n = d.getElementsByTagName("script")[0],
-              s = d.createElement("script"),
-              f = function () { n.parentNode.insertBefore(s, n); };
-          s.type = "text/javascript";
-          s.async = true;
-          s.src = "https://mc.yandex.ru/metrika/watch.js";
 
-          if (w.opera == "[object Opera]") {
-              d.addEventListener("DOMContentLoaded", f, false);
-          } else { f(); }
-      })(document, window, "yandex_metrika_callbacks");
-  </script>
-  <noscript><div><img src="https://mc.yandex.ru/watch/44628877" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  <!-- /Yandex.Metrika counter -->
-  <!-- /Yandex.Metrika counter -->
+      var isTooSoon = true;
+      window.addEventListener("beforeinstallprompt", function(e) {
+        if (isTooSoon) {
+          e.preventDefault(); // Prevents prompt display
+          // Prompt later instead:
+          setTimeout(function() {
+            isTooSoon = false;
+            e.prompt(); // Throws if called more than once or default not prevented
+          }, 10000);
+        }
+
+        // The event was re-dispatched in response to our request
+        // ...
+      });
+    </script>
+
+
+    <script>
+
+
+
+
+
+
+      </script>
+
+
+
+
+
+
 
 </html>
-
-<!-- make n1 user page -->
-<!-- autorization page -->
-<!-- google auth -->

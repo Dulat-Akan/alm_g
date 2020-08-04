@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="kz.almabet.www" version="0.2.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0.1">
+    <feature name="LocalStorage">
+        <param name="ios-package" value="CDVLocalStorage" />
+    </feature>
+    <feature name="Console">
+        <param name="ios-package" value="CDVLogger" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="HandleOpenUrl">
+        <param name="ios-package" value="CDVHandleOpenURL" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="IntentAndNavigationFilter">
+        <param name="ios-package" value="CDVIntentAndNavigationFilter" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="GestureHandler">
+        <param name="ios-package" value="CDVGestureHandler" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Camera">
+        <param name="ios-package" value="CDVCamera" />
+    </feature>
+    <feature name="Contacts">
+        <param name="ios-package" value="CDVContacts" />
+    </feature>
+    <feature name="Device">
+        <param name="ios-package" value="CDVDevice" />
+    </feature>
+    <feature name="File">
+        <param name="ios-package" value="CDVFile" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="GooglePlus">
+        <param name="ios-package" value="GooglePlus" />
+        <param name="onload" value="true" />
+    </feature>
+    <access origin="https://accounts.google.com/*" />
+    <allow-navigation href="ionic://*" />
+    <feature name="IonicWebView">
+        <param name="ios-package" value="CDVWKWebViewEngine" />
+    </feature>
+    <feature name="SplashScreen">
+        <param name="ios-package" value="CDVSplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="ImagePicker">
+        <param name="ios-package" value="SOSPicker" />
+    </feature>
+    <feature name="Sms">
+        <param name="ios-package" value="Sms" />
+    </feature>
+    <name>almagames</name>
+    <description>
+        almagames
+    </description>
+    <author email="astana7777777@gmail.com" href="http://kazpoisk.kz">
+        Akan Dulat Software Developer
+    </author>
+    <content src="index.html" />
+    <allow-intent href="itms:*" />
+    <allow-intent href="itms-apps:*" />
+    <access origin="*" />
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <splash height="480" orientation="portrait" platform="ios" src="res/screen/ios/320480.png" width="320" />
+    <splash height="960" orientation="portrait" platform="ios" src="res/screen/ios/640960.png" width="640" />
+    <splash height="1136" orientation="portrait" platform="ios" src="res/screen/ios/6401136.png" width="640" />
+    <splash height="1334" orientation="portrait" platform="ios" src="res/screen/ios/7501334.png" width="750" />
+    <splash height="1024" orientation="portrait" platform="ios" src="res/screen/ios/7681024.png" width="768" />
+    <splash height="2208" orientation="portrait" platform="ios" src="res/screen/ios/12422208.png" width="1242" />
+    <splash height="2048" orientation="portrait" platform="ios" src="res/screen/ios/15362048.png" width="1536" />
+    <splash height="2732" orientation="portrait" platform="ios" src="res/screen/ios/20482732.png" width="2048" />
+    <icon height="29" platform="ios" src="res/screen/ios/ios/2929.png" width="29" />
+    <icon height="58" platform="ios" src="res/screen/ios/ios/5858.png" width="58" />
+    <icon height="87" platform="ios" src="res/screen/ios/ios/8787.png" width="87" />
+    <icon height="60" platform="ios" src="res/screen/ios/ios/6060.png" width="60" />
+    <icon height="120" platform="ios" src="res/screen/ios/ios/120120.png" width="120" />
+    <icon height="180" platform="ios" src="res/screen/ios/ios/180180.png" width="180" />
+    <icon height="76" platform="ios" src="res/screen/ios/ios/7676.png" width="76" />
+    <icon height="152" platform="ios" src="res/screen/ios/ios/152152.png" width="152" />
+    <icon height="40" platform="ios" src="res/screen/ios/ios/4040.png" width="40" />
+    <icon height="80" platform="ios" src="res/screen/ios/ios/8080.png" width="80" />
+    <icon height="57" platform="ios" src="res/screen/ios/ios/5757.png" width="57" />
+    <icon height="114" platform="ios" src="res/screen/ios/ios/114114.png" width="114" />
+    <icon height="72" platform="ios" src="res/screen/ios/ios/7272.png" width="72" />
+    <icon height="50" platform="ios" src="res/screen/ios/ios/5050.png" width="50" />
+    <icon height="100" platform="ios" src="res/screen/ios/ios/100100.png" width="100" />
+    <icon height="167" platform="ios" src="res/screen/ios/ios/167167.png" width="167" />
+    <icon height="144" platform="ios" src="res/screen/ios/ios/144144.png" width="144" />
+    <preference name="AllowInlineMediaPlayback" value="false" />
+    <preference name="BackupWebStorage" value="cloud" />
+    <preference name="DisallowOverscroll" value="false" />
+    <preference name="EnableViewportScale" value="false" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="true" />
+    <preference name="MediaPlaybackRequiresUserAction" value="false" />
+    <preference name="SuppressesIncrementalRendering" value="false" />
+    <preference name="SuppressesLongPressGesture" value="false" />
+    <preference name="Suppresses3DTouchGesture" value="false" />
+    <preference name="GapBetweenPages" value="0" />
+    <preference name="PageLength" value="0" />
+    <preference name="PaginationBreakingMode" value="page" />
+    <preference name="PaginationMode" value="unpaginated" />
+    <preference name="CameraUsesGeolocation" value="false" />
+    <preference name="deployment-target" value="11.0" />
+    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="FadeSplashScreen" value="false" />
+    <preference name="FadeSplashScreenDuration" value="750" />
+    <preference name="Fullscreen" value="true" />
+</widget>

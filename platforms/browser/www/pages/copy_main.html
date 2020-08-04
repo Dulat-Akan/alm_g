@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' data: gap: file: https://ssl.gstatic.com *  "> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Your app title -->
+    <title>Roulette</title>
+
+
+    <!-- Path to Framework7 iOS CSS theme styles-->
+
+    <link rel="stylesheet" href="css/framework7.ios.min.css">
+    <!-- Path to Framework7 iOS related color styles -->
+    <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="css/framework7.3dpanels.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css?v=0.0.0.1">
+    <link rel="stylesheet" href="css/crossplatform_roulette.css?v=0.0.0.1">
+    <link rel="stylesheet" href="css/table.css?v=0.0.0.1">
+<!--     <link rel="stylesheet" href="css//bootstrap.css"> -->
+
+
+
+    <!-- icons -->
+    <link rel="stylesheet" href="css/framework7-icons.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- icons -->
+<!--     <script src="xdk/xdk-win8x-compat.js"></script>
+    <script src="lib/ua-parser.js"></script>
+    <script src="lib/moment.js"></script>
+ -->
+
+
+ <style>
+      /*body {
+        background: #074d55;
+        background: -moz-radial-gradient(center, ellipse cover, #a7cfdf 0%, #23538a 100%); /* FF3.6+
+        background: -webkit-gradient(radial, right bottom, 0px, left top, 100%, color-stop(0%,#6967a5), color-stop(50%,#2075a1), color-stop(100%,#074d55));
+        background: -webkit-radial-gradient(right bottom, ellipse cover, #6967a5 0%, #2075a1 50%, #074d55 100%);
+        background: radial-gradient(ellipse at right bottom, #6967a5 0%, #2075a1 50%, #1FDFF5 100%);
+
+      }*/
+      .panel .page, .panel .pages, .panel {
+        background: none;
+      }
+      .panel .list-block ul {
+        background: none;
+        border:none;
+      }
+      .panel .list-block .item-link {
+        color:#fff;
+      }
+      .panel .list-block .item-link:active {
+        background: rgba(255,255,255,0.2);
+      }
+      .panel .list-block .item-inner {
+        border-bottom-color:rgba(255,255,255,0.2);
+      }
+      .panel .content-block, .panel .content-block-title {
+        color:#fff;
+      }
+
+      /* following two viewport lines are equivalent to meta viewport statement above, and is needed for Windows */
+        /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and http://dev.w3.org/csswg/css-device-adapt/ */
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+        /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+    </style>
+
+
+
+
+  </head>
+  <body id="fullscreenpage">
+
+
+ <!-- popup recovery password -->
+
+                 <!-- popup recovery password -->
+
+
+
+   <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal theme-white" >
+
+    <div class="content-block-title">
+        <div style="width:146px; margin-left:27%; padding-left:15px;padding-top:15px; border-radius: 146px; height: 146px; text-align: center; background: #373b44;  /* fallback for old browsers */
+    background: -webkit-radial-gradient(#73c8a9, #373b44);  /* Chrome 10-25, Safari 5.1-6 */
+    background: radial-gradient(#73c8a9, #373b44); ">
+          <div style="width:131px; border-radius: 131px; height: 131px; text-align: center; background: #232526;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #414345, #232526); "><img style="height: 60%; margin-top: 20%" src="img/mlogo.png"></div>
+
+        </div>
+    </div>
+    <p style="color:white;text-align: center; margin-top: 40px;margin-left: 20%;font-size: 26px;">Menu</p>
+          <div class="list-block">
+           <ul>
+              <li class="hide_reg item-content" >
+                <div class="item-media icon-bg"><img style="margin-left:9px; width: 22px" src="img/registri.png"></div>
+                <div class="item-inner">
+                <div class="lafter"></div>
+                  <div class="item-title"><a href="registration.html"  style="font-size: 20px" class="close-panel">Registration</a></div>
+                 <!--  <div class="item-after">Label</div> -->
+                </div>
+              </li>
+              <li class="hide_login item-content">
+                <div class="item-media icon-bg"><img style="margin-left:8px; width: 25px" src="img/logini.png"></div>
+                <div class="item-inner">
+                  <div class="item-title"><a href="login.html"  style="font-size: 20px"  class="close-panel">Signing in</a></div>
+                  <!-- <div class="item-after"><span class="badge">5</span></div> -->
+                </div>
+              </li>
+            <!--   <li class="show_vihod item-content">
+              <div class="item-media icon-bg"><img style="margin-left:5px; width: 30px" src="img/homei.png"></div>
+              <div class="item-inner">
+                <div class="lafter"></div>
+                <div class="item-title"><a href="#" style="font-size: 22px" class="close-panel cabinetclick notbakkara">Main page</a></div>
+               <div class="item-after">Another label</div>
+              </div>
+            </li> -->
+              <li class="show_vihod item-content">
+                <div class="item-media  icon-bg"> <img style="margin-left:5px; width: 29px" src="img/useri.png"></div>
+                <div class="item-inner">
+                  <div class="item-title"><a href="cabinet.html"  style="font-size: 22px" class="close-panel cabinetclick notbakkara">Profile</a></div>
+                 <!--  <div class="item-after">Another label</div> -->
+                </div>
+              </li>
+
+
+
+
+              <li class="show_vihod item-content" >
+                <div class="item-media icon-bg"><img style="margin-left:5px; width: 29px" src="img/exiti.png"></div>
+                <div class="item-inner">
+                  <div class="item-title"><a href="#" style="font-size: 22px;color: white" class="close-panel funcvihod">Exit account</a></div>
+                 <!--  <div class="item-after">Another label</div> -->
+                </div>
+              </li>
+              <li></li>
+            </ul>
+
+
+              <li>
+                <div class="item-content" >
+                  <div style="margin-left: 55px" class="item-inner">
+                    <div class="item-title label" style="color: white; font-size:22px;overflow:visible ; ">Sound</div>
+                    <div class="item-input" style="text-align: right;width: ">
+                      <label class="label-switch"  >
+                        <input id="sound" type="checkbox" checked>
+                        <div class="checkbox"></div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+      </div>
+
+      <!-- <button  class="button mycheck">test</button> -->
+
+
+    </div>
+    <!-- Right panel with cover effect-->
+
+
+    <!-- Views-->
+    <div class="views">
+
+      <!-- Your main view, should have "view-main" class-->
+      <div class="view view-main">
+        <!-- Top Navbar-->
+
+        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages  navbar-through">
+          <!-- Page, data-page contains page name-->
+          <div data-page="index" class="page navbar-fixed toolbar-fixed">
+
+
+
+            <!-- Scrollable page content-->
+
+
+
+            <div class="page-content mbg" style="overflow: hidden;height:100%;margin:0px;padding:0px">
+
+              <!-- <a href="#" style="font-size: 22px;color: white" class="close-panel funcvihod "><img style="position:absolute; right:5px; margin: 10px" width="25px" src="img/logout.png"></a> -->
+
+              <div class="mainpagelogo"><img style="height: 100%;" src="img/mlogo.png"></div>
+
+              <div class="cabinetclick" style="text-align: center; margin-top: 30px; ">
+                <a  n1="n1" onclick="testautentificate('n1')"  class="testautentificate mainpagetext cabinetclick"> LIVE ROULETTE</a><br><br>
+                <!-- <a  n1="transfer"  class="testpage mainpagetext cabinetclick"> test page</a><br><br> -->
+                <a  n1="dealer"  class="testpage mainpagetext cabinetclick"> test page</a><br><br>
+                <!-- <a href="#" n1="n2"  class="testautentificate mainpagetext cabinetclick">LIVE BACCARAT</a> -->
+              </div>
+              <div  style="position: absolute; bottom: 90px; width:100%; padding-top: 20px; left:-1px">
+                <p style="position: absolute;left: 20px;"><a style="color: #5ca595; font-size: 18px" href="registration.html"  style="font-size: 20px" class="close-panel hidecontent">Registration</a></p>
+                <p style="position: absolute;right: 20px;"><a style="color: #5ca595; font-size: 18px" href="login.html"  style="font-size: 20px"  class="close-panel hidecontent">Sign in</a></p>
+              </div>
+
+              <div style="height:40px; width:100%; background: #e70012; position: absolute; bottom: -1px;left:-1px">&nbsp</div>
+
+
+
+
+                <a href="table.html" style="display: none;"></a>
+
+
+
+
+            </div>    <!-- page-content -->
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+      <!-- main view -->
+
+    </div>
+    <!-- Views-->
+
+
+
+<script type="text/javascript" src="js/socket.io.js"></script>
+
+<script>
+    var fixconnect = 0;
+
+   const socket = io('https://localhost:3005', {
+  //const socket = io('https://almagames.mypsx.net:3005', {
+    reconnection: true,
+    reconnectionDelay: 1000,
+    reconnectionDelayMax : 5000,
+    reconnectionAttempts: Infinity
+    });
+
+    socket.on('connect', () => {
+
+      fixconnect = 0;
+
+    });
+
+    socket.on('disconnect', () => {
+
+      fixconnect = 1;
+      //socket.open();
+    });
+
+
+    socket.on('error', function(){
+      fixconnect = 1;
+
+      console.log("reconnect..");
+    });
+
+    setInterval(function(){
+      if(fixconnect == 1){
+        socket.open();
+      }
+
+    },5000);
+
+</script>
+
+     <!-- phantom library, needed for Cordova api calls -->
+
+        <!-- miscellaneous utility functions -->
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/framework7.3dpanels.js"></script>
+
+    <script src="cordova.js"></script>
+
+<!--     <script src="xdk/xdk-lib-util.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/cordova-acc.js"></script>
+    <script src="js/cordova-geo.js"></script>
+    <script src="js/init-app.js"></script>
+
+
+    <script src="xdk/init-dev.js"></script> -->
+
+
+             <!-- phantom library, needed for Cordova api calls, added during build -->
+
+
+
+
+
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/validation.js"></script>
+    <!-- Path to your app js-->
+
+    <script type="text/javascript" src="js/phaser.min.js"></script>
+
+    <script type="text/javascript" src="js/my-app.js?v=0.0.0.1"></script>
+    <script type="text/javascript" src="js/roulette.js?v=0.0.0.1"></script>
+    <script type="text/javascript" src="js/controllers/service.js"></script>
+    <script type="text/javascript" src="js/controllers/chat.js"></script>
+    <script type="text/javascript" src="js/controllers/dealer.js"></script>
+    <!-- <script type="text/javascript" src="js/bakkara.js"></script> -->
+
+
+
+
+   <!--  <script src="js/init-app.js"></script>
+    <script src="xdk/init-dev.js"></script>  -->    <!-- normalizes device and document ready events, see README for details -->
+
+
+  </body>
+</html>
